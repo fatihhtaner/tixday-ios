@@ -1,0 +1,93 @@
+name: Tixday
+options:
+  bundleIdPrefix: com.ibrahimfatihtaner
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: J39F3JU838
+
+targets:
+  Tixday:
+    type: application
+    platform: iOS
+    sources:
+      - path: Tixday
+    dependencies:
+      - target: TixdayWidget
+    entitlements:
+      path: Tixday/Tixday.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.ibrahimfatihtaner.tixday
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ibrahimfatihtaner.tixday
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Tixday
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.lifestyle
+        # Only standard HTTPS; skips the export-compliance question on every upload.
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+
+  TixdayWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: TixdayWidget
+      # Shared with the app: data model, day counting and the ticket designs.
+      - path: Tixday/Models
+      - path: Tixday/Support
+      - path: Tixday/Tickets
+    entitlements:
+      path: TixdayWidget/TixdayWidget.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.ibrahimfatihtaner.tixday
+    info:
+      path: TixdayWidget/Info.plist
+      properties:
+        CFBundleDisplayName: Tixday
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ibrahimfatihtaner.tixday.widget
+        TARGETED_DEVICE_FAMILY: "1"
+        LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+
+  TixdayTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: TixdayTests
+    dependencies:
+      - target: Tixday
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  Tixday:
+    build:
+      targets:
+        Tixday: all
+    test:
+      targets:
+        - TixdayTests
