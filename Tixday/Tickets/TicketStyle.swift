@@ -14,6 +14,12 @@ struct TicketStyle {
     var numberWidth: Font.Width = .standard
     /// How strongly the decoration shows through; tuned per design so text stays readable.
     var artOpacity: Double = 0.5
+    /// Solid stub beside a poster or photo (v3 tickets); defaults to the classic paper colours.
+    var posterStubColors: (fill: Color, ink: Color, muted: Color)?
+
+    var posterStub: Color { posterStubColors?.fill ?? background }
+    var posterStubInk: Color { posterStubColors?.ink ?? ink }
+    var posterStubMuted: Color { posterStubColors?.muted ?? muted }
 
     func number(_ size: CGFloat) -> Font {
         .system(size: size, weight: .bold, design: design).width(numberWidth)
@@ -31,7 +37,8 @@ extension TicketKind {
             TicketStyle(
                 background: Color(hex: "#E6F1FB"), band: Color(hex: "#185FA5"), bandInk: Color(hex: "#E6F1FB"),
                 ink: Color(hex: "#042C53"), muted: Color(hex: "#185FA5"), accent: Color(hex: "#185FA5"),
-                perforation: Color(hex: "#85B7EB"), design: .monospaced, artOpacity: 0.75
+                perforation: Color(hex: "#85B7EB"), design: .monospaced, artOpacity: 0.75,
+                posterStubColors: (Color(hex: "#042C53"), .white, Color(hex: "#85B7EB"))
             )
         case .concert:
             TicketStyle(

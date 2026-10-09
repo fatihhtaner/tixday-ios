@@ -19,9 +19,11 @@
 - [x] Kilit ekranı widget'ları: yuvarlak (ilerleme halkası + gün), dikdörtgen, satır içi; aynı "Ticket" widget'ının aileleri, bilet seçimi ortak
 - [x] Bildirimler: 30/7/1 gün kala ve etkinlik günü 09:00; izin ilk kayıtta; her değişiklikte en yakın 60 hatırlatma yeniden planlanır (`TicketNotifications`), birim testli
 - [x] Bilet zeminleri (plate) altyapısı + uçuş zemini; `tools/import_plate.swift`; DEBUG bilet galerisi (`-ticketGallery`)
+- [x] Bilet tasarımı v3: poster gövde + düz renkli koçan (`PosterTicketView`), uçuş posteri; poster olmayan türler v1/v2 tasarımına düşer
 
 ## Sıradaki
-- [ ] Kalan 5 türün zemini (konser, sınav, düğün, doğum günü, tatil) — promptlar `docs/ASSET_PROMPTS.md`
+- [ ] Kalan 5 türün posteri (konser, sınav, düğün, doğum günü, tatil) — promptlar `docs/ASSET_PROMPTS.md`; her türe `posterStubColors` ver
+- [ ] Fotoğraf seçme: kullanıcı fotoğrafı posterin yerine geçer (PhotosPicker, App Group'ta küçültülmüş JPEG, widget'ta da)
 - [ ] Küçük konser biletinde uzun sanatçı adı 2 satıra inince sayı alt satıra çok yaklaşıyor
 - [ ] Kilit ekranı widget'larını simülatörde/cihazda görsel kontrol et
 - [ ] Ayarlar: bildirim saati ve hatırlatmaları kapatma

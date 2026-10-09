@@ -14,6 +14,24 @@ struct TicketView: View {
     private var days: Int { DayCount.days(until: ticket.date, from: now) }
 
     var body: some View {
+        if let poster = TicketPoster.image(ticket.kind, size == .small ? .square : .wide) {
+            PosterTicketView(
+                ticket: ticket,
+                size: size,
+                poster: poster,
+                days: days,
+                progress: DayCount.progress(createdAt: ticket.createdAt, target: ticket.date, now: now),
+                notchColor: notchColor
+            )
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .compositingGroup()
+        } else {
+            classic
+        }
+    }
+
+    /// v1/v2 designs: paper colours with decoration or a paper plate behind code-drawn type.
+    private var classic: some View {
         Group {
             switch size {
             case .small: small

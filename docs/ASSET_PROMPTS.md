@@ -5,97 +5,98 @@ Promptlar İngilizce (görsel araçları İngilizcede daha iyi sonuç veriyor). 
 
 **Kurallar**
 - Görsellerde **hiç yazı, harf, rakam olmamalı.** Harfe benzeyen bir şey çıkarsa o görseli tekrar üret.
-- Yazılar, kalan gün, kesik çizgi ve çentikleri kod çiziyor; görseller sadece **zemin**.
-- Aynı türün geniş ve kare sürümünü **aynı sohbette** üret ki stil tutarlı olsun.
+- Yazılar, kalan gün ve koçanı kod çiziyor; görsel biletin **gövdesini** dolduruyor.
+- Altı posteri **aynı sohbette sırayla** üret ki aynı seri gibi dursunlar. Her türün geniş sürümünden hemen sonra kare sürümünü iste.
+
+## Bilet tasarımı v3: poster + fotoğraf
+Her bilet türü varsayılan olarak canlı bir **vintage seyahat posteri** illüstrasyonuyla gelir. Kullanıcı isterse kendi **fotoğrafını** koyar, poster onun yerini alır.
+- **Orta boy:** gövde = poster (kırpılarak doldurur), üstünde beyaz başlık ve küçük yazılar; sağda düz renkli koçan + büyük gün sayısı.
+- **Küçük boy:** kare poster; sol üstte etiket, sol altta büyük sayı.
 
 ## Durum
 | # | Görsel | Dosya | Durum |
 |---|---|---|---|
 | — | Uygulama ikonu | `app-icon-1024.png` | ✅ Bitti |
-| — | 6 köşe dekoru (v1) | `art-*.png` | ✅ Bitti, uygulamada |
-| 1–2 | Uçuş zemini | `plate-flight-wide.png`, `plate-flight-square.png` | ✅ Bitti, uygulamada |
-| 3–4 | Konser zemini | `plate-concert-wide.png`, `plate-concert-square.png` | ⏳ Sırada |
-| 5–6 | Sınav zemini | `plate-exam-wide.png`, `plate-exam-square.png` | ⏳ |
-| 7–8 | Düğün zemini | `plate-wedding-wide.png`, `plate-wedding-square.png` | ⏳ |
-| 9–10 | Doğum günü zemini | `plate-birthday-wide.png`, `plate-birthday-square.png` | ⏳ |
-| 11–12 | Tatil zemini | `plate-holiday-wide.png`, `plate-holiday-square.png` | ⏳ |
+| 1–2 | Uçuş posteri | `poster-flight-wide.png`, `poster-flight-square.png` | ⏳ Sırada |
+| 3–4 | Konser posteri | `poster-concert-wide.png`, `poster-concert-square.png` | ⏳ |
+| 5–6 | Sınav posteri | `poster-exam-wide.png`, `poster-exam-square.png` | ⏳ |
+| 7–8 | Düğün posteri | `poster-wedding-wide.png`, `poster-wedding-square.png` | ⏳ |
+| 9–10 | Doğum günü posteri | `poster-birthday-wide.png`, `poster-birthday-square.png` | ⏳ |
+| 11–12 | Tatil posteri | `poster-holiday-wide.png`, `poster-holiday-square.png` | ⏳ |
 | 13 | "Kullanıldı" damgası | `punch-stamp.png` | Sonra |
-
-> Uçuş onaylandı. Kalanları sırayla üret; her türün geniş ve kare sürümü gelince `swift tools/import_plate.swift <tür>` ile uygulamaya alınır.
-> Geniş görselde sağdaki koçan alanında hafif bir ton/panel geçişi çıkarsa sorun değil: araç onu bulup tam kesik çizgiden böler.
 
 ---
 
 ## 1. Uçuş — geniş
-**Dosya:** `design/plate-flight-wide.png`
+**Dosya:** `design/poster-flight-wide.png`
 ```
-A premium printed airline boarding pass, photographed flat from directly above, filling the entire frame edge to edge, with no text at all. Paper: smooth light sky blue card stock #E6F1FB with a fine, realistic paper grain. Decoration: a subtle blind-embossed world map in slightly lighter blue, a thin guilloche security line pattern in #85B7EB, two faint round passport-style ink stamps made only of rings and stars, and a delicate dotted flight path arcing across. Keep the top-left quarter, the bottom 15% strip and the whole right 30% vertical strip calm and plain; put the decoration mainly in the middle and lower-middle of the left 70%. Style: high-end stationery, letterpress and embossing, soft even lighting, subtle and elegant, low contrast so text printed on top stays readable. Wide 2150x1000, fully opaque, no rounded corners, no border, no shadow, no hands, nothing outside the paper. Absolutely no text, letters, numbers, barcodes, QR codes, logos or flags.
+A vintage poster illustration of a sleek vintage airliner flying above a dramatic coastline with layered mountains, a calm sea and a big setting sun, soft stylized clouds. Style: vintage 1930s travel poster, screen-printed look, bold flat shapes with soft gradients, a limited palette of sky blue #85B7EB, deep blue #185FA5, navy #042C53, sunset coral #F0997B and cream #FAEEDA, fine paper grain and a subtle halftone texture, dramatic simple composition, vivid and eye-catching. Composition: the main subject sits center-right; keep the top-left third as calm open sky or plain background (a title will be printed there) and keep the bottom quarter simple and slightly darker (small text will be printed there). Landscape 1536x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 2. Uçuş — kare
-**Dosya:** `design/plate-flight-square.png`
+**Dosya:** `design/poster-flight-square.png`
 ```
-A premium printed airline boarding pass, photographed flat from directly above, filling the entire square frame edge to edge, with no text at all. Same paper and style as before: smooth light sky blue card stock #E6F1FB with a fine paper grain, a subtle blind-embossed world map, a thin guilloche wave pattern in #85B7EB, one faint round stamp made only of rings and stars, a dotted flight path with a tiny airplane. Keep the top 30% and the bottom 20% of the image calm and plain, and keep the left 55% calm too; put the decoration only in the right-middle area, between 30% and 80% of the height, fading softly into the plain areas. One continuous sheet of paper: no visible panel seams, folds or tone changes. Style: high-end stationery, letterpress and embossing, soft even lighting, subtle, low contrast. Square 1024x1024, fully opaque, no rounded corners, no border, no shadow. Absolutely no text, letters, numbers, barcodes, logos or flags.
+The same poster as a square version: a sleek vintage airliner flying above a dramatic coastline with layered mountains, a calm sea and a big setting sun, soft stylized clouds, in exactly the same style, palette and texture as the previous image. Composition: the main subject sits in the upper-right and center; keep the top-left corner calm and the bottom-left area simple and darker (a large number will be printed there). Square 1024x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 3. Konser — geniş
-**Dosya:** `design/plate-concert-wide.png`
+**Dosya:** `design/poster-concert-wide.png`
 ```
-A premium printed concert ticket, photographed flat from directly above, filling the entire frame edge to edge, with no text at all. Paper: deep indigo card stock #26215C with a soft matte finish. Decoration: an iridescent holographic foil starburst with fine radiating lines in violet #534AB7 and soft pink #F4C0D1, stage spotlight beams rising from the bottom edge, and tiny scattered foil sparkles. Keep the top-left quarter, the bottom 15% strip and the whole right 30% vertical strip calm and plain; put the decoration mainly in the middle and lower-middle of the left 70%. Style: high-end stationery, foil printing, soft even lighting, subtle and elegant, low contrast so text printed on top stays readable. Wide 2150x1000, fully opaque, no rounded corners, no border, no shadow, no hands, nothing outside the paper. Absolutely no text, letters, numbers, barcodes, QR codes, logos or faces.
+A vintage poster illustration of a crowd of silhouettes with raised hands facing a glowing stage, sweeping spotlight beams, a guitarist silhouette on stage and falling confetti. Style: vintage 1930s travel poster, screen-printed look, bold flat shapes with soft gradients, a limited palette of deep indigo #26215C, violet #534AB7, hot pink #ED93B1, soft pink #F4C0D1 and gold #FAC775, fine paper grain and a subtle halftone texture, dramatic simple composition, vivid and eye-catching. Composition: the main subject sits center-right; keep the top-left third as calm open sky or plain background (a title will be printed there) and keep the bottom quarter simple and slightly darker (small text will be printed there). Landscape 1536x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 4. Konser — kare
-**Dosya:** `design/plate-concert-square.png`
+**Dosya:** `design/poster-concert-square.png`
 ```
-A premium printed concert ticket, photographed flat from directly above, filling the entire square frame edge to edge, with no text at all. Same paper and style as before: deep indigo card stock #26215C, an iridescent holographic foil starburst in violet #534AB7 and soft pink #F4C0D1, spotlight beams, tiny foil sparkles. Keep the top-left area (left 65%, top 55%) and the bottom 20% strip calm and plain, because large text sits there; put the decoration on the right side, between 25% and 80% of the height, fading softly into the plain areas. One continuous sheet of paper: no visible panel seams, folds or tone changes. Style: high-end stationery, foil printing, soft even lighting, subtle, low contrast. Square 1024x1024, fully opaque, no rounded corners, no border, no shadow. Absolutely no text, letters, numbers, logos or faces.
+The same poster as a square version: a crowd of silhouettes with raised hands facing a glowing stage, sweeping spotlight beams, a guitarist silhouette on stage and falling confetti, in exactly the same style, palette and texture as the previous image. Composition: the main subject sits in the upper-right and center; keep the top-left corner calm and the bottom-left area simple and darker (a large number will be printed there). Square 1024x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 5. Sınav — geniş
-**Dosya:** `design/plate-exam-wide.png`
+**Dosya:** `design/poster-exam-wide.png`
 ```
-A premium official exam admission card, photographed flat from directly above, filling the entire frame edge to edge, with no text at all. Paper: warm off-white security paper #F1EFE8 with visible fine fibers. Decoration: an intricate guilloche rosette like on a banknote in warm gray #B4B2A9, a faint microline pattern, a subtle watermark of concentric circles, and very light ruled lines fading out. Keep the top-left quarter, the bottom 15% strip and the whole right 30% vertical strip calm and plain; put the decoration mainly in the middle and lower-middle of the left 70%. Style: high-end security printing, soft even lighting, subtle and elegant, low contrast so text printed on top stays readable. Wide 2150x1000, fully opaque, no rounded corners, no border, no shadow, no hands, nothing outside the paper. Absolutely no text, letters, numbers, seals with writing, barcodes or logos.
+A vintage poster illustration of a desk by a large window at sunrise with a neat stack of books, an open notebook, a pencil and a steaming coffee cup, a plant on the sill, calm and motivating. Style: vintage 1930s travel poster, screen-printed look, bold flat shapes with soft gradients, a limited palette of warm paper #F1EFE8, charcoal #2C2C2A, deep red #A32D2D, sage green #97C459 and mustard #EF9F27, fine paper grain and a subtle halftone texture, dramatic simple composition, vivid and eye-catching. Composition: the main subject sits center-right; keep the top-left third as calm open sky or plain background (a title will be printed there) and keep the bottom quarter simple and slightly darker (small text will be printed there). Landscape 1536x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 6. Sınav — kare
-**Dosya:** `design/plate-exam-square.png`
+**Dosya:** `design/poster-exam-square.png`
 ```
-A premium official exam admission card, photographed flat from directly above, filling the entire square frame edge to edge, with no text at all. Same paper and style as before: warm off-white security paper #F1EFE8 with fine fibers, an intricate guilloche rosette in warm gray #B4B2A9, a faint microline pattern and a subtle watermark of concentric circles. Keep the top 45% and the left 55% calm and plain, because text sits there; put the decoration in the lower-right area, fading softly into the plain areas. One continuous sheet of paper: no visible panel seams, folds or tone changes. Style: high-end stationery, security printing, soft even lighting, subtle, low contrast. Square 1024x1024, fully opaque, no rounded corners, no border, no shadow. Absolutely no text, letters, numbers, seals with writing or logos.
+The same poster as a square version: a desk by a large window at sunrise with a neat stack of books, an open notebook, a pencil and a steaming coffee cup, a plant on the sill, calm and motivating, in exactly the same style, palette and texture as the previous image. Composition: the main subject sits in the upper-right and center; keep the top-left corner calm and the bottom-left area simple and darker (a large number will be printed there). Square 1024x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 7. Düğün — geniş
-**Dosya:** `design/plate-wedding-wide.png`
+**Dosya:** `design/poster-wedding-wide.png`
 ```
-A premium letterpress wedding invitation, photographed flat from directly above, filling the entire frame edge to edge, with no text at all. Paper: blush pink cotton paper #FBEAF0 with a soft deckled texture. Decoration: delicate blind-debossed olive branches and small five-petal flowers in dusty pink #ED93B1, touches of rose-gold foil on a few leaves, and a fine thin inset frame line. Keep the top-left quarter, the bottom 15% strip and the whole right 30% vertical strip calm and plain; put the decoration mainly in the middle and lower-middle of the left 70%. Style: high-end wedding stationery, letterpress and foil, soft even lighting, subtle and elegant, low contrast so text printed on top stays readable. Wide 2150x1000, fully opaque, no rounded corners, no border, no shadow, no hands, nothing outside the paper. Absolutely no text, letters, numbers, monograms or logos.
+A vintage poster illustration of two champagne glasses clinking under a lush arch of flowers and warm string lights in a garden at golden hour, a few floating petals. Style: vintage 1930s travel poster, screen-printed look, bold flat shapes with soft gradients, a limited palette of blush #FBEAF0, rose #D4537E, burgundy #72243E, sage green #97C459 and gold #FAC775, fine paper grain and a subtle halftone texture, dramatic simple composition, vivid and eye-catching. Composition: the main subject sits center-right; keep the top-left third as calm open sky or plain background (a title will be printed there) and keep the bottom quarter simple and slightly darker (small text will be printed there). Landscape 1536x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 8. Düğün — kare
-**Dosya:** `design/plate-wedding-square.png`
+**Dosya:** `design/poster-wedding-square.png`
 ```
-A premium letterpress wedding invitation, photographed flat from directly above, filling the entire square frame edge to edge, with no text at all. Same paper and style as before: blush pink cotton paper #FBEAF0, blind-debossed olive branches and small flowers in dusty pink #ED93B1, touches of rose-gold foil. Text is centered, so keep the whole middle of the card calm and plain; put the decoration only in the top-right and bottom-left corners as delicate corner sprays. Do not draw any frame line, the app draws its own. One continuous sheet of paper: no visible panel seams, folds or tone changes. Style: high-end stationery, wedding stationery, letterpress and foil, soft even lighting, subtle, low contrast. Square 1024x1024, fully opaque, no rounded corners, no border, no shadow. Absolutely no text, letters, numbers, monograms or logos.
+The same poster as a square version: two champagne glasses clinking under a lush arch of flowers and warm string lights in a garden at golden hour, a few floating petals, in exactly the same style, palette and texture as the previous image. Composition: the main subject sits in the upper-right and center; keep the top-left corner calm and the bottom-left area simple and darker (a large number will be printed there). Square 1024x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 9. Doğum günü — geniş
-**Dosya:** `design/plate-birthday-wide.png`
+**Dosya:** `design/poster-birthday-wide.png`
 ```
-A premium party admission ticket, photographed flat from directly above, filling the entire frame edge to edge, with no text at all. Paper: warm cream card stock #FAEEDA with a fine grain. Decoration: playful confetti, curly streamers and two small balloons printed in warm amber #EF9F27 and #FAC775, a few pieces in shiny gold foil, and a subtle pattern of tiny dots. Keep the top-left quarter, the bottom 15% strip and the whole right 30% vertical strip calm and plain; put the decoration mainly in the middle and lower-middle of the left 70%. Style: high-end stationery, letterpress and foil, soft even lighting, joyful but elegant, low contrast so text printed on top stays readable. Wide 2150x1000, fully opaque, no rounded corners, no border, no shadow, no hands, nothing outside the paper. Absolutely no text, letters, numbers, barcodes or logos.
+A vintage poster illustration of a tall layered birthday cake with lit candles, bunches of balloons and falling confetti and streamers, joyful and festive. Style: vintage 1930s travel poster, screen-printed look, bold flat shapes with soft gradients, a limited palette of cream #FAEEDA, amber #EF9F27, coral #F0997B, teal #1D9E75 and pink #ED93B1, fine paper grain and a subtle halftone texture, dramatic simple composition, vivid and eye-catching. Composition: the main subject sits center-right; keep the top-left third as calm open sky or plain background (a title will be printed there) and keep the bottom quarter simple and slightly darker (small text will be printed there). Landscape 1536x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 10. Doğum günü — kare
-**Dosya:** `design/plate-birthday-square.png`
+**Dosya:** `design/poster-birthday-square.png`
 ```
-A premium party admission ticket, photographed flat from directly above, filling the entire square frame edge to edge, with no text at all. Same paper and style as before: warm cream card stock #FAEEDA, playful confetti, curly streamers and two small balloons in warm amber #EF9F27 and #FAC775, a few pieces of gold foil, tiny dots. Keep the right 20% vertical strip plain (a tear-off stub sits there), and keep the top-left and bottom-left areas calm because text sits there; put the decoration in the center-right area, left of that strip, fading softly into the plain areas. One continuous sheet of paper: no visible panel seams, folds or tone changes. Style: high-end stationery, letterpress and foil, soft even lighting, subtle, low contrast. Square 1024x1024, fully opaque, no rounded corners, no border, no shadow. Absolutely no text, letters, numbers, logos.
+The same poster as a square version: a tall layered birthday cake with lit candles, bunches of balloons and falling confetti and streamers, joyful and festive, in exactly the same style, palette and texture as the previous image. Composition: the main subject sits in the upper-right and center; keep the top-left corner calm and the bottom-left area simple and darker (a large number will be printed there). Square 1024x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 11. Tatil — geniş
-**Dosya:** `design/plate-holiday-wide.png`
+**Dosya:** `design/poster-holiday-wide.png`
 ```
-A premium vintage railway ticket for a winter holiday train, photographed flat from directly above, filling the entire frame edge to edge, with no text at all. Paper: deep cranberry red card stock #791F1F with a soft matte finish. Decoration: a snowy pine forest and a small vintage steam train with a curl of smoke along the bottom, gently falling snowflakes, printed in lighter red #E24B4A and pale pink #F7C1C1, with a few snowflakes in silver foil. Keep the top-left quarter, the bottom 15% strip and the whole right 30% vertical strip calm and plain; put the decoration mainly in the middle and lower-middle of the left 70%. Style: high-end stationery, letterpress and foil, soft even lighting, cozy and elegant, low contrast so text printed on top stays readable. Wide 2150x1000, fully opaque, no rounded corners, no border, no shadow, no hands, nothing outside the paper. Absolutely no text, letters, numbers, barcodes or logos.
+A vintage poster illustration of a vintage steam train crossing a stone viaduct through a snowy pine forest at night, warm glowing windows, a small village with lit houses below, gently falling snow. Style: vintage 1930s travel poster, screen-printed look, bold flat shapes with soft gradients, a limited palette of cranberry #791F1F, red #E24B4A, pine green #0F6E56, snow white and warm gold #FAC775, fine paper grain and a subtle halftone texture, dramatic simple composition, vivid and eye-catching. Composition: the main subject sits center-right; keep the top-left third as calm open sky or plain background (a title will be printed there) and keep the bottom quarter simple and slightly darker (small text will be printed there). Landscape 1536x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ## 12. Tatil — kare
-**Dosya:** `design/plate-holiday-square.png`
+**Dosya:** `design/poster-holiday-square.png`
 ```
-A premium vintage railway ticket for a winter holiday train, photographed flat from directly above, filling the entire square frame edge to edge, with no text at all. Same paper and style as before: deep cranberry red card stock #791F1F, a snowy pine forest and a small vintage steam train with smoke, falling snowflakes in lighter red #E24B4A and pale pink #F7C1C1, a few silver foil snowflakes. Keep the top 30% and the bottom 20% of the image calm and plain, and keep the left 55% calm too; put the decoration only in the right-middle area, between 30% and 80% of the height, fading softly into the plain areas. One continuous sheet of paper: no visible panel seams, folds or tone changes. Style: high-end stationery, letterpress and foil, soft even lighting, subtle, low contrast. Square 1024x1024, fully opaque, no rounded corners, no border, no shadow. Absolutely no text, letters, numbers, logos.
+The same poster as a square version: a vintage steam train crossing a stone viaduct through a snowy pine forest at night, warm glowing windows, a small village with lit houses below, gently falling snow, in exactly the same style, palette and texture as the previous image. Composition: the main subject sits in the upper-right and center; keep the top-left corner calm and the bottom-left area simple and darker (a large number will be printed there). Square 1024x1024, fully opaque, artwork edge to edge, no border, no frame, no margins. Absolutely no text, letters, numbers, signatures or logos anywhere.
 ```
 
 ---
@@ -106,13 +107,16 @@ A premium vintage railway ticket for a winter holiday train, photographed flat f
 A worn rubber stamp impression: a circle with a double outer ring and a small star at the top and bottom, the inside left empty, with realistic uneven ink texture and slight smudges, single ink color deep red #A32D2D, flat, 1000x1000, transparent background, PNG with a real alpha channel, no checkerboard pattern. No text, no letters, no numbers.
 ```
 
+## Sonra: varış yeri posterleri (Pro paketleri)
+Seyahat biletinde varış yerine göre özel poster: Tokyo, Paris, İstanbul, New York, Londra, Roma, Bali… Aynı stil, yalnızca konu değişir. Örnek konu: *"Mount Fuji with a red pagoda and cherry blossoms"*. Varsayılan posterler oturunca ayrıca hazırlanacak.
+
 ---
 
-## Arşiv (bitenler)
+## Arşiv (bitenler / önceki denemeler)
 
 **Uygulama ikonu** — `app-icon-1024.png` (ilk deneme `app-icon-v1.png`). Son prompt:
 ```
 Design an iOS app icon for "Tixday", a countdown app where every date is a ticket. Subject: a single bold ticket stub, tilted about 15 degrees counterclockwise, made of warm cream paper #F3F1EC with very subtle paper grain and crisp die-cut rounded corners. A dashed perforation line runs across the ticket about one quarter from its left end. The short left section beyond the perforation is printed in bold warm red #E24B4A. On the cream main part, a single neat horizontal row of five evenly spaced round punch positions: the first three are clean punched holes showing the dark background, the last two are solid filled circles in light warm gray #CFCBC0. Background: solid deep ink navy #16161A with a barely visible radial lift. Centered, the ticket fills about 65% of the canvas. Minimal, modern, premium, flat with a gentle soft shadow. Square 1024x1024, fully opaque, no rounded corners. No text, letters or numbers.
 ```
 
-**Köşe dekorları (v1)** — `art-flight/concert/exam/wedding/birthday/holiday.png`, 1600×800 şeffaf line art. Uygulamada `Tixday/Tickets/TicketArt.xcassets` içinde. Zeminler (1–12) gelince yerlerini alacaklar.
+**v1 köşe dekorları** (`art-*.png`) ve **v2 kâğıt zeminleri** (`plate-flight-*.png`): uygulamada duruyor, posterler gelene kadar kullanılıyor. v2 zeminleri zarif ama fazla soluk bulundu; posterler yerlerini alacak. Zemin içe aktarma aracı: `tools/import_plate.swift`.
