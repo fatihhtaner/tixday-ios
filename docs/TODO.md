@@ -30,7 +30,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [ ] Satın alma ürünlerine kalan dillerin adları/açıklamaları (`docs/app-store/in-app-purchases.md`'de hazır) — **Fatih**
 
 ### Gerçek cihaz testi (TestFlight) — **Fatih + Claude**
-- [ ] İlk TestFlight derlemesi (`fastlane beta`)
+- [x] İlk TestFlight derlemesi yüklendi: 1.0.0 (1), 2026-10-09 (`fastlane beta`, uygulama, widget ve App Group imzaları otomatik)
 - [ ] Sandbox satın alma: deneme, ömür boyu, geri yükle; iptal sonrası kilitlenen biletler
 - [ ] Widget'lar: küçük/orta, bilet seçme, kilit ekranı (Pro'lu/Pro'suz), gece yarısı güncellemesi
 - [ ] Bildirimler: izin, 30/7/1 gün ve etkinlik günü
