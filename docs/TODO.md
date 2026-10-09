@@ -18,8 +18,11 @@
 - [x] Yerelleştirme: 12 dil (EN, TR, DE, FR, ES, IT, PT-BR, JA, KO, ZH-Hans, RU, AR), çoğul biçimleri, widget ve widget ayarları dahil; TR/AR/RU simülatörde kontrol edildi
 - [x] Kilit ekranı widget'ları: yuvarlak (ilerleme halkası + gün), dikdörtgen, satır içi; aynı "Ticket" widget'ının aileleri, bilet seçimi ortak
 - [x] Bildirimler: 30/7/1 gün kala ve etkinlik günü 09:00; izin ilk kayıtta; her değişiklikte en yakın 60 hatırlatma yeniden planlanır (`TicketNotifications`), birim testli
+- [x] Bilet zeminleri (plate) altyapısı + uçuş zemini; `tools/import_plate.swift`; DEBUG bilet galerisi (`-ticketGallery`)
 
 ## Sıradaki
+- [ ] Kalan 5 türün zemini (konser, sınav, düğün, doğum günü, tatil) — promptlar `docs/ASSET_PROMPTS.md`
+- [ ] Küçük konser biletinde uzun sanatçı adı 2 satıra inince sayı alt satıra çok yaklaşıyor
 - [ ] Kilit ekranı widget'larını simülatörde/cihazda görsel kontrol et
 - [ ] Ayarlar: bildirim saati ve hatırlatmaları kapatma
 - [ ] Çevirileri ana dili konuşan biriyle gözden geçir (özellikle AR, JA, KO, ZH); DE/FR/ES/IT/PT/JA/KO/ZH simülatörde görsel kontrol

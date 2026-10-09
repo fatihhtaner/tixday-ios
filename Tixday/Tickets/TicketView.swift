@@ -24,9 +24,13 @@ struct TicketView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(alignment: .bottomTrailing) {
             if size == .small {
-                TicketArt(kind: ticket.kind)
-                    .padding(.bottom, ticket.kind.hasStubFooter ? 30 : 0)
-                    .padding(.trailing, ticket.kind == .birthday ? 30 : 0)
+                if let plate = TicketPlate.image(ticket.kind, .square) {
+                    PlateFill(image: plate, alignment: .trailing)
+                } else {
+                    TicketArt(kind: ticket.kind)
+                        .padding(.bottom, ticket.kind.hasStubFooter ? 30 : 0)
+                        .padding(.trailing, ticket.kind == .birthday ? 30 : 0)
+                }
             }
         }
         .background(style.background)
@@ -78,7 +82,12 @@ struct TicketView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(alignment: .bottomTrailing) {
-                TicketArt(kind: ticket.kind).padding(.bottom, 30)
+                if let plate = TicketPlate.image(ticket.kind, .body) {
+                    // Anchored right so the decoration near the seam stays in view on narrow cards.
+                    PlateFill(image: plate, alignment: .trailing)
+                } else {
+                    TicketArt(kind: ticket.kind).padding(.bottom, 30)
+                }
             }
             Perforation(axis: .vertical, color: style.perforation)
             VStack(spacing: 2) {
@@ -92,6 +101,12 @@ struct TicketView: View {
             }
             .frame(width: 104)
             .padding(.horizontal, 4)
+            .frame(maxHeight: .infinity)
+            .background {
+                if let plate = TicketPlate.image(ticket.kind, .stub) {
+                    PlateFill(image: plate, alignment: .leading)
+                }
+            }
         }
         .overlay(alignment: .trailing) {
             Notches(axis: .vertical, color: notchColor)
@@ -369,6 +384,35 @@ private struct SmallHoliday: View {
 private extension TicketKind {
     /// Small designs with a tear line and small print along the bottom; the art sits above it.
     var hasStubFooter: Bool { self == .flight || self == .concert || self == .holiday }
+}
+
+/// Full-bleed paper artwork for a kind, when it has one. Wide plates are split at the stub seam so the
+/// printed fold lines up with the perforation: `body` fills the ticket, `stub` the tear-off.
+enum TicketPlate {
+    enum Part: String { case body, stub, square }
+
+    static func image(_ kind: TicketKind, _ part: Part) -> Image? {
+        let name = "plate-\(kind.rawValue)-\(part.rawValue)"
+        return UIImage(named: name) == nil ? nil : Image(name)
+    }
+}
+
+/// Fills its frame with an image, cropping the overflow.
+private struct PlateFill: View {
+    var image: Image
+    var alignment: Alignment
+
+    var body: some View {
+        GeometryReader { proxy in
+            image
+                .resizable()
+                .scaledToFill()
+                .frame(width: proxy.size.width, height: proxy.size.height, alignment: alignment)
+                .clipped()
+        }
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
+    }
 }
 
 /// The kind's illustrated decoration, sitting tone-on-tone in the bottom corner behind the text.

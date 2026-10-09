@@ -28,7 +28,15 @@ struct TixdayApp: App {
 
     var body: some Scene {
         WindowGroup {
+            #if DEBUG
+            if CommandLine.arguments.contains("-ticketGallery") {
+                TicketGalleryView()
+            } else {
+                TicketListView()
+            }
+            #else
             TicketListView()
+            #endif
         }
         .modelContainer(container)
     }

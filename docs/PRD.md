@@ -36,9 +36,11 @@ Ortak kimlik: yan çentikler, kesik çizgili koçan, büyük gün sayısı.
 - Yeni bilet türleri (sinema, maç, festival, mezuniyet…) — ücretli paketler
 - iCloud senkronu, özel yazı tipleri (OFL lisanslı)
 
-## Gelir modeli
-- Pro: sınırsız etkinlik, tüm bilet türleri, Live Activity, paylaşılan geri sayım.
-- Yaklaşık 9,99$/yıl veya 14,99$ tek seferlik (bu kategoride kullanıcılar aboneliğe sıcak bakmıyor).
+## Gelir modeli (karar: 2026-10-09)
+- **Ücretsiz:** 3 bilet, tüm bilet türleri (klasik kaplama), ana ekran widget'ları.
+- **Pro:** sınırsız bilet, **kilit ekranı widget'ları**, ek bilet kaplamaları (skin paketleri), Live Activity, paylaşılan geri sayım, paylaşım kartında filigran yok.
+- **Fiyat:** 9,99$/yıl (1 hafta deneme) ve **24,99$ ömür boyu**. Aylık ve haftalık plan yok.
+- Rakip referansı: Root38 9,99$/yıl · 29,99$ ömür boyu; Pretty Progress 14,99$/yıl · 49,99$; TimeCount 19,99$/yıl · 44,99$; Find Appiness tek seferlik 6,99$. Yaygın ücretsiz sınır: 3 etkinlik.
 
 ## Pazar
 Global, İngilizce kaynak dil. Yerelleştirme sonra (Subloom'daki 12 dil yaklaşımı).
