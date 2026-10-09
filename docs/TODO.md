@@ -16,16 +16,18 @@
 - [x] Widget'ta bilet seçme: `SelectTicketIntent` + `TicketEntity` (boş bırakılırsa en yakın bilet); widget kind'ı "NextTicket" korundu
 - [x] Modern arayüz v2: kaydırılabilir 3D bilet destesi, odaktaki bilete göre renk alan zemin, dev sayaç başlığı, kompakt liste, Liquid Glass buton ve kutular (iOS 26, öncesinde materyal), zoom geçişi (iOS 18+)
 - [x] Yerelleştirme: 12 dil (EN, TR, DE, FR, ES, IT, PT-BR, JA, KO, ZH-Hans, RU, AR), çoğul biçimleri, widget ve widget ayarları dahil; TR/AR/RU simülatörde kontrol edildi
+- [x] Kilit ekranı widget'ları: yuvarlak (ilerleme halkası + gün), dikdörtgen, satır içi; aynı "Ticket" widget'ının aileleri, bilet seçimi ortak
+- [x] Bildirimler: 30/7/1 gün kala ve etkinlik günü 09:00; izin ilk kayıtta; her değişiklikte en yakın 60 hatırlatma yeniden planlanır (`TicketNotifications`), birim testli
 
 ## Sıradaki
+- [ ] Kilit ekranı widget'larını simülatörde/cihazda görsel kontrol et
+- [ ] Ayarlar: bildirim saati ve hatırlatmaları kapatma
 - [ ] Çevirileri ana dili konuşan biriyle gözden geçir (özellikle AR, JA, KO, ZH); DE/FR/ES/IT/PT/JA/KO/ZH simülatörde görsel kontrol
 - [ ] App Store açıklama ve anahtar kelimelerini 12 dilde hazırla
 - [ ] Widget bilet seçimini simülatörde/cihazda elle test et (widget ekle → düzenle → bilet seç)
 - [ ] Kâğıt dokusu ve damga görselleri (henüz üretilmedi)
 - [ ] Uçuş küçük biletinde damga "HND" yazısına biraz giriyor; gerekirse dekoru küçült
 - [ ] Widget'ı ana ekranda gerçek cihazda/simülatörde kontrol et (çentik rengi, kenar boşlukları)
-- [ ] Kilit ekranı widget'ları (circular, rectangular, inline)
-- [ ] Bildirimler (30/7/1 gün kala, etkinlik günü)
 - [ ] Pro / paywall (RevenueCat, Subloom'daki `ProStore` yaklaşımı), ücretsiz 3 etkinlik sınırı
 - [ ] Live Activity (son 24 saat)
 - [ ] Etkinlik günü delme animasyonu + paylaşım kartı

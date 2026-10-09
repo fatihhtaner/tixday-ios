@@ -60,7 +60,7 @@ struct NextTicketWidget: Widget {
         }
         .configurationDisplayName("Ticket")
         .description("Counts down to a date. Edit the widget to pick a ticket.")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular, .accessoryRectangular, .accessoryInline])
         .contentMarginsDisabled()
     }
 }
@@ -70,6 +70,17 @@ struct NextTicketWidgetView: View {
     var entry: TicketEntry
 
     var body: some View {
+        switch family {
+        case .accessoryCircular, .accessoryRectangular, .accessoryInline:
+            LockScreenTicketView(ticket: entry.ticket, now: entry.date)
+                .containerBackground(for: .widget) { Color.clear }
+        default:
+            homeScreen
+        }
+    }
+
+    @ViewBuilder
+    private var homeScreen: some View {
         if let ticket = entry.ticket {
             TicketView(ticket: ticket, size: family == .systemMedium ? .medium : .small, now: entry.date)
                 .containerBackground(for: .widget) { ticket.kind.style.background }
@@ -85,6 +96,82 @@ struct NextTicketWidgetView: View {
             .padding()
             .containerBackground(for: .widget) { Color(.systemBackground) }
         }
+    }
+}
+
+/// Lock Screen versions: tinted by the system, so they rely on shape and type rather than ticket colours.
+struct LockScreenTicketView: View {
+    @Environment(\.widgetFamily) private var family
+    var ticket: TicketSnapshot?
+    var now: Date
+
+    var body: some View {
+        if let ticket {
+            let days = DayCount.days(until: ticket.date, from: now)
+            switch family {
+            case .accessoryCircular:
+                Gauge(value: DayCount.progress(createdAt: ticket.createdAt, target: ticket.date, now: now)) {
+                    Image(systemName: ticket.kind.symbol)
+                } currentValueLabel: {
+                    VStack(spacing: -2) {
+                        Text(CountLabel.number(for: days))
+                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                            .minimumScaleFactor(0.6)
+                        Image(systemName: ticket.kind.symbol)
+                            .font(.system(size: 9, weight: .semibold))
+                            .widgetAccentable()
+                    }
+                }
+                .gaugeStyle(.accessoryCircularCapacity)
+            case .accessoryInline:
+                Label {
+                    Text(verbatim: "\(CountLabel.number(for: days)) \(CountLabel.text(for: days).lowercased(with: .current)) · \(ticket.title)")
+                } icon: {
+                    Image(systemName: ticket.kind.symbol)
+                }
+            default:
+                HStack(spacing: 8) {
+                    VStack(alignment: .leading, spacing: 1) {
+                        Label(ticket.kind.ticketLabel, systemImage: ticket.kind.symbol)
+                            .font(.system(size: 10, weight: .bold))
+                            .widgetAccentable()
+                            .lineLimit(1)
+                        Text(ticket.title)
+                            .font(.headline)
+                            .lineLimit(1)
+                        Text(ticket.date.stubText)
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer(minLength: 0)
+                    VStack(spacing: -2) {
+                        Text(CountLabel.number(for: days))
+                            .font(.system(size: 30, weight: .bold, design: .rounded))
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
+                        Text(CountLabel.text(for: days))
+                            .font(.system(size: 9, weight: .semibold))
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+        } else {
+            switch family {
+            case .accessoryInline:
+                Label("Add a ticket in Tixday", systemImage: "ticket")
+            default:
+                Image(systemName: "ticket")
+                    .font(.title2)
+            }
+        }
+    }
+}
+
+#Preview(as: .accessoryRectangular) {
+    NextTicketWidget()
+} timeline: {
+    for ticket in TicketSnapshot.samples() {
+        TicketEntry(date: .now, ticket: ticket)
     }
 }
 

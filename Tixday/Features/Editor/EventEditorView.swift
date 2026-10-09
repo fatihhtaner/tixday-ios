@@ -203,6 +203,12 @@ struct EventEditorView: View {
         if event == nil { context.insert(target) }
         try? context.save()
         WidgetCenter.shared.reloadAllTimelines()
+        // Asks for permission the first time, then plans reminders (the home screen re-plans on later changes).
+        let tickets = ((try? context.fetch(FetchDescriptor<TicketEvent>())) ?? []).map(\.snapshot)
+        Task {
+            await TicketNotifications.requestAuthorizationIfNeeded()
+            await TicketNotifications.reschedule(tickets)
+        }
         dismiss()
     }
 }

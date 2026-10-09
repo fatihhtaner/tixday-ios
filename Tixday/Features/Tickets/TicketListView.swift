@@ -65,6 +65,14 @@ struct TicketListView: View {
             }
         }
         .tint(Theme.ink)
+        // Re-plans reminders on launch and whenever a ticket is added, edited or deleted.
+        .task(id: reminderSignature) {
+            await TicketNotifications.reschedule(events.map(\.snapshot))
+        }
+    }
+
+    private var reminderSignature: [String] {
+        events.map { "\($0.id)|\($0.title)|\($0.date.timeIntervalSinceReferenceDate)" }
     }
 
     // MARK: - Header
