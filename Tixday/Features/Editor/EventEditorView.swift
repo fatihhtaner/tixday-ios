@@ -90,7 +90,7 @@ struct EventEditorView: View {
             }
             .scrollDismissesKeyboard(.interactively)
             .scrollIndicators(.hidden)
-            .background { backdrop }
+            .background { PosterBackdrop(kind: kind) }
             .navigationTitle(event == nil ? "New ticket" : "Edit ticket")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -110,26 +110,6 @@ struct EventEditorView: View {
     }
 
     // MARK: - Pieces
-
-    private var backdrop: some View {
-        ZStack {
-            Color.black
-            if let poster = TicketPoster.image(kind, .square) {
-                poster
-                    .resizable()
-                    .scaledToFill()
-                    .blur(radius: 50)
-                    .scaleEffect(1.3)
-                    .id(kind)
-                    .transition(.opacity)
-            } else {
-                kind.style.background
-            }
-            Color.black.opacity(0.45)
-        }
-        .animation(.easeInOut(duration: 0.45), value: kind)
-        .ignoresSafeArea()
-    }
 
     /// Each kind as a little poster to pick from.
     private var kindPicker: some View {

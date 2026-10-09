@@ -18,7 +18,7 @@ extension View {
     }
 
     /// Pins a header above scrolling content. On iOS 26 content fades softly under it; before that
-    /// the header sits on the canvas colour.
+    /// the header sits on a frosted bar.
     @ViewBuilder
     func pinnedTopBar<Bar: View>(@ViewBuilder _ bar: () -> Bar) -> some View {
         if #available(iOS 26.0, *) {
@@ -26,7 +26,7 @@ extension View {
                 .scrollEdgeEffectStyle(.soft, for: .top)
         } else {
             self.safeAreaInset(edge: .top, spacing: 0) {
-                bar().background(Theme.canvas.ignoresSafeArea(edges: .top))
+                bar().background(.ultraThinMaterial)
             }
         }
     }

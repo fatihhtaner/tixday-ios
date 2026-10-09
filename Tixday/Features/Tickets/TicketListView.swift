@@ -29,7 +29,9 @@ struct TicketListView: View {
                     } else {
                         if let next = upcoming.first {
                             titled("Next up") {
-                                NavigationLink(value: next) {
+                                Button {
+                                    path.append(next)
+                                } label: {
                                     HeroTicket(ticket: next.snapshot)
                                         .zoomSource(id: next.id, in: zoom)
                                 }
@@ -56,7 +58,7 @@ struct TicketListView: View {
             }
             .scrollIndicators(.hidden)
             .pinnedTopBar { header.padding(.horizontal, 20).padding(.bottom, 10) }
-            .background(Theme.canvas.ignoresSafeArea())
+            .background { PosterBackdrop(kind: upcoming.first?.kind) }
             .toolbar(.hidden, for: .navigationBar)
             .navigationDestination(for: TicketEvent.self) { event in
                 TicketDetailView(event: event)
@@ -68,7 +70,9 @@ struct TicketListView: View {
                 EventEditorView(event: nil)
             }
         }
-        .tint(Theme.ink)
+        // Like the editor and details, home sits in the next ticket's poster atmosphere.
+        .environment(\.colorScheme, .dark)
+        .tint(.white)
         // Re-plans reminders on launch and whenever a ticket is added, edited or deleted.
         .task(id: reminderSignature) {
             await TicketNotifications.reschedule(events.map(\.snapshot))
@@ -87,7 +91,7 @@ struct TicketListView: View {
                 .foregroundStyle(.secondary)
             Text(upcoming.isEmpty ? String(localized: "Nothing planned yet") : String(localized: "\(upcoming.count) tickets ahead"))
                 .font(Theme.display(24))
-                .foregroundStyle(Theme.ink)
+                .foregroundStyle(Color.primary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
                 .contentTransition(.numericText())
@@ -145,7 +149,7 @@ struct TicketListView: View {
         } label: {
             Label("New ticket", systemImage: "plus")
                 .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(Theme.ink)
+                .foregroundStyle(Color.primary)
                 .padding(.horizontal, 26)
                 .padding(.vertical, 16)
                 .contentShape(Capsule())
@@ -172,7 +176,7 @@ struct TicketListView: View {
 
             Text("Every date is a ticket")
                 .font(Theme.display(22))
-                .foregroundStyle(Theme.ink)
+                .foregroundStyle(Color.primary)
                 .multilineTextAlignment(.center)
             Text("Add the day you're waiting for and watch it count down on your Home Screen.")
                 .font(.subheadline)

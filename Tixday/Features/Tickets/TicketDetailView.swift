@@ -2,7 +2,8 @@ import SwiftData
 import SwiftUI
 import WidgetKit
 
-/// One ticket up close: a live clock to the day, and edit / share / delete.
+/// One ticket up close, in its poster's atmosphere: the big ticket, how far along the wait is,
+/// and edit / share / delete.
 struct TicketDetailView: View {
     let event: TicketEvent
 
@@ -15,28 +16,11 @@ struct TicketDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 28) {
-                TicketView(ticket: event.snapshot, size: .medium, notchColor: nil)
-                    .frame(height: 180)
-                    .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-                    .ticketShadow()
+            VStack(spacing: 22) {
+                HeroTicket(ticket: event.snapshot)
                     .padding(.top, 8)
 
-                VStack(spacing: 8) {
-                    LiveCountdown(target: event.date, style: style)
-                    Text("Until the day begins")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-
-                VStack(spacing: 4) {
-                    Text(event.date.formatted(date: .complete, time: .omitted))
-                        .font(.headline)
-                        .foregroundStyle(Theme.ink)
-                    Text(event.kind.name)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
+                WaitCard(ticket: event.snapshot)
 
                 HStack(spacing: 12) {
                     actionButton("Edit", systemImage: "pencil") { isEditing = true }
@@ -53,15 +37,11 @@ struct TicketDetailView: View {
             .padding(.horizontal, 20)
             .padding(.bottom, 40)
         }
-        .background {
-            ZStack {
-                Theme.canvas
-                RadialGradient(colors: [style.background.opacity(0.95), style.background.opacity(0)], center: .top, startRadius: 20, endRadius: 560)
-            }
-            .ignoresSafeArea()
-        }
+        .scrollIndicators(.hidden)
+        .background { PosterBackdrop(kind: event.kind) }
         .navigationTitle(event.title)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
         .sheet(isPresented: $isEditing) {
             EventEditorView(event: event)
         }
@@ -103,7 +83,7 @@ struct TicketDetailView: View {
             Text(title)
                 .font(.caption.weight(.medium))
         }
-        .foregroundStyle(isDestructive ? Color.red : Theme.ink)
+        .foregroundStyle(isDestructive ? Color.red : Color.primary)
         .frame(maxWidth: .infinity)
         .padding(.vertical, 14)
         .contentShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
@@ -111,43 +91,39 @@ struct TicketDetailView: View {
     }
 }
 
-/// Days, hours, minutes and seconds to the start of the day, ticking every second.
-private struct LiveCountdown: View {
-    var target: Date
-    var style: TicketStyle
+/// The date in full, and how much of the wait is already behind you.
+private struct WaitCard: View {
+    let ticket: TicketSnapshot
 
     var body: some View {
-        TimelineView(.periodic(from: .now, by: 1)) { context in
-            let parts = components(now: context.date)
-            HStack(spacing: 10) {
-                tile(parts.days, "DAYS")
-                tile(parts.hours, "HRS")
-                tile(parts.minutes, "MIN")
-                tile(parts.seconds, "SEC")
+        let progress = DayCount.progress(createdAt: ticket.createdAt, target: ticket.date)
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(alignment: .firstTextBaseline) {
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(ticket.date.formatted(date: .complete, time: .omitted))
+                        .font(.headline)
+                    Text(ticket.kind.name)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+                Image(systemName: ticket.kind.symbol)
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+            }
+            VStack(alignment: .leading, spacing: 8) {
+                WaitProgressBar(progress: progress, track: .white.opacity(0.18), fill: .white)
+                HStack {
+                    Text("\(Int((progress * 100).rounded()))% of the wait is behind you")
+                    Spacer()
+                    Text(ticket.createdAt, format: .relative(presentation: .named))
+                        .foregroundStyle(.tertiary)
+                }
+                .font(.footnote)
+                .foregroundStyle(.secondary)
             }
         }
-    }
-
-    private func components(now: Date) -> (days: Int, hours: Int, minutes: Int, seconds: Int) {
-        let start = Calendar.current.startOfDay(for: target)
-        let remaining = max(Int(start.timeIntervalSince(now)), 0)
-        return (remaining / 86_400, remaining % 86_400 / 3_600, remaining % 3_600 / 60, remaining % 60)
-    }
-
-    private func tile(_ value: Int, _ unit: LocalizedStringKey) -> some View {
-        VStack(spacing: 4) {
-            Text(value, format: .number)
-                .font(.system(size: 30, weight: .bold, design: style.design).width(style.numberWidth))
-                .monospacedDigit()
-                .contentTransition(.numericText(countsDown: true))
-                .foregroundStyle(Theme.ink)
-            Text(unit)
-                .font(.system(size: 10, weight: .semibold).width(.expanded))
-                .foregroundStyle(.secondary)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 14)
-        .glassBackground(in: RoundedRectangle(cornerRadius: 22, style: .continuous))
-        .animation(.snappy, value: value)
+        .padding(18)
+        .glassBackground(in: RoundedRectangle(cornerRadius: 24, style: .continuous))
     }
 }

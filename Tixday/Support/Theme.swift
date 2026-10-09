@@ -5,12 +5,6 @@ enum Theme {
     static let canvas = Color(uiColor: UIColor { traits in
         traits.userInterfaceStyle == .dark ? UIColor(Color(hex: "#111113")) : UIColor(Color(hex: "#F3F1EC"))
     })
-    static let card = Color(uiColor: UIColor { traits in
-        traits.userInterfaceStyle == .dark ? UIColor(Color(hex: "#1D1D20")) : .white
-    })
-    static let ink = Color(uiColor: UIColor { traits in
-        traits.userInterfaceStyle == .dark ? UIColor(Color(hex: "#F3F1EC")) : UIColor(Color(hex: "#16161A"))
-    })
 
     static func display(_ size: CGFloat) -> Font {
         .system(size: size, weight: .black).width(.expanded)

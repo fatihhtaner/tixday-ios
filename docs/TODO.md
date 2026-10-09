@@ -27,8 +27,10 @@
 - [x] Ana ekran başlığı: uygulama adı yerine tarih + "N bilet seni bekliyor" (çoğul, 12 dil)
 - [x] Düzenleyici yeniden tasarlandı: seçili türün bulanık posteri arka plan (koyu tema), büyük canlı önizleme, poster küçük resimli tür seçici, cam kartlar, tarihin yanında göreli süre
 - [x] Widget'lar ana ekranda yeni posterlerle kontrol edildi (orta boy, konser ve uçuş)
+- [x] Ana ekran ve detay ekranı da posterin bulanık atmosferinde (koyu tema, `PosterBackdrop`); detayda cam "bekleme" kartı (tarih, % geride kalan)
 
 ## Sıradaki
+- [ ] Telefonda kahraman bilete dokununca detayın açıldığını doğrula (simülatörde anlık dokunuş saniyelik saat yüzünden yutulabiliyor)
 - [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
 - [ ] Açık renkli posterlerde (doğum günü gökyüzü) beyaz başlık zayıf kalıyor; gerekirse o türde karartmayı artır
 - [ ] Fotoğraf seçme: kullanıcı fotoğrafı posterin yerine geçer (PhotosPicker, App Group'ta küçültülmüş JPEG, widget'ta da)

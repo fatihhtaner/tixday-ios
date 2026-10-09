@@ -103,8 +103,9 @@ struct WalletCard: View {
             ZStack(alignment: .top) {
                 TicketBody(kind: ticket.kind, poster: TicketPoster.image(ticket.kind, .wide), posterAlignment: .trailing)
                     .opacity(isOpen ? 1 : 0)
-                // Notches painted in the canvas colour: a real cut-out would show the cards beneath.
-                TearLine(style: style, notchColor: Theme.canvas)
+                // No notches here: a cut-out would show the cards beneath, and the backdrop behind
+                // the stack is an image, so no paint colour would match it.
+                TearLine(style: style, notchColor: .clear)
                     .opacity(isOpen ? 1 : 0)
             }
             .frame(height: Self.openHeight - Self.headerHeight)
