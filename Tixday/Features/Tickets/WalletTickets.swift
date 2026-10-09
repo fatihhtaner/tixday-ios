@@ -60,15 +60,17 @@ struct HeroTicket: View {
     }
 }
 
-/// One ticket in the wallet stack. The coloured header is all that shows while it is stacked;
-/// the artwork below shows on the last card.
+/// One ticket in the wallet stack. Closed, only its coloured header shows and the rest is filled
+/// with the header colour (so the next card's rounded corners don't reveal artwork underneath);
+/// open, the artwork shows below a tear line.
 struct WalletCard: View {
     let ticket: TicketSnapshot
-    /// Only the bottom card is fully visible and gets notches; stacked ones skip them.
-    var isLast = false
+    var isOpen: Bool
 
     static let headerHeight: CGFloat = 68
-    static let height: CGFloat = 188
+    static let openHeight: CGFloat = 188
+    /// How far the next card covers this one: enough to hide the bottom corners.
+    static let overlap: CGFloat = 26
 
     private var style: TicketStyle { ticket.kind.style }
 
@@ -97,14 +99,18 @@ struct WalletCard: View {
             .foregroundStyle(style.stubInk)
             .padding(.horizontal, 16)
             .frame(height: Self.headerHeight)
-            .background(style.stubFill)
 
-            TicketBody(kind: ticket.kind, poster: TicketPoster.image(ticket.kind, .wide), posterAlignment: .trailing)
+            ZStack(alignment: .top) {
+                TicketBody(kind: ticket.kind, poster: TicketPoster.image(ticket.kind, .wide), posterAlignment: .trailing)
+                    .opacity(isOpen ? 1 : 0)
                 // Notches painted in the canvas colour: a real cut-out would show the cards beneath.
-                .overlay(alignment: .top) { TearLine(style: style, notchColor: isLast ? Theme.canvas : .clear) }
+                TearLine(style: style, notchColor: Theme.canvas)
+                    .opacity(isOpen ? 1 : 0)
+            }
+            .frame(height: Self.openHeight - Self.headerHeight)
         }
-        .frame(height: Self.height)
-        .compositingGroup()
+        .background(style.stubFill)
+        .frame(height: isOpen ? Self.openHeight : Self.headerHeight + Self.overlap, alignment: .top)
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .shadow(color: .black.opacity(0.14), radius: 10, y: -2)
     }

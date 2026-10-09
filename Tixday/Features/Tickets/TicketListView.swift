@@ -8,6 +8,9 @@ struct TicketListView: View {
     @Query(sort: \TicketEvent.date) private var events: [TicketEvent]
     @Namespace private var zoom
     @State private var isCreating = false
+    @State private var path: [TicketEvent] = []
+    /// The stacked card the user tapped open; the last card of a stack is always open.
+    @State private var openID: UUID?
 
     private var upcoming: [TicketEvent] {
         events.filter { DayCount.days(until: $0.date) >= 0 }
@@ -18,7 +21,7 @@ struct TicketListView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 28) {
                     if events.isEmpty {
@@ -102,12 +105,20 @@ struct TicketListView: View {
         }
     }
 
-    /// Cards overlap so only their coloured headers show, except the last one, which shows in full.
+    /// Cards overlap so only their coloured headers show. Tapping a closed card opens it in place;
+    /// tapping an open one shows its details.
     private func stack(_ items: [TicketEvent]) -> some View {
-        VStack(spacing: WalletCard.headerHeight - WalletCard.height) {
+        VStack(spacing: -WalletCard.overlap) {
             ForEach(items) { event in
-                NavigationLink(value: event) {
-                    WalletCard(ticket: event.snapshot, isLast: event.id == items.last?.id)
+                let isOpen = event.id == openID || event.id == items.last?.id
+                Button {
+                    if isOpen {
+                        path.append(event)
+                    } else {
+                        withAnimation(.spring(response: 0.42, dampingFraction: 0.82)) { openID = event.id }
+                    }
+                } label: {
+                    WalletCard(ticket: event.snapshot, isOpen: isOpen)
                         .zoomSource(id: event.id, in: zoom)
                 }
                 .buttonStyle(PressableStyle())

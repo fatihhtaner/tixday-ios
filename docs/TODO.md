@@ -22,6 +22,7 @@
 - [x] Bilet tasarımı v3: poster gövde + düz renkli koçan (`PosterTicketView`), uçuş posteri; poster olmayan türler v1/v2 tasarımına düşer
 - [x] Ana ekran sadeleştirildi: deste + dev sayı + liste yerine alt alta biletler (Wallet gibi); tüm türler tek bilet düzeninde, eski v1/v2 tasarım kodu ve kâğıt zeminleri kaldırıldı
 - [x] Ana ekran v3: üstte "Next up" kahraman bilet (poster + koçanda canlı saat), altında Wallet gibi üst üste dizilmiş biletler (renkli başlık şeridi görünür, son kart tam açık); sabit başlık + iOS 26 yumuşak kaydırma kenarı
+- [x] Wallet destesi: kapalı kartlar başlık rengiyle dolu (köşelerden alttaki görsel sızmıyor); kapalı karta dokununca yerinde yaylanarak açılır, açık karta dokununca detay
 
 ## Sıradaki
 - [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
