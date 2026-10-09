@@ -1,57 +1,77 @@
 # TODO
 
-## Bitti
-- [x] Proje iskeleti: XcodeGen, uygulama + widget + test hedefleri, App Group
-- [x] `TicketEvent` SwiftData modeli, `TicketKind`, `TicketSnapshot`, `DayCount`
-- [x] 6 bilet türünün küçük ve orta boy tasarımı (`TicketView`)
-- [x] Bilet listesi (yaklaşan / kullanılmış), boş durum, düzenleyici (canlı önizleme)
-- [x] "Next ticket" widget'ı (küçük + orta), gece yarısı yenileme
-- [x] `DayCount` birim testleri
-- [x] Modern arayüz: kâğıt zemin, genişletilmiş başlık fontu, "Next up" + 2 sütunlu bilet duvarı, yüzen "New ticket" butonu, gerçek kesik çentikler ve gölge
-- [x] Bilet detay ekranı: canlı gün/saat/dakika/saniye sayacı, düzenle, görsel olarak paylaş, sil
-- [x] Düzenleyici yeniden tasarlandı: renkli tür seçici, kart alanlar, türe göre renk alan zemin
-- [x] `docs/ASSET_PROMPTS.md`: ikon, 6 bilet dekoru, kâğıt dokusu, damga promptları
-- [x] 6 bilet dekoru entegre edildi (`Tixday/Tickets/TicketArt.xcassets`, uygulama ve widget ortak; tür başına opaklık `artOpacity`)
-- [x] Uygulama ikonu: zımbalı günler bileti (`design/app-icon-1024.png`; ilk sürüm `app-icon-v1.png`)
-- [x] Widget'ta bilet seçme: `SelectTicketIntent` + `TicketEntity` (boş bırakılırsa en yakın bilet); widget kind'ı "NextTicket" korundu
-- [x] Modern arayüz v2: kaydırılabilir 3D bilet destesi, odaktaki bilete göre renk alan zemin, dev sayaç başlığı, kompakt liste, Liquid Glass buton ve kutular (iOS 26, öncesinde materyal), zoom geçişi (iOS 18+)
-- [x] Yerelleştirme: 12 dil (EN, TR, DE, FR, ES, IT, PT-BR, JA, KO, ZH-Hans, RU, AR), çoğul biçimleri, widget ve widget ayarları dahil; TR/AR/RU simülatörde kontrol edildi
-- [x] Kilit ekranı widget'ları: yuvarlak (ilerleme halkası + gün), dikdörtgen, satır içi; aynı "Ticket" widget'ının aileleri, bilet seçimi ortak
-- [x] Bildirimler: 30/7/1 gün kala ve etkinlik günü 09:00; izin ilk kayıtta; her değişiklikte en yakın 60 hatırlatma yeniden planlanır (`TicketNotifications`), birim testli
-- [x] Bilet zeminleri (plate) altyapısı + uçuş zemini; `tools/import_plate.swift`; DEBUG bilet galerisi (`-ticketGallery`)
-- [x] Bilet tasarımı v3: poster gövde + düz renkli koçan (`PosterTicketView`), uçuş posteri; poster olmayan türler v1/v2 tasarımına düşer
-- [x] Ana ekran sadeleştirildi: deste + dev sayı + liste yerine alt alta biletler (Wallet gibi); tüm türler tek bilet düzeninde, eski v1/v2 tasarım kodu ve kâğıt zeminleri kaldırıldı
-- [x] Ana ekran v3: üstte "Next up" kahraman bilet (poster + koçanda canlı saat), altında Wallet gibi üst üste dizilmiş biletler (renkli başlık şeridi görünür, son kart tam açık); sabit başlık + iOS 26 yumuşak kaydırma kenarı
-- [x] Wallet destesi: kapalı kartlar başlık rengiyle dolu (köşelerden alttaki görsel sızmıyor); kapalı karta dokununca yerinde yaylanarak açılır, açık karta dokununca detay
-- [x] 6 türün tamamının posteri uygulamada; tatil koçanı postere uyması için çam yeşili
-- [x] Ana ekran başlığı: uygulama adı yerine tarih + "N bilet seni bekliyor" (çoğul, 12 dil)
-- [x] Düzenleyici yeniden tasarlandı: seçili türün bulanık posteri arka plan (koyu tema), büyük canlı önizleme, poster küçük resimli tür seçici, cam kartlar, tarihin yanında göreli süre
-- [x] Widget'lar ana ekranda yeni posterlerle kontrol edildi (orta boy, konser ve uçuş)
-- [x] Ana ekran ve detay ekranı da posterin bulanık atmosferinde (koyu tema, `PosterBackdrop`); detayda cam "bekleme" kartı (tarih, % geride kalan)
-- [x] Uygulama ikonu v3: vintage posterli bilet, kırmızı koçan, 3 delik + 2 boş (yeni temaya uygun)
-- [x] Fotoğraf seçme: PhotosPicker (izin gerektirmez), 1200 px JPEG, `photoData` (externalStorage, CloudKit uyumlu); bilette, widget'ta ve bulanık arka planda posterin yerini alır
-- [x] Pro: `ProStore` (RevenueCat, Subloom ile aynı), paywall (bilet yelpazesi, 4 fayda, yıllık/ömür boyu, deneme, geri yükle, koşullar/gizlilik); kilitler: 4. bilet, yeni fotoğraf kaydetme, kilit ekranı widget'ları (App Group bayrağı); başlıkta Pro düğmesi. Anahtar yokken DEBUG ürünlerle çalışır; `-resetPro` ücretsize döndürür
-- [x] fastlane: `beta` (xcodegen → Release → TestFlight, build numarası otomatik) ve `metadata` lane'leri; App Store metinleri EN + TR (`fastlane/metadata`); kurulum `docs/app-store/fastlane.md`
-- [x] Deneme boşluğu kapatıldı (`TicketAccess`): Pro yokken en yakın 3 yaklaşan bilet açık, fazlası silinmez ama kilitli görünür (dokununca paywall, widget'ta seçilemez/kilit gösterir); fotoğraflar saklanır ama Pro yokken poster gösterilir; ücretsiz sınır artık geçmiş biletleri saymıyor
-- [x] App Store Connect: uygulama kaydı, `tixday_pro_yearly` (9,99$, 1 hafta deneme, 175 ülke) + `tixday_pro_lifetime` (24,99$), EN yerelleştirme, inceleme görseli/notu
-- [x] RevenueCat Tixday projesi: Test Store ürünleri, `tixday_pro` entitlement, `default` offering (Annual/Lifetime); DEBUG Test Store anahtarıyla simülatörde uçtan uca satın alma doğrulandı
-- [x] RevenueCat App Store uygulaması (In-App Purchase anahtarı 7M4YBN9866), App Store ürünleri `tixday_pro`'ya ve `default` paketlerine bağlı; `appl_` anahtarı Release'te
+Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da; **Fatih** yazanlar App Store Connect, RevenueCat, cihaz gibi Fatih'in elindekiler.
 
-## Sıradaki
-- [ ] `fastlane/AuthKey.json` + `.p8` (Subloom'daki anahtar kullanılabilir); App Store Connect'te uygulama kaydı
-- [ ] App Store metinlerini kalan 10 dile çevir; ekran görüntüleri
+## 🚨 Yayına kadar zorunlu
+
+### Web: destek ve gizlilik
+- [ ] Destek sitesi (Subloom'daki gibi GitHub Pages: `fatihhtaner/tixday-site`, `tools/build_site.py` ile 12 dil): ana sayfa, **gizlilik politikası**, **destek** (SSS + e-posta)
+- [ ] `AppConfig.privacyPolicyURL` ve paywall'daki Gizlilik linki gerçek sayfaya (şu an yer tutucu, açılınca 404)
+- [ ] App Store Connect → App Information: Privacy Policy URL, Support URL, (isteğe bağlı) Marketing URL — **Fatih**
+- [ ] Alan adı kararı: `tixday.app` alınacak mı, yoksa GitHub Pages adresi mi kalacak — **Fatih**
+
+### Uygulama içi
+- [ ] **Ayarlar ekranı**: Pro durumu, Pro'ya geç, satın alımları geri yükle, aboneliği yönet (Apple sayfası), hatırlatmaları aç/kapat + saat, destek/gizlilik/koşullar linkleri, sürüm
+- [ ] **Gizlilik bildirim dosyası** `PrivacyInfo.xcprivacy` (uygulama + widget): takip yok, UserDefaults sebebi CA92.1 + 1C8F.1 (App Group)
+- [ ] **Açılış ekranı**: şu an sistem varsayılanı (açık modda beyaz parlama, sonra koyu uygulama); koyu zeminli bir açılış ekranı
 - [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
-- [ ] Açık renkli posterlerde (doğum günü gökyüzü) beyaz başlık zayıf kalıyor; gerekirse o türde karartmayı artır
-- [ ] Kilit ekranı widget'larını simülatörde/cihazda görsel kontrol et
-- [ ] Ayarlar: bildirim saati ve hatırlatmaları kapatma
-- [ ] Çevirileri ana dili konuşan biriyle gözden geçir (özellikle AR, JA, KO, ZH); DE/FR/ES/IT/PT/JA/KO/ZH simülatörde görsel kontrol
-- [ ] App Store açıklama ve anahtar kelimelerini 12 dilde hazırla
-- [ ] Widget bilet seçimini simülatörde/cihazda elle test et (widget ekle → düzenle → bilet seç)
-- [ ] Kâğıt dokusu ve damga görselleri (henüz üretilmedi)
-- [ ] Uçuş küçük biletinde damga "HND" yazısına biraz giriyor; gerekirse dekoru küçült
-- [ ] Widget'ı ana ekranda gerçek cihazda/simülatörde kontrol et (çentik rengi, kenar boşlukları)
-- [ ] Gizlilik politikası sayfası (paywall'daki Privacy linki şimdilik yer tutucu)
-- [ ] Live Activity (son 24 saat)
-- [ ] Etkinlik günü delme animasyonu + paylaşım kartı
-- [ ] Destek sitesi + gizlilik politikası (tixday.app alınırsa)
-- [ ] App Store Connect'te "Tixday – Countdown Widgets" adını rezerve et
+- [ ] Release kontrolü: DEBUG'a özel kodların (`-sampleData`, `-resetPro`, `-ticketGallery`, galeri ekranı) Release arşivinde olmadığını doğrula (test anahtarı kontrol edildi ✅)
+
+### App Store Connect — **Fatih**
+- [ ] App Privacy etiketi (RevenueCat: satın alma geçmişi + kullanıcı kimliği, takip yok) — adımları `docs/app-store/app-privacy.md` olarak Claude hazırlayacak
+- [ ] Age Rating anketi, Content Rights, fiyat = Free, kategori (Lifestyle / Utilities)
+- [ ] Abonelik grubunun görünen adı "Tixday Pro Yearly" → "Tixday Pro"
+- [ ] App Review notu (Pro'ya nasıl ulaşılır, ücretsiz sınır 3) — metni Claude hazırlayacak
+- [ ] RevenueCat → Small Business Program başlangıç tarihi; App Store Server Notifications URL
+
+### Mağaza sayfası
+- [ ] **Ekran görüntüleri** (6,9" iPhone, en az EN + TR; Subloom'daki gibi tasarımlı set, hedef 12 dil)
+- [ ] Mağaza metinleri (ad, alt başlık, anahtar kelime, açıklama) kalan 10 dile; şu an EN + TR hazır (`fastlane/metadata`)
+- [ ] Satın alma ürünlerine kalan dillerin adları/açıklamaları (`docs/app-store/in-app-purchases.md`'de hazır) — **Fatih**
+
+### Gerçek cihaz testi (TestFlight) — **Fatih + Claude**
+- [ ] İlk TestFlight derlemesi (`fastlane beta`)
+- [ ] Sandbox satın alma: deneme, ömür boyu, geri yükle; iptal sonrası kilitlenen biletler
+- [ ] Widget'lar: küçük/orta, bilet seçme, kilit ekranı (Pro'lu/Pro'suz), gece yarısı güncellemesi
+- [ ] Bildirimler: izin, 30/7/1 gün ve etkinlik günü
+- [ ] Fotoğraf: seçme, widget'ta görünme, bellek (büyük fotoğraf + widget)
+
+## ⭐ Yayın öncesi önerilen
+- [ ] **iCloud senkronu** kararı: şu an veriler sadece telefonda, telefon değişince biletler kaybolur. Model CloudKit'e hazır (Subloom'daki gibi açılabilir) — **karar Fatih**
+- [ ] Onboarding / ilk açılış: boş durum var ama ilk bileti oluşturmaya yönlendiren kısa bir tanıtım yok
+- [ ] Pro'ya hoş geldin anı (satın alma sonrası kutlama), Subloom'daki gibi
+- [ ] Erişilebilirlik: en büyük yazı boyutu ve VoiceOver turu (biletler, cüzdan, paywall)
+- [ ] Doğum günü posterinde beyaz başlık zayıf; o türde karartmayı artır
+- [ ] Çevirileri ana dili konuşan biriyle gözden geçir (özellikle AR, JA, KO, ZH); Arapça (sağdan sola) düzeni yeni ekranlarda kontrol et
+- [ ] Analitik kararı: Subloom'daki gibi SDK'sız öneriliyor (App Store Connect + RevenueCat + Xcode Organizer)
+- [ ] Repo/boyut temizliği: kullanılmayan `art-*` köşe dekorları (artık her türün posteri var), `design/` içindeki eski denemeler (`plate-*`, `art-*`), PRD'deki eski tasarım anlatımı
+
+## 🔮 Sonra (1.1+)
+- [ ] Live Activity / Dynamic Island (son 24 saat canlı sayaç), StandBy
+- [ ] Etkinlik günü "bilet delme" animasyonu + paylaşılabilir kart
+- [ ] Varış yerine özel posterler (Tokyo, Paris, İstanbul…) — Pro poster paketleri
+- [ ] Yeni bilet türleri (sinema, maç, festival, mezuniyet)
+- [ ] Paylaşılan geri sayım (partner/arkadaşla aynı bilet)
+- [ ] Alternatif uygulama ikonları (Pro); `app-icon-v1/v2` hazır
+- [ ] Büyük boy widget
+
+## ✅ Bitti
+**Ürün ve tasarım**
+- Proje (XcodeGen, uygulama + widget + test), SwiftData modeli, App Group, gün hesabı (`DayCount`)
+- 6 bilet türü, vintage posterli tek bilet tasarımı (`TicketView`), kullanıcının kendi fotoğrafı
+- Ana ekran: tarih + "N bilet seni bekliyor", "Sıradaki" kahraman bilet (canlı saat), Wallet destesi (yerinde açılma)
+- Detay ve düzenleyici posterin bulanık atmosferinde; Liquid Glass; zoom geçişi
+- Uygulama ikonu v3 (posterli bilet)
+- Widget: küçük/orta + kilit ekranı (yuvarlak, dikdörtgen, satır içi), bilet seçme, gece yarısı yenileme
+- Bildirimler: 30/7/1 gün ve etkinlik günü 09:00
+- 12 dil (çoğul biçimleri, widget dahil)
+
+**Gelir**
+- Pro: paywall, yıllık 9,99$ (1 hafta deneme) + ömür boyu 24,99$; RevenueCat `tixday_pro`, Test Store (DEBUG) + App Store `appl_` (Release); simülatörde uçtan uca doğrulandı
+- Ücretsiz: en yakın 3 yaklaşan bilet; Pro bitince veri silinmez, fazlası kilitlenir, fotoğraflar gizlenir (`TicketAccess`, testli)
+- App Store Connect: uygulama kaydı, iki ürün (fiyat, deneme, EN yerelleştirme, inceleme görseli/notu)
+
+**Altyapı**
+- fastlane `beta` + `metadata`, App Store metinleri EN + TR
+- 11 birim testi (gün hesabı, hatırlatmalar, erişim kuralı)
+- DEBUG yardımcıları: `-sampleData`, `-resetPro`, `-proScreenshots`, `-ticketGallery`
