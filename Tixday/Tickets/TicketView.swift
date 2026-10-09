@@ -188,7 +188,7 @@ enum TicketPoster {
 }
 
 /// The ticket body: poster with a scrim for white type, or the kind's paper with its corner decoration.
-private struct TicketBody: View {
+struct TicketBody: View {
     var kind: TicketKind
     var poster: Image?
     var posterAlignment: Alignment

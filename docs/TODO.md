@@ -21,8 +21,10 @@
 - [x] Bilet zeminleri (plate) altyapısı + uçuş zemini; `tools/import_plate.swift`; DEBUG bilet galerisi (`-ticketGallery`)
 - [x] Bilet tasarımı v3: poster gövde + düz renkli koçan (`PosterTicketView`), uçuş posteri; poster olmayan türler v1/v2 tasarımına düşer
 - [x] Ana ekran sadeleştirildi: deste + dev sayı + liste yerine alt alta biletler (Wallet gibi); tüm türler tek bilet düzeninde, eski v1/v2 tasarım kodu ve kâğıt zeminleri kaldırıldı
+- [x] Ana ekran v3: üstte "Next up" kahraman bilet (poster + koçanda canlı saat), altında Wallet gibi üst üste dizilmiş biletler (renkli başlık şeridi görünür, son kart tam açık); sabit başlık + iOS 26 yumuşak kaydırma kenarı
 
 ## Sıradaki
+- [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
 - [ ] Kalan 5 türün posteri (konser, sınav, düğün, doğum günü, tatil) — promptlar `docs/ASSET_PROMPTS.md`; her türe `posterStubColors` ver
 - [ ] Fotoğraf seçme: kullanıcı fotoğrafı posterin yerine geçer (PhotosPicker, App Group'ta küçültülmüş JPEG, widget'ta da)
 - [ ] Kilit ekranı widget'larını simülatörde/cihazda görsel kontrol et

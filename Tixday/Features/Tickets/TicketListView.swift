@@ -2,7 +2,7 @@ import SwiftData
 import SwiftUI
 import WidgetKit
 
-/// Home: every ticket, soonest first, like passes in a wallet; used ones at the bottom.
+/// Home: the next ticket as a hero with a live clock, then the rest stacked like passes in a wallet.
 struct TicketListView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: \TicketEvent.date) private var events: [TicketEvent]
@@ -21,17 +21,30 @@ struct TicketListView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 28) {
-                    header
                     if events.isEmpty {
                         emptyState
                     } else {
-                        if !upcoming.isEmpty {
-                            section("Upcoming", items: upcoming)
+                        if let next = upcoming.first {
+                            titled("Next up") {
+                                NavigationLink(value: next) {
+                                    HeroTicket(ticket: next.snapshot)
+                                        .zoomSource(id: next.id, in: zoom)
+                                }
+                                .buttonStyle(PressableStyle())
+                                .contextMenu { deleteButton(next) }
+                            }
+                        }
+                        if upcoming.count > 1 {
+                            titled("Wallet", count: upcoming.count - 1) {
+                                stack(Array(upcoming.dropFirst()))
+                            }
                         }
                         if !past.isEmpty {
-                            section("Used", items: past)
-                                .saturation(0)
-                                .opacity(0.55)
+                            titled("Used", count: past.count) {
+                                stack(past)
+                            }
+                            .saturation(0)
+                            .opacity(0.55)
                         }
                     }
                 }
@@ -39,6 +52,7 @@ struct TicketListView: View {
                 .padding(.bottom, 24)
             }
             .scrollIndicators(.hidden)
+            .pinnedTopBar { header.padding(.horizontal, 20).padding(.bottom, 10) }
             .background(Theme.canvas.ignoresSafeArea())
             .toolbar(.hidden, for: .navigationBar)
             .navigationDestination(for: TicketEvent.self) { event in
@@ -72,36 +86,41 @@ struct TicketListView: View {
                 .font(Theme.eyebrow)
                 .foregroundStyle(.secondary)
         }
-        .padding(.top, 8)
+        .padding(.top, 4)
     }
 
-    private func section(_ title: LocalizedStringKey, items: [TicketEvent]) -> some View {
+    private func titled<Content: View>(_ title: LocalizedStringKey, count: Int? = nil, @ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 6) {
                 Text(title).textCase(.uppercase)
-                Text("\(items.count)").foregroundStyle(.tertiary)
+                if let count { Text("\(count)").foregroundStyle(.tertiary) }
             }
             .font(Theme.eyebrow)
             .foregroundStyle(.secondary)
             .padding(.leading, 4)
+            content()
+        }
+    }
 
+    /// Cards overlap so only their coloured headers show, except the last one, which shows in full.
+    private func stack(_ items: [TicketEvent]) -> some View {
+        VStack(spacing: WalletCard.headerHeight - WalletCard.height) {
             ForEach(items) { event in
                 NavigationLink(value: event) {
-                    TicketView(ticket: event.snapshot, size: .medium, notchColor: nil)
-                        .frame(height: 172)
-                        .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
-                        .ticketShadow()
+                    WalletCard(ticket: event.snapshot, isLast: event.id == items.last?.id)
                         .zoomSource(id: event.id, in: zoom)
                 }
                 .buttonStyle(PressableStyle())
-                .contextMenu {
-                    Button("Delete", systemImage: "trash", role: .destructive) {
-                        context.delete(event)
-                        try? context.save()
-                        WidgetCenter.shared.reloadAllTimelines()
-                    }
-                }
+                .contextMenu { deleteButton(event) }
             }
+        }
+    }
+
+    private func deleteButton(_ event: TicketEvent) -> some View {
+        Button("Delete", systemImage: "trash", role: .destructive) {
+            context.delete(event)
+            try? context.save()
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
 

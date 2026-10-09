@@ -17,6 +17,20 @@ extension View {
         }
     }
 
+    /// Pins a header above scrolling content. On iOS 26 content fades softly under it; before that
+    /// the header sits on the canvas colour.
+    @ViewBuilder
+    func pinnedTopBar<Bar: View>(@ViewBuilder _ bar: () -> Bar) -> some View {
+        if #available(iOS 26.0, *) {
+            self.safeAreaBar(edge: .top, content: bar)
+                .scrollEdgeEffectStyle(.soft, for: .top)
+        } else {
+            self.safeAreaInset(edge: .top, spacing: 0) {
+                bar().background(Theme.canvas.ignoresSafeArea(edges: .top))
+            }
+        }
+    }
+
     /// Marks a view as the place a zoom transition grows from (iOS 18+).
     @ViewBuilder
     func zoomSource(id: some Hashable, in namespace: Namespace.ID) -> some View {
