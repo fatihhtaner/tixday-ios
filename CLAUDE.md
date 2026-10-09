@@ -2,6 +2,8 @@
 
 Pasif gelir amaçlı, sunucusuz bir iOS uygulaması. App Store adı: **Tixday – Countdown Widgets**. Kullanıcı (Fatih) Türkçe konuşur; yanıtlar Türkçe, kod/yorumlar İngilizce.
 
+**Commit ve PR'larda `Co-Authored-By: Claude` ya da herhangi bir Claude/AI imzası kullanma** (Fatih'in isteği; bu repoda ve `tixday-site`'ta Claude katkıda bulunan olarak görünmemeli).
+
 ## Önce oku
 - `docs/PRD.md` — ürün tanımı, rakipler, gelir modeli, tasarım kuralları
 - `docs/TODO.md` — yapılacaklar listesi. **Her adım bitince güncelle.** Yeni oturumda kaldığımız yer burası.
