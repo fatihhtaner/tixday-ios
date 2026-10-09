@@ -72,8 +72,14 @@ struct NextTicketWidgetView: View {
     var body: some View {
         switch family {
         case .accessoryCircular, .accessoryRectangular, .accessoryInline:
-            LockScreenTicketView(ticket: entry.ticket, now: entry.date)
-                .containerBackground(for: .widget) { Color.clear }
+            Group {
+                if AppGroup.defaults.bool(forKey: AppGroup.proUnlockedKey) {
+                    LockScreenTicketView(ticket: entry.ticket, now: entry.date)
+                } else {
+                    LockScreenProPrompt()
+                }
+            }
+            .containerBackground(for: .widget) { Color.clear }
         default:
             homeScreen
         }
@@ -163,6 +169,23 @@ struct LockScreenTicketView: View {
                 Image(systemName: "ticket")
                     .font(.title2)
             }
+        }
+    }
+}
+
+/// Lock Screen sizes are part of Pro.
+private struct LockScreenProPrompt: View {
+    @Environment(\.widgetFamily) private var family
+
+    var body: some View {
+        switch family {
+        case .accessoryInline:
+            Label("Tixday Pro", systemImage: "lock.fill")
+        case .accessoryCircular:
+            Image(systemName: "lock.fill").font(.title3)
+        default:
+            Label("Unlock with Tixday Pro", systemImage: "lock.fill")
+                .font(.headline)
         }
     }
 }

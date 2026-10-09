@@ -9,6 +9,8 @@ struct EventEditorView: View {
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
+    @Environment(ProStore.self) private var pro
+    @State private var paywallReason: ProFeature?
 
     @State private var kind: TicketKind = .flight
     @State private var title = ""
@@ -110,6 +112,9 @@ struct EventEditorView: View {
                 }
             }
             .onAppear(perform: load)
+            .sheet(item: $paywallReason) { reason in
+                PaywallView(reason: reason)
+            }
         }
         // The editor takes on the ticket's atmosphere: its poster, blurred and darkened.
         .environment(\.colorScheme, .dark)
@@ -271,6 +276,11 @@ struct EventEditorView: View {
     }
 
     private func save() {
+        // Anyone can try a photo in the preview; keeping a new one needs Pro.
+        if photoData != nil, photoData != event?.photoData, !pro.isPro {
+            paywallReason = .photos
+            return
+        }
         let target = event ?? TicketEvent(title: "", date: date, kind: kind)
         target.kind = kind
         target.title = title.trimmingCharacters(in: .whitespaces).isEmpty ? kind.name : title

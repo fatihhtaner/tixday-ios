@@ -4,6 +4,7 @@ import SwiftUI
 @main
 struct TixdayApp: App {
     private let container = SharedStore.makeContainer()
+    @State private var proStore = ProStore()
 
     init() {
         #if DEBUG
@@ -33,11 +34,14 @@ struct TixdayApp: App {
                 TicketGalleryView()
             } else {
                 TicketListView()
+                    .task { await proStore.start() }
             }
             #else
             TicketListView()
+                .task { await proStore.start() }
             #endif
         }
+        .environment(proStore)
         .modelContainer(container)
     }
 }

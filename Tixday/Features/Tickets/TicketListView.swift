@@ -6,6 +6,8 @@ import WidgetKit
 struct TicketListView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: \TicketEvent.date) private var events: [TicketEvent]
+    @Environment(ProStore.self) private var pro
+    @State private var paywallReason: ProFeature?
     @Namespace private var zoom
     @State private var isCreating = false
     @State private var path: [TicketEvent] = []
@@ -69,6 +71,9 @@ struct TicketListView: View {
             .sheet(isPresented: $isCreating) {
                 EventEditorView(event: nil)
             }
+            .sheet(item: $paywallReason) { reason in
+                PaywallView(reason: reason)
+            }
         }
         // Like the editor and details, home sits in the next ticket's poster atmosphere.
         .environment(\.colorScheme, .dark)
@@ -85,6 +90,26 @@ struct TicketListView: View {
 
     /// Today's date and how many tickets are waiting, instead of the app's name.
     private var header: some View {
+        HStack(alignment: .top) {
+            headerTitles
+            Spacer(minLength: 8)
+            if !pro.isPro {
+                Button {
+                    paywallReason = .unlimitedTickets
+                } label: {
+                    Label("Pro", systemImage: "sparkles")
+                        .font(.footnote.weight(.bold))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 7)
+                        .glassBackground(in: Capsule(), interactive: true)
+                }
+                .buttonStyle(PressableStyle())
+            }
+        }
+        .padding(.top, 4)
+    }
+
+    private var headerTitles: some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(Date.now.formatted(.dateTime.weekday(.wide).day().month(.wide)).uppercased(with: .current))
                 .font(Theme.eyebrow)
@@ -97,7 +122,6 @@ struct TicketListView: View {
                 .contentTransition(.numericText())
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.top, 4)
     }
 
     private func titled<Content: View>(_ title: LocalizedStringKey, count: Int? = nil, @ViewBuilder content: () -> Content) -> some View {
@@ -145,7 +169,11 @@ struct TicketListView: View {
 
     private var newTicketButton: some View {
         Button {
-            isCreating = true
+            if pro.canAddTicket(currentCount: events.count) {
+                isCreating = true
+            } else {
+                paywallReason = .unlimitedTickets
+            }
         } label: {
             Label("New ticket", systemImage: "plus")
                 .font(.system(size: 16, weight: .semibold))

@@ -30,11 +30,11 @@
 - [x] Ana ekran ve detay ekranı da posterin bulanık atmosferinde (koyu tema, `PosterBackdrop`); detayda cam "bekleme" kartı (tarih, % geride kalan)
 - [x] Uygulama ikonu v3: vintage posterli bilet, kırmızı koçan, 3 delik + 2 boş (yeni temaya uygun)
 - [x] Fotoğraf seçme: PhotosPicker (izin gerektirmez), 1200 px JPEG, `photoData` (externalStorage, CloudKit uyumlu); bilette, widget'ta ve bulanık arka planda posterin yerini alır
+- [x] Pro: `ProStore` (RevenueCat, Subloom ile aynı), paywall (bilet yelpazesi, 4 fayda, yıllık/ömür boyu, deneme, geri yükle, koşullar/gizlilik); kilitler: 4. bilet, yeni fotoğraf kaydetme, kilit ekranı widget'ları (App Group bayrağı); başlıkta Pro düğmesi. Anahtar yokken DEBUG ürünlerle çalışır; `-resetPro` ücretsize döndürür
 
 ## Sıradaki
 - [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
 - [ ] Açık renkli posterlerde (doğum günü gökyüzü) beyaz başlık zayıf kalıyor; gerekirse o türde karartmayı artır
-- [ ] Fotoğraf seçme Pro olacak: paywall gelince düzenleyicide kaydetmeyi Pro'ya bağla (önizleme herkese açık)
 - [ ] Kilit ekranı widget'larını simülatörde/cihazda görsel kontrol et
 - [ ] Ayarlar: bildirim saati ve hatırlatmaları kapatma
 - [ ] Çevirileri ana dili konuşan biriyle gözden geçir (özellikle AR, JA, KO, ZH); DE/FR/ES/IT/PT/JA/KO/ZH simülatörde görsel kontrol
@@ -43,7 +43,8 @@
 - [ ] Kâğıt dokusu ve damga görselleri (henüz üretilmedi)
 - [ ] Uçuş küçük biletinde damga "HND" yazısına biraz giriyor; gerekirse dekoru küçült
 - [ ] Widget'ı ana ekranda gerçek cihazda/simülatörde kontrol et (çentik rengi, kenar boşlukları)
-- [ ] Pro / paywall (RevenueCat, Subloom'daki `ProStore` yaklaşımı), ücretsiz 3 etkinlik sınırı
+- [ ] RevenueCat projesi + App Store Connect ürünleri (`tixday_pro_yearly` 9,99$ + 7 gün deneme, `tixday_pro_lifetime` 24,99$), entitlement `tixday_pro`; anahtarları `AppConfig`'e yaz
+- [ ] Gizlilik politikası sayfası (paywall'daki Privacy linki şimdilik yer tutucu)
 - [ ] Live Activity (son 24 saat)
 - [ ] Etkinlik günü delme animasyonu + paylaşım kartı
 - [ ] Destek sitesi + gizlilik politikası (tixday.app alınırsa)
