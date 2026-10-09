@@ -31,6 +31,7 @@ struct SettingsView: View {
 
                 section("Pro") { proCard }
                 section("Reminders") { remindersCard }
+                section("Language") { languageCard }
                 section("Help") { helpCard }
 
                 Text(versionText)
@@ -202,6 +203,32 @@ struct SettingsView: View {
         await TicketNotifications.reschedule(events.map(\.snapshot))
     }
 
+    // MARK: - Language
+
+    /// iOS already gives every localized app its own language setting, which also covers the widget,
+    /// notifications and date formats; this row just takes the user there.
+    private var languageCard: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            row("App Language", symbol: "globe", value: currentLanguage, external: true) {
+                if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) }
+            }
+            Text("Changes in iOS Settings, along with your widgets and reminders.")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                .padding(.horizontal, 16)
+                .padding(.bottom, 14)
+                .padding(.leading, 48)
+        }
+        .glassBackground(in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+    }
+
+    /// The language the app is showing, named in that language ("Türkçe", "Deutsch").
+    private var currentLanguage: String {
+        let code = Bundle.main.preferredLocalizations.first ?? "en"
+        let locale = Locale(identifier: code)
+        return locale.localizedString(forIdentifier: code)?.capitalized(with: locale) ?? code
+    }
+
     // MARK: - Help
 
     private var helpCard: some View {
@@ -244,12 +271,18 @@ struct SettingsView: View {
             .background(.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
 
-    private func row(_ title: LocalizedStringKey, symbol: String, external: Bool = false, isBusy: Bool = false, action: @escaping () -> Void) -> some View {
+    private func row(_ title: LocalizedStringKey, symbol: String, value: String? = nil, external: Bool = false, isBusy: Bool = false, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             HStack(spacing: 14) {
                 icon(symbol)
                 Text(title).font(.body.weight(.medium))
                 Spacer(minLength: 8)
+                if let value {
+                    Text(value)
+                        .font(.body)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
                 if isBusy {
                     ProgressView()
                 } else {

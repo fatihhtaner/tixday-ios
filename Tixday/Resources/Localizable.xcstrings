@@ -1055,10 +1055,10 @@
     },
     "ADMIT": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "GİRİŞ"
+            "value": "دخول"
           }
         },
         "de": {
@@ -1067,28 +1067,22 @@
             "value": "EINLASS"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ENTRÉE"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "ENTRADA"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ENTRÉE"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "INGRESSO"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ENTRADA"
           }
         },
         "ja": {
@@ -1103,10 +1097,10 @@
             "value": "입장"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "入场"
+            "value": "ENTRADA"
           }
         },
         "ru": {
@@ -1115,20 +1109,26 @@
             "value": "ВХОД"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "دخول"
+            "value": "GİRİŞ"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "入场"
           }
         }
       }
     },
     "ADMITTED": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "ONAYLANDI"
+            "value": "مقبول"
           }
         },
         "de": {
@@ -1137,28 +1137,22 @@
             "value": "ENTWERTET"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "VALIDÉ"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "VALIDADO"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VALIDÉ"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "VALIDATO"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "VALIDADO"
           }
         },
         "ja": {
@@ -1173,10 +1167,10 @@
             "value": "입장 완료"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "已入场"
+            "value": "VALIDADO"
           }
         },
         "ru": {
@@ -1185,20 +1179,26 @@
             "value": "ПРОПУЩЕН"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "مقبول"
+            "value": "ONAYLANDI"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已入场"
           }
         }
       }
     },
     "ALL ACCESS": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "TAM ERİŞİM"
+            "value": "وصول كامل"
           }
         },
         "de": {
@@ -1207,28 +1207,22 @@
             "value": "ALL ACCESS"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ACCÈS TOTAL"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "ACCESO TOTAL"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ACCÈS TOTAL"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "ACCESSO TOTALE"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ACESSO TOTAL"
           }
         },
         "ja": {
@@ -1243,10 +1237,10 @@
             "value": "올 액세스"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "全通行"
+            "value": "ACESSO TOTAL"
           }
         },
         "ru": {
@@ -1255,20 +1249,26 @@
             "value": "ПОЛНЫЙ ДОСТУП"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "وصول كامل"
+            "value": "TAM ERİŞİM"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全通行"
           }
         }
       }
     },
     "Add a Lock Screen widget": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kilit ekranına widget ekle"
+            "value": "أضف أداة إلى شاشة القفل"
           }
         },
         "de": {
@@ -1277,28 +1277,22 @@
             "value": "Sperrbildschirm-Widget hinzufügen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajouter un widget à l’écran verrouillé"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Añadir un widget a la pantalla bloqueada"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter un widget à l’écran verrouillé"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Aggiungi un widget alla schermata di blocco"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adicionar widget à Tela Bloqueada"
           }
         },
         "ja": {
@@ -1313,10 +1307,10 @@
             "value": "잠금 화면에 위젯 추가"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "添加锁定屏幕小组件"
+            "value": "Adicionar widget à Tela Bloqueada"
           }
         },
         "ru": {
@@ -1325,10 +1319,16 @@
             "value": "Виджет на экран блокировки"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "أضف أداة إلى شاشة القفل"
+            "value": "Kilit ekranına widget ekle"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加锁定屏幕小组件"
           }
         }
       }
@@ -1405,10 +1405,10 @@
     },
     "Add every date you're waiting for.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Beklediğin her tarihi ekle."
+            "value": "أضف كل تاريخ تنتظره."
           }
         },
         "de": {
@@ -1417,28 +1417,22 @@
             "value": "Füge jedes Datum hinzu, auf das du wartest."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajoutez toutes les dates que vous attendez."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Añade todas las fechas que esperas."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajoutez toutes les dates que vous attendez."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Aggiungi ogni data che aspetti."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adicione todas as datas que você espera."
           }
         },
         "ja": {
@@ -1453,10 +1447,10 @@
             "value": "기다리는 모든 날을 추가하세요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "添加你期待的每一个日子。"
+            "value": "Adicione todas as datas que você espera."
           }
         },
         "ru": {
@@ -1465,10 +1459,16 @@
             "value": "Добавляйте все даты, которых ждёте."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "أضف كل تاريخ تنتظره."
+            "value": "Beklediğin her tarihi ekle."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加你期待的每一个日子。"
           }
         }
       }
@@ -1609,6 +1609,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "始终显示最近的一张"
+          }
+        }
+      }
+    },
+    "App Language": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uygulama Dili"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App-Sprache"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langue de l’app"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma de la app"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lingua dell’app"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma do app"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリの言語"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앱 언어"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App 语言"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Язык приложения"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لغة التطبيق"
           }
         }
       }
@@ -1963,6 +2033,76 @@
         }
       }
     },
+    "Changes in iOS Settings, along with your widgets and reminders.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS Ayarları'nda değişir; widget'lar ve hatırlatmalar da birlikte."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wird in den iOS-Einstellungen geändert, zusammen mit Widgets und Erinnerungen."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se modifie dans les Réglages iOS, avec vos widgets et rappels."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se cambia en los Ajustes de iOS, junto con tus widgets y recordatorios."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si cambia nelle Impostazioni di iOS, insieme a widget e promemoria."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "É alterado nos Ajustes do iOS, junto com seus widgets e lembretes."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOSの設定で変更できます。ウィジェットと通知も切り替わります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS 설정에서 바꿀 수 있으며, 위젯과 알림도 함께 바뀌어요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在 iOS 设置中更改，小组件和提醒也会一起切换。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Меняется в настройках iOS вместе с виджетами и напоминаниями."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يتغيّر من إعدادات iOS، مع الأدوات والتذكيرات."
+          }
+        }
+      }
+    },
     "Choose": {
       "localizations": {
         "ar": {
@@ -2035,10 +2175,10 @@
     },
     "Choose Lock Screen and tap the area under the clock.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kilit Ekranı'nı seç ve saatin altındaki alana dokun."
+            "value": "اختر شاشة القفل واضغط على المنطقة أسفل الساعة."
           }
         },
         "de": {
@@ -2047,28 +2187,22 @@
             "value": "Wähle den Sperrbildschirm und tippe auf den Bereich unter der Uhr."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choisissez l’écran verrouillé et touchez la zone sous l’heure."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Elige la pantalla bloqueada y toca la zona bajo el reloj."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisissez l’écran verrouillé et touchez la zone sous l’heure."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Scegli la schermata di blocco e tocca l’area sotto l’orologio."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escolha a Tela Bloqueada e toque na área abaixo do relógio."
           }
         },
         "ja": {
@@ -2083,10 +2217,10 @@
             "value": "잠금 화면을 선택하고 시계 아래 영역을 탭하세요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "选择锁定屏幕，然后轻点时钟下方的区域。"
+            "value": "Escolha a Tela Bloqueada e toque na área abaixo do relógio."
           }
         },
         "ru": {
@@ -2095,10 +2229,16 @@
             "value": "Выберите экран блокировки и коснитесь области под часами."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "اختر شاشة القفل واضغط على المنطقة أسفل الساعة."
+            "value": "Kilit Ekranı'nı seç ve saatin altındaki alana dokun."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择锁定屏幕，然后轻点时钟下方的区域。"
           }
         }
       }
@@ -2948,10 +3088,10 @@
     },
     "Done": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tamam"
+            "value": "تم"
           }
         },
         "de": {
@@ -2960,28 +3100,22 @@
             "value": "Fertig"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Listo"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Fine"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
           }
         },
         "ja": {
@@ -2996,10 +3130,10 @@
             "value": "완료"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "完成"
+            "value": "OK"
           }
         },
         "ru": {
@@ -3008,10 +3142,16 @@
             "value": "Готово"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "تم"
+            "value": "Tamam"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
           }
         }
       }
@@ -3508,10 +3648,10 @@
     },
     "Every date, every widget": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Her tarih, her widget"
+            "value": "كل تاريخ، كل أداة"
           }
         },
         "de": {
@@ -3520,28 +3660,22 @@
             "value": "Jedes Datum, jedes Widget"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chaque date, chaque widget"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Cada fecha, cada widget"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chaque date, chaque widget"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Ogni data, ogni widget"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toda data, todo widget"
           }
         },
         "ja": {
@@ -3556,10 +3690,10 @@
             "value": "모든 날짜, 모든 위젯"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "每个日子，每个小组件"
+            "value": "Toda data, todo widget"
           }
         },
         "ru": {
@@ -3568,20 +3702,26 @@
             "value": "Любые даты, любые виджеты"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "كل تاريخ، كل أداة"
+            "value": "Her tarih, her widget"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每个日子，每个小组件"
           }
         }
       }
     },
     "Everything is unlocked. Thanks for supporting an independent app.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Her şey açıldı. Bağımsız bir uygulamayı desteklediğin için teşekkürler."
+            "value": "تم فتح كل شيء. شكرًا لدعمك تطبيقًا مستقلًا."
           }
         },
         "de": {
@@ -3590,28 +3730,22 @@
             "value": "Alles ist freigeschaltet. Danke, dass du eine unabhängige App unterstützt."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tout est débloqué. Merci de soutenir une app indépendante."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Todo está desbloqueado. Gracias por apoyar una app independiente."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout est débloqué. Merci de soutenir une app indépendante."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Tutto è sbloccato. Grazie per sostenere un’app indipendente."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tudo foi desbloqueado. Obrigado por apoiar um app independente."
           }
         },
         "ja": {
@@ -3626,10 +3760,10 @@
             "value": "모든 기능이 열렸어요. 독립 앱을 응원해 주셔서 감사해요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "所有功能已解锁。感谢你支持独立开发的 App。"
+            "value": "Tudo foi desbloqueado. Obrigado por apoiar um app independente."
           }
         },
         "ru": {
@@ -3638,10 +3772,16 @@
             "value": "Всё открыто. Спасибо, что поддерживаете независимое приложение."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "تم فتح كل شيء. شكرًا لدعمك تطبيقًا مستقلًا."
+            "value": "Her şey açıldı. Bağımsız bir uygulamayı desteklediğin için teşekkürler."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有功能已解锁。感谢你支持独立开发的 App。"
           }
         }
       }
@@ -4842,12 +4982,82 @@
         }
       }
     },
-    "Let's go": {
+    "Language": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hadi başlayalım"
+            "value": "Dil"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sprache"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langue"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lingua"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "言語"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "언어"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "语言"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Язык"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اللغة"
+          }
+        }
+      }
+    },
+    "Let's go": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لنبدأ"
           }
         },
         "de": {
@@ -4856,28 +5066,22 @@
             "value": "Los geht’s"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "C’est parti"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "¡Vamos!"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "C’est parti"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Andiamo"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vamos lá"
           }
         },
         "ja": {
@@ -4892,10 +5096,10 @@
             "value": "시작하기"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "开始吧"
+            "value": "Vamos lá"
           }
         },
         "ru": {
@@ -4904,10 +5108,16 @@
             "value": "Поехали"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "لنبدأ"
+            "value": "Hadi başlayalım"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始吧"
           }
         }
       }
@@ -6174,10 +6384,10 @@
     },
     "Pick Tixday. Tap the widget again to choose a ticket.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday'i seç. Bilet seçmek için widget'a tekrar dokun."
+            "value": "اختر Tixday. اضغط على الأداة مرة أخرى لاختيار تذكرة."
           }
         },
         "de": {
@@ -6186,28 +6396,22 @@
             "value": "Wähle Tixday. Tippe erneut auf das Widget, um ein Ticket zu wählen."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choisissez Tixday. Touchez à nouveau le widget pour choisir un billet."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Elige Tixday. Toca de nuevo el widget para elegir un billete."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisissez Tixday. Touchez à nouveau le widget pour choisir un billet."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Scegli Tixday. Tocca di nuovo il widget per scegliere un biglietto."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Escolha o Tixday. Toque no widget de novo para escolher um ingresso."
           }
         },
         "ja": {
@@ -6222,10 +6426,10 @@
             "value": "Tixday를 선택하세요. 위젯을 다시 탭해 티켓을 고를 수 있어요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "选择 Tixday。再次轻点小组件即可选择票券。"
+            "value": "Escolha o Tixday. Toque no widget de novo para escolher um ingresso."
           }
         },
         "ru": {
@@ -6234,10 +6438,16 @@
             "value": "Выберите Tixday. Коснитесь виджета ещё раз, чтобы выбрать билет."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "اختر Tixday. اضغط على الأداة مرة أخرى لاختيار تذكرة."
+            "value": "Tixday'i seç. Bilet seçmek için widget'a tekrar dokun."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择 Tixday。再次轻点小组件即可选择票券。"
           }
         }
       }
@@ -7647,10 +7857,10 @@
     },
     "Tap to see how to add one.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nasıl ekleneceğini görmek için dokun."
+            "value": "اضغط لمعرفة طريقة الإضافة."
           }
         },
         "de": {
@@ -7659,28 +7869,22 @@
             "value": "Tippe, um zu sehen, wie es geht."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Touchez pour voir comment en ajouter un."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Toca para ver cómo añadir uno."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Touchez pour voir comment en ajouter un."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Tocca per vedere come aggiungerne uno."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toque para ver como adicionar."
           }
         },
         "ja": {
@@ -7695,10 +7899,10 @@
             "value": "추가 방법을 보려면 탭하세요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "轻点查看添加方法。"
+            "value": "Toque para ver como adicionar."
           }
         },
         "ru": {
@@ -7707,10 +7911,16 @@
             "value": "Коснитесь, чтобы узнать, как добавить."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "اضغط لمعرفة طريقة الإضافة."
+            "value": "Nasıl ekleneceğini görmek için dokun."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "轻点查看添加方法。"
           }
         }
       }
@@ -8350,10 +8560,10 @@
     },
     "Touch and hold your Lock Screen, then tap Customize.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kilit ekranına basılı tut, sonra Özelleştir'e dokun."
+            "value": "المس مع الاستمرار شاشة القفل، ثم اضغط على تخصيص."
           }
         },
         "de": {
@@ -8362,28 +8572,22 @@
             "value": "Halte den Sperrbildschirm gedrückt und tippe auf „Anpassen“."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Maintenez le doigt sur l’écran verrouillé, puis touchez Personnaliser."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Mantén pulsada la pantalla bloqueada y toca Personalizar."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maintenez le doigt sur l’écran verrouillé, puis touchez Personnaliser."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Tieni premuto sulla schermata di blocco, poi tocca Personalizza."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toque e segure a Tela Bloqueada e toque em Personalizar."
           }
         },
         "ja": {
@@ -8398,10 +8602,10 @@
             "value": "잠금 화면을 길게 누른 다음 사용자화를 탭하세요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "按住锁定屏幕，然后轻点“自定”。"
+            "value": "Toque e segure a Tela Bloqueada e toque em Personalizar."
           }
         },
         "ru": {
@@ -8410,10 +8614,16 @@
             "value": "Нажмите и удерживайте экран блокировки, затем выберите «Настроить»."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "المس مع الاستمرار شاشة القفل، ثم اضغط على تخصيص."
+            "value": "Kilit ekranına basılı tut, sonra Özelleştir'e dokun."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按住锁定屏幕，然后轻点“自定”。"
           }
         }
       }
@@ -9050,10 +9260,10 @@
     },
     "Welcome to Tixday Pro!": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday Pro'ya hoş geldin!"
+            "value": "مرحبًا بك في Tixday Pro!"
           }
         },
         "de": {
@@ -9062,28 +9272,22 @@
             "value": "Willkommen bei Tixday Pro!"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bienvenue dans Tixday Pro !"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "¡Bienvenido a Tixday Pro!"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bienvenue dans Tixday Pro !"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Benvenuto in Tixday Pro!"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boas-vindas ao Tixday Pro!"
           }
         },
         "ja": {
@@ -9098,10 +9302,10 @@
             "value": "Tixday Pro에 오신 걸 환영해요!"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "欢迎使用 Tixday Pro！"
+            "value": "Boas-vindas ao Tixday Pro!"
           }
         },
         "ru": {
@@ -9110,10 +9314,16 @@
             "value": "Добро пожаловать в Tixday Pro!"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "مرحبًا بك في Tixday Pro!"
+            "value": "Tixday Pro'ya hoş geldin!"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "欢迎使用 Tixday Pro！"
           }
         }
       }
