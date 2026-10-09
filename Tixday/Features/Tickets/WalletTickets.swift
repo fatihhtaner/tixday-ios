@@ -56,6 +56,8 @@ struct HeroTicket: View {
         }
         .compositingGroup()
         .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+        // The artwork ignores touches, so the whole ticket needs an explicit tap area.
+        .contentShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
         .ticketShadow()
     }
 }
@@ -113,6 +115,7 @@ struct WalletCard: View {
         .background(style.stubFill)
         .frame(height: isOpen ? Self.openHeight : Self.headerHeight + Self.overlap, alignment: .top)
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .shadow(color: .black.opacity(0.14), radius: 10, y: -2)
     }
 }

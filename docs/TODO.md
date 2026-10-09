@@ -31,7 +31,6 @@
 - [x] Uygulama ikonu v3: vintage posterli bilet, kırmızı koçan, 3 delik + 2 boş (yeni temaya uygun)
 
 ## Sıradaki
-- [ ] Telefonda kahraman bilete dokununca detayın açıldığını doğrula (simülatörde anlık dokunuş saniyelik saat yüzünden yutulabiliyor)
 - [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
 - [ ] Açık renkli posterlerde (doğum günü gökyüzü) beyaz başlık zayıf kalıyor; gerekirse o türde karartmayı artır
 - [ ] Fotoğraf seçme: kullanıcı fotoğrafı posterin yerine geçer (PhotosPicker, App Group'ta küçültülmüş JPEG, widget'ta da)
