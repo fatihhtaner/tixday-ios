@@ -321,16 +321,10 @@
     },
     "%lld of %lld free tickets used": {
       "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$lld of %2$lld free tickets used"
-          }
-        },
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "%1$lld / %2$lld ücretsiz bilet kullanıldı"
+            "value": "تم استخدام %1$lld من %2$lld تذاكر مجانية"
           }
         },
         "de": {
@@ -339,10 +333,10 @@
             "value": "%1$lld von %2$lld kostenlosen Tickets genutzt"
           }
         },
-        "fr": {
+        "en": {
           "stringUnit": {
-            "state": "translated",
-            "value": "%1$lld billets gratuits sur %2$lld utilisés"
+            "state": "new",
+            "value": "%1$lld of %2$lld free tickets used"
           }
         },
         "es": {
@@ -351,16 +345,16 @@
             "value": "%1$lld de %2$lld billetes gratis usados"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld billets gratuits sur %2$lld utilisés"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "%1$lld di %2$lld biglietti gratuiti usati"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$lld de %2$lld ingressos grátis usados"
           }
         },
         "ja": {
@@ -375,10 +369,10 @@
             "value": "무료 티켓 %2$lld장 중 %1$lld장 사용"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "已使用 %1$lld / %2$lld 张免费票"
+            "value": "%1$lld de %2$lld ingressos grátis usados"
           }
         },
         "ru": {
@@ -387,10 +381,16 @@
             "value": "Использовано %1$lld из %2$lld бесплатных билетов"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "تم استخدام %1$lld من %2$lld تذاكر مجانية"
+            "value": "%1$lld / %2$lld ücretsiz bilet kullanıldı"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已使用 %1$lld / %2$lld 张免费票"
           }
         }
       }
@@ -985,10 +985,10 @@
     },
     "A month, a week and a day before, and on the day.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bir ay, bir hafta ve bir gün önce, bir de o gün."
+            "value": "قبل شهر وأسبوع ويوم، وفي اليوم نفسه."
           }
         },
         "de": {
@@ -997,28 +997,22 @@
             "value": "Einen Monat, eine Woche und einen Tag vorher sowie am Tag selbst."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un mois, une semaine et un jour avant, puis le jour J."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Un mes, una semana y un día antes, y el mismo día."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un mois, une semaine et un jour avant, puis le jour J."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Un mese, una settimana e un giorno prima, e il giorno stesso."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Um mês, uma semana e um dia antes, e no próprio dia."
           }
         },
         "ja": {
@@ -1033,10 +1027,10 @@
             "value": "한 달 전, 일주일 전, 하루 전, 그리고 당일에."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "提前一个月、一周、一天，以及当天。"
+            "value": "Um mês, uma semana e um dia antes, e no próprio dia."
           }
         },
         "ru": {
@@ -1045,10 +1039,296 @@
             "value": "За месяц, за неделю, за день и в сам день."
           }
         },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bir ay, bir hafta ve bir gün önce, bir de o gün."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提前一个月、一周、一天，以及当天。"
+          }
+        }
+      }
+    },
+    "ADMIT": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GİRİŞ"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EINLASS"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ENTRÉE"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ENTRADA"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "INGRESSO"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ENTRADA"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "入場"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "입장"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "入场"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ВХОД"
+          }
+        },
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "قبل شهر وأسبوع ويوم، وفي اليوم نفسه."
+            "value": "دخول"
+          }
+        }
+      }
+    },
+    "ADMITTED": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ONAYLANDI"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ENTWERTET"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VALIDÉ"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VALIDADO"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VALIDATO"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VALIDADO"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "入場済み"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "입장 완료"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已入场"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ПРОПУЩЕН"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مقبول"
+          }
+        }
+      }
+    },
+    "ALL ACCESS": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TAM ERİŞİM"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ALL ACCESS"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ACCÈS TOTAL"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ACCESO TOTAL"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ACCESSO TOTALE"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ACESSO TOTAL"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オールアクセス"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "올 액세스"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全通行"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ПОЛНЫЙ ДОСТУП"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "وصول كامل"
+          }
+        }
+      }
+    },
+    "Add a Lock Screen widget": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kilit ekranına widget ekle"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sperrbildschirm-Widget hinzufügen"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajouter un widget à l’écran verrouillé"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Añadir un widget a la pantalla bloqueada"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiungi un widget alla schermata di blocco"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicionar widget à Tela Bloqueada"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ロック画面にウィジェットを追加"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "잠금 화면에 위젯 추가"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加锁定屏幕小组件"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Виджет на экран блокировки"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أضف أداة إلى شاشة القفل"
           }
         }
       }
@@ -1119,6 +1399,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "在 Tixday 中添加票券"
+          }
+        }
+      }
+    },
+    "Add every date you're waiting for.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beklediğin her tarihi ekle."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Füge jedes Datum hinzu, auf das du wartest."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajoutez toutes les dates que vous attendez."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Añade todas las fechas que esperas."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiungi ogni data che aspetti."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicione todas as datas que você espera."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "待ち遠しい日をいくつでも追加。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "기다리는 모든 날을 추가하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加你期待的每一个日子。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добавляйте все даты, которых ждёте."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أضف كل تاريخ تنتظره."
           }
         }
       }
@@ -1195,10 +1545,10 @@
     },
     "Always the soonest one": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Her zaman en yakını"
+            "value": "دائمًا الأقرب"
           }
         },
         "de": {
@@ -1207,28 +1557,22 @@
             "value": "Immer das nächste"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toujours le plus proche"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Siempre el más cercano"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toujours le plus proche"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Sempre il più vicino"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sempre o mais próximo"
           }
         },
         "ja": {
@@ -1243,10 +1587,10 @@
             "value": "항상 가장 가까운 티켓"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "始终显示最近的一张"
+            "value": "Sempre o mais próximo"
           }
         },
         "ru": {
@@ -1255,10 +1599,16 @@
             "value": "Всегда ближайший"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "دائمًا الأقرب"
+            "value": "Her zaman en yakını"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "始终显示最近的一张"
           }
         }
       }
@@ -1683,6 +2033,76 @@
         }
       }
     },
+    "Choose Lock Screen and tap the area under the clock.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kilit Ekranı'nı seç ve saatin altındaki alana dokun."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wähle den Sperrbildschirm und tippe auf den Bereich unter der Uhr."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisissez l’écran verrouillé et touchez la zone sous l’heure."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige la pantalla bloqueada y toca la zona bajo el reloj."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli la schermata di blocco e tocca l’area sotto l’orologio."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escolha a Tela Bloqueada e toque na área abaixo do relógio."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ロック画面を選び、時計の下のエリアをタップ。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "잠금 화면을 선택하고 시계 아래 영역을 탭하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择锁定屏幕，然后轻点时钟下方的区域。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выберите экран блокировки и коснитесь области под часами."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اختر شاشة القفل واضغط على المنطقة أسفل الساعة."
+          }
+        }
+      }
+    },
     "Choose ticket": {
       "localizations": {
         "ar": {
@@ -1895,10 +2315,10 @@
     },
     "Contact Support": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Destekle İletişim"
+            "value": "تواصل مع الدعم"
           }
         },
         "de": {
@@ -1907,28 +2327,22 @@
             "value": "Support kontaktieren"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Contacter l’assistance"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Contactar con soporte"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contacter l’assistance"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Contatta l’assistenza"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Falar com o suporte"
           }
         },
         "ja": {
@@ -1943,10 +2357,10 @@
             "value": "지원팀에 문의"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "联系支持"
+            "value": "Falar com o suporte"
           }
         },
         "ru": {
@@ -1955,10 +2369,16 @@
             "value": "Связаться с поддержкой"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "تواصل مع الدعم"
+            "value": "Destekle İletişim"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "联系支持"
           }
         }
       }
@@ -2035,10 +2455,10 @@
     },
     "Countdown reminders": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Geri sayım hatırlatmaları"
+            "value": "تذكيرات العد التنازلي"
           }
         },
         "de": {
@@ -2047,28 +2467,22 @@
             "value": "Countdown-Erinnerungen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rappels du compte à rebours"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Recordatorios de cuenta atrás"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rappels du compte à rebours"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Promemoria del conto alla rovescia"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lembretes da contagem"
           }
         },
         "ja": {
@@ -2083,10 +2497,10 @@
             "value": "카운트다운 알림"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "倒数提醒"
+            "value": "Lembretes da contagem"
           }
         },
         "ru": {
@@ -2095,10 +2509,16 @@
             "value": "Напоминания"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "تذكيرات العد التنازلي"
+            "value": "Geri sayım hatırlatmaları"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "倒数提醒"
           }
         }
       }
@@ -2526,6 +2946,76 @@
         }
       }
     },
+    "Done": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamam"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fertig"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listo"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fine"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完了"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "완료"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Готово"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تم"
+          }
+        }
+      }
+    },
     "EXAM ENTRY SLIP": {
       "localizations": {
         "ar": {
@@ -2808,10 +3298,10 @@
     },
     "Ends on %@": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ tarihinde sona eriyor"
+            "value": "ينتهي في %@"
           }
         },
         "de": {
@@ -2820,28 +3310,22 @@
             "value": "Endet am %@"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se termine le %@"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Termina el %@"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se termine le %@"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Termina il %@"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Termina em %@"
           }
         },
         "ja": {
@@ -2856,10 +3340,10 @@
             "value": "%@에 종료"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "将于 %@ 结束"
+            "value": "Termina em %@"
           }
         },
         "ru": {
@@ -2868,10 +3352,16 @@
             "value": "Заканчивается %@"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "ينتهي في %@"
+            "value": "%@ tarihinde sona eriyor"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "将于 %@ 结束"
           }
         }
       }
@@ -3012,6 +3502,146 @@
           "stringUnit": {
             "state": "translated",
             "value": "每个期待的日子，都专属于你。"
+          }
+        }
+      }
+    },
+    "Every date, every widget": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Her tarih, her widget"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jedes Datum, jedes Widget"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chaque date, chaque widget"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada fecha, cada widget"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ogni data, ogni widget"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toda data, todo widget"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべての日に、すべてのウィジェット"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "모든 날짜, 모든 위젯"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每个日子，每个小组件"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Любые даты, любые виджеты"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كل تاريخ، كل أداة"
+          }
+        }
+      }
+    },
+    "Everything is unlocked. Thanks for supporting an independent app.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Her şey açıldı. Bağımsız bir uygulamayı desteklediğin için teşekkürler."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alles ist freigeschaltet. Danke, dass du eine unabhängige App unterstützt."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tout est débloqué. Merci de soutenir une app indépendante."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo está desbloqueado. Gracias por apoyar una app independiente."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutto è sbloccato. Grazie per sostenere un’app indipendente."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tudo foi desbloqueado. Obrigado por apoiar um app independente."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべてが解放されました。個人開発のアプリを応援してくれてありがとう。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "모든 기능이 열렸어요. 독립 앱을 응원해 주셔서 감사해요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有功能已解锁。感谢你支持独立开发的 App。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Всё открыто. Спасибо, что поддерживаете независимое приложение."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تم فتح كل شيء. شكرًا لدعمك تطبيقًا مستقلًا."
           }
         }
       }
@@ -3298,10 +3928,10 @@
     },
     "Free plan": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ücretsiz plan"
+            "value": "الخطة المجانية"
           }
         },
         "de": {
@@ -3310,28 +3940,22 @@
             "value": "Kostenloser Plan"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Forfait gratuit"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Plan gratuito"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forfait gratuit"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Piano gratuito"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Plano grátis"
           }
         },
         "ja": {
@@ -3346,10 +3970,10 @@
             "value": "무료 플랜"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "免费版"
+            "value": "Plano grátis"
           }
         },
         "ru": {
@@ -3358,10 +3982,16 @@
             "value": "Бесплатный план"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "الخطة المجانية"
+            "value": "Ücretsiz plan"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免费版"
           }
         }
       }
@@ -3578,10 +4208,10 @@
     },
     "Get Tixday Pro": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday Pro’ya Geç"
+            "value": "احصل على Tixday Pro"
           }
         },
         "de": {
@@ -3590,28 +4220,22 @@
             "value": "Tixday Pro holen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Passer à Tixday Pro"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Obtener Tixday Pro"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passer à Tixday Pro"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Passa a Tixday Pro"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Assinar o Tixday Pro"
           }
         },
         "ja": {
@@ -3626,10 +4250,10 @@
             "value": "Tixday Pro 받기"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "获取 Tixday Pro"
+            "value": "Assinar o Tixday Pro"
           }
         },
         "ru": {
@@ -3638,10 +4262,16 @@
             "value": "Получить Tixday Pro"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "احصل على Tixday Pro"
+            "value": "Tixday Pro’ya Geç"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "获取 Tixday Pro"
           }
         }
       }
@@ -3721,10 +4351,10 @@
     },
     "Help": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Yardım"
+            "value": "المساعدة"
           }
         },
         "de": {
@@ -3733,28 +4363,22 @@
             "value": "Hilfe"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aide"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Ayuda"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aide"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Aiuto"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajuda"
           }
         },
         "ja": {
@@ -3769,10 +4393,10 @@
             "value": "도움말"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "帮助"
+            "value": "Ajuda"
           }
         },
         "ru": {
@@ -3781,20 +4405,26 @@
             "value": "Помощь"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "المساعدة"
+            "value": "Yardım"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "帮助"
           }
         }
       }
     },
     "Help & FAQ": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Yardım ve SSS"
+            "value": "المساعدة والأسئلة الشائعة"
           }
         },
         "de": {
@@ -3803,28 +4433,22 @@
             "value": "Hilfe & FAQ"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aide et FAQ"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Ayuda y preguntas frecuentes"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aide et FAQ"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Aiuto e FAQ"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajuda e perguntas frequentes"
           }
         },
         "ja": {
@@ -3839,10 +4463,10 @@
             "value": "도움말 및 FAQ"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "帮助与常见问题"
+            "value": "Ajuda e perguntas frequentes"
           }
         },
         "ru": {
@@ -3851,10 +4475,16 @@
             "value": "Помощь и вопросы"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "المساعدة والأسئلة الشائعة"
+            "value": "Yardım ve SSS"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "帮助与常见问题"
           }
         }
       }
@@ -4212,6 +4842,76 @@
         }
       }
     },
+    "Let's go": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hadi başlayalım"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los geht’s"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "C’est parti"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Vamos!"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Andiamo"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vamos lá"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "はじめよう"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "시작하기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始吧"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Поехали"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لنبدأ"
+          }
+        }
+      }
+    },
     "Lifetime": {
       "localizations": {
         "ar": {
@@ -4284,10 +4984,10 @@
     },
     "Lifetime. Thanks for supporting Tixday!": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ömür boyu. Tixday’i desteklediğin için teşekkürler!"
+            "value": "مدى الحياة. شكرًا لدعمك Tixday!"
           }
         },
         "de": {
@@ -4296,28 +4996,22 @@
             "value": "Lebenslang. Danke, dass du Tixday unterstützt!"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "À vie. Merci de soutenir Tixday !"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "De por vida. ¡Gracias por apoyar Tixday!"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "À vie. Merci de soutenir Tixday !"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "A vita. Grazie per il tuo supporto a Tixday!"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vitalício. Obrigado por apoiar o Tixday!"
           }
         },
         "ja": {
@@ -4332,10 +5026,10 @@
             "value": "평생 이용권. Tixday를 응원해 주셔서 감사해요!"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "终身版。感谢你支持 Tixday！"
+            "value": "Vitalício. Obrigado por apoiar o Tixday!"
           }
         },
         "ru": {
@@ -4344,10 +5038,16 @@
             "value": "Навсегда. Спасибо, что поддерживаете Tixday!"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "مدى الحياة. شكرًا لدعمك Tixday!"
+            "value": "Ömür boyu. Tixday’i desteklediğin için teşekkürler!"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "终身版。感谢你支持 Tixday！"
           }
         }
       }
@@ -4424,10 +5124,10 @@
     },
     "Manage Subscription": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aboneliği Yönet"
+            "value": "إدارة الاشتراك"
           }
         },
         "de": {
@@ -4436,28 +5136,22 @@
             "value": "Abo verwalten"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gérer l’abonnement"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Gestionar suscripción"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gérer l’abonnement"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Gestisci abbonamento"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gerenciar assinatura"
           }
         },
         "ja": {
@@ -4472,10 +5166,10 @@
             "value": "구독 관리"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "管理订阅"
+            "value": "Gerenciar assinatura"
           }
         },
         "ru": {
@@ -4484,10 +5178,16 @@
             "value": "Управлять подпиской"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "إدارة الاشتراك"
+            "value": "Aboneliği Yönet"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "管理订阅"
           }
         }
       }
@@ -4704,10 +5404,10 @@
     },
     "Next ticket": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "En yakın bilet"
+            "value": "التذكرة التالية"
           }
         },
         "de": {
@@ -4716,28 +5416,22 @@
             "value": "Nächstes Ticket"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prochain billet"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Próximo billete"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prochain billet"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Prossimo biglietto"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Próximo ingresso"
           }
         },
         "ja": {
@@ -4752,10 +5446,10 @@
             "value": "다음 티켓"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "下一张票"
+            "value": "Próximo ingresso"
           }
         },
         "ru": {
@@ -4764,10 +5458,16 @@
             "value": "Ближайший билет"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "التذكرة التالية"
+            "value": "En yakın bilet"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下一张票"
           }
         }
       }
@@ -4984,10 +5684,10 @@
     },
     "Notifications are turned off for Tixday in iOS Settings.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday bildirimleri iOS Ayarları’nda kapalı."
+            "value": "إشعارات Tixday متوقفة في إعدادات iOS."
           }
         },
         "de": {
@@ -4996,28 +5696,22 @@
             "value": "Mitteilungen für Tixday sind in den iOS-Einstellungen deaktiviert."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Les notifications de Tixday sont désactivées dans les Réglages iOS."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Las notificaciones de Tixday están desactivadas en los Ajustes de iOS."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les notifications de Tixday sont désactivées dans les Réglages iOS."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Le notifiche di Tixday sono disattivate nelle Impostazioni di iOS."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "As notificações do Tixday estão desativadas nos Ajustes do iOS."
           }
         },
         "ja": {
@@ -5032,10 +5726,10 @@
             "value": "iOS 설정에서 Tixday 알림이 꺼져 있어요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday 的通知已在 iOS 设置中关闭。"
+            "value": "As notificações do Tixday estão desativadas nos Ajustes do iOS."
           }
         },
         "ru": {
@@ -5044,10 +5738,16 @@
             "value": "Уведомления Tixday отключены в настройках iOS."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "إشعارات Tixday متوقفة في إعدادات iOS."
+            "value": "Tixday bildirimleri iOS Ayarları’nda kapalı."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday 的通知已在 iOS 设置中关闭。"
           }
         }
       }
@@ -5264,10 +5964,10 @@
     },
     "Open Settings": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ayarları Aç"
+            "value": "فتح الإعدادات"
           }
         },
         "de": {
@@ -5276,28 +5976,22 @@
             "value": "Einstellungen öffnen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ouvrir les Réglages"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Abrir Ajustes"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir les Réglages"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Apri Impostazioni"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abrir Ajustes"
           }
         },
         "ja": {
@@ -5312,10 +6006,10 @@
             "value": "설정 열기"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "打开设置"
+            "value": "Abrir Ajustes"
           }
         },
         "ru": {
@@ -5324,10 +6018,16 @@
             "value": "Открыть настройки"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "فتح الإعدادات"
+            "value": "Ayarları Aç"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开设置"
           }
         }
       }
@@ -5472,6 +6172,76 @@
         }
       }
     },
+    "Pick Tixday. Tap the widget again to choose a ticket.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday'i seç. Bilet seçmek için widget'a tekrar dokun."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wähle Tixday. Tippe erneut auf das Widget, um ein Ticket zu wählen."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choisissez Tixday. Touchez à nouveau le widget pour choisir un billet."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige Tixday. Toca de nuevo el widget para elegir un billete."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli Tixday. Tocca di nuovo il widget per scegliere un biglietto."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escolha o Tixday. Toque no widget de novo para escolher um ingresso."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixdayを選択。もう一度タップしてチケットを選べます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday를 선택하세요. 위젯을 다시 탭해 티켓을 고를 수 있어요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择 Tixday。再次轻点小组件即可选择票券。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выберите Tixday. Коснитесь виджета ещё раз, чтобы выбрать билет."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اختر Tixday. اضغط على الأداة مرة أخرى لاختيار تذكرة."
+          }
+        }
+      }
+    },
     "Privacy": {
       "localizations": {
         "ar": {
@@ -5544,10 +6314,10 @@
     },
     "Privacy Policy": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gizlilik Politikası"
+            "value": "سياسة الخصوصية"
           }
         },
         "de": {
@@ -5556,28 +6326,22 @@
             "value": "Datenschutzerklärung"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Politique de confidentialité"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Política de privacidad"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Politique de confidentialité"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Informativa sulla privacy"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Política de privacidade"
           }
         },
         "ja": {
@@ -5592,10 +6356,10 @@
             "value": "개인정보 처리방침"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "隐私政策"
+            "value": "Política de privacidade"
           }
         },
         "ru": {
@@ -5604,10 +6368,16 @@
             "value": "Политика конфиденциальности"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "سياسة الخصوصية"
+            "value": "Gizlilik Politikası"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐私政策"
           }
         }
       }
@@ -5617,10 +6387,10 @@
     },
     "Pro is active": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pro aktif"
+            "value": "Pro مفعّل"
           }
         },
         "de": {
@@ -5629,28 +6399,22 @@
             "value": "Pro ist aktiv"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pro est actif"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Pro está activo"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro est actif"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Pro è attivo"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pro está ativo"
           }
         },
         "ja": {
@@ -5665,10 +6429,10 @@
             "value": "Pro 사용 중"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pro 已启用"
+            "value": "Pro está ativo"
           }
         },
         "ru": {
@@ -5677,10 +6441,16 @@
             "value": "Pro активен"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pro مفعّل"
+            "value": "Pro aktif"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro 已启用"
           }
         }
       }
@@ -5827,10 +6597,10 @@
     },
     "Reminders": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hatırlatmalar"
+            "value": "التذكيرات"
           }
         },
         "de": {
@@ -5839,28 +6609,22 @@
             "value": "Erinnerungen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rappels"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Recordatorios"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rappels"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Promemoria"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lembretes"
           }
         },
         "ja": {
@@ -5875,10 +6639,10 @@
             "value": "알림"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "提醒"
+            "value": "Lembretes"
           }
         },
         "ru": {
@@ -5887,10 +6651,16 @@
             "value": "Напоминания"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "التذكيرات"
+            "value": "Hatırlatmalar"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提醒"
           }
         }
       }
@@ -5967,10 +6737,10 @@
     },
     "Renews on %@": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ tarihinde yenilenir"
+            "value": "يتجدد في %@"
           }
         },
         "de": {
@@ -5979,28 +6749,22 @@
             "value": "Verlängert sich am %@"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Renouvellement le %@"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Se renueva el %@"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renouvellement le %@"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Si rinnova il %@"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Renova em %@"
           }
         },
         "ja": {
@@ -6015,10 +6779,10 @@
             "value": "%@에 갱신"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "将于 %@ 续订"
+            "value": "Renova em %@"
           }
         },
         "ru": {
@@ -6027,10 +6791,16 @@
             "value": "Продлевается %@"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "يتجدد في %@"
+            "value": "%@ tarihinde yenilenir"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "将于 %@ 续订"
           }
         }
       }
@@ -6177,10 +6947,10 @@
     },
     "Restore Purchases": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Satın Alımları Geri Yükle"
+            "value": "استعادة المشتريات"
           }
         },
         "de": {
@@ -6189,28 +6959,22 @@
             "value": "Käufe wiederherstellen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restaurer les achats"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Restaurar compras"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurer les achats"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Ripristina acquisti"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restaurar compras"
           }
         },
         "ja": {
@@ -6225,10 +6989,10 @@
             "value": "구매 복원"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "恢复购买"
+            "value": "Restaurar compras"
           }
         },
         "ru": {
@@ -6237,10 +7001,16 @@
             "value": "Восстановить покупки"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "استعادة المشتريات"
+            "value": "Satın Alımları Geri Yükle"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复购买"
           }
         }
       }
@@ -6387,10 +7157,10 @@
     },
     "Settings": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ayarlar"
+            "value": "الإعدادات"
           }
         },
         "de": {
@@ -6399,28 +7169,22 @@
             "value": "Einstellungen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réglages"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Ajustes"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réglages"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Impostazioni"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajustes"
           }
         },
         "ja": {
@@ -6435,10 +7199,10 @@
             "value": "설정"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "设置"
+            "value": "Ajustes"
           }
         },
         "ru": {
@@ -6447,10 +7211,16 @@
             "value": "Настройки"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "الإعدادات"
+            "value": "Ayarlar"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置"
           }
         }
       }
@@ -6875,6 +7645,76 @@
         }
       }
     },
+    "Tap to see how to add one.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nasıl ekleneceğini görmek için dokun."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tippe, um zu sehen, wie es geht."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Touchez pour voir comment en ajouter un."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca para ver cómo añadir uno."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tocca per vedere come aggiungerne uno."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque para ver como adicionar."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "追加方法を見るにはタップ。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "추가 방법을 보려면 탭하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "轻点查看添加方法。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Коснитесь, чтобы узнать, как добавить."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اضغط لمعرفة طريقة الإضافة."
+          }
+        }
+      }
+    },
     "Terms": {
       "localizations": {
         "ar": {
@@ -6947,10 +7787,10 @@
     },
     "Terms of Use": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kullanım Koşulları"
+            "value": "شروط الاستخدام"
           }
         },
         "de": {
@@ -6959,28 +7799,22 @@
             "value": "Nutzungsbedingungen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Conditions d’utilisation"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Términos de uso"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conditions d’utilisation"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Termini di utilizzo"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Termos de uso"
           }
         },
         "ja": {
@@ -6995,10 +7829,10 @@
             "value": "이용 약관"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "使用条款"
+            "value": "Termos de uso"
           }
         },
         "ru": {
@@ -7007,10 +7841,16 @@
             "value": "Условия использования"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "شروط الاستخدام"
+            "value": "Kullanım Koşulları"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用条款"
           }
         }
       }
@@ -7087,10 +7927,10 @@
     },
     "Time": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Saat"
+            "value": "الوقت"
           }
         },
         "de": {
@@ -7099,28 +7939,22 @@
             "value": "Uhrzeit"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Heure"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Hora"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heure"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Ora"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Horário"
           }
         },
         "ja": {
@@ -7135,10 +7969,10 @@
             "value": "시간"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "时间"
+            "value": "Horário"
           }
         },
         "ru": {
@@ -7147,10 +7981,16 @@
             "value": "Время"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "الوقت"
+            "value": "Saat"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "时间"
           }
         }
       }
@@ -7230,10 +8070,10 @@
     },
     "Tixday Pro is active again.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday Pro yeniden aktif."
+            "value": "تمت إعادة تفعيل Tixday Pro."
           }
         },
         "de": {
@@ -7242,28 +8082,22 @@
             "value": "Tixday Pro ist wieder aktiv."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tixday Pro est de nouveau actif."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Tixday Pro vuelve a estar activo."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday Pro est de nouveau actif."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Tixday Pro è di nuovo attivo."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O Tixday Pro está ativo novamente."
           }
         },
         "ja": {
@@ -7278,10 +8112,10 @@
             "value": "Tixday Pro가 다시 활성화됐어요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday Pro 已重新启用。"
+            "value": "O Tixday Pro está ativo novamente."
           }
         },
         "ru": {
@@ -7290,10 +8124,16 @@
             "value": "Tixday Pro снова активен."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "تمت إعادة تفعيل Tixday Pro."
+            "value": "Tixday Pro yeniden aktif."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday Pro 已重新启用。"
           }
         }
       }
@@ -7504,6 +8344,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "就在明天！"
+          }
+        }
+      }
+    },
+    "Touch and hold your Lock Screen, then tap Customize.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kilit ekranına basılı tut, sonra Özelleştir'e dokun."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halte den Sperrbildschirm gedrückt und tippe auf „Anpassen“."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maintenez le doigt sur l’écran verrouillé, puis touchez Personnaliser."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantén pulsada la pantalla bloqueada y toca Personalizar."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tieni premuto sulla schermata di blocco, poi tocca Personalizza."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque e segure a Tela Bloqueada e toque em Personalizar."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ロック画面を長押しして「カスタマイズ」をタップ。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "잠금 화면을 길게 누른 다음 사용자화를 탭하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按住锁定屏幕，然后轻点“自定”。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нажмите и удерживайте экран блокировки, затем выберите «Настроить»."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المس مع الاستمرار شاشة القفل، ثم اضغط على تخصيص."
           }
         }
       }
@@ -8134,6 +9044,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "婚礼"
+          }
+        }
+      }
+    },
+    "Welcome to Tixday Pro!": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday Pro'ya hoş geldin!"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Willkommen bei Tixday Pro!"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bienvenue dans Tixday Pro !"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Bienvenido a Tixday Pro!"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Benvenuto in Tixday Pro!"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boas-vindas ao Tixday Pro!"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday Proへようこそ！"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday Pro에 오신 걸 환영해요!"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "欢迎使用 Tixday Pro！"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добро пожаловать в Tixday Pro!"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مرحبًا بك في Tixday Pro!"
           }
         }
       }

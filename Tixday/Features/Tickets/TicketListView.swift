@@ -112,20 +112,17 @@ struct TicketListView: View {
                     Label("Pro", systemImage: "sparkles")
                         .font(.footnote.weight(.bold))
                         .padding(.horizontal, 12)
-                        .padding(.vertical, 7)
+                        .frame(height: 34)
+                        .contentShape(Capsule())
                         .glassBackground(in: Capsule(), interactive: true)
+                        .padding(.vertical, 4)
+                        .contentShape(Rectangle())
                 }
                 .buttonStyle(PressableStyle())
             }
-            Button("Settings", systemImage: "gearshape") {
+            CircleIconButton(title: "Settings", systemImage: "gearshape", size: 34) {
                 isShowingSettings = true
             }
-            .labelStyle(.iconOnly)
-            .font(.system(size: 15, weight: .semibold))
-            .frame(width: 34, height: 34)
-            .contentShape(Circle())
-            .glassBackground(in: Circle(), interactive: true)
-            .buttonStyle(PressableStyle())
         }
         .padding(.top, 4)
     }

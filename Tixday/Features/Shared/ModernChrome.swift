@@ -60,3 +60,27 @@ struct PressableStyle: ButtonStyle {
             .animation(.snappy(duration: 0.2), value: configuration.isPressed)
     }
 }
+
+/// A round glass icon button (close, settings). The circle lives inside the label so the whole
+/// circle is tappable, not just the glyph.
+struct CircleIconButton: View {
+    let title: LocalizedStringKey
+    let systemImage: String
+    var size: CGFloat = 36
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Label(title, systemImage: systemImage)
+                .labelStyle(.iconOnly)
+                .font(.system(size: 15, weight: .bold))
+                .frame(width: size, height: size)
+                .contentShape(Circle())
+                .glassBackground(in: Circle(), interactive: true)
+                // A larger touch target than the visible circle.
+                .padding(4)
+                .contentShape(Circle())
+        }
+        .buttonStyle(PressableStyle())
+    }
+}

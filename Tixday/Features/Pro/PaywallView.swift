@@ -1,6 +1,7 @@
 import SwiftUI
 
-/// Tixday Pro: a fan of tickets, what Pro adds, the two plans, and the fine print.
+/// Tixday Pro: a fan of tickets, what Pro adds, the two plans, and the fine print;
+/// after a purchase or restore it turns into the welcome celebration.
 struct PaywallView: View {
     /// Why the paywall opened, so the matching benefit is highlighted.
     var reason: ProFeature?
@@ -9,12 +10,36 @@ struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
     @State private var selectedID: String?
+    @State private var showsWelcome = false
 
     private var selected: ProPackage? {
         pro.packages.first { $0.id == selectedID } ?? pro.packages.first { $0.kind == .yearly } ?? pro.packages.first
     }
 
     var body: some View {
+        ZStack {
+            if showsWelcome {
+                ProWelcomeView { dismiss() }
+                    .transition(.opacity.combined(with: .scale(scale: 1.04)))
+            } else {
+                offer
+                    .transition(.opacity)
+            }
+        }
+        .background { PosterBackdrop(kind: .concert) }
+        .environment(\.colorScheme, .dark)
+        .tint(.white)
+        .alert("Purchase failed", isPresented: Binding(get: { pro.errorMessage != nil }, set: { if !$0 { pro.errorMessage = nil } })) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(pro.errorMessage ?? "")
+        }
+        .onChange(of: pro.isPro) { _, isPro in
+            if isPro { withAnimation(.easeInOut(duration: 0.35)) { showsWelcome = true } }
+        }
+    }
+
+    private var offer: some View {
         ScrollView {
             VStack(spacing: 26) {
                 ticketFan
@@ -41,24 +66,9 @@ struct PaywallView: View {
             .padding(.bottom, 24)
         }
         .scrollIndicators(.hidden)
-        .background { PosterBackdrop(kind: .concert) }
         .overlay(alignment: .topTrailing) {
-            Button("Close", systemImage: "xmark") { dismiss() }
-                .labelStyle(.iconOnly)
-                .font(.system(size: 15, weight: .bold))
-                .frame(width: 36, height: 36)
-                .glassBackground(in: Circle(), interactive: true)
-                .padding(16)
-        }
-        .environment(\.colorScheme, .dark)
-        .tint(.white)
-        .alert("Purchase failed", isPresented: Binding(get: { pro.errorMessage != nil }, set: { if !$0 { pro.errorMessage = nil } })) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text(pro.errorMessage ?? "")
-        }
-        .onChange(of: pro.isPro) { _, isPro in
-            if isPro { dismiss() }
+            CircleIconButton(title: "Close", systemImage: "xmark") { dismiss() }
+                .padding(12)
         }
     }
 

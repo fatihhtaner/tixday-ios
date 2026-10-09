@@ -44,12 +44,8 @@ struct SettingsView: View {
         .scrollIndicators(.hidden)
         .background { PosterBackdrop(kind: .holiday) }
         .overlay(alignment: .topTrailing) {
-            Button("Close", systemImage: "xmark") { dismiss() }
-                .labelStyle(.iconOnly)
-                .font(.system(size: 15, weight: .bold))
-                .frame(width: 36, height: 36)
-                .glassBackground(in: Circle(), interactive: true)
-                .padding(16)
+            CircleIconButton(title: "Close", systemImage: "xmark") { dismiss() }
+                .padding(12)
         }
         .environment(\.colorScheme, .dark)
         .tint(.white)

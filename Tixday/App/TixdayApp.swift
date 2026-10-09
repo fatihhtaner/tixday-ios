@@ -32,6 +32,12 @@ struct TixdayApp: App {
             #if DEBUG
             if CommandLine.arguments.contains("-ticketGallery") {
                 TicketGalleryView()
+            } else if CommandLine.arguments.contains("-proWelcome") {
+                // The post-purchase celebration on its own, for design review.
+                ProWelcomeView {}
+                    .background { PosterBackdrop(kind: .concert) }
+                    .environment(\.colorScheme, .dark)
+                    .tint(.white)
             } else {
                 TicketListView()
                     .task { await proStore.start() }
