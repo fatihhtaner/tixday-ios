@@ -33,6 +33,8 @@
 - [x] Pro: `ProStore` (RevenueCat, Subloom ile aynı), paywall (bilet yelpazesi, 4 fayda, yıllık/ömür boyu, deneme, geri yükle, koşullar/gizlilik); kilitler: 4. bilet, yeni fotoğraf kaydetme, kilit ekranı widget'ları (App Group bayrağı); başlıkta Pro düğmesi. Anahtar yokken DEBUG ürünlerle çalışır; `-resetPro` ücretsize döndürür
 - [x] fastlane: `beta` (xcodegen → Release → TestFlight, build numarası otomatik) ve `metadata` lane'leri; App Store metinleri EN + TR (`fastlane/metadata`); kurulum `docs/app-store/fastlane.md`
 - [x] Deneme boşluğu kapatıldı (`TicketAccess`): Pro yokken en yakın 3 yaklaşan bilet açık, fazlası silinmez ama kilitli görünür (dokununca paywall, widget'ta seçilemez/kilit gösterir); fotoğraflar saklanır ama Pro yokken poster gösterilir; ücretsiz sınır artık geçmiş biletleri saymıyor
+- [x] App Store Connect: uygulama kaydı, `tixday_pro_yearly` (9,99$, 1 hafta deneme, 175 ülke) + `tixday_pro_lifetime` (24,99$), EN yerelleştirme, inceleme görseli/notu
+- [x] RevenueCat Tixday projesi: Test Store ürünleri, `tixday_pro` entitlement, `default` offering (Annual/Lifetime); DEBUG Test Store anahtarıyla simülatörde uçtan uca satın alma doğrulandı
 
 ## Sıradaki
 - [ ] `fastlane/AuthKey.json` + `.p8` (Subloom'daki anahtar kullanılabilir); App Store Connect'te uygulama kaydı
@@ -47,7 +49,7 @@
 - [ ] Kâğıt dokusu ve damga görselleri (henüz üretilmedi)
 - [ ] Uçuş küçük biletinde damga "HND" yazısına biraz giriyor; gerekirse dekoru küçült
 - [ ] Widget'ı ana ekranda gerçek cihazda/simülatörde kontrol et (çentik rengi, kenar boşlukları)
-- [ ] RevenueCat projesi + App Store Connect ürünleri (`tixday_pro_yearly` 9,99$ + 7 gün deneme, `tixday_pro_lifetime` 24,99$), entitlement `tixday_pro`; anahtarları `AppConfig`'e yaz
+- [ ] RevenueCat'e App Store uygulamasını ekle (In-App Purchase anahtarı), App Store ürünlerini `tixday_pro`'ya ve `default` offering paketlerine bağla, `appl_` anahtarını Release'e yaz — **Fatih**
 - [ ] Gizlilik politikası sayfası (paywall'daki Privacy linki şimdilik yer tutucu)
 - [ ] Live Activity (son 24 saat)
 - [ ] Etkinlik günü delme animasyonu + paylaşım kartı
