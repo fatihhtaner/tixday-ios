@@ -12,6 +12,11 @@ Pasif gelir amaçlı, sunucusuz bir iOS uygulaması. App Store adı: **Tixday �
 - Kimlikler: `com.ibrahimfatihtaner.tixday`, widget `com.ibrahimfatihtaner.tixday.widget`, App Group `group.com.ibrahimfatihtaner.tixday`.
 - Widget, `Tixday/Models`, `Tixday/Support` ve `Tixday/Tickets` klasörlerini uygulamayla paylaşır. Bu klasörlere uygulamaya özel (UIKit ekranı, `WidgetCenter` dışı servis vb.) kod koyma.
 
+## Web sitesi
+- Kaynak: `tools/build_site.py` (12 dil, tüm metinler) → `python3 tools/build_site.py` → `site/`. Yayın: public `fatihhtaner/tixday-site` reposu (`~/tixday-site`), GitHub Pages → `https://fatihhtaner.github.io/tixday-site/`.
+- `site/` değişince dosyaları `~/tixday-site`'a kopyalayıp orada commit/push et. Uygulamadaki linkler `AppConfig.sitePage` ile dile göre seçilir (`pt-BR` → `pt-br/`, `zh-Hans` → `zh-hans/`).
+- Destek e-postası: `ibrahimfatihtanerbsns@gmail.com`
+
 ## Komutlar
 ```bash
 xcodegen generate

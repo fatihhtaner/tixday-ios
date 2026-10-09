@@ -5,10 +5,10 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 ## 🚨 Yayına kadar zorunlu
 
 ### Web: destek ve gizlilik
-- [ ] Destek sitesi (Subloom'daki gibi GitHub Pages: `fatihhtaner/tixday-site`, `tools/build_site.py` ile 12 dil): ana sayfa, **gizlilik politikası**, **destek** (SSS + e-posta)
-- [ ] `AppConfig.privacyPolicyURL` ve paywall'daki Gizlilik linki gerçek sayfaya (şu an yer tutucu, açılınca 404)
+- [x] Destek sitesi üretildi (`tools/build_site.py`, 12 dil: ana sayfa, gizlilik, destek/SSS) ve `~/tixday-site`'ta commit'lendi; uygulama linkleri dile göre siteye bağlı
+- [ ] GitHub'da public `fatihhtaner/tixday-site` reposunu oluştur → Claude push'lar → Settings → Pages → Branch `main` / root — **Fatih**
 - [ ] App Store Connect → App Information: Privacy Policy URL, Support URL, (isteğe bağlı) Marketing URL — **Fatih**
-- [ ] Alan adı kararı: `tixday.app` alınacak mı, yoksa GitHub Pages adresi mi kalacak — **Fatih**
+- [x] Alan adı kararı: şimdilik GitHub Pages (`fatihhtaner.github.io/tixday-site`)
 
 ### Uygulama içi
 - [ ] **Ayarlar ekranı**: Pro durumu, Pro'ya geç, satın alımları geri yükle, aboneliği yönet (Apple sayfası), hatırlatmaları aç/kapat + saat, destek/gizlilik/koşullar linkleri, sürüm
