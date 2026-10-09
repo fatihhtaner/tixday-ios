@@ -28,6 +28,7 @@
 - [x] Düzenleyici yeniden tasarlandı: seçili türün bulanık posteri arka plan (koyu tema), büyük canlı önizleme, poster küçük resimli tür seçici, cam kartlar, tarihin yanında göreli süre
 - [x] Widget'lar ana ekranda yeni posterlerle kontrol edildi (orta boy, konser ve uçuş)
 - [x] Ana ekran ve detay ekranı da posterin bulanık atmosferinde (koyu tema, `PosterBackdrop`); detayda cam "bekleme" kartı (tarih, % geride kalan)
+- [x] Uygulama ikonu v3: vintage posterli bilet, kırmızı koçan, 3 delik + 2 boş (yeni temaya uygun)
 
 ## Sıradaki
 - [ ] Telefonda kahraman bilete dokununca detayın açıldığını doğrula (simülatörde anlık dokunuş saniyelik saat yüzünden yutulabiliyor)

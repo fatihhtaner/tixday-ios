@@ -16,7 +16,7 @@ Her bilet türü varsayılan olarak canlı bir **vintage seyahat posteri** illü
 ## Durum
 | # | Görsel | Dosya | Durum |
 |---|---|---|---|
-| — | Uygulama ikonu | `app-icon-1024.png` | ✅ Bitti |
+| — | Uygulama ikonu v3 (posterli bilet) | `app-icon-1024.png` (önceki: `app-icon-v2.png`, `app-icon-v1.png`) | ✅ Bitti |
 | 1–2 | Uçuş posteri | `poster-flight-wide.png`, `poster-flight-square.png` | ✅ |
 | 3–4 | Konser posteri | `poster-concert-wide.png`, `poster-concert-square.png` | ✅ |
 | 5–6 | Sınav posteri | `poster-exam-wide.png`, `poster-exam-square.png` | ✅ |
