@@ -23,10 +23,11 @@
 - [x] Ana ekran sadeleştirildi: deste + dev sayı + liste yerine alt alta biletler (Wallet gibi); tüm türler tek bilet düzeninde, eski v1/v2 tasarım kodu ve kâğıt zeminleri kaldırıldı
 - [x] Ana ekran v3: üstte "Next up" kahraman bilet (poster + koçanda canlı saat), altında Wallet gibi üst üste dizilmiş biletler (renkli başlık şeridi görünür, son kart tam açık); sabit başlık + iOS 26 yumuşak kaydırma kenarı
 - [x] Wallet destesi: kapalı kartlar başlık rengiyle dolu (köşelerden alttaki görsel sızmıyor); kapalı karta dokununca yerinde yaylanarak açılır, açık karta dokununca detay
+- [x] 6 türün tamamının posteri uygulamada; tatil koçanı postere uyması için çam yeşili
 
 ## Sıradaki
 - [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
-- [ ] Kalan 5 türün posteri (konser, sınav, düğün, doğum günü, tatil) — promptlar `docs/ASSET_PROMPTS.md`; her türe `posterStubColors` ver
+- [ ] Açık renkli posterlerde (doğum günü gökyüzü) beyaz başlık zayıf kalıyor; gerekirse o türde karartmayı artır
 - [ ] Fotoğraf seçme: kullanıcı fotoğrafı posterin yerine geçer (PhotosPicker, App Group'ta küçültülmüş JPEG, widget'ta da)
 - [ ] Kilit ekranı widget'larını simülatörde/cihazda görsel kontrol et
 - [ ] Ayarlar: bildirim saati ve hatırlatmaları kapatma

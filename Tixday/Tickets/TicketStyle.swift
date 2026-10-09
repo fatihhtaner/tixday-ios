@@ -63,7 +63,7 @@ extension TicketKind {
             TicketStyle(
                 background: Color(hex: "#791F1F"), ink: .white, muted: Color(hex: "#F7C1C1"), accent: Color(hex: "#F09595"),
                 perforation: Color(hex: "#E24B4A"), design: .monospaced, artOpacity: 0.8,
-                stubFill: Color(hex: "#F7C1C1"), stubInk: Color(hex: "#791F1F"), stubMuted: Color(hex: "#A32D2D")
+                stubFill: Color(hex: "#0F3D33"), stubInk: Color(hex: "#FAEEDA"), stubMuted: Color(hex: "#F09595")
             )
         }
     }

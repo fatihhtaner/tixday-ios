@@ -17,12 +17,12 @@ Her bilet türü varsayılan olarak canlı bir **vintage seyahat posteri** illü
 | # | Görsel | Dosya | Durum |
 |---|---|---|---|
 | — | Uygulama ikonu | `app-icon-1024.png` | ✅ Bitti |
-| 1–2 | Uçuş posteri | `poster-flight-wide.png`, `poster-flight-square.png` | ⏳ Sırada |
-| 3–4 | Konser posteri | `poster-concert-wide.png`, `poster-concert-square.png` | ⏳ |
-| 5–6 | Sınav posteri | `poster-exam-wide.png`, `poster-exam-square.png` | ⏳ |
-| 7–8 | Düğün posteri | `poster-wedding-wide.png`, `poster-wedding-square.png` | ⏳ |
-| 9–10 | Doğum günü posteri | `poster-birthday-wide.png`, `poster-birthday-square.png` | ⏳ |
-| 11–12 | Tatil posteri | `poster-holiday-wide.png`, `poster-holiday-square.png` | ⏳ |
+| 1–2 | Uçuş posteri | `poster-flight-wide.png`, `poster-flight-square.png` | ✅ |
+| 3–4 | Konser posteri | `poster-concert-wide.png`, `poster-concert-square.png` | ✅ |
+| 5–6 | Sınav posteri | `poster-exam-wide.png`, `poster-exam-square.png` | ✅ |
+| 7–8 | Düğün posteri | `poster-wedding-wide.png`, `poster-wedding-square.png` | ✅ |
+| 9–10 | Doğum günü posteri | `poster-birthday-wide.png`, `poster-birthday-square.png` | ✅ |
+| 11–12 | Tatil posteri | `poster-holiday-wide.png`, `poster-holiday-square.png` | ✅ |
 | 13 | "Kullanıldı" damgası | `punch-stamp.png` | Sonra |
 
 ---
