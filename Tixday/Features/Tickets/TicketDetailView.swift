@@ -38,7 +38,7 @@ struct TicketDetailView: View {
             .padding(.bottom, 40)
         }
         .scrollIndicators(.hidden)
-        .background { PosterBackdrop(kind: event.kind) }
+        .background { PosterBackdrop(kind: event.kind, photo: TicketPhoto.image(event.photoData)) }
         .navigationTitle(event.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar)

@@ -14,7 +14,7 @@ struct TicketView: View {
 
     private var style: TicketStyle { ticket.kind.style }
     private var days: Int { DayCount.days(until: ticket.date, from: now) }
-    private var poster: Image? { TicketPoster.image(ticket.kind, size == .small ? .square : .wide) }
+    private var poster: Image? { ticket.artwork(size == .small ? .square : .wide) }
     /// White type with a soft shadow over artwork; the kind's ink on plain paper.
     private var bodyInk: Color { poster == nil ? style.ink : .white }
 

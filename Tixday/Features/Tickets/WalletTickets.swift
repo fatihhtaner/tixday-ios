@@ -5,7 +5,7 @@ struct HeroTicket: View {
     let ticket: TicketSnapshot
 
     private var style: TicketStyle { ticket.kind.style }
-    private var poster: Image? { TicketPoster.image(ticket.kind, .wide) }
+    private var poster: Image? { ticket.artwork(.wide) }
     private var bodyInk: Color { poster == nil ? style.ink : .white }
 
     var body: some View {
@@ -103,7 +103,7 @@ struct WalletCard: View {
             .frame(height: Self.headerHeight)
 
             ZStack(alignment: .top) {
-                TicketBody(kind: ticket.kind, poster: TicketPoster.image(ticket.kind, .wide), posterAlignment: .trailing)
+                TicketBody(kind: ticket.kind, poster: ticket.artwork(.wide), posterAlignment: .trailing)
                     .opacity(isOpen ? 1 : 0)
                 // No notches here: a cut-out would show the cards beneath, and the backdrop behind
                 // the stack is an image, so no paint colour would match it.

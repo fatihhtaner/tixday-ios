@@ -12,6 +12,7 @@ struct TicketSnapshot: Identifiable, Hashable {
     var stubLeft = ""
     var stubRight = ""
     var createdAt = Date()
+    var photoData: Data?
 }
 
 extension TicketSnapshot {

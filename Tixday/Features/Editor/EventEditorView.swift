@@ -1,3 +1,4 @@
+import PhotosUI
 import SwiftData
 import SwiftUI
 import WidgetKit
@@ -17,6 +18,9 @@ struct EventEditorView: View {
     @State private var destination = ""
     @State private var stubLeft = ""
     @State private var stubRight = ""
+    @State private var photoData: Data?
+    @State private var photoItem: PhotosPickerItem?
+    @State private var isLoadingPhoto = false
 
     private var preview: TicketSnapshot {
         TicketSnapshot(
@@ -28,7 +32,8 @@ struct EventEditorView: View {
             destination: destination.uppercased(),
             stubLeft: stubLeft,
             stubRight: stubRight,
-            createdAt: event?.createdAt ?? .now
+            createdAt: event?.createdAt ?? .now,
+            photoData: photoData
         )
     }
 
@@ -40,6 +45,8 @@ struct EventEditorView: View {
                         .animation(.snappy, value: kind)
 
                     kindPicker
+
+                    photoCard
 
                     card {
                         field("Title") { TextField("", text: $title, prompt: Text(kind.name)) }
@@ -90,7 +97,7 @@ struct EventEditorView: View {
             }
             .scrollDismissesKeyboard(.interactively)
             .scrollIndicators(.hidden)
-            .background { PosterBackdrop(kind: kind) }
+            .background { PosterBackdrop(kind: kind, photo: TicketPhoto.image(photoData)) }
             .navigationTitle(event == nil ? "New ticket" : "Edit ticket")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -157,6 +164,69 @@ struct EventEditorView: View {
         .padding(.horizontal, -8)
     }
 
+    /// Your own photo instead of the poster.
+    private var photoCard: some View {
+        card {
+            HStack(spacing: 14) {
+                Group {
+                    if let photo = TicketPhoto.image(photoData) {
+                        photo.resizable().scaledToFill()
+                    } else {
+                        Image(systemName: "photo.badge.plus")
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(.white.opacity(0.08))
+                    }
+                }
+                .frame(width: 52, height: 52)
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                .overlay { if isLoadingPhoto { ProgressView() } }
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(photoData == nil ? "Use your own photo" : "Your photo")
+                        .font(.body.weight(.semibold))
+                    Text(photoData == nil ? "Replaces the poster on the ticket and widget" : "Shown on the ticket and widget")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer(minLength: 4)
+
+                if photoData != nil {
+                    Button("Remove photo", systemImage: "xmark.circle.fill") {
+                        withAnimation(.snappy) {
+                            photoData = nil
+                            photoItem = nil
+                        }
+                    }
+                    .labelStyle(.iconOnly)
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+                }
+                PhotosPicker(selection: $photoItem, matching: .images) {
+                    Text(photoData == nil ? "Choose" : "Change")
+                        .font(.subheadline.weight(.semibold))
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(.white.opacity(0.16), in: Capsule())
+                }
+            }
+            .padding(.vertical, 6)
+        }
+        .onChange(of: photoItem) { _, item in
+            guard let item else { return }
+            isLoadingPhoto = true
+            Task {
+                let data = try? await item.loadTransferable(type: Data.self)
+                let prepared = data.flatMap(PhotoPreparer.prepare)
+                await MainActor.run {
+                    withAnimation(.snappy) { if let prepared { photoData = prepared } }
+                    isLoadingPhoto = false
+                }
+            }
+        }
+    }
+
     private func card<Content: View>(@ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 0, content: content)
             .padding(.horizontal, 16)
@@ -197,6 +267,7 @@ struct EventEditorView: View {
         destination = event.destination
         stubLeft = event.stubLeft
         stubRight = event.stubRight
+        photoData = event.photoData
     }
 
     private func save() {
@@ -209,6 +280,7 @@ struct EventEditorView: View {
         target.destination = destination.uppercased()
         target.stubLeft = stubLeft
         target.stubRight = stubRight
+        target.photoData = photoData
         if event == nil { context.insert(target) }
         try? context.save()
         WidgetCenter.shared.reloadAllTimelines()
@@ -219,5 +291,23 @@ struct EventEditorView: View {
             await TicketNotifications.reschedule(tickets)
         }
         dismiss()
+    }
+}
+
+/// Shrinks a picked photo so it stays light in the store and within the widget's memory limit.
+enum PhotoPreparer {
+    static let maxSide: CGFloat = 1200
+
+    static func prepare(_ data: Data) -> Data? {
+        guard let image = UIImage(data: data) else { return nil }
+        let scale = min(1, maxSide / max(image.size.width, image.size.height))
+        let size = CGSize(width: (image.size.width * scale).rounded(), height: (image.size.height * scale).rounded())
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        format.opaque = true
+        let resized = UIGraphicsImageRenderer(size: size, format: format).image { _ in
+            image.draw(in: CGRect(origin: .zero, size: size))
+        }
+        return resized.jpegData(compressionQuality: 0.82)
     }
 }

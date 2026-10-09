@@ -17,6 +17,8 @@ final class TicketEvent {
     var stubLeft: String = ""
     var stubRight: String = ""
     var createdAt: Date = Date()
+    /// The user's own photo for the ticket body (a downscaled JPEG), replacing the kind's poster.
+    @Attribute(.externalStorage) var photoData: Data?
 
     init(
         title: String,
@@ -54,7 +56,8 @@ final class TicketEvent {
             destination: destination,
             stubLeft: stubLeft,
             stubRight: stubRight,
-            createdAt: createdAt
+            createdAt: createdAt,
+            photoData: photoData
         )
     }
 }

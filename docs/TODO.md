@@ -29,11 +29,12 @@
 - [x] Widget'lar ana ekranda yeni posterlerle kontrol edildi (orta boy, konser ve uçuş)
 - [x] Ana ekran ve detay ekranı da posterin bulanık atmosferinde (koyu tema, `PosterBackdrop`); detayda cam "bekleme" kartı (tarih, % geride kalan)
 - [x] Uygulama ikonu v3: vintage posterli bilet, kırmızı koçan, 3 delik + 2 boş (yeni temaya uygun)
+- [x] Fotoğraf seçme: PhotosPicker (izin gerektirmez), 1200 px JPEG, `photoData` (externalStorage, CloudKit uyumlu); bilette, widget'ta ve bulanık arka planda posterin yerini alır
 
 ## Sıradaki
 - [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
 - [ ] Açık renkli posterlerde (doğum günü gökyüzü) beyaz başlık zayıf kalıyor; gerekirse o türde karartmayı artır
-- [ ] Fotoğraf seçme: kullanıcı fotoğrafı posterin yerine geçer (PhotosPicker, App Group'ta küçültülmüş JPEG, widget'ta da)
+- [ ] Fotoğraf seçme Pro olacak: paywall gelince düzenleyicide kaydetmeyi Pro'ya bağla (önizleme herkese açık)
 - [ ] Kilit ekranı widget'larını simülatörde/cihazda görsel kontrol et
 - [ ] Ayarlar: bildirim saati ve hatırlatmaları kapatma
 - [ ] Çevirileri ana dili konuşan biriyle gözden geçir (özellikle AR, JA, KO, ZH); DE/FR/ES/IT/PT/JA/KO/ZH simülatörde görsel kontrol

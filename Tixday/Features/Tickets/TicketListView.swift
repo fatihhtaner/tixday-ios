@@ -58,7 +58,7 @@ struct TicketListView: View {
             }
             .scrollIndicators(.hidden)
             .pinnedTopBar { header.padding(.horizontal, 20).padding(.bottom, 10) }
-            .background { PosterBackdrop(kind: upcoming.first?.kind) }
+            .background { PosterBackdrop(kind: upcoming.first?.kind, photo: TicketPhoto.image(upcoming.first?.photoData)) }
             .toolbar(.hidden, for: .navigationBar)
             .navigationDestination(for: TicketEvent.self) { event in
                 TicketDetailView(event: event)
