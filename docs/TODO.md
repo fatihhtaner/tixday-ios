@@ -31,8 +31,11 @@
 - [x] Uygulama ikonu v3: vintage posterli bilet, kırmızı koçan, 3 delik + 2 boş (yeni temaya uygun)
 - [x] Fotoğraf seçme: PhotosPicker (izin gerektirmez), 1200 px JPEG, `photoData` (externalStorage, CloudKit uyumlu); bilette, widget'ta ve bulanık arka planda posterin yerini alır
 - [x] Pro: `ProStore` (RevenueCat, Subloom ile aynı), paywall (bilet yelpazesi, 4 fayda, yıllık/ömür boyu, deneme, geri yükle, koşullar/gizlilik); kilitler: 4. bilet, yeni fotoğraf kaydetme, kilit ekranı widget'ları (App Group bayrağı); başlıkta Pro düğmesi. Anahtar yokken DEBUG ürünlerle çalışır; `-resetPro` ücretsize döndürür
+- [x] fastlane: `beta` (xcodegen → Release → TestFlight, build numarası otomatik) ve `metadata` lane'leri; App Store metinleri EN + TR (`fastlane/metadata`); kurulum `docs/app-store/fastlane.md`
 
 ## Sıradaki
+- [ ] `fastlane/AuthKey.json` + `.p8` (Subloom'daki anahtar kullanılabilir); App Store Connect'te uygulama kaydı
+- [ ] App Store metinlerini kalan 10 dile çevir; ekran görüntüleri
 - [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
 - [ ] Açık renkli posterlerde (doğum günü gökyüzü) beyaz başlık zayıf kalıyor; gerekirse o türde karartmayı artır
 - [ ] Kilit ekranı widget'larını simülatörde/cihazda görsel kontrol et

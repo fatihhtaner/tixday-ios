@@ -1,0 +1,54 @@
+# Tixday lanes. Authentication uses an App Store Connect API key stored in
+# fastlane/AuthKey.json (git-ignored) — see docs/app-store/fastlane.md.
+
+require "json"
+
+default_platform(:ios)
+
+API_KEY_PATH = File.expand_path("AuthKey.json", __dir__)
+
+platform :ios do
+  before_all do
+    UI.user_error!("Missing fastlane/AuthKey.json — see docs/app-store/fastlane.md") unless File.exist?(API_KEY_PATH)
+    key = JSON.parse(File.read(API_KEY_PATH))
+    # Reads the .p8 from disk so the private key never has to be pasted into the JSON.
+    app_store_connect_api_key(
+      key_id: key["key_id"],
+      issuer_id: key["issuer_id"],
+      key_filepath: File.expand_path(File.join("..", key["key_filepath"]), __dir__),
+      in_house: key.fetch("in_house", false)
+    )
+  end
+
+  desc "Upload App Store texts from fastlane/metadata"
+  lane :metadata do
+    deliver(
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      skip_app_version_update: false,
+      force: true,               # no HTML preview / confirmation prompt
+      run_precheck_before_submit: false,
+      submit_for_review: false
+    )
+  end
+
+  desc "Build a Release archive and upload it to TestFlight"
+  lane :beta do
+    sh("cd .. && xcodegen generate")
+    # Simple build numbers: one more than the latest upload of this version (1, 2, 3… for each new version).
+    # MARKETING_VERSION in project.yml is the source of truth.
+    version = File.read(File.expand_path("../project.yml", __dir__))[/MARKETING_VERSION:\s*"?([\d.]+)"?/, 1]
+    UI.user_error!("MARKETING_VERSION not found in project.yml") unless version
+    latest = latest_testflight_build_number(version: version, initial_build_number: 0)
+    increment_build_number(build_number: (latest + 1).to_s, xcodeproj: "Tixday.xcodeproj")
+    build_app(
+      project: "Tixday.xcodeproj",
+      scheme: "Tixday",
+      configuration: "Release",
+      export_method: "app-store",
+      xcargs: "-allowProvisioningUpdates",
+      output_directory: "build/fastlane"
+    )
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+end

@@ -11,3 +11,11 @@ build/
 # Swift Package Manager
 .swiftpm/
 .build/
+
+# fastlane
+fastlane/AuthKey.json
+fastlane/*.p8
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/README.md
+build/fastlane/
