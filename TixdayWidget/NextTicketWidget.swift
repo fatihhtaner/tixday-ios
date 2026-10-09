@@ -1,37 +1,47 @@
+import AppIntents
 import SwiftData
 import SwiftUI
 import WidgetKit
 
 struct TicketEntry: TimelineEntry {
     let date: Date
-    /// nil when the user has no upcoming tickets.
+    /// nil when there is nothing to show (no tickets, or the chosen one was deleted).
     let ticket: TicketSnapshot?
 }
 
-/// Shows the soonest upcoming ticket and refreshes at every midnight.
-struct NextTicketProvider: TimelineProvider {
+/// Shows the chosen ticket, or the soonest upcoming one, and refreshes at every midnight.
+struct TicketProvider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> TicketEntry {
         TicketEntry(date: .now, ticket: TicketSnapshot.samples()[0])
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (TicketEntry) -> Void) {
-        let ticket = context.isPreview ? TicketSnapshot.samples()[0] : nextTicket(from: .now)
-        completion(TicketEntry(date: .now, ticket: ticket ?? TicketSnapshot.samples()[0]))
+    func snapshot(for configuration: SelectTicketIntent, in context: Context) async -> TicketEntry {
+        if context.isPreview {
+            return TicketEntry(date: .now, ticket: TicketSnapshot.samples()[0])
+        }
+        let ticket = ticket(for: configuration, now: .now) ?? TicketSnapshot.samples()[0]
+        return TicketEntry(date: .now, ticket: ticket)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<TicketEntry>) -> Void) {
+    func timeline(for configuration: SelectTicketIntent, in context: Context) async -> Timeline<TicketEntry> {
         // One entry per midnight for the next week, so the count stays right even without a reload.
         var entries: [TicketEntry] = []
         var day = Date.now
         for _ in 0..<7 {
-            entries.append(TicketEntry(date: day, ticket: nextTicket(from: day)))
+            entries.append(TicketEntry(date: day, ticket: ticket(for: configuration, now: day)))
             day = DayCount.nextMidnight(after: day)
         }
-        completion(Timeline(entries: entries, policy: .after(day)))
+        return Timeline(entries: entries, policy: .after(day))
     }
 
-    private func nextTicket(from now: Date) -> TicketSnapshot? {
+    private func ticket(for configuration: SelectTicketIntent, now: Date) -> TicketSnapshot? {
         let context = ModelContext(SharedStore.makeContainer())
+        if let chosen = configuration.ticket {
+            let id = chosen.id
+            var descriptor = FetchDescriptor<TicketEvent>(predicate: #Predicate { $0.id == id })
+            descriptor.fetchLimit = 1
+            return (try? context.fetch(descriptor))?.first?.snapshot
+        }
         let today = Calendar.current.startOfDay(for: now)
         var descriptor = FetchDescriptor<TicketEvent>(
             predicate: #Predicate { $0.date >= today },
@@ -44,11 +54,12 @@ struct NextTicketProvider: TimelineProvider {
 
 struct NextTicketWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "NextTicket", provider: NextTicketProvider()) { entry in
+        // Kind kept from the first version so widgets users already placed keep working.
+        AppIntentConfiguration(kind: "NextTicket", intent: SelectTicketIntent.self, provider: TicketProvider()) { entry in
             NextTicketWidgetView(entry: entry)
         }
-        .configurationDisplayName("Next ticket")
-        .description("Counts down to your soonest date.")
+        .configurationDisplayName("Ticket")
+        .description("Counts down to a date. Edit the widget to pick a ticket.")
         .supportedFamilies([.systemSmall, .systemMedium])
         .contentMarginsDisabled()
     }

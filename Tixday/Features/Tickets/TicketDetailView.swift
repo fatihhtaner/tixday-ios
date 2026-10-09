@@ -56,7 +56,7 @@ struct TicketDetailView: View {
         .background {
             ZStack {
                 Theme.canvas
-                LinearGradient(colors: [style.background.opacity(0.55), .clear], startPoint: .top, endPoint: .center)
+                RadialGradient(colors: [style.background.opacity(0.95), style.background.opacity(0)], center: .top, startRadius: 20, endRadius: 560)
             }
             .ignoresSafeArea()
         }
@@ -106,7 +106,8 @@ struct TicketDetailView: View {
         .foregroundStyle(isDestructive ? Color.red : Theme.ink)
         .frame(maxWidth: .infinity)
         .padding(.vertical, 14)
-        .background(Theme.card, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .contentShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .glassBackground(in: RoundedRectangle(cornerRadius: 22, style: .continuous), interactive: true)
     }
 }
 
@@ -146,7 +147,7 @@ private struct LiveCountdown: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 14)
-        .background(Theme.card, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .glassBackground(in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .animation(.snappy, value: value)
     }
 }

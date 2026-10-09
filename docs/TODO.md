@@ -13,12 +13,14 @@
 - [x] `docs/ASSET_PROMPTS.md`: ikon, 6 bilet dekoru, kâğıt dokusu, damga promptları
 - [x] 6 bilet dekoru entegre edildi (`Tixday/Tickets/TicketArt.xcassets`, uygulama ve widget ortak; tür başına opaklık `artOpacity`)
 - [x] Uygulama ikonu: zımbalı günler bileti (`design/app-icon-1024.png`; ilk sürüm `app-icon-v1.png`)
+- [x] Widget'ta bilet seçme: `SelectTicketIntent` + `TicketEntity` (boş bırakılırsa en yakın bilet); widget kind'ı "NextTicket" korundu
+- [x] Modern arayüz v2: kaydırılabilir 3D bilet destesi, odaktaki bilete göre renk alan zemin, dev sayaç başlığı, kompakt liste, Liquid Glass buton ve kutular (iOS 26, öncesinde materyal), zoom geçişi (iOS 18+)
 
 ## Sıradaki
+- [ ] Widget bilet seçimini simülatörde/cihazda elle test et (widget ekle → düzenle → bilet seç)
 - [ ] Kâğıt dokusu ve damga görselleri (henüz üretilmedi)
 - [ ] Uçuş küçük biletinde damga "HND" yazısına biraz giriyor; gerekirse dekoru küçült
 - [ ] Widget'ı ana ekranda gerçek cihazda/simülatörde kontrol et (çentik rengi, kenar boşlukları)
-- [ ] Widget'ta etkinlik seçme: `AppIntentConfiguration` + `AppEntity`
 - [ ] Kilit ekranı widget'ları (circular, rectangular, inline)
 - [ ] Bildirimler (30/7/1 gün kala, etkinlik günü)
 - [ ] String Catalog + Türkçe

@@ -1,0 +1,48 @@
+import SwiftUI
+
+extension View {
+    /// Liquid Glass on iOS 26; a frosted material before that.
+    @ViewBuilder
+    func glassBackground<S: Shape>(in shape: S, tint: Color? = nil, interactive: Bool = false) -> some View {
+        if #available(iOS 26.0, *) {
+            let glass: Glass = tint.map { Glass.regular.tint($0) } ?? .regular
+            self.glassEffect(interactive ? glass.interactive() : glass, in: shape)
+        } else {
+            self.background {
+                ZStack {
+                    shape.fill(.ultraThinMaterial)
+                    if let tint { shape.fill(tint) }
+                }
+            }
+        }
+    }
+
+    /// Marks a view as the place a zoom transition grows from (iOS 18+).
+    @ViewBuilder
+    func zoomSource(id: some Hashable, in namespace: Namespace.ID) -> some View {
+        if #available(iOS 18.0, *) {
+            self.matchedTransitionSource(id: id, in: namespace)
+        } else {
+            self
+        }
+    }
+
+    /// Pushes this screen by zooming out of its source (iOS 18+); a normal push before that.
+    @ViewBuilder
+    func zoomTransition(id: some Hashable, in namespace: Namespace.ID) -> some View {
+        if #available(iOS 18.0, *) {
+            self.navigationTransition(.zoom(sourceID: id, in: namespace))
+        } else {
+            self
+        }
+    }
+}
+
+/// Slight shrink on touch, so tickets feel like physical cards.
+struct PressableStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.97 : 1)
+            .animation(.snappy(duration: 0.2), value: configuration.isPressed)
+    }
+}
