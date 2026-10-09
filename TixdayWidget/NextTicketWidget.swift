@@ -42,20 +42,22 @@ struct TicketProvider: AppIntentTimelineProvider {
 
     /// A widget pinned to a ticket that is now beyond the free limit.
     private func isLocked(_ configuration: SelectTicketIntent, now: Date) -> Bool {
-        guard let chosen = configuration.ticket, !TicketAccess.isPro else { return false }
+        guard let chosenID = configuration.pinnedID, !TicketAccess.isPro else { return false }
         let context = ModelContext(SharedStore.makeContainer())
         let events = (try? context.fetch(FetchDescriptor<TicketEvent>())) ?? []
         let unlocked = TicketAccess.unlockedIDs(events.map { ($0.id, $0.date) }, isPro: false, now: now)
-        return events.contains { $0.id == chosen.id } && !unlocked.contains(chosen.id)
+        return events.contains { $0.id == chosenID } && !unlocked.contains(chosenID)
     }
 
     private func ticket(for configuration: SelectTicketIntent, now: Date) -> TicketSnapshot? {
         let context = ModelContext(SharedStore.makeContainer())
-        if let chosen = configuration.ticket {
-            let id = chosen.id
+        if let id = configuration.pinnedID {
             var descriptor = FetchDescriptor<TicketEvent>(predicate: #Predicate { $0.id == id })
             descriptor.fetchLimit = 1
-            return (try? context.fetch(descriptor))?.first?.snapshot
+            // A deleted ticket falls back to the next upcoming one.
+            if let pinned = (try? context.fetch(descriptor))?.first {
+                return pinned.snapshot
+            }
         }
         let today = Calendar.current.startOfDay(for: now)
         var descriptor = FetchDescriptor<TicketEvent>(

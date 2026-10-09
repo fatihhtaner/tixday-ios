@@ -10,6 +10,9 @@ struct TicketListView: View {
     @State private var paywallReason: ProFeature?
     @Namespace private var zoom
     @State private var isCreating = false
+    @State private var isShowingSettings = false
+    @AppStorage(ReminderSettings.enabledKey) private var remindersEnabled = true
+    @AppStorage(ReminderSettings.timeKey) private var reminderMinutes = ReminderSettings.defaultMinutes
     @State private var path: [TicketEvent] = []
     /// The stacked card the user tapped open; the last card of a stack is always open.
     @State private var openID: UUID?
@@ -79,6 +82,9 @@ struct TicketListView: View {
             .sheet(item: $paywallReason) { reason in
                 PaywallView(reason: reason)
             }
+            .sheet(isPresented: $isShowingSettings) {
+                SettingsView()
+            }
         }
         // Like the editor and details, home sits in the next ticket's poster atmosphere.
         .environment(\.colorScheme, .dark)
@@ -91,6 +97,7 @@ struct TicketListView: View {
 
     private var reminderSignature: [String] {
         events.map { "\($0.id)|\($0.title)|\($0.date.timeIntervalSinceReferenceDate)" }
+            + ["reminders|\(remindersEnabled)|\(reminderMinutes)"]
     }
 
     /// Today's date and how many tickets are waiting, instead of the app's name.
@@ -110,6 +117,15 @@ struct TicketListView: View {
                 }
                 .buttonStyle(PressableStyle())
             }
+            Button("Settings", systemImage: "gearshape") {
+                isShowingSettings = true
+            }
+            .labelStyle(.iconOnly)
+            .font(.system(size: 15, weight: .semibold))
+            .frame(width: 34, height: 34)
+            .contentShape(Circle())
+            .glassBackground(in: Circle(), interactive: true)
+            .buttonStyle(PressableStyle())
         }
         .padding(.top, 4)
     }

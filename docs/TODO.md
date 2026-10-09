@@ -11,11 +11,12 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [x] Alan adı kararı: şimdilik GitHub Pages (`fatihhtaner.github.io/tixday-site`)
 
 ### Uygulama içi
-- [ ] **Ayarlar ekranı**: Pro durumu, Pro'ya geç, satın alımları geri yükle, aboneliği yönet (Apple sayfası), hatırlatmaları aç/kapat + saat, destek/gizlilik/koşullar linkleri, sürüm
-- [ ] **Gizlilik bildirim dosyası** `PrivacyInfo.xcprivacy` (uygulama + widget): takip yok, UserDefaults sebebi CA92.1 + 1C8F.1 (App Group)
-- [ ] **Açılış ekranı**: şu an sistem varsayılanı (açık modda beyaz parlama, sonra koyu uygulama); koyu zeminli bir açılış ekranı
-- [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
-- [ ] Release kontrolü: DEBUG'a özel kodların (`-sampleData`, `-resetPro`, `-ticketGallery`, galeri ekranı) Release arşivinde olmadığını doğrula (test anahtarı kontrol edildi ✅)
+- [x] **Ayarlar ekranı** (ana ekranda dişli): Pro durumu (yenilenme/bitiş tarihi, ömür boyu), Pro'ya geç, geri yükle, aboneliği yönet (Apple sayfası), hatırlatmaları aç/kapat + saat, yardım/destek e-postası/gizlilik/koşullar, sürüm
+- [ ] Ayarlar'a "Uygulamayı değerlendir" satırı: App Store'daki uygulama kimliği (Apple ID, sayısal) gerekiyor — **Fatih** App Store Connect → App Information'dan iletsin
+- [x] **Gizlilik bildirim dosyası** `PrivacyInfo.xcprivacy` (uygulama + widget): takip yok, UserDefaults sebebi CA92.1 + 1C8F.1 (App Group)
+- [x] **Açılış ekranı**: koyu zemin (`LaunchBackground`, `Tixday/Info.plist`)
+- [x] Widget ayarında "En yakın bilet" seçeneği (varsayılan); silinen bilete sabitlenen widget en yakın bilete döner
+- [x] Release kontrolü: `-sampleData`, `-resetPro`, `-proScreenshots`, `-ticketGallery`, galeri ekranı, sahte ürünler ve test anahtarı Release ikilisinde yok
 
 ### App Store Connect — **Fatih**
 - [ ] App Privacy etiketi (RevenueCat: satın alma geçmişi + kullanıcı kimliği, takip yok) — adımları `docs/app-store/app-privacy.md` olarak Claude hazırlayacak
@@ -73,5 +74,5 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 **Altyapı**
 - fastlane `beta` + `metadata`, App Store metinleri EN + TR
-- 11 birim testi (gün hesabı, hatırlatmalar, erişim kuralı)
+- 12 birim testi (gün hesabı, hatırlatmalar, erişim kuralı)
 - DEBUG yardımcıları: `-sampleData`, `-resetPro`, `-proScreenshots`, `-ticketGallery`

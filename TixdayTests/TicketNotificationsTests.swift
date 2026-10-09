@@ -32,4 +32,9 @@ final class TicketNotificationsTests: XCTestCase {
         let reminders = TicketNotifications.reminderDates(for: date("2026-10-09T20:00:00"), now: date("2026-10-09T10:00:00"), calendar: calendar)
         XCTAssertTrue(reminders.isEmpty)
     }
+
+    func testUsesTheChosenTime() {
+        let reminders = TicketNotifications.reminderDates(for: date("2026-12-25T00:00:00"), minutes: 20 * 60 + 30, now: date("2026-10-09T12:00:00"), calendar: calendar)
+        XCTAssertEqual(reminders.last?.fireDate, date("2026-12-25T20:30:00"))
+    }
 }

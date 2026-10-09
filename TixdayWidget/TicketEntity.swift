@@ -11,11 +11,24 @@ struct TicketEntity: AppEntity {
     let title: String
     let date: Date
 
+    /// The "Next ticket" choice: not a real ticket, the widget follows the soonest upcoming one.
+    static let nextUpcomingID = UUID(uuidString: "00000000-0000-0000-0000-000000000000")!
+    static let nextUpcoming = TicketEntity(id: nextUpcomingID, title: "", date: .distantFuture)
+
     var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(
+        if id == Self.nextUpcomingID {
+            return DisplayRepresentation(title: "Next ticket", subtitle: "Always the soonest one")
+        }
+        return DisplayRepresentation(
             title: "\(title)",
             subtitle: "\(date.formatted(date: .abbreviated, time: .omitted))"
         )
+    }
+
+    private init(id: UUID, title: String, date: Date) {
+        self.id = id
+        self.title = title
+        self.date = date
     }
 
     init(event: TicketEvent) {
@@ -29,10 +42,16 @@ struct TicketEntityQuery: EntityQuery {
     func entities(for identifiers: [UUID]) async throws -> [TicketEntity] {
         let context = ModelContext(SharedStore.makeContainer())
         let events = (try? context.fetch(FetchDescriptor<TicketEvent>())) ?? []
-        return events.filter { identifiers.contains($0.id) }.map(TicketEntity.init)
+        let tickets = events.filter { identifiers.contains($0.id) }.map(TicketEntity.init)
+        return identifiers.contains(TicketEntity.nextUpcomingID) ? [.nextUpcoming] + tickets : tickets
     }
 
-    /// Upcoming tickets first, soonest at the top; past ones after.
+    /// New widgets start on "Next ticket" instead of an empty choice.
+    func defaultResult() async -> TicketEntity? {
+        .nextUpcoming
+    }
+
+    /// "Next ticket", then upcoming tickets, soonest at the top; past ones after.
     func suggestedEntities() async throws -> [TicketEntity] {
         let context = ModelContext(SharedStore.makeContainer())
         let events = (try? context.fetch(FetchDescriptor<TicketEvent>(sortBy: [SortDescriptor(\.date)]))) ?? []
@@ -42,7 +61,7 @@ struct TicketEntityQuery: EntityQuery {
         let usable = events.filter { unlocked.contains($0.id) }
         let upcoming = usable.filter { $0.date >= today }
         let past = usable.filter { $0.date < today }.reversed()
-        return (upcoming + past).map(TicketEntity.init)
+        return [.nextUpcoming] + (upcoming + past).map(TicketEntity.init)
     }
 }
 
@@ -53,4 +72,10 @@ struct SelectTicketIntent: WidgetConfigurationIntent {
 
     @Parameter(title: "Ticket")
     var ticket: TicketEntity?
+
+    /// The ticket the widget is pinned to; nil follows the next upcoming one.
+    var pinnedID: UUID? {
+        guard let id = ticket?.id, id != TicketEntity.nextUpcomingID else { return nil }
+        return id
+    }
 }

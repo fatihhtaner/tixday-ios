@@ -39,6 +39,10 @@ final class ProStore {
     private(set) var isPro = false {
         didSet { syncWidgetFlag() }
     }
+    /// When the subscription renews or ends; nil for lifetime Pro or no Pro.
+    private(set) var expirationDate: Date?
+    /// False once the user has cancelled; Pro stays on until `expirationDate`.
+    private(set) var willRenew = false
     private(set) var packages: [ProPackage] = []
     private(set) var isLoading = false
     private(set) var isPurchasing = false
@@ -171,8 +175,14 @@ final class ProStore {
         #if DEBUG
         if Self.forcesProForScreenshots { return }
         #endif
-        isPro = info.entitlements[Self.entitlementID]?.isActive == true
+        let entitlement = info.entitlements[Self.entitlementID]
+        isPro = entitlement?.isActive == true
+        expirationDate = isPro ? entitlement?.expirationDate : nil
+        willRenew = isPro && entitlement?.willRenew == true
     }
+
+    /// Pro bought once, with nothing to renew or cancel.
+    var isLifetime: Bool { isPro && expirationDate == nil }
 
     private static func makePackage(_ package: Package) async -> ProPackage {
         let product = package.storeProduct
