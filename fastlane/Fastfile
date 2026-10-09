@@ -5,6 +5,11 @@ require "json"
 
 default_platform(:ios)
 
+# xcpretty crashes on non-ASCII build output when the shell locale isn't UTF-8.
+ENV["LANG"] = ENV["LC_ALL"] = "en_US.UTF-8"
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
+
 API_KEY_PATH = File.expand_path("AuthKey.json", __dir__)
 
 platform :ios do
@@ -40,13 +45,14 @@ platform :ios do
     version = File.read(File.expand_path("../project.yml", __dir__))[/MARKETING_VERSION:\s*"?([\d.]+)"?/, 1]
     UI.user_error!("MARKETING_VERSION not found in project.yml") unless version
     latest = latest_testflight_build_number(version: version, initial_build_number: 0)
-    increment_build_number(build_number: (latest + 1).to_s, xcodeproj: "Tixday.xcodeproj")
+    # Passed to xcodebuild instead of agvtool, which would write the number into the Info.plist files.
+    build_number = latest + 1
     build_app(
       project: "Tixday.xcodeproj",
       scheme: "Tixday",
       configuration: "Release",
       export_method: "app-store",
-      xcargs: "-allowProvisioningUpdates",
+      xcargs: "-allowProvisioningUpdates CURRENT_PROJECT_VERSION=#{build_number}",
       output_directory: "build/fastlane"
     )
     upload_to_testflight(skip_waiting_for_build_processing: true)
