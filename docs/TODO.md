@@ -6,7 +6,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 ### Web: destek ve gizlilik
 - [x] Destek sitesi üretildi (`tools/build_site.py`, 12 dil: ana sayfa, gizlilik, destek/SSS) ve `~/tixday-site`'ta commit'lendi; uygulama linkleri dile göre siteye bağlı
-- [ ] GitHub'da public `fatihhtaner/tixday-site` reposunu oluştur → Claude push'lar → Settings → Pages → Branch `main` / root — **Fatih**
+- [x] Site yayında: https://fatihhtaner.github.io/tixday-site/ (12 dil, tüm sayfalar 200)
 - [ ] App Store Connect → App Information: Privacy Policy URL, Support URL, (isteğe bağlı) Marketing URL — **Fatih**
 - [x] Alan adı kararı: şimdilik GitHub Pages (`fatihhtaner.github.io/tixday-site`)
 
