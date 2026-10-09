@@ -26,4 +26,6 @@ xcodebuild -project Tixday.xcodeproj -scheme Tixday -destination 'platform=iOS S
 - Her etkinlik türünün tasarımı `TicketKind.style` (`Tickets/TicketStyle.swift`) ve `TicketView` içindeki küçük boy görünümünde. Yeni tür = yeni `TicketKind` case + stil + küçük boy tasarım.
 - Gün sayımı takvim günüdür (yarın her zaman 1); `DayCount` dışında gün hesabı yapma.
 - Bir etkinlik kaydedildiğinde/silindiğinde `WidgetCenter.shared.reloadAllTimelines()` çağrılır.
-- Kullanıcıya görünen metinler String Catalog'a gidecek (`Localizable.xcstrings`, henüz eklenmedi — bkz. TODO).
+- Kullanıcıya görünen metinler String Catalog'da: `Tixday/Resources/Localizable.xcstrings` (uygulama ve widget ortak). EN kaynak + 11 dil (TR, DE, FR, ES, IT, PT-BR, JA, KO, ZH-Hans, RU, AR). Yeni metin ekleyince build al, `find build -name '*.stringsdata' -not -path '*Tests*' -print0 | xargs -0 xcrun xcstringstool sync Tixday/Resources/Localizable.xcstrings --stringsdata` ile katalogu güncelle ve 11 dile çevir.
+- Gün birimleri ("%lld DAYS", "%lld DAYS TO GO", "%lld days to go") çoğul varyasyonlu; Xcode her biçimde sayıyı şart koştuğu için çeviride sayı var, ekranda `CountLabel.unit` onu siler (sayı ayrıca büyük çizilir). RU/AR'de tüm çoğul biçimlerini doldur.
+- Bilet etiketleri küçük widget'a sığmalı (≈18 karakter); uzun çevirilerde kısa karşılık seç. Büyük harfe çevirirken `uppercased(with: .current)` kullan (Türkçe i → İ). Arapça sağdan sola: düzen değişikliklerini Arapçada da kontrol et.

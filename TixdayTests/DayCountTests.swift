@@ -43,7 +43,9 @@ final class DayCountTests: XCTestCase {
 
     func testCountLabels() {
         XCTAssertEqual(CountLabel.number(for: -3), "3")
-        XCTAssertEqual(CountLabel.text(for: 1), String(localized: "DAY"))
         XCTAssertEqual(CountLabel.text(for: 0), String(localized: "TODAY"))
+        // The unit's plural variations leave the number out; it is drawn separately.
+        XCTAssertFalse(CountLabel.text(for: 5).contains("5"))
+        XCTAssertFalse(CountLabel.text(for: 1).contains("1"))
     }
 }

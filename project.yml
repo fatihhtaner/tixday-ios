@@ -52,6 +52,7 @@ targets:
       - path: Tixday/Models
       - path: Tixday/Support
       - path: Tixday/Tickets
+      - path: Tixday/Resources/Localizable.xcstrings
     entitlements:
       path: TixdayWidget/TixdayWidget.entitlements
       properties:

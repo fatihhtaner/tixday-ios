@@ -6,9 +6,16 @@ enum CountLabel {
         switch days {
         case ..<0: String(localized: "DONE")
         case 0: String(localized: "TODAY")
-        case 1: String(localized: "DAY")
-        default: String(localized: "DAYS")
+        default: unit(String(localized: "\(days) DAYS", comment: "Unit under a day count; the app removes the number and draws it separately"))
         }
+    }
+
+    /// Drops the number from a pluralised phrase like "83 DAYS TO GO": the catalog needs it to pick
+    /// the right plural form, but the ticket draws the number on its own, larger. Works for any digit script.
+    static func unit(_ phrase: String) -> String {
+        phrase.filter { !$0.isNumber }
+            .split(separator: " ", omittingEmptySubsequences: true)
+            .joined(separator: " ")
     }
 
     /// The number itself; past dates show how long ago they were.
@@ -20,7 +27,7 @@ enum CountLabel {
 extension Date {
     /// "12 JAN" style date for the stub.
     var stubText: String {
-        formatted(.dateTime.day().month(.abbreviated)).uppercased()
+        formatted(.dateTime.day().month(.abbreviated)).uppercased(with: .current)
     }
 }
 

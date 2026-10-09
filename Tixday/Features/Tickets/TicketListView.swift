@@ -75,7 +75,7 @@ struct TicketListView: View {
                 .font(Theme.display(30))
                 .foregroundStyle(Theme.ink)
             Spacer()
-            Text(Date.now.formatted(.dateTime.weekday(.abbreviated).day().month(.abbreviated)).uppercased())
+            Text(Date.now.formatted(.dateTime.weekday(.abbreviated).day().month(.abbreviated)).uppercased(with: .current))
                 .font(Theme.eyebrow)
                 .foregroundStyle(.secondary)
         }
@@ -135,7 +135,7 @@ struct TicketListView: View {
         .scrollClipDisabled()
     }
 
-    /// "83 days until Japan", following the ticket in focus.
+    /// "83 / DAYS TO GO / Japan", following the ticket in focus.
     @ViewBuilder
     private var countdownHeadline: some View {
         if let focused {
@@ -148,11 +148,14 @@ struct TicketListView: View {
                     .foregroundStyle(Theme.ink)
                     .lineLimit(1)
                     .minimumScaleFactor(0.5)
-                Text(days == 0 ? "Today: \(focused.title)" : days == 1 ? "day until \(focused.title)" : "days until \(focused.title)")
-                    .font(.title3.weight(.medium))
+                Text(days == 0 ? String(localized: "TODAY") : CountLabel.unit(String(localized: "\(days) DAYS TO GO", comment: "Under the big day count on Home; the app removes the number")))
+                    .font(Theme.eyebrow)
                     .foregroundStyle(.secondary)
+                Text(focused.title)
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(Theme.ink)
                     .lineLimit(1)
-                    .contentTransition(.opacity)
+                    .padding(.top, 2)
             }
             .animation(.snappy, value: focused.id)
         }

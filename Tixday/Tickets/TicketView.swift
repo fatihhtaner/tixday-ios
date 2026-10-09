@@ -267,7 +267,7 @@ private struct SmallWedding: View {
                 .font(.system(size: 44, weight: .medium, design: .serif))
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
-            Text(days > 0 ? String(localized: "days to go") : CountLabel.text(for: days).lowercased())
+            Text(days > 0 ? CountLabel.unit(String(localized: "\(days) days to go", comment: "Under the day count on a wedding invitation; the app removes the number")) : CountLabel.text(for: days).lowercased())
                 .font(style.label(12).italic())
                 .foregroundStyle(style.muted)
             Image(systemName: "heart")
