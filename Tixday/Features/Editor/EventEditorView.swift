@@ -35,11 +35,8 @@ struct EventEditorView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 24) {
-                    TicketView(ticket: preview, size: .medium, notchColor: nil)
-                        .frame(height: 172)
-                        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-                        .ticketShadow()
+                VStack(spacing: 22) {
+                    HeroTicket(ticket: preview)
                         .animation(.snappy, value: kind)
 
                     kindPicker
@@ -48,7 +45,12 @@ struct EventEditorView: View {
                         field("Title") { TextField("", text: $title, prompt: Text(kind.name)) }
                         divider
                         HStack {
-                            label("Date")
+                            VStack(alignment: .leading, spacing: 4) {
+                                label("Date")
+                                Text(Calendar.current.startOfDay(for: date), format: .relative(presentation: .named, unitsStyle: .wide))
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                            }
                             Spacer()
                             DatePicker("", selection: $date, displayedComponents: .date)
                                 .labelsHidden()
@@ -65,7 +67,8 @@ struct EventEditorView: View {
                                     TextField("", text: $origin, prompt: Text(kind == .flight ? "IST" : "HOME"))
                                         .textInputAutocapitalization(.characters)
                                 }
-                                Image(systemName: "arrow.right").foregroundStyle(.tertiary)
+                                Image(systemName: kind == .flight ? "airplane" : "arrow.right")
+                                    .foregroundStyle(.secondary)
                                 field("To") {
                                     TextField("", text: $destination, prompt: Text(kind == .flight ? "HND" : "NORTH POLE"))
                                         .textInputAutocapitalization(.characters)
@@ -86,14 +89,8 @@ struct EventEditorView: View {
                 .padding(.vertical, 12)
             }
             .scrollDismissesKeyboard(.interactively)
-            .background {
-                ZStack {
-                    Theme.canvas
-                    LinearGradient(colors: [kind.style.background.opacity(0.6), .clear], startPoint: .top, endPoint: .center)
-                        .animation(.easeInOut, value: kind)
-                }
-                .ignoresSafeArea()
-            }
+            .scrollIndicators(.hidden)
+            .background { backdrop }
             .navigationTitle(event == nil ? "New ticket" : "Edit ticket")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -107,11 +104,34 @@ struct EventEditorView: View {
             }
             .onAppear(perform: load)
         }
-        .tint(Theme.ink)
+        // The editor takes on the ticket's atmosphere: its poster, blurred and darkened.
+        .environment(\.colorScheme, .dark)
+        .tint(.white)
     }
 
     // MARK: - Pieces
 
+    private var backdrop: some View {
+        ZStack {
+            Color.black
+            if let poster = TicketPoster.image(kind, .square) {
+                poster
+                    .resizable()
+                    .scaledToFill()
+                    .blur(radius: 50)
+                    .scaleEffect(1.3)
+                    .id(kind)
+                    .transition(.opacity)
+            } else {
+                kind.style.background
+            }
+            Color.black.opacity(0.45)
+        }
+        .animation(.easeInOut(duration: 0.45), value: kind)
+        .ignoresSafeArea()
+    }
+
+    /// Each kind as a little poster to pick from.
     private var kindPicker: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
@@ -120,39 +140,48 @@ struct EventEditorView: View {
                     Button {
                         withAnimation(.snappy) { kind = option }
                     } label: {
-                        VStack(spacing: 8) {
-                            Image(systemName: option.symbol)
-                                .font(.system(size: 20, weight: .semibold))
-                                .foregroundStyle(option.style.ink)
-                                .frame(width: 62, height: 62)
-                                .background(option.style.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 18, style: .continuous)
-                                        .strokeBorder(Theme.ink.opacity(0.08), lineWidth: 1)
-                                )
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 22, style: .continuous)
-                                        .stroke(Theme.ink, lineWidth: isSelected ? 2 : 0)
-                                        .padding(-4)
-                                )
-                            Text(option.name)
-                                .font(.caption.weight(isSelected ? .semibold : .regular))
-                                .foregroundStyle(isSelected ? Theme.ink : .secondary)
+                        ZStack(alignment: .bottomLeading) {
+                            if let poster = TicketPoster.image(option, .square) {
+                                // Sized here so the overflow is cropped and doesn't push the label out.
+                                poster.resizable().scaledToFill().frame(width: 84, height: 104).clipped()
+                            } else {
+                                option.style.background
+                            }
+                            LinearGradient(colors: [.clear, .black.opacity(0.65)], startPoint: .center, endPoint: .bottom)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Image(systemName: option.symbol)
+                                    .font(.system(size: 12, weight: .bold))
+                                Text(option.name)
+                                    .font(.caption.weight(.semibold))
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.8)
+                            }
+                            .foregroundStyle(.white)
+                            .padding(8)
                         }
+                        .frame(width: 84, height: 104)
+                        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                                .stroke(.white, lineWidth: isSelected ? 2.5 : 0)
+                                .padding(-5)
+                        )
+                        .scaleEffect(isSelected ? 1 : 0.94)
+                        .opacity(isSelected ? 1 : 0.75)
                     }
                     .buttonStyle(PressableStyle())
                 }
             }
-            .padding(6)
+            .padding(8)
         }
-        .padding(.horizontal, -6)
+        .padding(.horizontal, -8)
     }
 
     private func card<Content: View>(@ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 0, content: content)
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
-            .background(Theme.card, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .glassBackground(in: RoundedRectangle(cornerRadius: 22, style: .continuous))
     }
 
     private func field<Content: View>(_ title: LocalizedStringKey, @ViewBuilder content: () -> Content) -> some View {

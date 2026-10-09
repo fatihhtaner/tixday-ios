@@ -249,8 +249,7 @@
         }
       }
     },
-    "%lld DAYS TO GO": {
-      "comment": "Under the big day count on Home; the app removes the number",
+    "%lld tickets ahead": {
       "localizations": {
         "ar": {
           "variations": {
@@ -258,37 +257,37 @@
               "few": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld أيام متبقية"
+                  "value": "%lld تذاكر قادمة"
                 }
               },
               "many": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld يومًا متبقيًا"
+                  "value": "%lld تذكرة قادمة"
                 }
               },
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld يوم متبقٍ"
+                  "value": "تذكرة واحدة قادمة"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld يوم متبقٍ"
+                  "value": "%lld تذكرة قادمة"
                 }
               },
               "two": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld يومان متبقيان"
+                  "value": "تذكرتان قادمتان"
                 }
               },
               "zero": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld يوم متبقٍ"
+                  "value": "لا تذاكر قادمة"
                 }
               }
             }
@@ -300,13 +299,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld TAG ÜBRIG"
+                  "value": "%lld Ticket wartet"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld TAGE ÜBRIG"
+                  "value": "%lld Tickets warten"
                 }
               }
             }
@@ -318,13 +317,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld DAY TO GO"
+                  "value": "%lld ticket ahead"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld DAYS TO GO"
+                  "value": "%lld tickets ahead"
                 }
               }
             }
@@ -336,13 +335,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld DÍA RESTANTE"
+                  "value": "%lld boleto por delante"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld DÍAS RESTANTES"
+                  "value": "%lld boletos por delante"
                 }
               }
             }
@@ -354,13 +353,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld JOUR RESTANT"
+                  "value": "%lld billet à venir"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld JOURS RESTANTS"
+                  "value": "%lld billets à venir"
                 }
               }
             }
@@ -372,13 +371,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld GIORNO RIMASTO"
+                  "value": "%lld biglietto in arrivo"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld GIORNI RIMASTI"
+                  "value": "%lld biglietti in arrivo"
                 }
               }
             }
@@ -390,7 +389,7 @@
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld日"
+                  "value": "チケット%lld枚"
                 }
               }
             }
@@ -402,7 +401,7 @@
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld 일 남음"
+                  "value": "티켓 %lld장"
                 }
               }
             }
@@ -414,13 +413,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld DIA RESTANTE"
+                  "value": "%lld ingresso pela frente"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld DIAS RESTANTES"
+                  "value": "%lld ingressos pela frente"
                 }
               }
             }
@@ -432,25 +431,25 @@
               "few": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld ДНЯ ОСТАЛОСЬ"
+                  "value": "%lld билета впереди"
                 }
               },
               "many": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld ДНЕЙ ОСТАЛОСЬ"
+                  "value": "%lld билетов впереди"
                 }
               },
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld ДЕНЬ ОСТАЛСЯ"
+                  "value": "%lld билет впереди"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld ДНЯ ОСТАЛОСЬ"
+                  "value": "%lld билета впереди"
                 }
               }
             }
@@ -462,13 +461,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld GÜN KALDI"
+                  "value": "%lld bilet seni bekliyor"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld GÜN KALDI"
+                  "value": "%lld bilet seni bekliyor"
                 }
               }
             }
@@ -480,319 +479,10 @@
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld天"
+                  "value": "%lld 张票在等你"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "%lld days to go": {
-      "comment": "Under the day count on a wedding invitation; the app removes the number",
-      "localizations": {
-        "ar": {
-          "variations": {
-            "plural": {
-              "few": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld أيام متبقية"
-                }
-              },
-              "many": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld يومًا متبقيًا"
-                }
-              },
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld يوم متبقٍ"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld يوم متبقٍ"
-                }
-              },
-              "two": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld يومان متبقيان"
-                }
-              },
-              "zero": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld يوم متبقٍ"
-                }
-              }
-            }
-          }
-        },
-        "de": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld Tag übrig"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld Tage übrig"
-                }
-              }
-            }
-          }
-        },
-        "en": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld day to go"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld days to go"
-                }
-              }
-            }
-          }
-        },
-        "es": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld día restante"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld días restantes"
-                }
-              }
-            }
-          }
-        },
-        "fr": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld jour restant"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld jours restants"
-                }
-              }
-            }
-          }
-        },
-        "it": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld giorno rimasto"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld giorni rimasti"
-                }
-              }
-            }
-          }
-        },
-        "ja": {
-          "variations": {
-            "plural": {
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld日"
-                }
-              }
-            }
-          }
-        },
-        "ko": {
-          "variations": {
-            "plural": {
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld 일 남음"
-                }
-              }
-            }
-          }
-        },
-        "pt-BR": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld dia restante"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld dias restantes"
-                }
-              }
-            }
-          }
-        },
-        "ru": {
-          "variations": {
-            "plural": {
-              "few": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld дня осталось"
-                }
-              },
-              "many": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld дней осталось"
-                }
-              },
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld день остался"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld дня осталось"
-                }
-              }
-            }
-          }
-        },
-        "tr": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld gün kaldı"
-                }
-              },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld gün kaldı"
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans": {
-          "variations": {
-            "plural": {
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "%lld天"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "APPROVED": {
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "معتمد"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "GEPRÜFT"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "APROBADO"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "VALIDÉ"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "APPROVATO"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "確認済"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "승인"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "APROVADO"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ОДОБРЕНО"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ONAYLI"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已核准"
           }
         }
       }
@@ -933,76 +623,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "添加你期待的日子，在主屏幕上看着它倒数。"
-          }
-        }
-      }
-    },
-    "All tickets": {
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "كل التذاكر"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alle Tickets"
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todos los boletos"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tous les billets"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tutti i biglietti"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "すべてのチケット"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "모든 티켓"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todos os ingressos"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Все билеты"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tüm biletler"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "全部票券"
           }
         }
       }
@@ -3113,6 +2733,146 @@
         }
       }
     },
+    "Next up": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التالي"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Als Nächstes"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo próximo"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "À venir"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prossimo"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次の予定"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다음 일정"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A seguir"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ближайшее"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sıradaki"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "即将到来"
+          }
+        }
+      }
+    },
+    "Nothing planned yet": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا شيء مخطط له بعد"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noch nichts geplant"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada planeado aún"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rien de prévu pour l'instant"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ancora niente in programma"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "まだ予定はありません"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "아직 계획이 없어요"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada planejado ainda"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пока ничего не запланировано"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Henüz plan yok"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂无计划"
+          }
+        }
+      }
+    },
     "One month to go.": {
       "localizations": {
         "ar": {
@@ -3883,9 +3643,6 @@
         }
       }
     },
-    "Tixday": {
-      "shouldTranslate": false
-    },
     "To": {
       "localizations": {
         "ar": {
@@ -4442,6 +4199,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "地点"
+          }
+        }
+      }
+    },
+    "Wallet": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المحفظة"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wallet"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cartera"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Portefeuille"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Portafoglio"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ウォレット"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "지갑"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carteira"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кошелёк"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cüzdan"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "票夹"
           }
         }
       }

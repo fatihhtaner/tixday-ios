@@ -79,16 +79,20 @@ struct TicketListView: View {
         events.map { "\($0.id)|\($0.title)|\($0.date.timeIntervalSinceReferenceDate)" }
     }
 
+    /// Today's date and how many tickets are waiting, instead of the app's name.
     private var header: some View {
-        HStack(alignment: .lastTextBaseline) {
-            Text("Tixday")
-                .font(Theme.display(30))
-                .foregroundStyle(Theme.ink)
-            Spacer()
-            Text(Date.now.formatted(.dateTime.weekday(.abbreviated).day().month(.abbreviated)).uppercased(with: .current))
+        VStack(alignment: .leading, spacing: 2) {
+            Text(Date.now.formatted(.dateTime.weekday(.wide).day().month(.wide)).uppercased(with: .current))
                 .font(Theme.eyebrow)
                 .foregroundStyle(.secondary)
+            Text(upcoming.isEmpty ? String(localized: "Nothing planned yet") : String(localized: "\(upcoming.count) tickets ahead"))
+                .font(Theme.display(24))
+                .foregroundStyle(Theme.ink)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
+                .contentTransition(.numericText())
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.top, 4)
     }
 

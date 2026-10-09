@@ -24,6 +24,9 @@
 - [x] Ana ekran v3: üstte "Next up" kahraman bilet (poster + koçanda canlı saat), altında Wallet gibi üst üste dizilmiş biletler (renkli başlık şeridi görünür, son kart tam açık); sabit başlık + iOS 26 yumuşak kaydırma kenarı
 - [x] Wallet destesi: kapalı kartlar başlık rengiyle dolu (köşelerden alttaki görsel sızmıyor); kapalı karta dokununca yerinde yaylanarak açılır, açık karta dokununca detay
 - [x] 6 türün tamamının posteri uygulamada; tatil koçanı postere uyması için çam yeşili
+- [x] Ana ekran başlığı: uygulama adı yerine tarih + "N bilet seni bekliyor" (çoğul, 12 dil)
+- [x] Düzenleyici yeniden tasarlandı: seçili türün bulanık posteri arka plan (koyu tema), büyük canlı önizleme, poster küçük resimli tür seçici, cam kartlar, tarihin yanında göreli süre
+- [x] Widget'lar ana ekranda yeni posterlerle kontrol edildi (orta boy, konser ve uçuş)
 
 ## Sıradaki
 - [ ] Widget ayarında bilet seçilmemişken "Bilet" yerine "En yakın bilet" yazsın
