@@ -7,6 +7,8 @@ struct TicketEntry: TimelineEntry {
     let date: Date
     /// nil when there is nothing to show (no tickets, or the chosen one was deleted).
     let ticket: TicketSnapshot?
+    /// The chosen ticket is beyond the free limit since Pro ended.
+    var isLocked = false
 }
 
 /// Shows the chosen ticket, or the soonest upcoming one, and refreshes at every midnight.
@@ -28,10 +30,23 @@ struct TicketProvider: AppIntentTimelineProvider {
         var entries: [TicketEntry] = []
         var day = Date.now
         for _ in 0..<7 {
-            entries.append(TicketEntry(date: day, ticket: ticket(for: configuration, now: day)))
+            if isLocked(configuration, now: day) {
+                entries.append(TicketEntry(date: day, ticket: nil, isLocked: true))
+            } else {
+                entries.append(TicketEntry(date: day, ticket: ticket(for: configuration, now: day)))
+            }
             day = DayCount.nextMidnight(after: day)
         }
         return Timeline(entries: entries, policy: .after(day))
+    }
+
+    /// A widget pinned to a ticket that is now beyond the free limit.
+    private func isLocked(_ configuration: SelectTicketIntent, now: Date) -> Bool {
+        guard let chosen = configuration.ticket, !TicketAccess.isPro else { return false }
+        let context = ModelContext(SharedStore.makeContainer())
+        let events = (try? context.fetch(FetchDescriptor<TicketEvent>())) ?? []
+        let unlocked = TicketAccess.unlockedIDs(events.map { ($0.id, $0.date) }, isPro: false, now: now)
+        return events.contains { $0.id == chosen.id } && !unlocked.contains(chosen.id)
     }
 
     private func ticket(for configuration: SelectTicketIntent, now: Date) -> TicketSnapshot? {
@@ -87,7 +102,18 @@ struct NextTicketWidgetView: View {
 
     @ViewBuilder
     private var homeScreen: some View {
-        if let ticket = entry.ticket {
+        if entry.isLocked {
+            VStack(spacing: 6) {
+                Image(systemName: "lock.fill")
+                    .font(.title2)
+                Text("Unlock with Tixday Pro")
+                    .font(.caption.weight(.medium))
+                    .multilineTextAlignment(.center)
+            }
+            .foregroundStyle(.secondary)
+            .padding()
+            .containerBackground(for: .widget) { Color(.systemBackground) }
+        } else if let ticket = entry.ticket {
             TicketView(ticket: ticket, size: family == .systemMedium ? .medium : .small, now: entry.date)
                 .containerBackground(for: .widget) { ticket.kind.style.background }
         } else {

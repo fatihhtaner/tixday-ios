@@ -34,7 +34,7 @@ enum ProFeature: String, Identifiable {
 @Observable
 final class ProStore {
     static let entitlementID = "tixday_pro"
-    static let freeTicketLimit = 3
+    static let freeTicketLimit = TicketAccess.freeLimit
 
     private(set) var isPro = false {
         didSet { syncWidgetFlag() }
@@ -68,9 +68,9 @@ final class ProStore {
         #endif
     }
 
-    /// Whether a free user may add another ticket.
-    func canAddTicket(currentCount: Int) -> Bool {
-        isPro || currentCount < Self.freeTicketLimit
+    /// Whether a free user may add another ticket; only upcoming tickets count.
+    func canAddTicket(upcomingCount: Int) -> Bool {
+        isPro || upcomingCount < Self.freeTicketLimit
     }
 
     /// Mirrors `isPro` into the App Group so the widget shows Lock Screen content or the Pro prompt.

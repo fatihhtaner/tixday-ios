@@ -35,7 +35,8 @@ struct EventEditorView: View {
             stubLeft: stubLeft,
             stubRight: stubRight,
             createdAt: event?.createdAt ?? .now,
-            photoData: photoData
+            // Without Pro a newly picked photo previews (try before you buy), but a stored one stays hidden.
+            photoData: pro.isPro || photoData != event?.photoData ? photoData : nil
         )
     }
 

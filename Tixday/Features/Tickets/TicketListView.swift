@@ -18,6 +18,11 @@ struct TicketListView: View {
         events.filter { DayCount.days(until: $0.date) >= 0 }
     }
 
+    /// Tickets a free user can use; the rest show locked (see `TicketAccess`).
+    private var unlockedIDs: Set<UUID> {
+        TicketAccess.unlockedIDs(events.map { ($0.id, $0.date) }, isPro: pro.isPro)
+    }
+
     private var past: [TicketEvent] {
         events.filter { DayCount.days(until: $0.date) < 0 }.reversed()
     }
@@ -60,7 +65,7 @@ struct TicketListView: View {
             }
             .scrollIndicators(.hidden)
             .pinnedTopBar { header.padding(.horizontal, 20).padding(.bottom, 10) }
-            .background { PosterBackdrop(kind: upcoming.first?.kind, photo: TicketPhoto.image(upcoming.first?.photoData)) }
+            .background { PosterBackdrop(kind: upcoming.first?.kind, photo: TicketPhoto.image(upcoming.first?.snapshot.photoData)) }
             .toolbar(.hidden, for: .navigationBar)
             .navigationDestination(for: TicketEvent.self) { event in
                 TicketDetailView(event: event)
@@ -141,16 +146,20 @@ struct TicketListView: View {
     /// tapping an open one shows its details.
     private func stack(_ items: [TicketEvent]) -> some View {
         VStack(spacing: -WalletCard.overlap) {
+            let unlocked = unlockedIDs
             ForEach(items) { event in
-                let isOpen = event.id == openID || event.id == items.last?.id
+                let isLocked = !unlocked.contains(event.id)
+                let isOpen = !isLocked && (event.id == openID || event.id == items.last?.id)
                 Button {
-                    if isOpen {
+                    if isLocked {
+                        paywallReason = .unlimitedTickets
+                    } else if isOpen {
                         path.append(event)
                     } else {
                         withAnimation(.spring(response: 0.42, dampingFraction: 0.82)) { openID = event.id }
                     }
                 } label: {
-                    WalletCard(ticket: event.snapshot, isOpen: isOpen)
+                    WalletCard(ticket: event.snapshot, isOpen: isOpen, isLocked: isLocked)
                         .zoomSource(id: event.id, in: zoom)
                 }
                 .buttonStyle(PressableStyle())
@@ -169,7 +178,7 @@ struct TicketListView: View {
 
     private var newTicketButton: some View {
         Button {
-            if pro.canAddTicket(currentCount: events.count) {
+            if pro.canAddTicket(upcomingCount: upcoming.count) {
                 isCreating = true
             } else {
                 paywallReason = .unlimitedTickets

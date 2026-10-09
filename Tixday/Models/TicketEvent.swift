@@ -57,7 +57,8 @@ final class TicketEvent {
             stubLeft: stubLeft,
             stubRight: stubRight,
             createdAt: createdAt,
-            photoData: photoData
+            // Photos are a Pro feature: kept in the store, shown only while Pro is active.
+            photoData: TicketAccess.isPro ? photoData : nil
         )
     }
 }

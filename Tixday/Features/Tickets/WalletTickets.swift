@@ -68,6 +68,8 @@ struct HeroTicket: View {
 struct WalletCard: View {
     let ticket: TicketSnapshot
     var isOpen: Bool
+    /// Beyond the free limit without Pro: shown greyed with a lock instead of the count.
+    var isLocked = false
 
     static let headerHeight: CGFloat = 68
     static let openHeight: CGFloat = 188
@@ -89,13 +91,21 @@ struct WalletCard: View {
                         .lineLimit(1)
                 }
                 Spacer(minLength: 4)
-                let days = DayCount.days(until: ticket.date)
-                VStack(alignment: .trailing, spacing: 0) {
-                    Text(CountLabel.number(for: days))
-                        .font(style.number(28))
-                    Text(CountLabel.text(for: days))
-                        .font(style.label(9, weight: .bold))
-                        .foregroundStyle(style.stubMuted)
+                if isLocked {
+                    Label("Pro", systemImage: "lock.fill")
+                        .font(.caption.weight(.bold))
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 6)
+                        .background(.black.opacity(0.25), in: Capsule())
+                } else {
+                    let days = DayCount.days(until: ticket.date)
+                    VStack(alignment: .trailing, spacing: 0) {
+                        Text(CountLabel.number(for: days))
+                            .font(style.number(28))
+                        Text(CountLabel.text(for: days))
+                            .font(style.label(9, weight: .bold))
+                            .foregroundStyle(style.stubMuted)
+                    }
                 }
             }
             .foregroundStyle(style.stubInk)
@@ -114,6 +124,7 @@ struct WalletCard: View {
         }
         .background(style.stubFill)
         .frame(height: isOpen ? Self.openHeight : Self.headerHeight + Self.overlap, alignment: .top)
+        .saturation(isLocked ? 0.15 : 1)
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .shadow(color: .black.opacity(0.14), radius: 10, y: -2)

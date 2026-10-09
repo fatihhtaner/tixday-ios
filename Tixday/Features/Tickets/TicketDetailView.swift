@@ -9,6 +9,8 @@ struct TicketDetailView: View {
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
+    /// Read so the view redraws when Pro changes (photos show only with Pro).
+    @Environment(ProStore.self) private var pro
     @State private var isEditing = false
     @State private var isConfirmingDelete = false
 
@@ -38,7 +40,8 @@ struct TicketDetailView: View {
             .padding(.bottom, 40)
         }
         .scrollIndicators(.hidden)
-        .background { PosterBackdrop(kind: event.kind, photo: TicketPhoto.image(event.photoData)) }
+        .id(pro.isPro)
+        .background { PosterBackdrop(kind: event.kind, photo: TicketPhoto.image(event.snapshot.photoData)) }
         .navigationTitle(event.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar)

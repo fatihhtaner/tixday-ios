@@ -32,6 +32,7 @@
 - [x] Fotoğraf seçme: PhotosPicker (izin gerektirmez), 1200 px JPEG, `photoData` (externalStorage, CloudKit uyumlu); bilette, widget'ta ve bulanık arka planda posterin yerini alır
 - [x] Pro: `ProStore` (RevenueCat, Subloom ile aynı), paywall (bilet yelpazesi, 4 fayda, yıllık/ömür boyu, deneme, geri yükle, koşullar/gizlilik); kilitler: 4. bilet, yeni fotoğraf kaydetme, kilit ekranı widget'ları (App Group bayrağı); başlıkta Pro düğmesi. Anahtar yokken DEBUG ürünlerle çalışır; `-resetPro` ücretsize döndürür
 - [x] fastlane: `beta` (xcodegen → Release → TestFlight, build numarası otomatik) ve `metadata` lane'leri; App Store metinleri EN + TR (`fastlane/metadata`); kurulum `docs/app-store/fastlane.md`
+- [x] Deneme boşluğu kapatıldı (`TicketAccess`): Pro yokken en yakın 3 yaklaşan bilet açık, fazlası silinmez ama kilitli görünür (dokununca paywall, widget'ta seçilemez/kilit gösterir); fotoğraflar saklanır ama Pro yokken poster gösterilir; ücretsiz sınır artık geçmiş biletleri saymıyor
 
 ## Sıradaki
 - [ ] `fastlane/AuthKey.json` + `.p8` (Subloom'daki anahtar kullanılabilir); App Store Connect'te uygulama kaydı

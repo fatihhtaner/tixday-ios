@@ -37,8 +37,11 @@ struct TicketEntityQuery: EntityQuery {
         let context = ModelContext(SharedStore.makeContainer())
         let events = (try? context.fetch(FetchDescriptor<TicketEvent>(sortBy: [SortDescriptor(\.date)]))) ?? []
         let today = Calendar.current.startOfDay(for: .now)
-        let upcoming = events.filter { $0.date >= today }
-        let past = events.filter { $0.date < today }.reversed()
+        // Free users can only pick tickets within the free limit.
+        let unlocked = TicketAccess.unlockedIDs(events.map { ($0.id, $0.date) }, isPro: TicketAccess.isPro)
+        let usable = events.filter { unlocked.contains($0.id) }
+        let upcoming = usable.filter { $0.date >= today }
+        let past = usable.filter { $0.date < today }.reversed()
         return (upcoming + past).map(TicketEntity.init)
     }
 }
