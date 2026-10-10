@@ -31,7 +31,9 @@ struct SettingsView: View {
 
                 section("Pro") { proCard }
                 section("Reminders") { remindersCard }
-                section("Language") { languageCard }
+                if canChangeLanguage {
+                    section("Language") { languageCard }
+                }
                 section("Help") { helpCard }
 
                 Text(versionText)
@@ -204,6 +206,12 @@ struct SettingsView: View {
     }
 
     // MARK: - Language
+
+    /// iOS lists a per-app Language option only when the device has more than one preferred language;
+    /// with a single one the app already runs in it, so there is nothing to change.
+    private var canChangeLanguage: Bool {
+        Locale.preferredLanguages.count > 1
+    }
 
     /// iOS already gives every localized app its own language setting, which also covers the widget,
     /// notifications and date formats; this row just takes the user there.
