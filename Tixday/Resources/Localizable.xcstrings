@@ -985,10 +985,10 @@
     },
     "A month before": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bir ay önce"
+            "value": "قبل شهر"
           }
         },
         "de": {
@@ -997,28 +997,22 @@
             "value": "Einen Monat vorher"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Un mois avant"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Un mes antes"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un mois avant"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Un mese prima"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Um mês antes"
           }
         },
         "ja": {
@@ -1033,10 +1027,10 @@
             "value": "한 달 전"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "提前一个月"
+            "value": "Um mês antes"
           }
         },
         "ru": {
@@ -1045,10 +1039,16 @@
             "value": "За месяц"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "قبل شهر"
+            "value": "Bir ay önce"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提前一个月"
           }
         }
       }
@@ -1125,10 +1125,10 @@
     },
     "A week before": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bir hafta önce"
+            "value": "قبل أسبوع"
           }
         },
         "de": {
@@ -1137,28 +1137,22 @@
             "value": "Eine Woche vorher"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Une semaine avant"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Una semana antes"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Une semaine avant"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Una settimana prima"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Uma semana antes"
           }
         },
         "ja": {
@@ -1173,10 +1167,10 @@
             "value": "일주일 전"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "提前一周"
+            "value": "Uma semana antes"
           }
         },
         "ru": {
@@ -1185,10 +1179,16 @@
             "value": "За неделю"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "قبل أسبوع"
+            "value": "Bir hafta önce"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提前一周"
           }
         }
       }
@@ -1545,10 +1545,10 @@
     },
     "Add a widget to your Home Screen or Lock Screen and see how many days are left at a glance.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ana ekranına ya da kilit ekranına bir widget ekle, kaç gün kaldığını bir bakışta gör."
+            "value": "أضف أداة إلى الشاشة الرئيسية أو شاشة القفل وشاهد كم يومًا تبقّى بنظرة واحدة."
           }
         },
         "de": {
@@ -1557,28 +1557,22 @@
             "value": "Füge ein Widget zum Home- oder Sperrbildschirm hinzu und sieh auf einen Blick, wie viele Tage noch bleiben."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajoutez un widget à l’écran d’accueil ou verrouillé et voyez d’un coup d’œil combien de jours il reste."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Añade un widget a la pantalla de inicio o bloqueada y mira de un vistazo cuántos días quedan."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajoutez un widget à l’écran d’accueil ou verrouillé et voyez d’un coup d’œil combien de jours il reste."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Aggiungi un widget alla schermata Home o di blocco e vedi a colpo d’occhio quanti giorni mancano."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adicione um widget à Tela de Início ou Bloqueada e veja num relance quantos dias faltam."
           }
         },
         "ja": {
@@ -1593,10 +1587,10 @@
             "value": "홈 화면이나 잠금 화면에 위젯을 추가하고 남은 날을 한눈에 확인하세요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "在主屏幕或锁定屏幕添加小组件，一眼看到还剩几天。"
+            "value": "Adicione um widget à Tela de Início ou Bloqueada e veja num relance quantos dias faltam."
           }
         },
         "ru": {
@@ -1605,10 +1599,16 @@
             "value": "Добавьте виджет на экран «Домой» или блокировки и сразу видьте, сколько дней осталось."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "أضف أداة إلى الشاشة الرئيسية أو شاشة القفل وشاهد كم يومًا تبقّى بنظرة واحدة."
+            "value": "Ana ekranına ya da kilit ekranına bir widget ekle, kaç gün kaldığını bir bakışta gör."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在主屏幕或锁定屏幕添加小组件，一眼看到还剩几天。"
           }
         }
       }
@@ -1753,12 +1753,82 @@
         }
       }
     },
-    "Always in sight": {
+    "Add your widget": {
       "localizations": {
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hep gözünün önünde"
+            "value": "Widget'ını ekle"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Füge dein Widget hinzu"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajoutez votre widget"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Añade tu widget"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiungi il tuo widget"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adicione seu widget"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ウィジェットを追加"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "위젯 추가하기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加你的小组件"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добавьте виджет"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أضف أداتك"
+          }
+        }
+      }
+    },
+    "Always in sight": {
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "دائمًا أمام عينيك"
           }
         },
         "de": {
@@ -1767,28 +1837,22 @@
             "value": "Immer im Blick"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toujours sous les yeux"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Siempre a la vista"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toujours sous les yeux"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Sempre sotto gli occhi"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sempre à vista"
           }
         },
         "ja": {
@@ -1803,10 +1867,10 @@
             "value": "언제나 눈앞에"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "时刻在眼前"
+            "value": "Sempre à vista"
           }
         },
         "ru": {
@@ -1815,10 +1879,16 @@
             "value": "Всегда на виду"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "دائمًا أمام عينيك"
+            "value": "Hep gözünün önünde"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "时刻在眼前"
           }
         }
       }
@@ -3015,10 +3085,10 @@
     },
     "Create my first ticket": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "İlk biletimi oluştur"
+            "value": "أنشئ تذكرتي الأولى"
           }
         },
         "de": {
@@ -3027,28 +3097,22 @@
             "value": "Mein erstes Ticket erstellen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Créer mon premier billet"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Crear mi primer billete"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créer mon premier billet"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Crea il mio primo biglietto"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Criar meu primeiro ingresso"
           }
         },
         "ja": {
@@ -3063,10 +3127,10 @@
             "value": "첫 티켓 만들기"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "创建我的第一张票"
+            "value": "Criar meu primeiro ingresso"
           }
         },
         "ru": {
@@ -3075,10 +3139,16 @@
             "value": "Создать первый билет"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "أنشئ تذكرتي الأولى"
+            "value": "İlk biletimi oluştur"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "创建我的第一张票"
           }
         }
       }
@@ -4208,10 +4278,10 @@
     },
     "Flights, concerts, exams, birthdays: turn the days you're waiting for into tickets that count down.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Uçuşlar, konserler, sınavlar, doğum günleri: beklediğin günleri geri sayan biletlere dönüştür."
+            "value": "رحلات، حفلات، امتحانات، أعياد ميلاد: حوّل الأيام التي تنتظرها إلى تذاكر بعدّ تنازلي."
           }
         },
         "de": {
@@ -4220,28 +4290,22 @@
             "value": "Flüge, Konzerte, Prüfungen, Geburtstage: Mach aus den Tagen, auf die du wartest, Tickets mit Countdown."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vols, concerts, examens, anniversaires : transformez les jours que vous attendez en billets à rebours."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Vuelos, conciertos, exámenes, cumpleaños: convierte los días que esperas en billetes con cuenta atrás."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vols, concerts, examens, anniversaires : transformez les jours que vous attendez en billets à rebours."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Voli, concerti, esami, compleanni: trasforma i giorni che aspetti in biglietti con il conto alla rovescia."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Voos, shows, provas, aniversários: transforme os dias que você espera em ingressos com contagem regressiva."
           }
         },
         "ja": {
@@ -4256,10 +4320,10 @@
             "value": "비행, 콘서트, 시험, 생일. 기다리는 날을 카운트다운 티켓으로 만들어 보세요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "航班、演唱会、考试、生日：把期待的日子变成倒数的票。"
+            "value": "Voos, shows, provas, aniversários: transforme os dias que você espera em ingressos com contagem regressiva."
           }
         },
         "ru": {
@@ -4268,10 +4332,16 @@
             "value": "Перелёты, концерты, экзамены, дни рождения: превратите долгожданные дни в билеты с обратным отсчётом."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "رحلات، حفلات، امتحانات، أعياد ميلاد: حوّل الأيام التي تنتظرها إلى تذاكر بعدّ تنازلي."
+            "value": "Uçuşlar, konserler, sınavlar, doğum günleri: beklediğin günleri geri sayan biletlere dönüştür."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "航班、演唱会、考试、生日：把期待的日子变成倒数的票。"
           }
         }
       }
@@ -5754,10 +5824,10 @@
     },
     "Maybe later": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Belki sonra"
+            "value": "ربما لاحقًا"
           }
         },
         "de": {
@@ -5766,28 +5836,22 @@
             "value": "Vielleicht später"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Plus tard"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Quizás más tarde"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plus tard"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Magari più tardi"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Talvez mais tarde"
           }
         },
         "ja": {
@@ -5802,10 +5866,10 @@
             "value": "나중에"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "以后再说"
+            "value": "Talvez mais tarde"
           }
         },
         "ru": {
@@ -5814,10 +5878,16 @@
             "value": "Может, позже"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "ربما لاحقًا"
+            "value": "Belki sonra"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "以后再说"
           }
         }
       }
@@ -5894,10 +5964,10 @@
     },
     "Never miss the day": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "O günü asla kaçırma"
+            "value": "لا تفوّت اليوم أبدًا"
           }
         },
         "de": {
@@ -5906,28 +5976,22 @@
             "value": "Verpasse nie den Tag"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ne manquez jamais le jour J"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "No te pierdas el día"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ne manquez jamais le jour J"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Non perderti mai il giorno"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nunca perca o dia"
           }
         },
         "ja": {
@@ -5942,10 +6006,10 @@
             "value": "그날을 놓치지 마세요"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "绝不错过那一天"
+            "value": "Nunca perca o dia"
           }
         },
         "ru": {
@@ -5954,10 +6018,16 @@
             "value": "Не пропустите день"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "لا تفوّت اليوم أبدًا"
+            "value": "O günü asla kaçırma"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "绝不错过那一天"
           }
         }
       }
@@ -6524,10 +6594,10 @@
     },
     "On the day": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "O gün"
+            "value": "في اليوم نفسه"
           }
         },
         "de": {
@@ -6536,28 +6606,22 @@
             "value": "Am Tag selbst"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le jour J"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "El mismo día"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le jour J"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Il giorno stesso"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No próprio dia"
           }
         },
         "ja": {
@@ -6572,10 +6636,10 @@
             "value": "당일"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "当天"
+            "value": "No próprio dia"
           }
         },
         "ru": {
@@ -6584,10 +6648,16 @@
             "value": "В сам день"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "في اليوم نفسه"
+            "value": "O gün"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当天"
           }
         }
       }
@@ -7925,6 +7995,76 @@
         }
       }
     },
+    "Search for Tixday, pick a size and tap Add Widget.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday'i ara, bir boyut seç ve Widget Ekle'ye dokun."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suche nach Tixday, wähle eine Größe und tippe auf „Widget hinzufügen“."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recherchez Tixday, choisissez une taille et touchez Ajouter un widget."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Busca Tixday, elige un tamaño y toca Añadir widget."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerca Tixday, scegli una dimensione e tocca Aggiungi widget."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Busque Tixday, escolha um tamanho e toque em Adicionar Widget."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixdayを検索し、サイズを選んで「ウィジェットを追加」をタップ。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday를 검색하고 크기를 고른 뒤 위젯 추가를 탭하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索 Tixday，选择尺寸，然后轻点“添加小组件”。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Найдите Tixday, выберите размер и нажмите «Добавить виджет»."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ابحث عن Tixday واختر حجمًا ثم اضغط على إضافة أداة."
+          }
+        }
+      }
+    },
     "See the countdown without unlocking.": {
       "localizations": {
         "ar": {
@@ -8277,10 +8417,10 @@
     },
     "Skip": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Geç"
+            "value": "تخطٍّ"
           }
         },
         "de": {
@@ -8289,28 +8429,22 @@
             "value": "Überspringen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Passer"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Omitir"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passer"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Salta"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pular"
           }
         },
         "ja": {
@@ -8325,10 +8459,10 @@
             "value": "건너뛰기"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "跳过"
+            "value": "Pular"
           }
         },
         "ru": {
@@ -8337,10 +8471,16 @@
             "value": "Пропустить"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "تخطٍّ"
+            "value": "Geç"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跳过"
           }
         }
       }
@@ -8767,10 +8907,10 @@
     },
     "The day before": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bir gün önce"
+            "value": "قبل يوم"
           }
         },
         "de": {
@@ -8779,28 +8919,22 @@
             "value": "Am Tag davor"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La veille"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "El día antes"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La veille"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Il giorno prima"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Na véspera"
           }
         },
         "ja": {
@@ -8815,10 +8949,10 @@
             "value": "하루 전"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "前一天"
+            "value": "Na véspera"
           }
         },
         "ru": {
@@ -8827,10 +8961,16 @@
             "value": "За день"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "قبل يوم"
+            "value": "Bir gün önce"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "前一天"
           }
         }
       }
@@ -9120,10 +9260,10 @@
     },
     "Tixday reminds you a month, a week and a day before, and on the day itself.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday sana bir ay, bir hafta ve bir gün önce, bir de o gün hatırlatır."
+            "value": "يذكّرك Tixday قبل شهر وأسبوع ويوم، وفي اليوم نفسه."
           }
         },
         "de": {
@@ -9132,28 +9272,22 @@
             "value": "Tixday erinnert dich einen Monat, eine Woche und einen Tag vorher sowie am Tag selbst."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tixday vous le rappelle un mois, une semaine et un jour avant, puis le jour J."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Tixday te lo recuerda un mes, una semana y un día antes, y el mismo día."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday vous le rappelle un mois, une semaine et un jour avant, puis le jour J."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Tixday te lo ricorda un mese, una settimana e un giorno prima, e il giorno stesso."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O Tixday lembra você um mês, uma semana e um dia antes, e no próprio dia."
           }
         },
         "ja": {
@@ -9168,10 +9302,10 @@
             "value": "Tixday가 한 달 전, 일주일 전, 하루 전, 그리고 당일에 알려 드려요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday 会在提前一个月、一周、一天以及当天提醒你。"
+            "value": "O Tixday lembra você um mês, uma semana e um dia antes, e no próprio dia."
           }
         },
         "ru": {
@@ -9180,10 +9314,16 @@
             "value": "Tixday напомнит за месяц, за неделю, за день и в сам день."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "يذكّرك Tixday قبل شهر وأسبوع ويوم، وفي اليوم نفسه."
+            "value": "Tixday sana bir ay, bir hafta ve bir gün önce, bir de o gün hatırlatır."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday 会在提前一个月、一周、一天以及当天提醒你。"
           }
         }
       }
@@ -9394,6 +9534,146 @@
           "stringUnit": {
             "state": "translated",
             "value": "就在明天！"
+          }
+        }
+      }
+    },
+    "Touch and hold an empty spot on your Home Screen, tap Edit, then Add Widget.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ana ekranında boş bir yere basılı tut, Düzenle'ye ve ardından Widget Ekle'ye dokun."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halte eine freie Stelle auf dem Home-Bildschirm gedrückt, tippe auf „Bearbeiten“ und dann auf „Widget hinzufügen“."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maintenez le doigt sur un espace vide de l’écran d’accueil, touchez Modifier, puis Ajouter un widget."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantén pulsado un espacio vacío de la pantalla de inicio, toca Editar y luego Añadir widget."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tieni premuto uno spazio vuoto della schermata Home, tocca Modifica, poi Aggiungi widget."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque e segure um espaço vazio da Tela de Início, toque em Editar e depois em Adicionar Widget."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ホーム画面の空いている場所を長押しし、「編集」→「ウィジェットを追加」をタップ。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "홈 화면의 빈 곳을 길게 누르고 편집, 위젯 추가를 차례로 탭하세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按住主屏幕的空白处，轻点“编辑”，然后轻点“添加小组件”。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нажмите и удерживайте пустое место на экране «Домой», выберите «Править», затем «Добавить виджет»."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المس مع الاستمرار مكانًا فارغًا في الشاشة الرئيسية، واضغط على تعديل ثم إضافة أداة."
+          }
+        }
+      }
+    },
+    "Touch and hold the widget, tap Edit Widget and choose a ticket. Next ticket always shows the soonest one.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Widget'a basılı tut, Widget'ı Düzenle'ye dokun ve bir bilet seç. En yakın bilet her zaman en yakındakini gösterir."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halte das Widget gedrückt, tippe auf „Widget bearbeiten“ und wähle ein Ticket. „Nächstes Ticket“ zeigt immer das nächste an."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maintenez le doigt sur le widget, touchez Modifier le widget et choisissez un billet. « Prochain billet » affiche toujours le plus proche."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantén pulsado el widget, toca Editar widget y elige un billete. «Próximo billete» siempre muestra el más cercano."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tieni premuto il widget, tocca Modifica widget e scegli un biglietto. «Prossimo biglietto» mostra sempre il più vicino."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toque e segure o widget, toque em Editar Widget e escolha um ingresso. “Próximo ingresso” sempre mostra o mais próximo."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ウィジェットを長押しして「ウィジェットを編集」をタップし、チケットを選択。「次のチケット」なら常に一番近いものを表示します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "위젯을 길게 누르고 위젯 편집을 탭한 뒤 티켓을 고르세요. ‘다음 티켓’은 항상 가장 가까운 티켓을 보여 줘요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按住小组件，轻点“编辑小组件”并选择一张票。“下一张票”会始终显示最近的那张。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нажмите и удерживайте виджет, выберите «Изменить виджет» и билет. «Ближайший билет» всегда показывает самый близкий."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المس الأداة مع الاستمرار، واضغط على تعديل الأداة واختر تذكرة. «التذكرة التالية» تعرض دائمًا الأقرب."
           }
         }
       }

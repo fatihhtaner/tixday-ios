@@ -40,7 +40,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 ## ⭐ Yayın öncesi önerilen
 - [ ] **iCloud senkronu** kararı: şu an veriler sadece telefonda, telefon değişince biletler kaybolur. Model CloudKit'e hazır (Subloom'daki gibi açılabilir) — **karar Fatih**
-- [x] Onboarding: ilk açılışta (bilet yoksa) 3 sayfa — bilet destesi, widget'lar, hatırlatmalar — sonra "İlk biletimi oluştur" editörü açar (`OnboardingView`, DEBUG'da `-onboarding`). Bildirim izni ilk bilet kaydedilince istenir
+- [x] Onboarding: ilk açılışta (bilet yoksa) 4 sayfa — bilet destesi, widget'lar, widget nasıl eklenir + bilet seçimi (canlı örnek), hatırlatmalar — sonra "İlk biletimi oluştur" editörü açar (`OnboardingView`, DEBUG'da `-onboarding`). Bildirim izni ilk bilet kaydedilince istenir
 - [x] Pro'ya hoş geldin anı: satın alma/geri yükleme sonrası paywall yerine altın Pro bileti + damga + bilet koçanı konfetisi + kilit ekranı widget'ı nasıl eklenir (`ProWelcomeView`, DEBUG'da `-proWelcome`)
 - [ ] Erişilebilirlik: en büyük yazı boyutu ve VoiceOver turu (biletler, cüzdan, paywall)
 - [ ] Doğum günü posterinde beyaz başlık zayıf; o türde karartmayı artır

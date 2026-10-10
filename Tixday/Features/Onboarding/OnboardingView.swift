@@ -1,7 +1,7 @@
 import SwiftUI
 
-/// First launch: what Tixday is, where the countdown shows up, and the reminders, then straight
-/// into creating the first ticket.
+/// First launch: what Tixday is, where the countdown shows up, how to add a widget and pick its
+/// ticket, and the reminders, then straight into creating the first ticket.
 struct OnboardingView: View {
     /// Called when onboarding ends; true when the user wants to create a ticket right away.
     var onFinish: (_ createTicket: Bool) -> Void
@@ -9,7 +9,7 @@ struct OnboardingView: View {
     @State private var page = 0
     /// Pages already shown; each illustration plays its entrance the first time.
     @State private var seen: Set<Int> = []
-    private let pageCount = 3
+    private let pageCount = 4
     private let samples = TicketSnapshot.samples()
 
     var body: some View {
@@ -41,11 +41,22 @@ struct OnboardingView: View {
                 ) { isActive in WidgetPreview(ticket: samples[0], lockTicket: samples[1], isActive: isActive) }
                     .tag(1)
                 OnboardingPage(
+                    title: "Add your widget",
+                    steps: [
+                        "Touch and hold an empty spot on your Home Screen, tap Edit, then Add Widget.",
+                        "Search for Tixday, pick a size and tap Add Widget.",
+                        "Touch and hold the widget, tap Edit Widget and choose a ticket. Next ticket always shows the soonest one.",
+                    ],
+                    artHeight: 190,
+                    isActive: seen.contains(2)
+                ) { isActive in WidgetSetupPreview(next: samples[1], pinned: samples[0], isActive: isActive) }
+                    .tag(2)
+                OnboardingPage(
                     title: "Never miss the day",
                     message: "Tixday reminds you a month, a week and a day before, and on the day itself.",
-                    isActive: seen.contains(2)
+                    isActive: seen.contains(3)
                 ) { isActive in ReminderPreview(isActive: isActive) }
-                    .tag(2)
+                    .tag(3)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             .onChange(of: page) { _, newPage in seen.insert(newPage) }
@@ -81,7 +92,7 @@ struct OnboardingView: View {
             .padding(.bottom, 12)
         }
         .background {
-            PosterBackdrop(kind: [TicketKind.concert, .flight, .wedding][page])
+            PosterBackdrop(kind: [TicketKind.concert, .flight, .holiday, .wedding][page])
                 .animation(.easeInOut(duration: 0.5), value: page)
         }
         .environment(\.colorScheme, .dark)
@@ -107,10 +118,12 @@ struct OnboardingView: View {
     }
 }
 
-/// An illustration with a title and a sentence.
+/// An illustration with a title and a sentence, or numbered steps.
 private struct OnboardingPage<Art: View>: View {
     let title: LocalizedStringKey
-    let message: LocalizedStringKey
+    var message: LocalizedStringKey?
+    var steps: [LocalizedStringKey] = []
+    var artHeight: CGFloat = 300
     /// False until the page is first shown, so the illustration's entrance plays in view.
     let isActive: Bool
     @ViewBuilder var art: (_ isActive: Bool) -> Art
@@ -118,25 +131,115 @@ private struct OnboardingPage<Art: View>: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
-        VStack(spacing: 28) {
+        VStack(spacing: steps.isEmpty ? 28 : 22) {
             Spacer(minLength: 0)
             art(isActive || reduceMotion)
-                .frame(height: 300)
+                .frame(height: artHeight)
                 .animation(.spring(response: 0.7, dampingFraction: 0.75), value: isActive)
             VStack(spacing: 10) {
                 Text(title)
                     .font(Theme.display(26))
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
-                Text(message)
-                    .font(.body)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
+                if let message {
+                    Text(message)
+                        .font(.body)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
             .padding(.horizontal, 28)
+            if !steps.isEmpty {
+                stepList
+            }
             Spacer(minLength: 0)
         }
+    }
+}
+
+private extension OnboardingPage {
+    var stepList: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                HStack(alignment: .firstTextBaseline, spacing: 12) {
+                    Text(verbatim: "\(index + 1)")
+                        .font(.footnote.weight(.bold))
+                        .foregroundStyle(.black)
+                        .frame(width: 24, height: 24)
+                        .background(.white, in: Circle())
+                        .alignmentGuide(.firstTextBaseline) { $0[VerticalAlignment.center] + 5 }
+                    Text(step)
+                        .font(.subheadline)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer(minLength: 0)
+                }
+            }
+        }
+        .padding(18)
+        .glassBackground(in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .padding(.horizontal, 20)
+    }
+}
+
+/// A widget next to a copy of iOS's Edit Widget card. The choice flips between "Next ticket" and a
+/// pinned ticket, and the widget follows, so the user sees what choosing a ticket does.
+private struct WidgetSetupPreview: View {
+    let next: TicketSnapshot
+    let pinned: TicketSnapshot
+    let isActive: Bool
+
+    @State private var isPinned = false
+
+    var body: some View {
+        HStack(spacing: 14) {
+            TicketView(ticket: isPinned ? pinned : next, size: .small, notchColor: nil)
+                .frame(width: 150, height: 150)
+                .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
+                .ticketShadow()
+                .id(isPinned)
+                .transition(.asymmetric(insertion: .scale(scale: 0.9).combined(with: .opacity), removal: .opacity))
+
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Choose ticket")
+                    .font(.footnote.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                VStack(spacing: 0) {
+                    option(String(localized: "Next ticket", bundle: .app), isSelected: !isPinned)
+                    Rectangle().fill(.white.opacity(0.12)).frame(height: 1)
+                    option(pinned.title, isSelected: isPinned)
+                }
+                .background(.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            }
+            .padding(14)
+            .frame(width: 176)
+            .glassBackground(in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        }
+        .offset(y: isActive ? 0 : 30)
+        .opacity(isActive ? 1 : 0)
+        .task(id: isActive) {
+            guard isActive else { return }
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(2.2))
+                withAnimation(.spring(response: 0.45, dampingFraction: 0.8)) { isPinned.toggle() }
+            }
+        }
+    }
+
+    private func option(_ title: String, isSelected: Bool) -> some View {
+        HStack(spacing: 8) {
+            Text(verbatim: title)
+                .font(.subheadline.weight(isSelected ? .semibold : .regular))
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+            Spacer(minLength: 4)
+            Image(systemName: "checkmark")
+                .font(.footnote.weight(.bold))
+                .opacity(isSelected ? 1 : 0)
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 10)
+        .background(.white.opacity(isSelected ? 0.14 : 0), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
     }
 }
 
