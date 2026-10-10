@@ -32,7 +32,7 @@ Yayın: `fastlane beta` (TestFlight), `fastlane metadata` (App Store metinleri) 
 ## Kurallar
 - SwiftData modelleri CloudKit uyumlu kalmalı: her alanın varsayılan değeri olmalı, `@Attribute(.unique)` yok, ilişkiler opsiyonel. Enum'lar `String` raw value olarak saklanır (`kindRaw`).
 - Bilet görünümleri `TicketSnapshot` (değer tipi) alır, SwiftData nesnesi almaz.
-- Her türün renkleri ve yazı tipi `TicketKind.style` (`Tickets/TicketStyle.swift`). Yeni tür = yeni `TicketKind` case + stil + poster. Tasarım incelemesi: uygulamayı `-ticketGallery` ile aç (DEBUG). Pro kutlaması: `-proWelcome`.
+- Her türün renkleri ve yazı tipi `TicketKind.style` (`Tickets/TicketStyle.swift`). Yeni tür = yeni `TicketKind` case + stil + poster. Tasarım incelemesi: uygulamayı `-ticketGallery` ile aç (DEBUG). Pro kutlaması: `-proWelcome`. Onboarding: `-onboarding`.
 - Gün sayımı takvim günüdür (yarın her zaman 1); `DayCount` dışında gün hesabı yapma.
 - Pro bitince hiçbir veri silinmez: hangi biletlerin açık olduğu tek yerde, `TicketAccess.unlockedIDs` (en yakın 3 yaklaşan + geçmişler). Fotoğraf gizleme `TicketEvent.snapshot` içinde (`TicketAccess.isPro`).
 - Satın alma: `ProStore` (RevenueCat), entitlement `tixday_pro`, ücretsiz sınır 3 bilet. DEBUG'da anahtar yoksa sahte ürünler; `-resetPro` ücretsize, `-proScreenshots` Pro'ya zorlar. Test anahtarı asla Release'e girmemeli. Pro bayrağı App Group'ta (`AppGroup.proUnlockedKey`), widget kilit ekranı boyutlarını buna göre açar.

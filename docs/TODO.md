@@ -40,7 +40,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 ## ⭐ Yayın öncesi önerilen
 - [ ] **iCloud senkronu** kararı: şu an veriler sadece telefonda, telefon değişince biletler kaybolur. Model CloudKit'e hazır (Subloom'daki gibi açılabilir) — **karar Fatih**
-- [ ] Onboarding / ilk açılış: boş durum var ama ilk bileti oluşturmaya yönlendiren kısa bir tanıtım yok
+- [x] Onboarding: ilk açılışta (bilet yoksa) 3 sayfa — bilet destesi, widget'lar, hatırlatmalar — sonra "İlk biletimi oluştur" editörü açar (`OnboardingView`, DEBUG'da `-onboarding`). Bildirim izni ilk bilet kaydedilince istenir
 - [x] Pro'ya hoş geldin anı: satın alma/geri yükleme sonrası paywall yerine altın Pro bileti + damga + bilet koçanı konfetisi + kilit ekranı widget'ı nasıl eklenir (`ProWelcomeView`, DEBUG'da `-proWelcome`)
 - [ ] Erişilebilirlik: en büyük yazı boyutu ve VoiceOver turu (biletler, cüzdan, paywall)
 - [ ] Doğum günü posterinde beyaz başlık zayıf; o türde karartmayı artır
@@ -51,7 +51,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 ## 🔮 Sonra (1.1+)
 - [ ] Live Activity / Dynamic Island (son 24 saat canlı sayaç), StandBy
 - [ ] Etkinlik günü "bilet delme" animasyonu + paylaşılabilir kart
-- [ ] Varış yerine özel posterler (Tokyo, Paris, İstanbul…) — Pro poster paketleri
+- [ ] Poster paketleri (Tokyo, Paris, İstanbul, retro sinema…) — Pro'ya dahil ya da ayrı satış. Karar (2026-10-10): ayrı "modern tema" yok; vintage poster kimliği korunur, çeşitlilik paketlerle gelir
 - [ ] Yeni bilet türleri (sinema, maç, festival, mezuniyet)
 - [ ] Paylaşılan geri sayım (partner/arkadaşla aynı bilet)
 - [ ] Alternatif uygulama ikonları (Pro); `app-icon-v1/v2` hazır

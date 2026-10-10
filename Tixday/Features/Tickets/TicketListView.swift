@@ -11,6 +11,8 @@ struct TicketListView: View {
     @Namespace private var zoom
     @State private var isCreating = false
     @State private var isShowingSettings = false
+    @State private var isOnboarding = false
+    @AppStorage("didFinishOnboarding") private var didFinishOnboarding = false
     @AppStorage(ReminderSettings.enabledKey) private var remindersEnabled = true
     @AppStorage(ReminderSettings.timeKey) private var reminderMinutes = ReminderSettings.defaultMinutes
     @State private var path: [TicketEvent] = []
@@ -85,6 +87,15 @@ struct TicketListView: View {
             .sheet(isPresented: $isShowingSettings) {
                 SettingsView().appLanguage()
             }
+            .fullScreenCover(isPresented: $isOnboarding) {
+                OnboardingView { createTicket in
+                    didFinishOnboarding = true
+                    isOnboarding = false
+                    if createTicket { isCreating = true }
+                }
+                .appLanguage()
+            }
+            .onAppear(perform: showOnboardingIfNeeded)
         }
         // Like the editor and details, home sits in the next ticket's poster atmosphere.
         .environment(\.colorScheme, .dark)
@@ -92,6 +103,22 @@ struct TicketListView: View {
         // Re-plans reminders on launch and whenever a ticket is added, edited or deleted.
         .task(id: reminderSignature) {
             await TicketNotifications.reschedule(events.map(\.snapshot))
+        }
+    }
+
+    /// Once, on a first launch with no tickets; people who already have tickets skip it.
+    private func showOnboardingIfNeeded() {
+        #if DEBUG
+        if CommandLine.arguments.contains("-onboarding") {
+            isOnboarding = true
+            return
+        }
+        #endif
+        guard !didFinishOnboarding else { return }
+        if events.isEmpty {
+            isOnboarding = true
+        } else {
+            didFinishOnboarding = true
         }
     }
 
