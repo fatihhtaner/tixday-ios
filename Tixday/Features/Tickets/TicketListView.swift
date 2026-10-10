@@ -77,13 +77,13 @@ struct TicketListView: View {
             // Reserves room at the bottom so the last ticket can scroll clear of the button.
             .safeAreaInset(edge: .bottom) { newTicketButton }
             .sheet(isPresented: $isCreating) {
-                EventEditorView(event: nil)
+                EventEditorView(event: nil).appLanguage()
             }
             .sheet(item: $paywallReason) { reason in
-                PaywallView(reason: reason)
+                PaywallView(reason: reason).appLanguage()
             }
             .sheet(isPresented: $isShowingSettings) {
-                SettingsView()
+                SettingsView().appLanguage()
             }
         }
         // Like the editor and details, home sits in the next ticket's poster atmosphere.
@@ -129,10 +129,10 @@ struct TicketListView: View {
 
     private var headerTitles: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(Date.now.formatted(.dateTime.weekday(.wide).day().month(.wide)).uppercased(with: .current))
+            Text(Date.now.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(AppLanguage.locale)).uppercased(with: AppLanguage.locale))
                 .font(Theme.eyebrow)
                 .foregroundStyle(.secondary)
-            Text(upcoming.isEmpty ? String(localized: "Nothing planned yet") : String(localized: "\(upcoming.count) tickets ahead"))
+            Text(upcoming.isEmpty ? String(localized: "Nothing planned yet", bundle: .app) : String(localized: "\(upcoming.count) tickets ahead", bundle: .app))
                 .font(Theme.display(24))
                 .foregroundStyle(Color.primary)
                 .lineLimit(1)

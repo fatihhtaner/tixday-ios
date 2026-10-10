@@ -46,7 +46,7 @@ struct TicketDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar)
         .sheet(isPresented: $isEditing) {
-            EventEditorView(event: event)
+            EventEditorView(event: event).appLanguage()
         }
         .confirmationDialog("Delete this ticket?", isPresented: $isConfirmingDelete, titleVisibility: .visible) {
             Button("Delete", role: .destructive) {
@@ -103,7 +103,7 @@ private struct WaitCard: View {
         VStack(alignment: .leading, spacing: 14) {
             HStack(alignment: .firstTextBaseline) {
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(ticket.date.formatted(date: .complete, time: .omitted))
+                    Text(ticket.date.formatted(Date.FormatStyle(date: .complete, time: .omitted, locale: AppLanguage.locale)))
                         .font(.headline)
                     Text(ticket.kind.name)
                         .font(.subheadline)

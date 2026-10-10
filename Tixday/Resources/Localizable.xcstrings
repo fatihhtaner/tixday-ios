@@ -1615,10 +1615,10 @@
     },
     "App Language": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Uygulama Dili"
+            "value": "لغة التطبيق"
           }
         },
         "de": {
@@ -1627,28 +1627,22 @@
             "value": "App-Sprache"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Langue de l’app"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Idioma de la app"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langue de l’app"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Lingua dell’app"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Idioma do app"
           }
         },
         "ja": {
@@ -1663,10 +1657,10 @@
             "value": "앱 언어"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "App 语言"
+            "value": "Idioma do app"
           }
         },
         "ru": {
@@ -1675,10 +1669,16 @@
             "value": "Язык приложения"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "لغة التطبيق"
+            "value": "Uygulama Dili"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App 语言"
           }
         }
       }
@@ -2029,76 +2029,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "更换"
-          }
-        }
-      }
-    },
-    "Changes in iOS Settings, along with your widgets and reminders.": {
-      "localizations": {
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "iOS Ayarları'nda değişir; widget'lar ve hatırlatmalar da birlikte."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wird in den iOS-Einstellungen geändert, zusammen mit Widgets und Erinnerungen."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se modifie dans les Réglages iOS, avec vos widgets et rappels."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se cambia en los Ajustes de iOS, junto con tus widgets y recordatorios."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si cambia nelle Impostazioni di iOS, insieme a widget e promemoria."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "É alterado nos Ajustes do iOS, junto com seus widgets e lembretes."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "iOSの設定で変更できます。ウィジェットと通知も切り替わります。"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "iOS 설정에서 바꿀 수 있으며, 위젯과 알림도 함께 바뀌어요."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在 iOS 设置中更改，小组件和提醒也会一起切换。"
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Меняется в настройках iOS вместе с виджетами и напоминаниями."
-          }
-        },
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "يتغيّر من إعدادات iOS، مع الأدوات والتذكيرات."
           }
         }
       }
@@ -4984,10 +4914,10 @@
     },
     "Language": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dil"
+            "value": "اللغة"
           }
         },
         "de": {
@@ -4996,28 +4926,22 @@
             "value": "Sprache"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Langue"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Idioma"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Langue"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Lingua"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Idioma"
           }
         },
         "ja": {
@@ -5032,10 +4956,10 @@
             "value": "언어"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "语言"
+            "value": "Idioma"
           }
         },
         "ru": {
@@ -5044,10 +4968,16 @@
             "value": "Язык"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "اللغة"
+            "value": "Dil"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "语言"
           }
         }
       }
@@ -7221,6 +7151,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "恢复购买"
+          }
+        }
+      }
+    },
+    "Same as iPhone": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPhone ile aynı"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wie auf dem iPhone"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comme sur l’iPhone"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Igual que el iPhone"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come su iPhone"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Igual ao iPhone"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPhoneと同じ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPhone과 동일"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "与 iPhone 相同"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Как на iPhone"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مثل iPhone"
           }
         }
       }

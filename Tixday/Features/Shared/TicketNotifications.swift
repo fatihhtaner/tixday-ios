@@ -28,10 +28,10 @@ enum TicketNotifications {
 
         var body: String {
             switch self {
-            case .month: String(localized: "One month to go.")
-            case .week: String(localized: "One week to go!")
-            case .day: String(localized: "Tomorrow's the day!")
-            case .today: String(localized: "Today's the day. Enjoy it!")
+            case .month: String(localized: "One month to go.", bundle: .app)
+            case .week: String(localized: "One week to go!", bundle: .app)
+            case .day: String(localized: "Tomorrow's the day!", bundle: .app)
+            case .today: String(localized: "Today's the day. Enjoy it!", bundle: .app)
             }
         }
     }

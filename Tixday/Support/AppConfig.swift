@@ -32,7 +32,7 @@ enum AppConfig {
     /// Source: `tools/build_site.py`, published from the fatihhtaner/tixday-site repository.
     private static func sitePage(_ page: String) -> URL {
         let base = "https://fatihhtaner.github.io/tixday-site/"
-        let language = Bundle.main.preferredLocalizations.first ?? "en"
+        let language = AppLanguage.current
         let folder = language == "en" ? "" : language.lowercased() + "/"
         return URL(string: base + folder + page)!
     }

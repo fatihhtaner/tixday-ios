@@ -5,6 +5,8 @@ import SwiftUI
 struct TixdayApp: App {
     private let container = SharedStore.makeContainer()
     @State private var proStore = ProStore()
+    /// The language picked in Settings; empty follows iOS. Changing it rebuilds every screen.
+    @AppStorage(AppLanguage.key, store: AppGroup.defaults) private var language = ""
 
     init() {
         #if DEBUG
@@ -29,23 +31,28 @@ struct TixdayApp: App {
 
     var body: some Scene {
         WindowGroup {
-            #if DEBUG
-            if CommandLine.arguments.contains("-ticketGallery") {
-                TicketGalleryView()
-            } else if CommandLine.arguments.contains("-proWelcome") {
-                // The post-purchase celebration on its own, for design review.
-                ProWelcomeView {}
-                    .background { PosterBackdrop(kind: .concert) }
-                    .environment(\.colorScheme, .dark)
-                    .tint(.white)
-            } else {
+            Group {
+                #if DEBUG
+                if CommandLine.arguments.contains("-ticketGallery") {
+                    TicketGalleryView()
+                } else if CommandLine.arguments.contains("-proWelcome") {
+                    // The post-purchase celebration on its own, for design review.
+                    ProWelcomeView {}
+                        .background { PosterBackdrop(kind: .concert) }
+                        .environment(\.colorScheme, .dark)
+                        .tint(.white)
+                } else {
+                    TicketListView()
+                        .task { await proStore.start() }
+                }
+                #else
                 TicketListView()
                     .task { await proStore.start() }
+                #endif
             }
-            #else
-            TicketListView()
-                .task { await proStore.start() }
-            #endif
+            // A new language rebuilds every screen, so strings and dates switch at once.
+            .id(language)
+            .appLanguage()
         }
         .environment(proStore)
         .modelContainer(container)

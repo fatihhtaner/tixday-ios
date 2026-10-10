@@ -17,6 +17,7 @@ struct SettingsView: View {
     @State private var isShowingPaywall = false
     @State private var isManagingSubscription = false
     @State private var restoreMessage: String?
+    @State private var isChoosingLanguage = false
 
     private var upcomingCount: Int {
         events.filter { DayCount.days(until: $0.date) >= 0 }.count
@@ -31,9 +32,7 @@ struct SettingsView: View {
 
                 section("Pro") { proCard }
                 section("Reminders") { remindersCard }
-                if canChangeLanguage {
-                    section("Language") { languageCard }
-                }
+                section("Language") { languageCard }
                 section("Help") { helpCard }
 
                 Text(versionText)
@@ -53,9 +52,12 @@ struct SettingsView: View {
         .environment(\.colorScheme, .dark)
         .tint(.white)
         .sheet(isPresented: $isShowingPaywall) {
-            PaywallView()
+            PaywallView().appLanguage()
         }
         .manageSubscriptionsSheet(isPresented: $isManagingSubscription)
+        .sheet(isPresented: $isChoosingLanguage) {
+            LanguagePickerView().appLanguage()
+        }
         .alert("Restore Purchases", isPresented: Binding(get: { restoreMessage != nil }, set: { if !$0 { restoreMessage = nil } })) {
             Button("OK", role: .cancel) {}
         } message: {
@@ -112,20 +114,20 @@ struct SettingsView: View {
 
     private var proDetail: String {
         if pro.isLifetime {
-            return String(localized: "Lifetime. Thanks for supporting Tixday!")
+            return String(localized: "Lifetime. Thanks for supporting Tixday!", bundle: .app)
         }
         if pro.isPro, let date = pro.expirationDate {
-            let day = date.formatted(date: .long, time: .omitted)
-            return pro.willRenew ? String(localized: "Renews on \(day)") : String(localized: "Ends on \(day)")
+            let day = date.formatted(Date.FormatStyle(date: .long, time: .omitted, locale: AppLanguage.locale))
+            return pro.willRenew ? String(localized: "Renews on \(day)", bundle: .app) : String(localized: "Ends on \(day)", bundle: .app)
         }
         let used = min(upcomingCount, ProStore.freeTicketLimit)
-        return String(localized: "\(used) of \(ProStore.freeTicketLimit) free tickets used")
+        return String(localized: "\(used) of \(ProStore.freeTicketLimit) free tickets used", bundle: .app)
     }
 
     private func restore() {
         Task {
             if await pro.restore() {
-                restoreMessage = String(localized: "Tixday Pro is active again.")
+                restoreMessage = String(localized: "Tixday Pro is active again.", bundle: .app)
             } else {
                 restoreMessage = pro.errorMessage
                 pro.errorMessage = nil
@@ -207,34 +209,11 @@ struct SettingsView: View {
 
     // MARK: - Language
 
-    /// iOS lists a per-app Language option only when the device has more than one preferred language;
-    /// with a single one the app already runs in it, so there is nothing to change.
-    private var canChangeLanguage: Bool {
-        Locale.preferredLanguages.count > 1
-    }
-
-    /// iOS already gives every localized app its own language setting, which also covers the widget,
-    /// notifications and date formats; this row just takes the user there.
     private var languageCard: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            row("App Language", symbol: "globe", value: currentLanguage, external: true) {
-                if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) }
-            }
-            Text("Changes in iOS Settings, along with your widgets and reminders.")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-                .padding(.horizontal, 16)
-                .padding(.bottom, 14)
-                .padding(.leading, 48)
+        row("App Language", symbol: "globe", value: AppLanguage.nativeName(AppLanguage.current)) {
+            isChoosingLanguage = true
         }
         .glassBackground(in: RoundedRectangle(cornerRadius: 24, style: .continuous))
-    }
-
-    /// The language the app is showing, named in that language ("Türkçe", "Deutsch").
-    private var currentLanguage: String {
-        let code = Bundle.main.preferredLocalizations.first ?? "en"
-        let locale = Locale(identifier: code)
-        return locale.localizedString(forIdentifier: code)?.capitalized(with: locale) ?? code
     }
 
     // MARK: - Help

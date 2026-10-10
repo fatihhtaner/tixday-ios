@@ -74,6 +74,8 @@ struct NextTicketWidget: Widget {
         // Kind kept from the first version so widgets users already placed keep working.
         AppIntentConfiguration(kind: "NextTicket", intent: SelectTicketIntent.self, provider: TicketProvider()) { entry in
             NextTicketWidgetView(entry: entry)
+                .environment(\.locale, AppLanguage.locale)
+                .environment(\.layoutDirection, AppLanguage.isRightToLeft ? .rightToLeft : .leftToRight)
         }
         .configurationDisplayName("Ticket")
         .description("Counts down to a date. Edit the widget to pick a ticket.")
@@ -159,7 +161,7 @@ struct LockScreenTicketView: View {
                 .gaugeStyle(.accessoryCircularCapacity)
             case .accessoryInline:
                 Label {
-                    Text(verbatim: "\(CountLabel.number(for: days)) \(CountLabel.text(for: days).lowercased(with: .current)) · \(ticket.title)")
+                    Text(verbatim: "\(CountLabel.number(for: days)) \(CountLabel.text(for: days).lowercased(with: AppLanguage.locale)) · \(ticket.title)")
                 } icon: {
                     Image(systemName: ticket.kind.symbol)
                 }

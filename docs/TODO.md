@@ -12,7 +12,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 ### Uygulama içi
 - [x] **Ayarlar ekranı** (ana ekranda dişli): Pro durumu (yenilenme/bitiş tarihi, ömür boyu), Pro'ya geç, geri yükle, aboneliği yönet (Apple sayfası), hatırlatmaları aç/kapat + saat, yardım/destek e-postası/gizlilik/koşullar, sürüm
-- [x] Ayarlar → Dil: o anki dili gösterir, iOS Ayarları'ndaki Tixday sayfasını açar (uygulama içi dil seçici yerine; widget ve bildirimler de değişsin diye). iOS bu sayfada "Dil" seçeneğini yalnızca cihazda birden fazla tercih edilen dil varsa gösterir; bölüm de sadece o durumda görünür. Gerçek cihazda doğrula — **Fatih**
+- [x] Ayarlar → Dil: uygulama içi dil seçici (iPhone ile aynı + 12 dil), anında uygulanır; widget'lar ve hatırlatmalar da seçilen dili kullanır (`AppLanguage`, App Group'ta `appLanguage`)
 - [ ] Ayarlar'a "Uygulamayı değerlendir" satırı: App Store'daki uygulama kimliği (Apple ID, sayısal) gerekiyor — **Fatih** App Store Connect → App Information'dan iletsin
 - [x] **Gizlilik bildirim dosyası** `PrivacyInfo.xcprivacy` (uygulama + widget): takip yok, UserDefaults sebebi CA92.1 + 1C8F.1 (App Group)
 - [x] **Açılış ekranı**: koyu zemin (`LaunchBackground`, `Tixday/Info.plist`)

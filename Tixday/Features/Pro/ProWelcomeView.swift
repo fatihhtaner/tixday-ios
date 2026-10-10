@@ -74,7 +74,7 @@ struct ProWelcomeView: View {
         .sensoryFeedback(.impact(weight: .heavy), trigger: stage == 2)
         .sensoryFeedback(.success, trigger: stage == 3)
         .task { await play() }
-        .sheet(isPresented: $isShowingWidgetHelp) { LockScreenWidgetHelp() }
+        .sheet(isPresented: $isShowingWidgetHelp) { LockScreenWidgetHelp().appLanguage() }
     }
 
     private func play() async {

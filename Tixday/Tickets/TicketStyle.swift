@@ -71,12 +71,12 @@ extension TicketKind {
     /// The small print in the ticket's top corner.
     var ticketLabel: String {
         switch self {
-        case .flight: String(localized: "BOARDING PASS")
-        case .concert: String(localized: "LIVE · ADMIT ONE")
-        case .exam: String(localized: "EXAM ENTRY SLIP")
-        case .wedding: String(localized: "INVITATION")
-        case .birthday: String(localized: "PARTY PASS")
-        case .holiday: String(localized: "EXPRESS")
+        case .flight: String(localized: "BOARDING PASS", bundle: .app)
+        case .concert: String(localized: "LIVE · ADMIT ONE", bundle: .app)
+        case .exam: String(localized: "EXAM ENTRY SLIP", bundle: .app)
+        case .wedding: String(localized: "INVITATION", bundle: .app)
+        case .birthday: String(localized: "PARTY PASS", bundle: .app)
+        case .holiday: String(localized: "EXPRESS", bundle: .app)
         }
     }
 }

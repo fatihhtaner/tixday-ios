@@ -146,7 +146,7 @@ struct PaywallView: View {
                                 .background(.white.opacity(0.2), in: Capsule())
                         }
                     }
-                    Text(package.kind == .lifetime ? String(localized: "Pay once, keep it forever") : package.pricePerMonth.map { String(localized: "Just \($0) a month") } ?? "")
+                    Text(package.kind == .lifetime ? String(localized: "Pay once, keep it forever", bundle: .app) : package.pricePerMonth.map { String(localized: "Just \($0) a month", bundle: .app) } ?? "")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }

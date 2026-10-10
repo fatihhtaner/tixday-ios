@@ -21,7 +21,7 @@ struct TicketEntity: AppEntity {
         }
         return DisplayRepresentation(
             title: "\(title)",
-            subtitle: "\(date.formatted(date: .abbreviated, time: .omitted))"
+            subtitle: "\(date.formatted(Date.FormatStyle(date: .abbreviated, time: .omitted, locale: AppLanguage.locale)))"
         )
     }
 

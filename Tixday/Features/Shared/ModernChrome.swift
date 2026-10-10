@@ -31,6 +31,13 @@ extension View {
         }
     }
 
+    /// The language chosen in Settings: string lookups, formats and reading direction.
+    /// Sheets don't pass reading direction on, so every sheet's content applies this again.
+    func appLanguage() -> some View {
+        environment(\.locale, AppLanguage.locale)
+            .environment(\.layoutDirection, AppLanguage.isRightToLeft ? .rightToLeft : .leftToRight)
+    }
+
     /// Marks a view as the place a zoom transition grows from (iOS 18+).
     @ViewBuilder
     func zoomSource(id: some Hashable, in namespace: Namespace.ID) -> some View {

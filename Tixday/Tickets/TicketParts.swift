@@ -4,9 +4,9 @@ import SwiftUI
 enum CountLabel {
     static func text(for days: Int) -> String {
         switch days {
-        case ..<0: String(localized: "DONE")
-        case 0: String(localized: "TODAY")
-        default: unit(String(localized: "\(days) DAYS", comment: "Unit under a day count; the app removes the number and draws it separately"))
+        case ..<0: String(localized: "DONE", bundle: .app)
+        case 0: String(localized: "TODAY", bundle: .app)
+        default: unit(String(localized: "\(days) DAYS", bundle: .app, comment: "Unit under a day count; the app removes the number and draws it separately"))
         }
     }
 
@@ -27,7 +27,7 @@ enum CountLabel {
 extension Date {
     /// "12 JAN" style date for the stub.
     var stubText: String {
-        formatted(.dateTime.day().month(.abbreviated)).uppercased(with: .current)
+        formatted(.dateTime.day().month(.abbreviated).locale(AppLanguage.locale)).uppercased(with: AppLanguage.locale)
     }
 }
 

@@ -114,7 +114,7 @@ struct EventEditorView: View {
             }
             .onAppear(perform: load)
             .sheet(item: $paywallReason) { reason in
-                PaywallView(reason: reason)
+                PaywallView(reason: reason).appLanguage()
             }
         }
         // The editor takes on the ticket's atmosphere: its poster, blurred and darkened.

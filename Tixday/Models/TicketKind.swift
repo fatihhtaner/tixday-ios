@@ -13,12 +13,12 @@ enum TicketKind: String, CaseIterable, Identifiable, Codable {
 
     var name: String {
         switch self {
-        case .flight: String(localized: "Trip")
-        case .concert: String(localized: "Concert")
-        case .exam: String(localized: "Exam")
-        case .wedding: String(localized: "Wedding")
-        case .birthday: String(localized: "Birthday")
-        case .holiday: String(localized: "Holiday")
+        case .flight: String(localized: "Trip", bundle: .app)
+        case .concert: String(localized: "Concert", bundle: .app)
+        case .exam: String(localized: "Exam", bundle: .app)
+        case .wedding: String(localized: "Wedding", bundle: .app)
+        case .birthday: String(localized: "Birthday", bundle: .app)
+        case .holiday: String(localized: "Holiday", bundle: .app)
         }
     }
 
@@ -38,12 +38,12 @@ enum TicketKind: String, CaseIterable, Identifiable, Codable {
 
     var headlinePrompt: String {
         switch self {
-        case .flight: String(localized: "Trip name")
-        case .concert: String(localized: "Artist")
-        case .exam: String(localized: "Exam name")
-        case .wedding: String(localized: "Couple")
-        case .birthday: String(localized: "Whose birthday?")
-        case .holiday: String(localized: "Holiday name")
+        case .flight: String(localized: "Trip name", bundle: .app)
+        case .concert: String(localized: "Artist", bundle: .app)
+        case .exam: String(localized: "Exam name", bundle: .app)
+        case .wedding: String(localized: "Couple", bundle: .app)
+        case .birthday: String(localized: "Whose birthday?", bundle: .app)
+        case .holiday: String(localized: "Holiday name", bundle: .app)
         }
     }
 
@@ -52,7 +52,7 @@ enum TicketKind: String, CaseIterable, Identifiable, Codable {
         case .flight: "GATE 03"
         case .concert: "SEC A · 12"
         case .exam: "ROOM 4 · SEAT 17"
-        case .wedding: String(localized: "Venue")
+        case .wedding: String(localized: "Venue", bundle: .app)
         case .birthday: "No. 0024"
         case .holiday: "CAR 25"
         }

@@ -162,7 +162,7 @@ final class ProStore {
         do {
             apply(try await Purchases.shared.restorePurchases())
             if !isPro {
-                errorMessage = String(localized: "No previous Pro purchase was found for this Apple ID.")
+                errorMessage = String(localized: "No previous Pro purchase was found for this Apple ID.", bundle: .app)
             }
             return isPro
         } catch {
@@ -212,11 +212,11 @@ final class ProStore {
     private static func trialText(_ period: SubscriptionPeriod) -> String {
         let value = period.value
         switch period.unit {
-        case .day: return String(localized: "\(value)-day free trial")
-        case .week: return String(localized: "\(value * 7)-day free trial")
-        case .month: return String(localized: "\(value)-month free trial")
-        case .year: return String(localized: "\(value)-year free trial")
-        @unknown default: return String(localized: "Free trial")
+        case .day: return String(localized: "\(value)-day free trial", bundle: .app)
+        case .week: return String(localized: "\(value * 7)-day free trial", bundle: .app)
+        case .month: return String(localized: "\(value)-month free trial", bundle: .app)
+        case .year: return String(localized: "\(value)-year free trial", bundle: .app)
+        @unknown default: return String(localized: "Free trial", bundle: .app)
         }
     }
 
@@ -236,7 +236,7 @@ final class ProStore {
 
     private func loadDebugPackages() {
         packages = [
-            ProPackage(id: "debug_yearly", kind: .yearly, price: "$9.99", pricePerMonth: "$0.83", trial: String(localized: "7-day free trial")),
+            ProPackage(id: "debug_yearly", kind: .yearly, price: "$9.99", pricePerMonth: "$0.83", trial: String(localized: "7-day free trial", bundle: .app)),
             ProPackage(id: "debug_lifetime", kind: .lifetime, price: "$24.99", pricePerMonth: nil, trial: nil),
         ]
     }
