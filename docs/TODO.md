@@ -34,6 +34,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [ ] Satın alma ürünlerine kalan dillerin adları/açıklamaları (`docs/app-store/in-app-purchases.md`'de hazır) — **Fatih**
 
 ### Gerçek cihaz testi (TestFlight) — **Fatih + Claude**
+- [ ] iCloud: iki cihazda (ya da sil-yeniden kur) biletlerin geri gelmesi; Ayarlar'da iCloud "Açık"
 - [x] İlk TestFlight derlemesi yüklendi: 1.0.0 (1), 2026-10-09 (`fastlane beta`, uygulama, widget ve App Group imzaları otomatik)
 - [ ] Sandbox satın alma: deneme, ömür boyu, geri yükle; iptal sonrası kilitlenen biletler
 - [ ] Widget'lar: küçük/orta, bilet seçme, kilit ekranı (Pro'lu/Pro'suz), gece yarısı güncellemesi
@@ -42,11 +43,11 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 ## ⭐ Yayın öncesi önerilen
 - [x] **iCloud senkronu** (kod): özel iCloud veritabanı `iCloud.com.ibrahimfatihtaner.tixday`, widget yerel kopyayı okur; Ayarlar'da iCloud durumu + Tekrar Dene (`SyncMonitor`); senkronla gelen değişiklikte widget yenilenir
-- [ ] **iCloud kurulumu — Fatih (bu yapılmadan `fastlane beta` imzalamada hata verir):**
+- [x] **iCloud kurulumu — Fatih (bu yapılmadan `fastlane beta` imzalamada hata verir):**
   1. ✅ Xcode → Settings → Accounts: Apple ID ekli olsun
   2. ✅ (2026-10-15, cihaz için imzalama doğrulandı) `xcodegen generate`, `Tixday.xcodeproj`'u aç → Tixday hedefi → Signing & Capabilities: iCloud (CloudKit, `iCloud.com.ibrahimfatihtaner.tixday`) ve Push Notifications görünür; Xcode kapsayıcıyı ve profili kendisi oluşturur (hata varsa "Try Again")
-  3. iCloud'a giriş yapılmış iPhone'da Xcode'dan Debug çalıştır, Scheme → Arguments'a `-initCloudKitSchema` ekle; konsolda "schema initialized" görünce argümanı kaldır
-  4. https://icloud.developer.apple.com → Tixday kapsayıcısı → Schema → **Deploy Schema Changes** (Production). TestFlight ve App Store Production'ı kullanır; bu yapılmadan TestFlight'ta senkron çalışmaz
+  3. ✅ iCloud'a giriş yapılmış iPhone'da Xcode'dan Debug çalıştır, Scheme → Arguments'a `-initCloudKitSchema` ekle; konsolda "schema initialized" görünce argümanı kaldır
+  4. ✅ (2026-10-15) https://icloud.developer.apple.com → Tixday kapsayıcısı → Schema → **Deploy Schema Changes** (Production). TestFlight ve App Store Production'ı kullanır; bu yapılmadan TestFlight'ta senkron çalışmaz
 - [x] Onboarding: ilk açılışta (bilet yoksa) 4 sayfa — bilet destesi, widget'lar, widget nasıl eklenir + bilet seçimi (canlı örnek), hatırlatmalar — sonra "İlk biletimi oluştur" editörü açar (`OnboardingView`, DEBUG'da `-onboarding`). Bildirim izni ilk bilet kaydedilince istenir
 - [x] Pro'ya hoş geldin anı: satın alma/geri yükleme sonrası paywall yerine altın Pro bileti + damga + bilet koçanı konfetisi + kilit ekranı widget'ı nasıl eklenir (`ProWelcomeView`, DEBUG'da `-proWelcome`)
 - [ ] Erişilebilirlik: en büyük yazı boyutu ve VoiceOver turu (biletler, cüzdan, paywall)
