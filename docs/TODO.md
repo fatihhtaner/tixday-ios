@@ -59,6 +59,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 ## ✅ Bitti
 **Ürün ve tasarım**
+- Kartlara ve kahraman bilete uzun basınca menü: Düzenle (doğrudan editör), Paylaş (resim, sadece paylaşırken çizilir), Sil (onaylı). Kilitli biletlerde yalnızca Sil. Kaydırarak düzenle/sil bilerek yok (cüzdan destesinde kartlar üst üste)
 - Proje (XcodeGen, uygulama + widget + test), SwiftData modeli, App Group, gün hesabı (`DayCount`)
 - 6 bilet türü, vintage posterli tek bilet tasarımı (`TicketView`), kullanıcının kendi fotoğrafı
 - Ana ekran: tarih + "N bilet seni bekliyor", "Sıradaki" kahraman bilet (canlı saat), Wallet destesi (yerinde açılma)

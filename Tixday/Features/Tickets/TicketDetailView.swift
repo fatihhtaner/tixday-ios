@@ -27,7 +27,7 @@ struct TicketDetailView: View {
                 HStack(spacing: 12) {
                     actionButton("Edit", systemImage: "pencil") { isEditing = true }
                     ShareLink(
-                        item: shareImage,
+                        item: TicketShareCard(ticket: event.snapshot),
                         preview: SharePreview(event.title, image: shareImage)
                     ) {
                         actionLabel("Share", systemImage: "square.and.arrow.up")
@@ -58,17 +58,10 @@ struct TicketDetailView: View {
         }
     }
 
-    /// The ticket as a picture, for sharing.
+    /// The ticket as a picture, for the share sheet's preview.
     @MainActor
     private var shareImage: Image {
-        let renderer = ImageRenderer(
-            content: TicketView(ticket: event.snapshot, size: .medium, notchColor: nil)
-                .frame(width: 360, height: 180)
-                .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-                .padding(20)
-        )
-        renderer.scale = 3
-        return Image(uiImage: renderer.uiImage ?? UIImage())
+        Image(uiImage: TicketShareCard(ticket: event.snapshot).image())
     }
 
     private func actionButton(_ title: LocalizedStringKey, systemImage: String, role: ButtonRole? = nil, action: @escaping () -> Void) -> some View {

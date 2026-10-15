@@ -10,6 +10,9 @@ struct TicketListView: View {
     @State private var paywallReason: ProFeature?
     @Namespace private var zoom
     @State private var isCreating = false
+    /// The ticket being edited or about to be deleted from a card's menu.
+    @State private var editing: TicketEvent?
+    @State private var deleting: TicketEvent?
     @State private var isShowingSettings = false
     @State private var isOnboarding = false
     @AppStorage("didFinishOnboarding") private var didFinishOnboarding = false
@@ -48,7 +51,7 @@ struct TicketListView: View {
                                         .zoomSource(id: next.id, in: zoom)
                                 }
                                 .buttonStyle(PressableStyle())
-                                .contextMenu { deleteButton(next) }
+                                .contextMenu { cardMenu(next, isLocked: false) }
                             }
                         }
                         if upcoming.count > 1 {
@@ -83,6 +86,19 @@ struct TicketListView: View {
             }
             .sheet(item: $paywallReason) { reason in
                 PaywallView(reason: reason).appLanguage()
+            }
+            .sheet(item: $editing) { event in
+                EventEditorView(event: event).appLanguage()
+            }
+            .confirmationDialog(
+                "Delete this ticket?",
+                isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } }),
+                titleVisibility: .visible,
+                presenting: deleting
+            ) { event in
+                Button("Delete", role: .destructive) { delete(event) }
+            } message: { event in
+                Text(event.title)
             }
             .sheet(isPresented: $isShowingSettings) {
                 SettingsView().appLanguage()
@@ -203,17 +219,32 @@ struct TicketListView: View {
                         .zoomSource(id: event.id, in: zoom)
                 }
                 .buttonStyle(PressableStyle())
-                .contextMenu { deleteButton(event) }
+                .contextMenu { cardMenu(event, isLocked: isLocked) }
             }
         }
     }
 
-    private func deleteButton(_ event: TicketEvent) -> some View {
-        Button("Delete", systemImage: "trash", role: .destructive) {
+    /// Long-press menu on a ticket. Locked tickets can only be deleted until Pro is back.
+    @ViewBuilder
+    private func cardMenu(_ event: TicketEvent, isLocked: Bool) -> some View {
+        if !isLocked {
+            Button("Edit", systemImage: "pencil") { editing = event }
+            // Menus are built when they open, so only the pressed ticket is drawn.
+            let card = TicketShareCard(ticket: event.snapshot)
+            ShareLink(item: card, preview: SharePreview(event.title, image: Image(uiImage: card.image()))) {
+                Label("Share", systemImage: "square.and.arrow.up")
+            }
+        }
+        Button("Delete", systemImage: "trash", role: .destructive) { deleting = event }
+    }
+
+    private func delete(_ event: TicketEvent) {
+        if openID == event.id { openID = nil }
+        withAnimation(.snappy) {
             context.delete(event)
             try? context.save()
-            WidgetCenter.shared.reloadAllTimelines()
         }
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     private var newTicketButton: some View {
