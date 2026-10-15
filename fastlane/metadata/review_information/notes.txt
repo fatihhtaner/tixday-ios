@@ -1,0 +1,15 @@
+Thank you for reviewing Tixday.
+
+No account or login is needed. Data stays on the device and in the user's private iCloud (CloudKit); there is no server of our own.
+
+Getting started: the first launch shows a short introduction. Tap "Create my first ticket", pick a kind (Trip, Concert, Exam, Wedding, Birthday, Holiday), set a date and tap Save.
+
+Free vs Pro:
+- Free includes 3 upcoming tickets, Home Screen widgets and reminders.
+- Tixday Pro unlocks unlimited tickets, your own photos on tickets, and Lock Screen widgets.
+- To see the paywall, tap "Pro" at the top of the home screen, try adding a 4th upcoming ticket, or pick a photo in the ticket editor.
+- Products: Tixday Pro Yearly (auto-renewable, 1-week free trial) and Tixday Pro Lifetime (non-consumable). Restore Purchases is on the paywall and in Settings (gear icon on the home screen).
+
+Widgets: long-press the Home Screen > Edit > Add Widget > Tixday. Long-press the widget > Edit Widget to choose a ticket.
+
+If Pro ends, nothing is deleted: tickets beyond the free 3 stay saved but locked until Pro is active again.
