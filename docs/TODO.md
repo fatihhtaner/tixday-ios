@@ -22,14 +22,15 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [x] Release kontrolü: `-sampleData`, `-resetPro`, `-proScreenshots`, `-ticketGallery`, galeri ekranı, sahte ürünler ve test anahtarı Release ikilisinde yok
 
 ### App Store Connect — **Fatih**
-- [ ] App Privacy etiketi — adımlar `docs/app-store/app-privacy.md` (yalnızca Purchases → Purchase History, App Functionality, kimliğe bağlı değil, takip yok) — **Fatih**
+- [x] App Privacy etiketi yayınlandı — adımlar `docs/app-store/app-privacy.md` (yalnızca Purchases → Purchase History, App Functionality, kimliğe bağlı değil, takip yok) — **Fatih**
 - [x] Düğün posteri kadehsiz (yüzüklü eller) yenilendi, alkol tasviri yok → yaş derecelendirmesinde Alcohol = None, hedef 4+ (2026-10-16). IAP inceleme görseli `docs/app-store/review-paywall.png` yeni posterle yeniden çekildi; App Store Connect'te iki ürüne yeniden yüklenmeli — **Fatih**
 - [x] Age Rating anketi → 4+ (Fatih); kategoriler Lifestyle / Utilities (fastlane)
 - [ ] Content Rights (No), fiyat = Free — **Fatih**
 - [ ] Abonelik grubunun görünen adı "Tixday Pro Yearly" → "Tixday Pro"
 - [x] App Review notu: `fastlane/metadata/review_information/notes.txt`
 - [ ] App Review iletişim telefonu — **Fatih** App Store Connect → 1.0.0 → App Review Information'a gir (fastlane telefonsuz kaydı oluşturamıyor), sonra `fastlane metadata` notu da yükler
-- [ ] RevenueCat → Small Business Program başlangıç tarihi; App Store Server Notifications URL
+- [x] App Store Server Notifications URL (RevenueCat) girildi
+- [ ] RevenueCat → Small Business Program başlangıç tarihi — **Fatih**
 
 ### Mağaza sayfası
 - [x] **Ekran görüntüleri**: 12 dil × 5 kare (ana ekran, widget'lar, yıllık doğum günü, editör, damga), 6,9" 1320×2868 JPEG → `fastlane/screenshots/<dil>/`. Ham ekranlar `tools/capture_store_screens.sh`, metinler `docs/app-store/screenshot-texts.json`, kompozisyon `swift tools/make_store_screenshots.swift <ham> fastlane/screenshots`
