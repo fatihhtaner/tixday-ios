@@ -5116,9 +5116,6 @@
         }
       }
     },
-    "HND": {
-      "shouldTranslate": false
-    },
     "HOME": {
       "localizations": {
         "ar": {
@@ -5538,9 +5535,6 @@
           }
         }
       }
-    },
-    "IST": {
-      "shouldTranslate": false
     },
     "Just %@ a month": {
       "localizations": {

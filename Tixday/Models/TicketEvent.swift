@@ -10,7 +10,7 @@ final class TicketEvent {
     var kindRaw: String = TicketKind.flight.rawValue
     /// The big line on the ticket: artist, couple, whose birthday.
     var headline: String = ""
-    /// Route codes for travel tickets, e.g. "IST" → "HND".
+    /// Route codes for travel tickets, e.g. "IST" → "LHR".
     var origin: String = ""
     var destination: String = ""
     /// Small print on the stub, e.g. "GATE 03" and "14A".

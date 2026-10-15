@@ -95,13 +95,13 @@ struct EventEditorView: View {
                         card {
                             HStack(spacing: 12) {
                                 field("From") {
-                                    TextField("", text: $origin, prompt: Text(kind == .flight ? "IST" : "HOME"))
+                                    TextField("", text: $origin, prompt: kind == .flight ? Text(verbatim: "IST") : Text("HOME"))
                                         .textInputAutocapitalization(.characters)
                                 }
                                 Image(systemName: kind == .flight ? "airplane" : "arrow.right")
                                     .foregroundStyle(.secondary)
                                 field("To") {
-                                    TextField("", text: $destination, prompt: Text(kind == .flight ? "HND" : "NORTH POLE"))
+                                    TextField("", text: $destination, prompt: kind == .flight ? Text(verbatim: "LHR") : Text("NORTH POLE"))
                                         .textInputAutocapitalization(.characters)
                                 }
                             }
