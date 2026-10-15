@@ -22,7 +22,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [x] Release kontrolü: `-sampleData`, `-resetPro`, `-proScreenshots`, `-ticketGallery`, galeri ekranı, sahte ürünler ve test anahtarı Release ikilisinde yok
 
 ### App Store Connect — **Fatih**
-- [ ] App Privacy etiketi (RevenueCat: satın alma geçmişi + kullanıcı kimliği, takip yok) — adımları `docs/app-store/app-privacy.md` olarak Claude hazırlayacak
+- [ ] App Privacy etiketi — adımlar `docs/app-store/app-privacy.md` (yalnızca Purchases → Purchase History, App Functionality, kimliğe bağlı değil, takip yok) — **Fatih**
 - [x] Düğün posteri kadehsiz (yüzüklü eller) yenilendi, alkol tasviri yok → yaş derecelendirmesinde Alcohol = None, hedef 4+ (2026-10-16). IAP inceleme görseli `docs/app-store/review-paywall.png` yeni posterle yeniden çekildi; App Store Connect'te iki ürüne yeniden yüklenmeli — **Fatih**
 - [x] Age Rating anketi → 4+ (Fatih); kategoriler Lifestyle / Utilities (fastlane)
 - [ ] Content Rights (No), fiyat = Free — **Fatih**
