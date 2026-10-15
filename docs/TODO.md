@@ -23,6 +23,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 ### App Store Connect — **Fatih**
 - [ ] App Privacy etiketi (RevenueCat: satın alma geçmişi + kullanıcı kimliği, takip yok) — adımları `docs/app-store/app-privacy.md` olarak Claude hazırlayacak
+- [x] Düğün posteri kadehsiz (yüzüklü eller) yenilendi, alkol tasviri yok → yaş derecelendirmesinde Alcohol = None, hedef 4+ (2026-10-16). IAP inceleme görseli `docs/app-store/review-paywall.png` yeni posterle yeniden çekildi; App Store Connect'te iki ürüne yeniden yüklenmeli — **Fatih**
 - [ ] Age Rating anketi, Content Rights, fiyat = Free, kategori (Lifestyle / Utilities)
 - [ ] Abonelik grubunun görünen adı "Tixday Pro Yearly" → "Tixday Pro"
 - [ ] App Review notu (Pro'ya nasıl ulaşılır, ücretsiz sınır 3) — metni Claude hazırlayacak
