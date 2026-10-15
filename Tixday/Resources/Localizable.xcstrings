@@ -1825,10 +1825,10 @@
     },
     "After the day, it counts down to the next one.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "O gün geçince bir sonrakine geri sayar."
+            "value": "بعد مرور اليوم، يبدأ العدّ للمرة التالية."
           }
         },
         "de": {
@@ -1837,28 +1837,22 @@
             "value": "Danach zählt es zum nächsten Mal herunter."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Après le jour J, il compte jusqu’au suivant."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Pasado el día, cuenta hacia el siguiente."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Après le jour J, il compte jusqu’au suivant."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Passato il giorno, conta fino al prossimo."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Depois do dia, conta até o próximo."
           }
         },
         "ja": {
@@ -1873,10 +1867,10 @@
             "value": "그날이 지나면 다음 날까지 카운트다운해요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "过了那天后，会倒数到下一次。"
+            "value": "Depois do dia, conta até o próximo."
           }
         },
         "ru": {
@@ -1885,10 +1879,16 @@
             "value": "После этого дня отсчёт пойдёт до следующего."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "بعد مرور اليوم، يبدأ العدّ للمرة التالية."
+            "value": "O gün geçince bir sonrakine geri sayar."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "过了那天后，会倒数到下一次。"
           }
         }
       }
@@ -3716,6 +3716,76 @@
         }
       }
     },
+    "Duygu's birthday": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duygu'nun doğum günü"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duygus Geburtstag"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anniversaire de Duygu"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cumpleaños de Duygu"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compleanno di Duygu"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aniversário da Duygu"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duyguの誕生日"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duygu의 생일"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duygu的生日"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "День рождения Duygu"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "عيد ميلاد Duygu"
+          }
+        }
+      }
+    },
     "EXAM ENTRY SLIP": {
       "localizations": {
         "ar": {
@@ -4278,10 +4348,10 @@
     },
     "Every year": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Her yıl"
+            "value": "كل عام"
           }
         },
         "de": {
@@ -4290,28 +4360,22 @@
             "value": "Jedes Jahr"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chaque année"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Cada año"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chaque année"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Ogni anno"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Todo ano"
           }
         },
         "ja": {
@@ -4326,10 +4390,10 @@
             "value": "매년"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "每年"
+            "value": "Todo ano"
           }
         },
         "ru": {
@@ -4338,10 +4402,16 @@
             "value": "Каждый год"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "كل عام"
+            "value": "Her yıl"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每年"
           }
         }
       }
@@ -5116,6 +5186,9 @@
         }
       }
     },
+    "HND": {
+      "shouldTranslate": false
+    },
     "HOME": {
       "localizations": {
         "ar": {
@@ -5535,6 +5608,9 @@
           }
         }
       }
+    },
+    "IST": {
+      "shouldTranslate": false
     },
     "Just %@ a month": {
       "localizations": {
@@ -6028,10 +6104,10 @@
     },
     "Made with Tixday": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday ile yapıldı"
+            "value": "صُنع باستخدام Tixday"
           }
         },
         "de": {
@@ -6040,28 +6116,22 @@
             "value": "Erstellt mit Tixday"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Créé avec Tixday"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Hecho con Tixday"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créé avec Tixday"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Creato con Tixday"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Feito com o Tixday"
           }
         },
         "ja": {
@@ -6076,10 +6146,10 @@
             "value": "Tixday로 만듦"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "用 Tixday 制作"
+            "value": "Feito com o Tixday"
           }
         },
         "ru": {
@@ -6088,10 +6158,16 @@
             "value": "Сделано в Tixday"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "صُنع باستخدام Tixday"
+            "value": "Tixday ile yapıldı"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用 Tixday 制作"
           }
         }
       }
@@ -8271,10 +8347,10 @@
     },
     "Repeats every year": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Her yıl tekrarla"
+            "value": "يتكرر كل عام"
           }
         },
         "de": {
@@ -8283,28 +8359,22 @@
             "value": "Jedes Jahr wiederholen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se répète chaque année"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Se repite cada año"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se répète chaque année"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Si ripete ogni anno"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Repetir todo ano"
           }
         },
         "ja": {
@@ -8319,10 +8389,10 @@
             "value": "매년 반복"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "每年重复"
+            "value": "Repetir todo ano"
           }
         },
         "ru": {
@@ -8331,10 +8401,16 @@
             "value": "Повторять каждый год"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "يتكرر كل عام"
+            "value": "Her yıl tekrarla"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每年重复"
           }
         }
       }

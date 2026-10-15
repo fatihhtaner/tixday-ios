@@ -16,12 +16,11 @@ xcrun simctl boot "$D" 2>/dev/null || true
 xcrun simctl bootstatus "$D" -b >/dev/null
 xcrun simctl status_bar "$D" override --time "9:41" --batteryState discharging --batteryLevel 100 \
   --cellularMode active --cellularBars 4 --wifiBars 3 --operatorName ""
-# Fresh sample tickets, dated from today.
-xcrun simctl uninstall "$D" $APP 2>/dev/null || true
-xcrun simctl install "$D" "$BUILD"
-
 for pair in $LANGS; do
   lang=${pair%%:*} locale=${pair#*:}
+  # Fresh sample tickets for every language, so their titles are in that language too.
+  xcrun simctl uninstall "$D" $APP 2>/dev/null || true
+  xcrun simctl install "$D" "$BUILD"
   mkdir -p "$OUT/$lang"
   shot() {
     xcrun simctl terminate "$D" $APP 2>/dev/null || true
