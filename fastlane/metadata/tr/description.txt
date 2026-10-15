@@ -1,19 +1,25 @@
 Beklediğin her gün bir bileti hak ediyor.
 
-Tixday geri sayımlarını güzel biletlere dönüştürür: seyahatin için biniş kartı, konser için sahne bileti, düğün için davetiye, doğum günü için parti bileti. Her birinin kendi vintage posteri var ve ana ekranında geri sayar.
+Tixday geri sayımlarını güzel biletlere dönüştürür: seyahatin için biniş kartı, konser için sahne bileti, düğün için davetiye, doğum günü için parti bileti. Her birinin kendi vintage posteri var; ana ekranında ve kilit ekranında geri sayar.
 
 HER ETKİNLİĞE BİR BİLET
 • Seyahat, konser, sınav, düğün, doğum günü ve tatil biletleri, her biri kendi tasarımıyla
 • Ayrıntıları ekle: rota, koltuk, mekân, saat
+• Doğum günleri ve yıl dönümleri her yıl tekrarlar
 • Beklemenin ne kadarının geride kaldığını gör
+• O gün geçince biletin "Onaylandı" damgasını alır
 
 WIDGET'LAR
 • Küçük ve orta boy ana ekran widget'ları
-• Her widget'ta hangi biletin görüneceğini seç ya da en yakını takip et
+• Her widget'ta hangi biletin görüneceğini seç ya da hep en yakını takip et
 • Tixday Pro ile kilit ekranı widget'ları
 
 HATIRLATMALAR
-• Bir ay, bir hafta ve bir gün önce, bir de o gün
+• Bir ay, bir hafta ve bir gün önce, bir de o gün; seçtiğin saatte
+
+BİLETLERİN GÜVENDE
+• Özel iCloud'una yedeklenir, yeni iPhone'una seninle gelir
+• Üyelik yok, reklam yok
 
 TIXDAY PRO
 • Sınırsız bilet (ücretsiz sürümde 3)

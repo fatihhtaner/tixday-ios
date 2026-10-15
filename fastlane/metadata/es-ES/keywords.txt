@@ -1,0 +1,1 @@
+widget,días para,evento,viaje,vacaciones,cumpleaños,aniversario,boda,concierto,examen,pantalla

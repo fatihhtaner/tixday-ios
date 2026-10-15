@@ -27,7 +27,10 @@ platform :ios do
 
   desc "Upload App Store texts from fastlane/metadata"
   lane :metadata do
+    # The App Store version must match the builds' version, or the build can't be picked for review.
+    version = File.read(File.expand_path("../project.yml", __dir__))[/MARKETING_VERSION:\s*"?([\d.]+)"?/, 1]
     deliver(
+      app_version: version,
       skip_binary_upload: true,
       skip_screenshots: true,
       skip_app_version_update: false,

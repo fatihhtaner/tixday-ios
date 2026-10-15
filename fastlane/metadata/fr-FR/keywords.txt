@@ -1,0 +1,1 @@
+widget,jours avant,événement,voyage,vacances,anniversaire,mariage,concert,examen,écran verrouillé

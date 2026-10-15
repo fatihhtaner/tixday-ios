@@ -1,0 +1,1 @@
+widget,giorni a,evento,viaggio,vacanza,compleanno,anniversario,matrimonio,concerto,esame,blocco

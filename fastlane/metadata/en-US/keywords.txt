@@ -1,1 +1,1 @@
-countdown,widget,days until,event,trip,vacation,birthday,wedding,concert,exam,lock screen,ticket
+days until,event,trip,vacation,birthday,anniversary,wedding,concert,exam,lock screen,reminder,date
