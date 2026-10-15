@@ -32,7 +32,8 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [ ] RevenueCat → Small Business Program başlangıç tarihi; App Store Server Notifications URL
 
 ### Mağaza sayfası
-- [ ] **Ekran görüntüleri** (6,9" iPhone, en az EN + TR; Subloom'daki gibi tasarımlı set, hedef 12 dil)
+- [x] **Ekran görüntüleri**: 12 dil × 5 kare (ana ekran, widget'lar, yıllık doğum günü, editör, damga), 6,9" 1320×2868 JPEG → `fastlane/screenshots/<dil>/`. Ham ekranlar `tools/capture_store_screens.sh`, metinler `docs/app-store/screenshot-texts.json`, kompozisyon `swift tools/make_store_screenshots.swift <ham> fastlane/screenshots`
+- [ ] Ekran görüntülerini yükle: `fastlane screenshots`
 - [x] Mağaza metinleri 12 dilde (ad, alt başlık, anahtar kelime, açıklama — yeni özellikler dahil) yüklendi; App Store sürümü 1.0.0
 - [ ] Satın alma ürünlerine kalan dillerin adları/açıklamaları (`docs/app-store/in-app-purchases.md`'de hazır) — **Fatih**
 

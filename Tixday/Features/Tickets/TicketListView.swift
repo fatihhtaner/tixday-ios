@@ -120,6 +120,9 @@ struct TicketListView: View {
             .sheet(isPresented: $isShowingSettings) {
                 SettingsView().appLanguage()
             }
+            #if DEBUG
+            .fullScreenCover(isPresented: $isShowingWidgetShowcase) { WidgetShowcaseView() }
+            #endif
             .fullScreenCover(isPresented: $isOnboarding) {
                 OnboardingView { createTicket in
                     didFinishOnboarding = true
@@ -213,6 +216,7 @@ struct TicketListView: View {
             isOnboarding = true
             return
         }
+        if openScreenshotScreen() { return }
         #endif
         guard !didFinishOnboarding else { return }
         if events.isEmpty {
@@ -221,6 +225,30 @@ struct TicketListView: View {
             didFinishOnboarding = true
         }
     }
+
+    #if DEBUG
+    @State private var isShowingWidgetShowcase = false
+
+    /// `-screenshotScreen <name>` opens one screen for the App Store screenshots (with `-sampleData`):
+    /// `detail-birthday`, `detail-used`, `editor` or `widgets`.
+    private func openScreenshotScreen() -> Bool {
+        let args = CommandLine.arguments
+        guard let index = args.firstIndex(of: "-screenshotScreen"), index + 1 < args.count else { return false }
+        switch args[index + 1] {
+        case "detail-birthday":
+            if let event = events.first(where: { $0.kind == .birthday }) { path = [event] }
+        case "detail-used":
+            if let event = past.first { path = [event] }
+        case "editor":
+            editing = events.first { $0.kind == .flight }
+        case "widgets":
+            isShowingWidgetShowcase = true
+        default:
+            return false
+        }
+        return true
+    }
+    #endif
 
     private var reminderSignature: [String] {
         // Includes today, so a yearly ticket that just rolled over gets next year's reminders.

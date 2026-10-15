@@ -40,6 +40,21 @@ platform :ios do
     )
   end
 
+  desc "Upload App Store screenshots from fastlane/screenshots (made by tools/make_store_screenshots.swift)"
+  lane :screenshots do
+    version = File.read(File.expand_path("../project.yml", __dir__))[/MARKETING_VERSION:\s*"?([\d.]+)"?/, 1]
+    deliver(
+      app_version: version,
+      skip_binary_upload: true,
+      skip_metadata: true,
+      skip_app_version_update: true,
+      overwrite_screenshots: true,
+      force: true,
+      run_precheck_before_submit: false,
+      submit_for_review: false
+    )
+  end
+
   desc "Build a Release archive and upload it to TestFlight"
   lane :beta do
     sh("cd .. && xcodegen generate")

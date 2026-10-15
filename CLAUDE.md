@@ -25,7 +25,7 @@ xcodegen generate
 xcodebuild -project Tixday.xcodeproj -scheme Tixday -destination 'platform=iOS Simulator,name=iPhone 17' -derivedDataPath build build
 xcodebuild -project Tixday.xcodeproj -scheme Tixday -destination 'platform=iOS Simulator,name=iPhone 17' -derivedDataPath build test
 ```
-Yayın: `fastlane beta` (TestFlight), `fastlane metadata` (App Store metinleri) — bkz. `docs/app-store/fastlane.md`.
+Yayın: `fastlane beta` (TestFlight), `fastlane metadata` (App Store metinleri), `fastlane screenshots` (ekran görüntüleri; üretim: `tools/capture_store_screens.sh /tmp/shots` sonra `swift tools/make_store_screenshots.swift /tmp/shots fastlane/screenshots`) — bkz. `docs/app-store/fastlane.md`.
 
 Örnek biletlerle açmak için uygulamayı `-sampleData` argümanıyla başlat (yalnızca DEBUG, boş veritabanını doldurur).
 
