@@ -7,7 +7,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 ### Web: destek ve gizlilik
 - [x] Destek sitesi üretildi (`tools/build_site.py`, 12 dil: ana sayfa, gizlilik, destek/SSS) ve `~/tixday-site`'ta commit'lendi; uygulama linkleri dile göre siteye bağlı
 - [x] Site yayında: https://fatihhtaner.github.io/tixday-site/ (12 dil, tüm sayfalar 200)
-- [ ] App Store Connect → App Information: Privacy Policy URL, Support URL, (isteğe bağlı) Marketing URL — **Fatih**
+- [x] Privacy / Support / Marketing URL'leri 12 dilde `fastlane metadata` ile yüklendi (2026-10-16)
 - [x] Alan adı kararı: şimdilik GitHub Pages (`fatihhtaner.github.io/tixday-site`)
 
 ### Uygulama içi
@@ -24,14 +24,16 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 ### App Store Connect — **Fatih**
 - [ ] App Privacy etiketi (RevenueCat: satın alma geçmişi + kullanıcı kimliği, takip yok) — adımları `docs/app-store/app-privacy.md` olarak Claude hazırlayacak
 - [x] Düğün posteri kadehsiz (yüzüklü eller) yenilendi, alkol tasviri yok → yaş derecelendirmesinde Alcohol = None, hedef 4+ (2026-10-16). IAP inceleme görseli `docs/app-store/review-paywall.png` yeni posterle yeniden çekildi; App Store Connect'te iki ürüne yeniden yüklenmeli — **Fatih**
-- [ ] Age Rating anketi, Content Rights, fiyat = Free, kategori (Lifestyle / Utilities)
+- [x] Age Rating anketi → 4+ (Fatih); kategoriler Lifestyle / Utilities (fastlane)
+- [ ] Content Rights (No), fiyat = Free — **Fatih**
 - [ ] Abonelik grubunun görünen adı "Tixday Pro Yearly" → "Tixday Pro"
-- [ ] App Review notu (Pro'ya nasıl ulaşılır, ücretsiz sınır 3) — metni Claude hazırlayacak
+- [x] App Review notu: `fastlane/metadata/review_information/notes.txt`
+- [ ] App Review iletişim telefonu — **Fatih** App Store Connect → 1.0.0 → App Review Information'a gir (fastlane telefonsuz kaydı oluşturamıyor), sonra `fastlane metadata` notu da yükler
 - [ ] RevenueCat → Small Business Program başlangıç tarihi; App Store Server Notifications URL
 
 ### Mağaza sayfası
 - [ ] **Ekran görüntüleri** (6,9" iPhone, en az EN + TR; Subloom'daki gibi tasarımlı set, hedef 12 dil)
-- [ ] Mağaza metinleri (ad, alt başlık, anahtar kelime, açıklama) kalan 10 dile; şu an EN + TR hazır (`fastlane/metadata`)
+- [x] Mağaza metinleri 12 dilde (ad, alt başlık, anahtar kelime, açıklama — yeni özellikler dahil) yüklendi; App Store sürümü 1.0.0
 - [ ] Satın alma ürünlerine kalan dillerin adları/açıklamaları (`docs/app-store/in-app-purchases.md`'de hazır) — **Fatih**
 
 ### Gerçek cihaz testi (TestFlight) — **Fatih + Claude**
