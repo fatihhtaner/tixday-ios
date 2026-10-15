@@ -3,13 +3,19 @@ import SwiftUI
 
 @main
 struct TixdayApp: App {
-    private let container = SharedStore.makeContainer()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    private let container = SharedStore.makeContainer(syncWithICloud: true)
     @State private var proStore = ProStore()
+    @State private var syncMonitor = SyncMonitor()
     /// The language picked in Settings; empty follows iOS. Changing it rebuilds every screen.
     @AppStorage(AppLanguage.key, store: AppGroup.defaults) private var language = ""
 
     init() {
         #if DEBUG
+        // Creates every record type in the CloudKit Development environment; see `CloudKitSchema`.
+        if CommandLine.arguments.contains("-initCloudKitSchema") {
+            CloudKitSchema.initialize()
+        }
         // Fills an empty store with one ticket of each kind, for screenshots and design review.
         if CommandLine.arguments.contains("-sampleData") {
             let context = container.mainContext
@@ -53,8 +59,11 @@ struct TixdayApp: App {
             // A new language rebuilds every screen, so strings and dates switch at once.
             .id(language)
             .appLanguage()
+            .task { await syncMonitor.start() }
+            .onOpenURL { url in LinkRouter.shared.pending = DeepLink(url: url) }
         }
         .environment(proStore)
+        .environment(syncMonitor)
         .modelContainer(container)
     }
 }

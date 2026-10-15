@@ -89,8 +89,23 @@ struct NextTicketWidgetView: View {
     var entry: TicketEntry
 
     var body: some View {
-        switch family {
-        case .accessoryCircular, .accessoryRectangular, .accessoryInline:
+        content.widgetURL(link?.url)
+    }
+
+    /// Tapping opens the ticket shown, or the paywall when the widget is locked.
+    private var link: DeepLink? {
+        if isLockScreen && !AppGroup.defaults.bool(forKey: AppGroup.proUnlockedKey) { return .pro }
+        if entry.isLocked { return .pro }
+        return entry.ticket.map { .ticket($0.id) }
+    }
+
+    private var isLockScreen: Bool {
+        [.accessoryCircular, .accessoryRectangular, .accessoryInline].contains(family)
+    }
+
+    @ViewBuilder
+    private var content: some View {
+        if isLockScreen {
             Group {
                 if AppGroup.defaults.bool(forKey: AppGroup.proUnlockedKey) {
                     LockScreenTicketView(ticket: entry.ticket, now: entry.date)
@@ -99,7 +114,7 @@ struct NextTicketWidgetView: View {
                 }
             }
             .containerBackground(for: .widget) { Color.clear }
-        default:
+        } else {
             homeScreen
         }
     }

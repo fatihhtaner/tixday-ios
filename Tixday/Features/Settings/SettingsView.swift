@@ -6,6 +6,7 @@ import UserNotifications
 /// Pro status and purchases, reminder preferences, help links and the version.
 struct SettingsView: View {
     @Environment(ProStore.self) private var pro
+    @Environment(SyncMonitor.self) private var sync
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
     @Environment(\.scenePhase) private var scenePhase
@@ -31,6 +32,7 @@ struct SettingsView: View {
                     .padding(.top, 20)
 
                 section("Pro") { proCard }
+                section("iCloud") { iCloudCard }
                 section("Reminders") { remindersCard }
                 section("Language") { languageCard }
                 section("Help") { helpCard }
@@ -218,8 +220,47 @@ struct SettingsView: View {
 
     // MARK: - Help
 
+    // MARK: - iCloud
+
+    private var iCloudCard: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(spacing: 14) {
+                icon(sync.state.symbol)
+                    .foregroundStyle(sync.state.isProblem ? Color(hex: "#FF8A80") : .primary)
+                Text("iCloud Backup").font(.body.weight(.medium))
+                Spacer(minLength: 8)
+                Text(sync.state.title)
+                    .foregroundStyle(sync.state.isProblem ? Color(hex: "#FF8A80") : .secondary)
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 14)
+            .accessibilityElement(children: .combine)
+
+            Text(sync.state.explanation)
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.leading, 64)
+                .padding(.trailing, 16)
+                .padding(.top, 6)
+                .padding(.bottom, sync.state.isProblem ? 4 : 14)
+
+            if sync.state.isProblem {
+                divider
+                row("Try Again", symbol: "arrow.clockwise", isBusy: sync.isRetrying) {
+                    Task { await sync.retry() }
+                }
+            }
+        }
+        .glassBackground(in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+    }
+
+    // MARK: - Help
+
     private var helpCard: some View {
         VStack(alignment: .leading, spacing: 0) {
+            row("Rate Tixday", symbol: "star", external: true) { openURL(AppConfig.writeReviewURL) }
+            divider
             row("Help & FAQ", symbol: "questionmark.circle", external: true) { openURL(AppConfig.supportURL) }
             divider
             row("Contact Support", symbol: "envelope", external: true) { openURL(AppConfig.supportMailURL(version: versionText)) }

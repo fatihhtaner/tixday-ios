@@ -36,11 +36,24 @@ targets:
         # Dark like the first screen, instead of a white flash in Light Mode.
         UILaunchScreen:
           UIColorName: LaunchBackground
+        # Lets CloudKit wake the app with silent pushes when tickets change on another device.
+        UIBackgroundModes:
+          - remote-notification
+        # tixday://ticket/<id> and tixday://pro, opened by widgets.
+        CFBundleURLTypes:
+          - CFBundleURLName: com.ibrahimfatihtaner.tixday
+            CFBundleURLSchemes:
+              - tixday
     entitlements:
       path: Tixday/Tixday.entitlements
       properties:
         com.apple.security.application-groups:
           - group.com.ibrahimfatihtaner.tixday
+        com.apple.developer.icloud-container-identifiers:
+          - iCloud.com.ibrahimfatihtaner.tixday
+        com.apple.developer.icloud-services:
+          - CloudKit
+        aps-environment: development
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ibrahimfatihtaner.tixday

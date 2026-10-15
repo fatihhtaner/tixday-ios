@@ -1,20 +1,29 @@
 import Foundation
 import SwiftData
 
-/// The SwiftData store, kept in the App Group so the widget extension can read it.
+/// The SwiftData store, kept in the App Group so the widget extension can read it, and synced to iCloud by the app.
 enum SharedStore {
-    static func makeContainer() -> ModelContainer {
+    static let cloudContainerID = "iCloud.com.ibrahimfatihtaner.tixday"
+
+    /// The app syncs through the user's private iCloud database; the widget only reads the local copy.
+    /// Without iCloud (signed out, or the store can't be opened with it) the same local store is used.
+    static func makeContainer(syncWithICloud: Bool = false) -> ModelContainer {
+        let group = ModelConfiguration.GroupContainer.identifier(AppGroup.id)
         createStoreDirectoryIfNeeded()
-        let configuration = ModelConfiguration(
-            groupContainer: .identifier(AppGroup.id),
-            cloudKitDatabase: .none
-        )
-        do {
-            return try ModelContainer(for: TicketEvent.self, configurations: configuration)
-        } catch {
-            #if DEBUG
-            print("SharedStore: could not open the App Group store: \(error)")
-            #endif
+        var configurations: [ModelConfiguration] = []
+        if syncWithICloud {
+            configurations.append(ModelConfiguration(groupContainer: group, cloudKitDatabase: .private(cloudContainerID)))
+        }
+        configurations.append(ModelConfiguration(groupContainer: group, cloudKitDatabase: .none))
+
+        for configuration in configurations {
+            do {
+                return try ModelContainer(for: TicketEvent.self, configurations: configuration)
+            } catch {
+                #if DEBUG
+                print("SharedStore: could not open store (cloudKit: \(configuration.cloudKitDatabase)): \(error)")
+                #endif
+            }
         }
         // Without the App Group entitlement (e.g. a misconfigured build) fall back to the app's own container.
         do {

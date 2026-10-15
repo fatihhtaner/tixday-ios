@@ -14,6 +14,10 @@ enum AppConfig {
     static var supportURL: URL { sitePage("support.html") }
     static let termsOfUseURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
 
+    /// The App Store's numeric ID for Tixday (App Store Connect → App Information → Apple ID).
+    static let appStoreID = "6820981179"
+    static let writeReviewURL = URL(string: "https://apps.apple.com/app/id\(appStoreID)?action=write-review")!
+
     static let supportEmail = "ibrahimfatihtanerbsns@gmail.com"
 
     /// A new mail to support, with the app version and iOS version filled in.

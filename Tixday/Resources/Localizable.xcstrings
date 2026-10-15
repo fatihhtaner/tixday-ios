@@ -1755,10 +1755,10 @@
     },
     "Add your widget": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Widget'ını ekle"
+            "value": "أضف أداتك"
           }
         },
         "de": {
@@ -1767,28 +1767,22 @@
             "value": "Füge dein Widget hinzu"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajoutez votre widget"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Añade tu widget"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajoutez votre widget"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Aggiungi il tuo widget"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adicione seu widget"
           }
         },
         "ja": {
@@ -1803,10 +1797,10 @@
             "value": "위젯 추가하기"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "添加你的小组件"
+            "value": "Adicione seu widget"
           }
         },
         "ru": {
@@ -1815,10 +1809,16 @@
             "value": "Добавьте виджет"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "أضف أداتك"
+            "value": "Widget'ını ekle"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加你的小组件"
           }
         }
       }
@@ -2379,6 +2379,146 @@
           "stringUnit": {
             "state": "translated",
             "value": "更换"
+          }
+        }
+      }
+    },
+    "Changes couldn't be backed up yet. They're safe on this iPhone and Tixday will keep trying.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Değişiklikler henüz yedeklenemedi. Bu iPhone'da güvende; Tixday denemeye devam edecek."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Änderungen konnten noch nicht gesichert werden. Sie sind auf diesem iPhone sicher und Tixday versucht es weiter."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les modifications n’ont pas encore pu être sauvegardées. Elles sont en sécurité sur cet iPhone et Tixday continue d’essayer."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los cambios aún no se han podido guardar. Están seguros en este iPhone y Tixday seguirá intentándolo."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le modifiche non sono ancora state salvate. Sono al sicuro su questo iPhone e Tixday continuerà a provare."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As alterações ainda não puderam ser salvas. Estão seguras neste iPhone e o Tixday continuará tentando."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "変更はまだバックアップできていません。このiPhoneには安全に保存されており、Tixdayが再試行を続けます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "변경 사항을 아직 백업하지 못했어요. 이 iPhone에는 안전하게 남아 있고 Tixday가 계속 시도할게요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更改尚未备份。它们在这台 iPhone 上很安全，Tixday 会继续尝试。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Изменения пока не сохранены в iCloud. Они в безопасности на этом iPhone, Tixday продолжит попытки."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تعذّر نسخ التغييرات احتياطيًا حتى الآن. إنها آمنة على هذا الـ iPhone وسيواصل Tixday المحاولة."
+          }
+        }
+      }
+    },
+    "Checking…": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kontrol ediliyor…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wird geprüft …"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vérification…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comprobando…"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verifica…"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verificando…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "確認中…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "확인 중…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在检查…"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Проверка…"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "جارٍ التحقق…"
           }
         }
       }
@@ -6382,6 +6522,76 @@
         }
       }
     },
+    "Not syncing": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eşitlenmiyor"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Synchronisierung"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pas de synchro"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin sincronizar"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non sincronizzato"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sem sincronizar"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同期していません"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "동기화 안 됨"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未同步"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не синхронизируется"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا تتم المزامنة"
+          }
+        }
+      }
+    },
     "Nothing planned yet": {
       "localizations": {
         "ar": {
@@ -6588,6 +6798,146 @@
           "stringUnit": {
             "state": "translated",
             "value": "好"
+          }
+        }
+      }
+    },
+    "Off": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapalı"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aus"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Désactivé"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desactivado"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disattivato"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desativado"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オフ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "끔"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关闭"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выкл."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "متوقف"
+          }
+        }
+      }
+    },
+    "On": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Açık"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "An"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activé"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activado"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attivo"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ativado"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オン"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "켬"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开启"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вкл."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مفعّل"
           }
         }
       }
@@ -7435,6 +7785,76 @@
         }
       }
     },
+    "Rate Tixday": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday'i Değerlendir"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday bewerten"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noter Tixday"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Valorar Tixday"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Valuta Tixday"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avaliar o Tixday"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixdayを評価"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday 평가하기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "评价 Tixday"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Оценить Tixday"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "قيّم Tixday"
+          }
+        }
+      }
+    },
     "Reminders": {
       "localizations": {
         "ar": {
@@ -7997,10 +8417,10 @@
     },
     "Search for Tixday, pick a size and tap Add Widget.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday'i ara, bir boyut seç ve Widget Ekle'ye dokun."
+            "value": "ابحث عن Tixday واختر حجمًا ثم اضغط على إضافة أداة."
           }
         },
         "de": {
@@ -8009,28 +8429,22 @@
             "value": "Suche nach Tixday, wähle eine Größe und tippe auf „Widget hinzufügen“."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recherchez Tixday, choisissez une taille et touchez Ajouter un widget."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Busca Tixday, elige un tamaño y toca Añadir widget."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recherchez Tixday, choisissez une taille et touchez Ajouter un widget."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Cerca Tixday, scegli una dimensione e tocca Aggiungi widget."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Busque Tixday, escolha um tamanho e toque em Adicionar Widget."
           }
         },
         "ja": {
@@ -8045,10 +8459,10 @@
             "value": "Tixday를 검색하고 크기를 고른 뒤 위젯 추가를 탭하세요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "搜索 Tixday，选择尺寸，然后轻点“添加小组件”。"
+            "value": "Busque Tixday, escolha um tamanho e toque em Adicionar Widget."
           }
         },
         "ru": {
@@ -8057,10 +8471,16 @@
             "value": "Найдите Tixday, выберите размер и нажмите «Добавить виджет»."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "ابحث عن Tixday واختر حجمًا ثم اضغط على إضافة أداة."
+            "value": "Tixday'i ara, bir boyut seç ve Widget Ekle'ye dokun."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索 Tixday，选择尺寸，然后轻点“添加小组件”。"
           }
         }
       }
@@ -8415,6 +8835,76 @@
         }
       }
     },
+    "Sign in to iCloud and turn on iCloud for Tixday in the Settings app to back up your tickets. Until then they're stored only on this iPhone.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Biletlerini yedeklemek için Ayarlar uygulamasında iCloud'a giriş yap ve Tixday için iCloud'u aç. O zamana kadar biletlerin sadece bu iPhone'da duruyor."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Melde dich in der Einstellungen-App bei iCloud an und aktiviere iCloud für Tixday, um deine Tickets zu sichern. Bis dahin sind sie nur auf diesem iPhone gespeichert."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connectez-vous à iCloud et activez iCloud pour Tixday dans Réglages pour sauvegarder vos billets. D’ici là, ils ne sont que sur cet iPhone."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicia sesión en iCloud y activa iCloud para Tixday en Ajustes para guardar tus billetes. Hasta entonces solo están en este iPhone."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accedi a iCloud e attiva iCloud per Tixday in Impostazioni per salvare i tuoi biglietti. Fino ad allora sono solo su questo iPhone."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicie sessão no iCloud e ative o iCloud para o Tixday em Ajustes para fazer backup dos ingressos. Até lá, eles ficam só neste iPhone."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チケットをバックアップするには、設定アプリでiCloudにサインインし、TixdayのiCloudをオンにしてください。それまではこのiPhoneにのみ保存されます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "티켓을 백업하려면 설정 앱에서 iCloud에 로그인하고 Tixday의 iCloud를 켜세요. 그 전까지는 이 iPhone에만 저장돼요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要备份票券，请在“设置”中登录 iCloud 并为 Tixday 打开 iCloud。在此之前，它们只保存在这台 iPhone 上。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Чтобы сохранять билеты, войдите в iCloud и включите iCloud для Tixday в приложении «Настройки». До этого они хранятся только на этом iPhone."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لنسخ تذاكرك احتياطيًا، سجّل الدخول إلى iCloud وفعّل iCloud لـ Tixday من تطبيق الإعدادات. حتى ذلك الحين تُحفظ على هذا الـ iPhone فقط."
+          }
+        }
+      }
+    },
     "Skip": {
       "localizations": {
         "ar": {
@@ -8621,6 +9111,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "开始免费试用"
+          }
+        }
+      }
+    },
+    "Storage full": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Depolama dolu"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Speicher voll"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stockage plein"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Almacenamiento lleno"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spazio esaurito"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Armazenamento cheio"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "容量不足"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "저장 공간 부족"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "存储空间已满"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Хранилище заполнено"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "التخزين ممتلئ"
           }
         }
       }
@@ -9540,10 +10100,10 @@
     },
     "Touch and hold an empty spot on your Home Screen, tap Edit, then Add Widget.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ana ekranında boş bir yere basılı tut, Düzenle'ye ve ardından Widget Ekle'ye dokun."
+            "value": "المس مع الاستمرار مكانًا فارغًا في الشاشة الرئيسية، واضغط على تعديل ثم إضافة أداة."
           }
         },
         "de": {
@@ -9552,28 +10112,22 @@
             "value": "Halte eine freie Stelle auf dem Home-Bildschirm gedrückt, tippe auf „Bearbeiten“ und dann auf „Widget hinzufügen“."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Maintenez le doigt sur un espace vide de l’écran d’accueil, touchez Modifier, puis Ajouter un widget."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Mantén pulsado un espacio vacío de la pantalla de inicio, toca Editar y luego Añadir widget."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maintenez le doigt sur un espace vide de l’écran d’accueil, touchez Modifier, puis Ajouter un widget."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Tieni premuto uno spazio vuoto della schermata Home, tocca Modifica, poi Aggiungi widget."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toque e segure um espaço vazio da Tela de Início, toque em Editar e depois em Adicionar Widget."
           }
         },
         "ja": {
@@ -9588,10 +10142,10 @@
             "value": "홈 화면의 빈 곳을 길게 누르고 편집, 위젯 추가를 차례로 탭하세요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "按住主屏幕的空白处，轻点“编辑”，然后轻点“添加小组件”。"
+            "value": "Toque e segure um espaço vazio da Tela de Início, toque em Editar e depois em Adicionar Widget."
           }
         },
         "ru": {
@@ -9600,20 +10154,26 @@
             "value": "Нажмите и удерживайте пустое место на экране «Домой», выберите «Править», затем «Добавить виджет»."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "المس مع الاستمرار مكانًا فارغًا في الشاشة الرئيسية، واضغط على تعديل ثم إضافة أداة."
+            "value": "Ana ekranında boş bir yere basılı tut, Düzenle'ye ve ardından Widget Ekle'ye dokun."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按住主屏幕的空白处，轻点“编辑”，然后轻点“添加小组件”。"
           }
         }
       }
     },
     "Touch and hold the widget, tap Edit Widget and choose a ticket. Next ticket always shows the soonest one.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Widget'a basılı tut, Widget'ı Düzenle'ye dokun ve bir bilet seç. En yakın bilet her zaman en yakındakini gösterir."
+            "value": "المس الأداة مع الاستمرار، واضغط على تعديل الأداة واختر تذكرة. «التذكرة التالية» تعرض دائمًا الأقرب."
           }
         },
         "de": {
@@ -9622,28 +10182,22 @@
             "value": "Halte das Widget gedrückt, tippe auf „Widget bearbeiten“ und wähle ein Ticket. „Nächstes Ticket“ zeigt immer das nächste an."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Maintenez le doigt sur le widget, touchez Modifier le widget et choisissez un billet. « Prochain billet » affiche toujours le plus proche."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Mantén pulsado el widget, toca Editar widget y elige un billete. «Próximo billete» siempre muestra el más cercano."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maintenez le doigt sur le widget, touchez Modifier le widget et choisissez un billet. « Prochain billet » affiche toujours le plus proche."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Tieni premuto il widget, tocca Modifica widget e scegli un biglietto. «Prossimo biglietto» mostra sempre il più vicino."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toque e segure o widget, toque em Editar Widget e escolha um ingresso. “Próximo ingresso” sempre mostra o mais próximo."
           }
         },
         "ja": {
@@ -9658,10 +10212,10 @@
             "value": "위젯을 길게 누르고 위젯 편집을 탭한 뒤 티켓을 고르세요. ‘다음 티켓’은 항상 가장 가까운 티켓을 보여 줘요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "按住小组件，轻点“编辑小组件”并选择一张票。“下一张票”会始终显示最近的那张。"
+            "value": "Toque e segure o widget, toque em Editar Widget e escolha um ingresso. “Próximo ingresso” sempre mostra o mais próximo."
           }
         },
         "ru": {
@@ -9670,10 +10224,16 @@
             "value": "Нажмите и удерживайте виджет, выберите «Изменить виджет» и билет. «Ближайший билет» всегда показывает самый близкий."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "المس الأداة مع الاستمرار، واضغط على تعديل الأداة واختر تذكرة. «التذكرة التالية» تعرض دائمًا الأقرب."
+            "value": "Widget'a basılı tut, Widget'ı Düzenle'ye dokun ve bir bilet seç. En yakın bilet her zaman en yakındakini gösterir."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按住小组件，轻点“编辑小组件”并选择一张票。“下一张票”会始终显示最近的那张。"
           }
         }
       }
@@ -9884,6 +10444,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "旅行名称"
+          }
+        }
+      }
+    },
+    "Try Again": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tekrar Dene"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erneut versuchen"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réessayer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reintentar"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riprova"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tentar de novo"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再試行"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다시 시도"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重试"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Повторить"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حاول مجددًا"
           }
         }
       }
@@ -10588,6 +11218,76 @@
         }
       }
     },
+    "Your iCloud storage is full, so new changes aren't backed up. They're safe on this iPhone and will sync once you free up space.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud depolama alanın dolu, bu yüzden yeni değişiklikler yedeklenmiyor. Bu iPhone'da güvendeler; yer açınca eşitlenecekler."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dein iCloud-Speicher ist voll, daher werden neue Änderungen nicht gesichert. Sie sind auf diesem iPhone sicher und werden synchronisiert, sobald wieder Platz ist."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Votre stockage iCloud est plein : les nouvelles modifications ne sont pas sauvegardées. Elles sont en sécurité sur cet iPhone et se synchroniseront dès que vous libérerez de l’espace."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu almacenamiento de iCloud está lleno, así que los cambios nuevos no se guardan. Están seguros en este iPhone y se sincronizarán cuando liberes espacio."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo spazio iCloud è esaurito, quindi le nuove modifiche non vengono salvate. Sono al sicuro su questo iPhone e si sincronizzeranno quando libererai spazio."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seu armazenamento do iCloud está cheio, então as novas alterações não são salvas. Elas estão seguras neste iPhone e serão sincronizadas quando houver espaço."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloudの容量がいっぱいのため、新しい変更はバックアップされません。このiPhoneには安全に保存され、空きができると同期されます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud 저장 공간이 가득 차서 새 변경 사항이 백업되지 않아요. 이 iPhone에는 안전하게 있고, 공간을 확보하면 동기화돼요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的 iCloud 存储空间已满，新的更改不会备份。它们在这台 iPhone 上很安全，腾出空间后会同步。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Хранилище iCloud заполнено, поэтому новые изменения не сохраняются. Они в безопасности на этом iPhone и синхронизируются, когда освободится место."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مساحة iCloud ممتلئة، لذا لا تُنسخ التغييرات الجديدة احتياطيًا. إنها آمنة على هذا الـ iPhone وستتم مزامنتها عند توفير مساحة."
+          }
+        }
+      }
+    },
     "Your own photos": {
       "localizations": {
         "ar": {
@@ -10724,6 +11424,286 @@
           "stringUnit": {
             "state": "translated",
             "value": "你的照片"
+          }
+        }
+      }
+    },
+    "Your tickets are backed up to your private iCloud and appear on your other devices.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Biletlerin özel iCloud'una yedekleniyor ve diğer cihazlarında da görünüyor."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deine Tickets werden in deiner privaten iCloud gesichert und erscheinen auf deinen anderen Geräten."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vos billets sont sauvegardés dans votre iCloud privé et apparaissent sur vos autres appareils."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus billetes se guardan en tu iCloud privado y aparecen en tus otros dispositivos."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tuoi biglietti sono salvati nel tuo iCloud privato e appaiono sugli altri dispositivi."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seus ingressos ficam salvos no seu iCloud privado e aparecem nos seus outros dispositivos."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チケットはあなた専用のiCloudにバックアップされ、ほかのデバイスにも表示されます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "티켓이 개인 iCloud에 백업되고 다른 기기에도 표시돼요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的票券会备份到你的私人 iCloud，并出现在你的其他设备上。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ваши билеты сохраняются в вашем личном iCloud и появляются на других устройствах."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تُنسخ تذاكرك احتياطيًا إلى iCloud الخاص بك وتظهر على أجهزتك الأخرى."
+          }
+        }
+      }
+    },
+    "Your tickets are backed up to your private iCloud. Last synced %@.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Biletlerin özel iCloud'una yedekleniyor. Son eşitleme: %@."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deine Tickets werden in deiner privaten iCloud gesichert. Zuletzt synchronisiert: %@."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vos billets sont sauvegardés dans votre iCloud privé. Dernière synchro : %@."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus billetes se guardan en tu iCloud privado. Última sincronización: %@."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tuoi biglietti sono salvati nel tuo iCloud privato. Ultima sincronizzazione: %@."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seus ingressos ficam salvos no seu iCloud privado. Última sincronização: %@."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チケットはあなた専用のiCloudにバックアップされています。最終同期：%@。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "티켓이 개인 iCloud에 백업돼요. 마지막 동기화: %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的票券已备份到你的私人 iCloud。上次同步：%@。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ваши билеты сохраняются в вашем личном iCloud. Последняя синхронизация: %@."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تُنسخ تذاكرك احتياطيًا إلى iCloud الخاص بك. آخر مزامنة: %@."
+          }
+        }
+      }
+    },
+    "iCloud": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        }
+      }
+    },
+    "iCloud Backup": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud Yedeği"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud-Backup"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sauvegarde iCloud"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copia en iCloud"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup iCloud"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup do iCloud"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloudバックアップ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud 백업"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud 备份"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Резервная копия iCloud"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "نسخ iCloud الاحتياطي"
           }
         }
       }

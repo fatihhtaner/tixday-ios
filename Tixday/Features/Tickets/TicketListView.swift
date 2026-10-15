@@ -7,6 +7,7 @@ struct TicketListView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: \TicketEvent.date) private var events: [TicketEvent]
     @Environment(ProStore.self) private var pro
+    @Environment(\.scenePhase) private var scenePhase
     @State private var paywallReason: ProFeature?
     @Namespace private var zoom
     @State private var isCreating = false
@@ -21,9 +22,12 @@ struct TicketListView: View {
     @State private var path: [TicketEvent] = []
     /// The stacked card the user tapped open; the last card of a stack is always open.
     @State private var openID: UUID?
+    /// Today, so the screen redraws when the day changes while the app stays open in the background.
+    @State private var today = Calendar.current.startOfDay(for: .now)
+    private let router = LinkRouter.shared
 
     private var upcoming: [TicketEvent] {
-        events.filter { DayCount.days(until: $0.date) >= 0 }
+        events.filter { DayCount.days(until: $0.date, from: today) >= 0 }
     }
 
     /// Tickets a free user can use; the rest show locked (see `TicketAccess`).
@@ -32,7 +36,7 @@ struct TicketListView: View {
     }
 
     private var past: [TicketEvent] {
-        events.filter { DayCount.days(until: $0.date) < 0 }.reversed()
+        events.filter { DayCount.days(until: $0.date, from: today) < 0 }.reversed()
     }
 
     var body: some View {
@@ -70,9 +74,11 @@ struct TicketListView: View {
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 24)
+                // Counts and dates are read when drawn; a new day draws everything again.
+                .id(today)
             }
             .scrollIndicators(.hidden)
-            .pinnedTopBar { header.padding(.horizontal, 20).padding(.bottom, 10) }
+            .pinnedTopBar { header.padding(.horizontal, 20).padding(.bottom, 10).id(today) }
             .background { PosterBackdrop(kind: upcoming.first?.kind, photo: TicketPhoto.image(upcoming.first?.snapshot.photoData)) }
             .toolbar(.hidden, for: .navigationBar)
             .navigationDestination(for: TicketEvent.self) { event in
@@ -111,7 +117,17 @@ struct TicketListView: View {
                 }
                 .appLanguage()
             }
-            .onAppear(perform: showOnboardingIfNeeded)
+            .onAppear {
+                showOnboardingIfNeeded()
+                openPendingLink()
+            }
+            .onChange(of: router.pending) { _, _ in openPendingLink() }
+            .onChange(of: scenePhase) { _, phase in
+                if phase == .active { refreshToday() }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
+                refreshToday()
+            }
         }
         // Like the editor and details, home sits in the next ticket's poster atmosphere.
         .environment(\.colorScheme, .dark)
@@ -119,6 +135,37 @@ struct TicketListView: View {
         // Re-plans reminders on launch and whenever a ticket is added, edited or deleted.
         .task(id: reminderSignature) {
             await TicketNotifications.reschedule(events.map(\.snapshot))
+        }
+        // Tickets also change through iCloud from another device; keep the widgets in step.
+        .onChange(of: reminderSignature) { _, _ in
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+    }
+
+    private func refreshToday() {
+        let start = Calendar.current.startOfDay(for: .now)
+        if start != today { today = start }
+    }
+
+    /// Opens what a widget or reminder pointed at: the ticket's details, or the paywall when it's locked.
+    private func openPendingLink() {
+        guard let link = router.pending, !isOnboarding else { return }
+        router.pending = nil
+        isCreating = false
+        editing = nil
+        isShowingSettings = false
+        switch link {
+        case .pro:
+            if !pro.isPro { paywallReason = .lockScreen }
+        case .ticket(let id):
+            guard let event = events.first(where: { $0.id == id }) else { return }
+            if unlockedIDs.contains(id) {
+                paywallReason = nil
+                path = [event]
+            } else {
+                path = []
+                paywallReason = .unlimitedTickets
+            }
         }
     }
 

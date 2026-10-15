@@ -13,7 +13,9 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 ### Uygulama içi
 - [x] **Ayarlar ekranı** (ana ekranda dişli): Pro durumu (yenilenme/bitiş tarihi, ömür boyu), Pro'ya geç, geri yükle, aboneliği yönet (Apple sayfası), hatırlatmaları aç/kapat + saat, yardım/destek e-postası/gizlilik/koşullar, sürüm
 - [x] Ayarlar → Dil: uygulama içi dil seçici (iPhone ile aynı + 12 dil), anında uygulanır; widget'lar ve hatırlatmalar da seçilen dili kullanır (`AppLanguage`, App Group'ta `appLanguage`)
-- [ ] Ayarlar'a "Uygulamayı değerlendir" satırı: App Store'daki uygulama kimliği (Apple ID, sayısal) gerekiyor — **Fatih** App Store Connect → App Information'dan iletsin
+- [x] Ayarlar → "Tixday'i Değerlendir" (App Store yorum sayfası, Apple ID `6820981179`)
+- [x] Gün değişince ana ekran yenilenir (arka planda açık kalsa bile)
+- [x] Widget'a dokununca o bilet açılır (kilitliyse paywall); hatırlatmaya dokununca o bilet açılır; uygulama açıkken hatırlatmalar banner olarak görünür (`DeepLink`, `LinkRouter`, `AppDelegate`)
 - [x] **Gizlilik bildirim dosyası** `PrivacyInfo.xcprivacy` (uygulama + widget): takip yok, UserDefaults sebebi CA92.1 + 1C8F.1 (App Group)
 - [x] **Açılış ekranı**: koyu zemin (`LaunchBackground`, `Tixday/Info.plist`)
 - [x] Widget ayarında "En yakın bilet" seçeneği (varsayılan); silinen bilete sabitlenen widget en yakın bilete döner
@@ -39,7 +41,12 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [ ] Fotoğraf: seçme, widget'ta görünme, bellek (büyük fotoğraf + widget)
 
 ## ⭐ Yayın öncesi önerilen
-- [ ] **iCloud senkronu** kararı: şu an veriler sadece telefonda, telefon değişince biletler kaybolur. Model CloudKit'e hazır (Subloom'daki gibi açılabilir) — **karar Fatih**
+- [x] **iCloud senkronu** (kod): özel iCloud veritabanı `iCloud.com.ibrahimfatihtaner.tixday`, widget yerel kopyayı okur; Ayarlar'da iCloud durumu + Tekrar Dene (`SyncMonitor`); senkronla gelen değişiklikte widget yenilenir
+- [ ] **iCloud kurulumu — Fatih (bu yapılmadan `fastlane beta` imzalamada hata verir):**
+  1. Xcode → Settings → Accounts: Apple ID ekli olsun
+  2. `xcodegen generate`, `Tixday.xcodeproj`'u aç → Tixday hedefi → Signing & Capabilities: iCloud (CloudKit, `iCloud.com.ibrahimfatihtaner.tixday`) ve Push Notifications görünür; Xcode kapsayıcıyı ve profili kendisi oluşturur (hata varsa "Try Again")
+  3. iCloud'a giriş yapılmış iPhone'da Xcode'dan Debug çalıştır, Scheme → Arguments'a `-initCloudKitSchema` ekle; konsolda "schema initialized" görünce argümanı kaldır
+  4. https://icloud.developer.apple.com → Tixday kapsayıcısı → Schema → **Deploy Schema Changes** (Production). TestFlight ve App Store Production'ı kullanır; bu yapılmadan TestFlight'ta senkron çalışmaz
 - [x] Onboarding: ilk açılışta (bilet yoksa) 4 sayfa — bilet destesi, widget'lar, widget nasıl eklenir + bilet seçimi (canlı örnek), hatırlatmalar — sonra "İlk biletimi oluştur" editörü açar (`OnboardingView`, DEBUG'da `-onboarding`). Bildirim izni ilk bilet kaydedilince istenir
 - [x] Pro'ya hoş geldin anı: satın alma/geri yükleme sonrası paywall yerine altın Pro bileti + damga + bilet koçanı konfetisi + kilit ekranı widget'ı nasıl eklenir (`ProWelcomeView`, DEBUG'da `-proWelcome`)
 - [ ] Erişilebilirlik: en büyük yazı boyutu ve VoiceOver turu (biletler, cüzdan, paywall)
