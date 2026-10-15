@@ -72,6 +72,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 ## ✅ Bitti
 **Ürün ve tasarım**
+- Fotoğraf kadrajı: fotoğraf seçilince bilet şeklinde (1,6:1) çerçeve açılır, sürükle/yakınlaştır; kesik kare küçük widget alanını gösterir. Seçilen kadraj fotoğrafa işlenir (yeni model alanı yok, iCloud şeması değişmedi); fotoğraflar her yerde ortalanır. Editörde Ayarla / Değiştir / Kaldır (`PhotoCropView`)
 - Her yıl tekrarlayan biletler (doğum günü ve tatilde varsayılan açık): `date` orijinal tarihi tutar, her yer `upcomingDate` / `DayCount.nextOccurrence` ile bir sonraki yıl dönümüne sayar (29 Şubat dahil, testli)
 - Tamamlanan bilete "ONAYLANDI" damgası: detayda titreşimle iner, "Kullanıldı" kartında gri bilet üstünde kırmızı, widget'ta da var (`AdmittedStamp`)
 - Puan isteme: ikinci bilet oluşturulunca ya da bir biletin günü gelince, en fazla 4 ayda bir (`ReviewPrompt`)

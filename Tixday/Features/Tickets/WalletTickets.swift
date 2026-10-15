@@ -16,7 +16,7 @@ struct HeroTicket: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .topLeading) {
-                TicketBody(kind: ticket.kind, poster: poster, posterAlignment: .trailing)
+                TicketBody(kind: ticket.kind, poster: poster, posterAlignment: ticket.artworkAlignment(.trailing))
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
                         Text(ticket.kind.ticketLabel)
@@ -132,7 +132,7 @@ struct WalletCard: View {
             .frame(height: Self.headerHeight)
 
             ZStack(alignment: .top) {
-                TicketBody(kind: ticket.kind, poster: ticket.artwork(.wide), posterAlignment: .trailing)
+                TicketBody(kind: ticket.kind, poster: ticket.artwork(.wide), posterAlignment: ticket.artworkAlignment(.trailing))
                     .opacity(isOpen ? 1 : 0)
                 // No notches here: a cut-out would show the cards beneath, and the backdrop behind
                 // the stack is an image, so no paint colour would match it.

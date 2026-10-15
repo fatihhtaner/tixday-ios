@@ -35,7 +35,7 @@ struct TicketView: View {
     private var medium: some View {
         HStack(spacing: 0) {
             ZStack(alignment: .topLeading) {
-                TicketBody(kind: ticket.kind, poster: poster, posterAlignment: .trailing)
+                TicketBody(kind: ticket.kind, poster: poster, posterAlignment: ticket.artworkAlignment(.trailing))
                 VStack(alignment: .leading, spacing: 0) {
                     labelRow
                     Spacer(minLength: 4)
@@ -95,7 +95,7 @@ struct TicketView: View {
     private var small: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .topLeading) {
-                TicketBody(kind: ticket.kind, poster: poster, posterAlignment: .topTrailing)
+                TicketBody(kind: ticket.kind, poster: poster, posterAlignment: ticket.artworkAlignment(.topTrailing))
                 VStack(alignment: .leading, spacing: 0) {
                     labelRow
                     Spacer(minLength: 0)

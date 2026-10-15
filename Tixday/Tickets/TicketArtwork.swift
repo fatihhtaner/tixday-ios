@@ -20,4 +20,9 @@ extension TicketSnapshot {
     func artwork(_ shape: TicketPoster.Shape) -> Image? {
         TicketPhoto.image(photoData) ?? TicketPoster.image(kind, shape)
     }
+
+    /// Posters keep their subject on the right; a photo was framed by the user, so it stays centred.
+    func artworkAlignment(_ posterAlignment: Alignment) -> Alignment {
+        photoData == nil ? posterAlignment : .center
+    }
 }
