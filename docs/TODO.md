@@ -34,7 +34,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [ ] Satın alma ürünlerine kalan dillerin adları/açıklamaları (`docs/app-store/in-app-purchases.md`'de hazır) — **Fatih**
 
 ### Gerçek cihaz testi (TestFlight) — **Fatih + Claude**
-- [ ] **iCloud şeması yeniden gönderilmeli — Fatih:** modele `repeatsYearly` eklendi. iPhone'da `-initCloudKitSchema` ile bir kez çalıştır, CloudKit Console → Deploy Schema Changes. Yapılmazsa TestFlight'ta yeni alan senkronlanmaz
+- [x] (2026-10-15) **iCloud şeması yeniden gönderildi — Fatih:** modele `repeatsYearly` eklendi. iPhone'da `-initCloudKitSchema` ile bir kez çalıştır, CloudKit Console → Deploy Schema Changes. Yapılmazsa TestFlight'ta yeni alan senkronlanmaz
 - [ ] iCloud: iki cihazda (ya da sil-yeniden kur) biletlerin geri gelmesi; Ayarlar'da iCloud "Açık"
 - [x] İlk TestFlight derlemesi yüklendi: 1.0.0 (1), 2026-10-09 (`fastlane beta`, uygulama, widget ve App Group imzaları otomatik)
 - [ ] Sandbox satın alma: deneme, ömür boyu, geri yükle; iptal sonrası kilitlenen biletler
