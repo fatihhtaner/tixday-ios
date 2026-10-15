@@ -1,87 +1,267 @@
 {
-  "_notes": "Headline and subtitle for each App Store screenshot, per language. Screens: home, widgets, birthday, editor, used. \n in a headline is a line break. Raw screens: tools/capture_store_screens.sh; render: tools/make_store_screenshots.swift.",
+  "_notes": "Headline and subtitle for each App Store screenshot, per language. Screens: home, widgets, birthday, editor, used. \\n in a headline is a line break; *word* is drawn in the accent colour. Headlines are uppercased when rendered. Raw screens: tools/capture_store_screens.sh; render: tools/make_store_screenshots.swift.",
   "en": [
-    ["Every date\nis a ticket", "Trips, concerts, birthdays: count down to the days you're waiting for."],
-    ["Always on your\nHome Screen", "Pick a ticket for each widget, or always show the next one."],
-    ["Birthdays come\nback every year", "Yearly tickets roll over to the next date on their own."],
-    ["Make every\nticket yours", "Six ticket kinds with vintage posters, or your own photo."],
-    ["Get your ticket\nstamped", "Reminders before the day, and an Admitted stamp after."]
+    [
+      "Every date\nis a ticket",
+      "Trips, concerts, birthdays: count down to the days you're waiting for."
+    ],
+    [
+      "Always on your\nHome Screen",
+      "Pick a ticket for each widget, or always show the next one."
+    ],
+    [
+      "Birthdays come\nback every year",
+      "Yearly tickets roll over to the next date on their own."
+    ],
+    [
+      "Make every\nticket yours",
+      "Six ticket kinds with vintage posters, or your own photo."
+    ],
+    [
+      "Get your ticket\nstamped",
+      "Reminders before the day, and an Admitted stamp after."
+    ]
   ],
   "tr": [
-    ["Her tarih\nbir bilet", "Seyahat, konser, doğum günü: beklediğin günlere geri say."],
-    ["Hep ana\nekranında", "Her widget'a bir bilet seç ya da hep en yakını göster."],
-    ["Doğum günleri\nher yıl gelir", "Yıllık biletler kendiliğinden bir sonraki tarihe geçer."],
-    ["Her bilet\nsana özel", "Vintage posterli altı bilet türü ya da kendi fotoğrafın."],
-    ["Biletine\ndamganı vur", "O günden önce hatırlatmalar, sonra “Onaylandı” damgası."]
+    [
+      "Her tarih\nbir *bilet*",
+      "Seyahat, konser, doğum günü: beklediğin günlere geri say."
+    ],
+    [
+      "Hep\n*ana ekranında*",
+      "Her widget'a bir bilet seç ya da hep en yakını göster."
+    ],
+    [
+      "Doğum günleri\n*her yıl* gelir",
+      "Yıllık biletler kendiliğinden bir sonraki tarihe geçer."
+    ],
+    [
+      "Her bilet\n*sana özel*",
+      "Vintage posterli altı bilet türü ya da kendi fotoğrafın."
+    ],
+    [
+      "Biletine\n*damganı* vur",
+      "Günden önce hatırlatma, sonra “Onaylandı” damgası."
+    ]
   ],
   "de-DE": [
-    ["Jedes Datum\nein Ticket", "Reisen, Konzerte, Geburtstage: zähle die Tage bis zu deinen Highlights."],
-    ["Immer auf dem\nHome-Bildschirm", "Wähle ein Ticket pro Widget oder zeig immer das nächste."],
-    ["Geburtstage\njedes Jahr", "Jährliche Tickets springen von selbst zum nächsten Datum."],
-    ["Dein Ticket,\ndein Stil", "Sechs Ticketarten mit Vintage-Postern oder deinem eigenen Foto."],
-    ["Dein Ticket\nwird entwertet", "Erinnerungen vor dem Tag, danach der Stempel „Entwertet“."]
+    [
+      "Jedes Datum\nein Ticket",
+      "Reisen, Konzerte, Geburtstage: zähle die Tage bis zu deinen Highlights."
+    ],
+    [
+      "Immer auf dem\nHome-Bildschirm",
+      "Wähle ein Ticket pro Widget oder zeig immer das nächste."
+    ],
+    [
+      "Geburtstage\njedes Jahr",
+      "Jährliche Tickets springen von selbst zum nächsten Datum."
+    ],
+    [
+      "Dein Ticket,\ndein Stil",
+      "Sechs Ticketarten mit Vintage-Postern oder deinem eigenen Foto."
+    ],
+    [
+      "Dein Ticket\nwird entwertet",
+      "Erinnerungen vor dem Tag, danach der Stempel „Entwertet“."
+    ]
   ],
   "fr-FR": [
-    ["Chaque date\nest un billet", "Voyages, concerts, anniversaires : comptez les jours qui vous font rêver."],
-    ["Toujours sur\nl'écran d'accueil", "Un billet par widget, ou toujours le prochain."],
-    ["Les anniversaires\nreviennent", "Les billets annuels passent seuls à la date suivante."],
-    ["Un billet\nà votre image", "Six types de billets aux affiches vintage, ou votre propre photo."],
-    ["Votre billet\nvalidé", "Des rappels avant le jour J, puis le tampon « Validé »."]
+    [
+      "Chaque date\nest un billet",
+      "Voyages, concerts, anniversaires : comptez les jours qui vous font rêver."
+    ],
+    [
+      "Toujours sur\nl'écran d'accueil",
+      "Un billet par widget, ou toujours le prochain."
+    ],
+    [
+      "Les anniversaires\nreviennent",
+      "Les billets annuels passent seuls à la date suivante."
+    ],
+    [
+      "Un billet\nà votre image",
+      "Six types de billets aux affiches vintage, ou votre propre photo."
+    ],
+    [
+      "Votre billet\nvalidé",
+      "Des rappels avant le jour J, puis le tampon « Validé »."
+    ]
   ],
   "es-ES": [
-    ["Cada fecha\nes un billete", "Viajes, conciertos, cumpleaños: cuenta los días que estás esperando."],
-    ["Siempre en tu\npantalla de inicio", "Elige un billete para cada widget o muestra siempre el próximo."],
-    ["Los cumpleaños\nvuelven cada año", "Los billetes anuales pasan solos a la siguiente fecha."],
-    ["Un billete\na tu estilo", "Seis tipos de billete con pósteres vintage, o tu propia foto."],
-    ["Tu billete,\nvalidado", "Recordatorios antes del día y el sello «Validado» después."]
+    [
+      "Cada fecha\nes un billete",
+      "Viajes, conciertos, cumpleaños: cuenta los días que estás esperando."
+    ],
+    [
+      "Siempre en tu\npantalla de inicio",
+      "Elige un billete para cada widget o muestra siempre el próximo."
+    ],
+    [
+      "Los cumpleaños\nvuelven cada año",
+      "Los billetes anuales pasan solos a la siguiente fecha."
+    ],
+    [
+      "Un billete\na tu estilo",
+      "Seis tipos de billete con pósteres vintage, o tu propia foto."
+    ],
+    [
+      "Tu billete,\nvalidado",
+      "Recordatorios antes del día y el sello «Validado» después."
+    ]
   ],
   "it": [
-    ["Ogni data è\nun biglietto", "Viaggi, concerti, compleanni: conta i giorni che aspetti."],
-    ["Sempre nella\nschermata Home", "Scegli un biglietto per ogni widget o mostra sempre il prossimo."],
-    ["I compleanni\ntornano ogni anno", "I biglietti annuali passano da soli alla data successiva."],
-    ["Un biglietto\nsolo tuo", "Sei tipi di biglietto con poster vintage, o una tua foto."],
-    ["Il tuo biglietto\nvalidato", "Promemoria prima del giorno e poi il timbro «Validato»."]
+    [
+      "Ogni data è\nun biglietto",
+      "Viaggi, concerti, compleanni: conta i giorni che aspetti."
+    ],
+    [
+      "Sempre nella\nschermata Home",
+      "Scegli un biglietto per ogni widget o mostra sempre il prossimo."
+    ],
+    [
+      "I compleanni\ntornano ogni anno",
+      "I biglietti annuali passano da soli alla data successiva."
+    ],
+    [
+      "Un biglietto\nsolo tuo",
+      "Sei tipi di biglietto con poster vintage, o una tua foto."
+    ],
+    [
+      "Il tuo biglietto\nvalidato",
+      "Promemoria prima del giorno e poi il timbro «Validato»."
+    ]
   ],
   "pt-BR": [
-    ["Cada data é\num ingresso", "Viagens, shows, aniversários: conte os dias que você espera."],
-    ["Sempre na sua\nTela de Início", "Escolha um ingresso para cada widget ou mostre sempre o próximo."],
-    ["Aniversários\nvoltam todo ano", "Ingressos anuais passam sozinhos para a próxima data."],
-    ["Um ingresso\ndo seu jeito", "Seis tipos de ingresso com pôsteres vintage, ou sua própria foto."],
-    ["Seu ingresso\nvalidado", "Lembretes antes do dia e o carimbo “Validado” depois."]
+    [
+      "Cada data é\num ingresso",
+      "Viagens, shows, aniversários: conte os dias que você espera."
+    ],
+    [
+      "Sempre na sua\nTela de Início",
+      "Escolha um ingresso para cada widget ou mostre sempre o próximo."
+    ],
+    [
+      "Aniversários\nvoltam todo ano",
+      "Ingressos anuais passam sozinhos para a próxima data."
+    ],
+    [
+      "Um ingresso\ndo seu jeito",
+      "Seis tipos de ingresso com pôsteres vintage, ou sua própria foto."
+    ],
+    [
+      "Seu ingresso\nvalidado",
+      "Lembretes antes do dia e o carimbo “Validado” depois."
+    ]
   ],
   "ja": [
-    ["大切な日を\nチケットに", "旅行、ライブ、誕生日。待ち遠しい日をカウントダウン。"],
-    ["いつも\nホーム画面に", "ウィジェットごとにチケットを選ぶか、次のチケットを表示。"],
-    ["誕生日は\n毎年やってくる", "毎年のチケットは自動で次の日付へ。"],
-    ["あなただけの\nチケット", "ヴィンテージポスターの6種類、または自分の写真で。"],
-    ["チケットに\n入場スタンプ", "当日までリマインダー、終わったら「入場済み」スタンプ。"]
+    [
+      "大切な日を\nチケットに",
+      "旅行、ライブ、誕生日。待ち遠しい日をカウントダウン。"
+    ],
+    [
+      "いつも\nホーム画面に",
+      "ウィジェットごとにチケットを選ぶか、次のチケットを表示。"
+    ],
+    [
+      "誕生日は\n毎年やってくる",
+      "毎年のチケットは自動で次の日付へ。"
+    ],
+    [
+      "あなただけの\nチケット",
+      "ヴィンテージポスターの6種類、または自分の写真で。"
+    ],
+    [
+      "チケットに\n入場スタンプ",
+      "当日までリマインダー、終わったら「入場済み」スタンプ。"
+    ]
   ],
   "ko": [
-    ["모든 날이\n티켓이 된다", "여행, 콘서트, 생일까지. 기다리는 날을 카운트다운하세요."],
-    ["언제나\n홈 화면에", "위젯마다 티켓을 고르거나 항상 다음 티켓을 보여 줘요."],
-    ["생일은\n매년 돌아와요", "매년 반복 티켓은 알아서 다음 날짜로 넘어가요."],
-    ["나만의\n티켓 만들기", "빈티지 포스터의 6가지 티켓, 또는 내 사진으로."],
-    ["티켓에\n입장 도장 쾅", "그날 전에는 알림, 지나면 ‘입장 완료’ 도장."]
+    [
+      "모든 날이\n티켓이 된다",
+      "여행, 콘서트, 생일까지. 기다리는 날을 카운트다운하세요."
+    ],
+    [
+      "언제나\n홈 화면에",
+      "위젯마다 티켓을 고르거나 항상 다음 티켓을 보여 줘요."
+    ],
+    [
+      "생일은\n매년 돌아와요",
+      "매년 반복 티켓은 알아서 다음 날짜로 넘어가요."
+    ],
+    [
+      "나만의\n티켓 만들기",
+      "빈티지 포스터의 6가지 티켓, 또는 내 사진으로."
+    ],
+    [
+      "티켓에\n입장 도장 쾅",
+      "그날 전에는 알림, 지나면 ‘입장 완료’ 도장."
+    ]
   ],
   "zh-Hans": [
-    ["每个日子\n都是一张票", "旅行、演唱会、生日：为期待的日子倒数。"],
-    ["一直在\n主屏幕上", "为每个小组件选一张票，或始终显示下一张。"],
-    ["生日\n年年都会来", "每年重复的票会自动跳到下一个日期。"],
-    ["打造\n专属票券", "六种复古海报票券，或用你自己的照片。"],
-    ["为你的票\n盖上印章", "当天之前有提醒，过后盖上“已入场”印章。"]
+    [
+      "每个日子\n都是一张票",
+      "旅行、演唱会、生日：为期待的日子倒数。"
+    ],
+    [
+      "一直在\n主屏幕上",
+      "为每个小组件选一张票，或始终显示下一张。"
+    ],
+    [
+      "生日\n年年都会来",
+      "每年重复的票会自动跳到下一个日期。"
+    ],
+    [
+      "打造\n专属票券",
+      "六种复古海报票券，或用你自己的照片。"
+    ],
+    [
+      "为你的票\n盖上印章",
+      "当天之前有提醒，过后盖上“已入场”印章。"
+    ]
   ],
   "ru": [
-    ["Каждая дата —\nэто билет", "Поездки, концерты, дни рождения: считайте дни до важного."],
-    ["Всегда на\nэкране «Домой»", "Выберите билет для каждого виджета или показывайте ближайший."],
-    ["Дни рождения\nкаждый год", "Ежегодные билеты сами переходят на следующую дату."],
-    ["Билет\nв вашем стиле", "Шесть видов билетов с винтажными постерами или ваше фото."],
-    ["Ваш билет\nпогашен", "Напоминания до события и штамп «Погашен» после."]
+    [
+      "Каждая дата —\nэто билет",
+      "Поездки, концерты, дни рождения: считайте дни до важного."
+    ],
+    [
+      "Всегда на\nэкране «Домой»",
+      "Выберите билет для каждого виджета или показывайте ближайший."
+    ],
+    [
+      "Дни рождения\nкаждый год",
+      "Ежегодные билеты сами переходят на следующую дату."
+    ],
+    [
+      "Билет\nв вашем стиле",
+      "Шесть видов билетов с винтажными постерами или ваше фото."
+    ],
+    [
+      "Ваш билет\nпогашен",
+      "Напоминания до события и штамп «Погашен» после."
+    ]
   ],
   "ar-SA": [
-    ["كل تاريخ\nتذكرة", "رحلات وحفلات وأعياد ميلاد: عُدّ الأيام التي تنتظرها."],
-    ["دائمًا على\nشاشتك الرئيسية", "اختر تذكرة لكل أداة، أو اعرض التذكرة التالية دائمًا."],
-    ["أعياد الميلاد\nتعود كل عام", "التذاكر السنوية تنتقل وحدها إلى الموعد التالي."],
-    ["تذكرة\nعلى ذوقك", "ستة أنواع من التذاكر بملصقات كلاسيكية، أو صورتك الخاصة."],
-    ["ختم\nعلى تذكرتك", "تذكيرات قبل اليوم، ثم ختم «مقبول» بعده."]
+    [
+      "كل تاريخ\nتذكرة",
+      "رحلات وحفلات وأعياد ميلاد: عُدّ الأيام التي تنتظرها."
+    ],
+    [
+      "دائمًا على\nشاشتك الرئيسية",
+      "اختر تذكرة لكل أداة، أو اعرض التذكرة التالية دائمًا."
+    ],
+    [
+      "أعياد الميلاد\nتعود كل عام",
+      "التذاكر السنوية تنتقل وحدها إلى الموعد التالي."
+    ],
+    [
+      "تذكرة\nعلى ذوقك",
+      "ستة أنواع من التذاكر بملصقات كلاسيكية، أو صورتك الخاصة."
+    ],
+    [
+      "ختم\nعلى تذكرتك",
+      "تذكيرات قبل اليوم، ثم ختم «مقبول» بعده."
+    ]
   ]
 }

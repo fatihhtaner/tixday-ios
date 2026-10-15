@@ -1,147 +1,255 @@
-// Renders the App Store screenshots: each raw simulator screen in a phone frame on its own blurred,
-// darkened colours, under a headline and subtitle. Output is 1320×2868 (6.9-inch iPhone).
+// Renders the App Store screenshots: a bold coloured slide per screen with an uppercase headline
+// (one *accent* word in colour), a tilted phone running off the bottom, and the key part of the
+// screen popping out of the phone. Output is 1320×2868 JPEG (6.9-inch iPhone).
 //
-// Usage: swift tools/make_store_screenshots.swift <raw-dir> <out-dir>
+// Usage: swift tools/make_store_screenshots.swift <raw-dir> <out-dir> [store-locale …]
 //   <raw-dir>/<lang>/{home,widgets,birthday,editor,used}.png come from tools/capture_store_screens.sh;
-//   texts from docs/app-store/screenshot-texts.json; writes <out-dir>/<store-locale>/1_<screen>.jpg …,
-//   which is the folder layout fastlane deliver uploads (fastlane/screenshots).
+//   texts from docs/app-store/screenshot-texts.json; writes <out-dir>/<store-locale>/1_home.jpg …,
+//   the folder layout fastlane deliver uploads (fastlane/screenshots).
 // CoreText draws every script, including Arabic (right to left) and Japanese, Korean and Chinese.
 import AppKit
-import CoreImage
 
 let args = CommandLine.arguments
-guard args.count == 3 else {
-    FileHandle.standardError.write("usage: make_store_screenshots.swift <raw-dir> <out-dir>\n".data(using: .utf8)!)
+guard args.count >= 3 else {
+    FileHandle.standardError.write("usage: make_store_screenshots.swift <raw-dir> <out-dir> [store-locale …]\n".data(using: .utf8)!)
     exit(1)
 }
 let rawDir = URL(fileURLWithPath: args[1])
 let outDir = URL(fileURLWithPath: args[2])
+let onlyLocales = Set(args.dropFirst(3))
 let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
-let screens = ["home", "widgets", "birthday", "editor", "used"]
 /// Text keys are App Store locales; raw captures are named by the app's language codes.
 let captureFolder = ["en": "en", "de-DE": "de", "fr-FR": "fr", "es-ES": "es", "ar-SA": "ar"]
 let storeLocale = ["en": "en-US"]
+let textLocale = ["en": "en", "de-DE": "de", "fr-FR": "fr", "es-ES": "es", "ar-SA": "ar"]
 
 let W = 1320, H = 2868
-let ciContext = CIContext()
+let sRGB = CGColorSpace(name: CGColorSpace.sRGB)!
 
-func cgImage(_ url: URL) -> CGImage? {
+func hex(_ value: UInt32, _ alpha: CGFloat = 1) -> NSColor {
+    NSColor(srgbRed: CGFloat((value >> 16) & 0xFF) / 255, green: CGFloat((value >> 8) & 0xFF) / 255,
+            blue: CGFloat(value & 0xFF) / 255, alpha: alpha)
+}
+
+/// One slide's look. `cutout` is the part of the raw screen (pixels, from the top left) that pops out.
+struct Slide {
+    let screen: String
+    let top: NSColor
+    let bottom: NSColor
+    let accent: NSColor
+    let tilt: CGFloat
+    let cutout: CGRect
+    let cutoutRadius: CGFloat
+    /// Where the pop-out sits, as a fraction of the phone screen's height from its top.
+    let cutoutAt: CGFloat
+    let cutoutTilt: CGFloat
+    let cutoutWidth: CGFloat
+}
+
+let slides = [
+    Slide(screen: "home", top: hex(0x5B3BD6), bottom: hex(0x1C1057), accent: hex(0xFFD84D), tilt: -5,
+          cutout: CGRect(x: 62, y: 442, width: 1196, height: 886), cutoutRadius: 84, cutoutAt: 0.17, cutoutTilt: 3, cutoutWidth: 1150),
+    Slide(screen: "widgets", top: hex(0x14A085), bottom: hex(0x04362E), accent: hex(0xFFD84D), tilt: 5,
+          cutout: CGRect(x: 80, y: 398, width: 1160, height: 538), cutoutRadius: 72, cutoutAt: 0.16, cutoutTilt: -4, cutoutWidth: 1130),
+    Slide(screen: "birthday", top: hex(0xFFB02E), bottom: hex(0xE0561B), accent: hex(0x2A1366), tilt: -5,
+          cutout: CGRect(x: 62, y: 1328, width: 1196, height: 368), cutoutRadius: 72, cutoutAt: 0.44, cutoutTilt: 3, cutoutWidth: 1160),
+    Slide(screen: "editor", top: hex(0x2F74F0), bottom: hex(0x0B2463), accent: hex(0xFFD84D), tilt: 5,
+          cutout: CGRect(x: 44, y: 1406, width: 1246, height: 346), cutoutRadius: 60, cutoutAt: 0.47, cutoutTilt: -3, cutoutWidth: 1200),
+    Slide(screen: "used", top: hex(0xF0476A), bottom: hex(0x5E0F2D), accent: hex(0xFFD84D), tilt: -5,
+          cutout: CGRect(x: 62, y: 372, width: 1196, height: 886), cutoutRadius: 84, cutoutAt: 0.15, cutoutTilt: 4, cutoutWidth: 1150),
+]
+
+func loadImage(_ url: URL) -> CGImage? {
     guard let source = CGImageSourceCreateWithURL(url as CFURL, nil) else { return nil }
     return CGImageSourceCreateImageAtIndex(source, 0, nil)
 }
 
-/// The poster behind each screen, so every shot has its own colours.
-let backdropPoster = ["home": "concert", "widgets": "holiday", "birthday": "birthday", "editor": "flight", "used": "concert"]
-
-/// A poster scaled to fill, heavily blurred and darkened.
-func backdrop(_ poster: CGImage) -> CGImage {
-    let input = CIImage(cgImage: poster)
-    let scale = max(CGFloat(W) / input.extent.width, CGFloat(H) / input.extent.height) * 1.15
-    let scaled = input.transformed(by: CGAffineTransform(scaleX: scale, y: scale)).clampedToExtent()
-    let blurred = scaled.applyingFilter("CIGaussianBlur", parameters: [kCIInputRadiusKey: 90])
-    let darker = blurred.applyingFilter("CIColorControls", parameters: [
-        kCIInputBrightnessKey: -0.28, kCIInputSaturationKey: 1.1,
-    ])
-    let rect = CGRect(x: (input.extent.width * scale - CGFloat(W)) / 2, y: (input.extent.height * scale - CGFloat(H)) / 2,
-                      width: CGFloat(W), height: CGFloat(H))
-    return ciContext.createCGImage(darker, from: rect)!
+func bitmap(_ width: Int, _ height: Int) -> CGContext {
+    CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: sRGB,
+              bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
 }
 
-func displayFont(_ size: CGFloat) -> NSFont {
-    NSFont.systemFont(ofSize: size, weight: .black, width: .expanded)
+func roundedFont(_ size: CGFloat, _ weight: NSFont.Weight) -> NSFont {
+    let base = NSFont.systemFont(ofSize: size, weight: weight)
+    guard let rounded = base.fontDescriptor.withDesign(.rounded) else { return base }
+    return NSFont(descriptor: rounded, size: size) ?? base
 }
 
-func paragraph() -> NSMutableParagraphStyle {
+/// "Her tarih\nbir *bilet*" → an uppercase attributed headline with the starred words in the accent colour.
+func headline(_ text: String, locale: Locale, size: CGFloat, accent: NSColor) -> NSAttributedString {
     let style = NSMutableParagraphStyle()
     style.alignment = .center
-    style.lineBreakMode = .byWordWrapping
-    return style
+    style.lineHeightMultiple = 0.9
+    let shadow = NSShadow()
+    shadow.shadowColor = NSColor.black.withAlphaComponent(0.28)
+    shadow.shadowOffset = NSSize(width: 0, height: -7)
+    shadow.shadowBlurRadius = 0
+    let result = NSMutableAttributedString()
+    for (index, part) in text.uppercased(with: locale).components(separatedBy: "*").enumerated() {
+        result.append(NSAttributedString(string: part, attributes: [
+            .font: roundedFont(size, .black),
+            .foregroundColor: index % 2 == 1 ? accent : NSColor.white,
+            .paragraphStyle: style,
+            .shadow: shadow,
+        ]))
+    }
+    return result
 }
 
-/// Draws centred text in a column starting at `top` (from the top edge); returns where it ends.
-@discardableResult
-func drawText(_ text: String, font: NSFont, color: NSColor, top: CGFloat, width: CGFloat, lineSpacing: CGFloat = 0) -> CGFloat {
-    let style = paragraph()
-    style.lineSpacing = lineSpacing
-    let string = NSAttributedString(string: text, attributes: [.font: font, .foregroundColor: color, .paragraphStyle: style])
-    let bounds = string.boundingRect(with: NSSize(width: width, height: 2000), options: [.usesLineFragmentOrigin, .usesFontLeading])
-    let rect = NSRect(x: (CGFloat(W) - width) / 2, y: CGFloat(H) - top - ceil(bounds.height), width: width, height: ceil(bounds.height))
-    string.draw(with: rect, options: [.usesLineFragmentOrigin, .usesFontLeading])
-    return top + ceil(bounds.height)
-}
-
-/// The largest headline size (up to 128) at which every explicit line fits on one line.
-func headlineFont(_ headline: String, maxWidth: CGFloat) -> NSFont {
-    var size: CGFloat = 128
-    while size > 72 {
-        let font = displayFont(size)
-        let fits = headline.split(separator: "\n").allSatisfy { line in
-            NSAttributedString(string: String(line), attributes: [.font: font]).size().width <= maxWidth
+/// The largest size (up to 138) at which every explicit headline line fits.
+func headlineSize(_ text: String, locale: Locale, maxWidth: CGFloat) -> CGFloat {
+    var size: CGFloat = 138
+    while size > 70 {
+        let plain = text.replacingOccurrences(of: "*", with: "").uppercased(with: locale)
+        let fits = plain.split(separator: "\n").allSatisfy {
+            NSAttributedString(string: String($0), attributes: [.font: roundedFont(size, .black)]).size().width <= maxWidth
         }
-        if fits { return font }
+        if fits { return size }
         size -= 4
     }
-    return displayFont(size)
+    return size
 }
 
-func render(screen screenURL: URL, poster posterURL: URL, to outURL: URL, headline: String, subtitle: String) {
-    guard let screen = cgImage(screenURL), let poster = cgImage(posterURL) else { print("missing \(screenURL.path)"); return }
-    let rep = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: W, pixelsHigh: H, bitsPerSample: 8, samplesPerPixel: 4,
-                               hasAlpha: true, isPlanar: false, colorSpaceName: .deviceRGB, bytesPerRow: 0, bitsPerPixel: 0)!
-    rep.size = NSSize(width: W, height: H)
-    NSGraphicsContext.saveGraphicsState()
-    let context = NSGraphicsContext(bitmapImageRep: rep)!
-    NSGraphicsContext.current = context
-    let cg = context.cgContext
+/// Draws centred text with its top `top` points below the canvas top; returns where it ends.
+@discardableResult
+func draw(_ string: NSAttributedString, top: CGFloat, width: CGFloat) -> CGFloat {
+    let bounds = string.boundingRect(with: NSSize(width: width, height: 3000), options: [.usesLineFragmentOrigin, .usesFontLeading])
+    let height = ceil(bounds.height)
+    string.draw(with: NSRect(x: (CGFloat(W) - width) / 2, y: CGFloat(H) - top - height, width: width, height: height),
+                options: [.usesLineFragmentOrigin, .usesFontLeading])
+    return top + height
+}
 
-    cg.draw(backdrop(poster), in: CGRect(x: 0, y: 0, width: W, height: H))
-    // A soft dark wash behind the text keeps it readable on bright posters.
-    let wash = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
-                          colors: [NSColor.black.withAlphaComponent(0.45).cgColor, NSColor.black.withAlphaComponent(0).cgColor] as CFArray,
-                          locations: [0, 1])!
-    cg.drawLinearGradient(wash, start: CGPoint(x: 0, y: H), end: CGPoint(x: 0, y: H - 1100), options: [])
+func sparkle(_ cg: CGContext, center: CGPoint, size: CGFloat, color: NSColor) {
+    let path = CGMutablePath()
+    let inner = size * 0.18
+    path.move(to: CGPoint(x: center.x, y: center.y + size))
+    path.addQuadCurve(to: CGPoint(x: center.x + size, y: center.y), control: CGPoint(x: center.x + inner, y: center.y + inner))
+    path.addQuadCurve(to: CGPoint(x: center.x, y: center.y - size), control: CGPoint(x: center.x + inner, y: center.y - inner))
+    path.addQuadCurve(to: CGPoint(x: center.x - size, y: center.y), control: CGPoint(x: center.x - inner, y: center.y - inner))
+    path.addQuadCurve(to: CGPoint(x: center.x, y: center.y + size), control: CGPoint(x: center.x - inner, y: center.y + inner))
+    cg.addPath(path)
+    cg.setFillColor(color.cgColor)
+    cg.fillPath()
+}
 
-    var y = drawText(headline, font: headlineFont(headline, maxWidth: 1200), color: .white, top: 190, width: 1240, lineSpacing: -6)
-    y = drawText(subtitle, font: .systemFont(ofSize: 50, weight: .medium), color: NSColor.white.withAlphaComponent(0.8),
-                 top: y + 34, width: 1080, lineSpacing: 6)
+/// A little tear-off ticket stub, for confetti.
+func stub(_ cg: CGContext, center: CGPoint, width: CGFloat, angle: CGFloat, color: NSColor) {
+    cg.saveGState()
+    cg.translateBy(x: center.x, y: center.y)
+    cg.rotate(by: angle * .pi / 180)
+    let rect = CGRect(x: -width / 2, y: -width * 0.28, width: width, height: width * 0.56)
+    cg.addPath(CGPath(roundedRect: rect, cornerWidth: width * 0.1, cornerHeight: width * 0.1, transform: nil))
+    cg.setFillColor(color.cgColor)
+    cg.fillPath()
+    cg.setStrokeColor(NSColor.black.withAlphaComponent(0.18).cgColor)
+    cg.setLineWidth(width * 0.04)
+    cg.setLineDash(phase: 0, lengths: [width * 0.07, width * 0.06])
+    cg.move(to: CGPoint(x: width * 0.18, y: -width * 0.24))
+    cg.addLine(to: CGPoint(x: width * 0.18, y: width * 0.24))
+    cg.strokePath()
+    cg.restoreGState()
+}
 
-    // The phone runs off the bottom edge, so screens with space at the bottom still look full.
-    let screenWidth: CGFloat = 1060
+/// The phone: screen inside a dark bezel with a metal rim, as its own image.
+func phone(_ screen: CGImage, screenWidth: CGFloat) -> CGImage {
     let scale = screenWidth / CGFloat(screen.width)
     let screenHeight = CGFloat(screen.height) * scale
-    let bezel: CGFloat = 26
-    let top = y + 96
-    let screenRect = CGRect(x: (CGFloat(W) - screenWidth) / 2, y: CGFloat(H) - top - bezel - screenHeight,
-                            width: screenWidth, height: screenHeight)
-    let bodyRect = screenRect.insetBy(dx: -bezel, dy: -bezel)
+    let bezel: CGFloat = 24
+    let size = CGSize(width: screenWidth + bezel * 2, height: screenHeight + bezel * 2)
+    let cg = bitmap(Int(size.width), Int(size.height))
     let radius = 200 * scale
-
-    cg.saveGState()
-    cg.setShadow(offset: CGSize(width: 0, height: -40), blur: 120, color: NSColor.black.withAlphaComponent(0.6).cgColor)
-    cg.addPath(CGPath(roundedRect: bodyRect, cornerWidth: radius + bezel, cornerHeight: radius + bezel, transform: nil))
-    cg.setFillColor(NSColor(srgbRed: 0.07, green: 0.07, blue: 0.08, alpha: 1).cgColor)
+    let body = CGRect(origin: .zero, size: size)
+    cg.addPath(CGPath(roundedRect: body, cornerWidth: radius + bezel, cornerHeight: radius + bezel, transform: nil))
+    cg.setFillColor(hex(0x101014).cgColor)
     cg.fillPath()
-    cg.restoreGState()
-    // Metal rim.
-    cg.addPath(CGPath(roundedRect: bodyRect.insetBy(dx: 3, dy: 3), cornerWidth: radius + bezel - 3, cornerHeight: radius + bezel - 3, transform: nil))
-    cg.setStrokeColor(NSColor(white: 0.42, alpha: 1).cgColor)
-    cg.setLineWidth(4)
+    cg.addPath(CGPath(roundedRect: body.insetBy(dx: 3, dy: 3), cornerWidth: radius + bezel - 3, cornerHeight: radius + bezel - 3, transform: nil))
+    cg.setStrokeColor(hex(0x8A8A94).cgColor)
+    cg.setLineWidth(5)
     cg.strokePath()
-
-    cg.saveGState()
+    let screenRect = CGRect(x: bezel, y: bezel, width: screenWidth, height: screenHeight)
     cg.addPath(CGPath(roundedRect: screenRect, cornerWidth: radius, cornerHeight: radius, transform: nil))
     cg.clip()
     cg.interpolationQuality = .high
     cg.draw(screen, in: screenRect)
+    return cg.makeImage()!
+}
+
+/// A rounded piece of the raw screen.
+func cutout(_ screen: CGImage, rect: CGRect, radius: CGFloat) -> CGImage {
+    let piece = screen.cropping(to: rect)!
+    let cg = bitmap(piece.width, piece.height)
+    let bounds = CGRect(x: 0, y: 0, width: piece.width, height: piece.height)
+    cg.addPath(CGPath(roundedRect: bounds, cornerWidth: radius, cornerHeight: radius, transform: nil))
+    cg.clip()
+    cg.draw(piece, in: bounds)
+    return cg.makeImage()!
+}
+
+/// Draws an image centred on `center`, rotated by `angle` degrees, with a soft drop shadow.
+func place(_ cg: CGContext, _ image: CGImage, center: CGPoint, width: CGFloat, angle: CGFloat, shadow: CGFloat) {
+    let height = width * CGFloat(image.height) / CGFloat(image.width)
+    cg.saveGState()
+    cg.translateBy(x: center.x, y: center.y)
+    cg.rotate(by: angle * .pi / 180)
+    cg.setShadow(offset: CGSize(width: 0, height: -shadow * 0.5), blur: shadow, color: NSColor.black.withAlphaComponent(0.45).cgColor)
+    cg.interpolationQuality = .high
+    cg.draw(image, in: CGRect(x: -width / 2, y: -height / 2, width: width, height: height))
     cg.restoreGState()
+}
+
+func render(_ slide: Slide, screen: CGImage, to outURL: URL, title: String, subtitle: String, locale: Locale) {
+    let cg = bitmap(W, H)
+    NSGraphicsContext.saveGraphicsState()
+    NSGraphicsContext.current = NSGraphicsContext(cgContext: cg, flipped: false)
+
+    // Background: a vertical gradient with a soft glow behind the phone.
+    let gradient = CGGradient(colorsSpace: sRGB, colors: [slide.top.cgColor, slide.bottom.cgColor] as CFArray, locations: [0, 1])!
+    cg.drawLinearGradient(gradient, start: CGPoint(x: 0, y: H), end: CGPoint(x: 0, y: 0), options: [])
+    let glow = CGGradient(colorsSpace: sRGB, colors: [NSColor.white.withAlphaComponent(0.22).cgColor, NSColor.white.withAlphaComponent(0).cgColor] as CFArray,
+                          locations: [0, 1])!
+    cg.drawRadialGradient(glow, startCenter: CGPoint(x: W / 2, y: H / 2), startRadius: 0,
+                          endCenter: CGPoint(x: W / 2, y: H / 2), endRadius: 1100, options: [])
+
+    // Confetti: ticket stubs and sparkles around the edges.
+    // Top decorations stay in the corners, clear of the headline.
+    stub(cg, center: CGPoint(x: 70, y: H - 70), width: 110, angle: -24, color: slide.accent.withAlphaComponent(0.9))
+    stub(cg, center: CGPoint(x: 1230, y: H - 760), width: 92, angle: 28, color: NSColor.white.withAlphaComponent(0.85))
+    stub(cg, center: CGPoint(x: 110, y: 1180), width: 84, angle: 18, color: NSColor.white.withAlphaComponent(0.8))
+    sparkle(cg, center: CGPoint(x: 1250, y: H - 90), size: 38, color: slide.accent)
+    sparkle(cg, center: CGPoint(x: 210, y: H - 720), size: 26, color: .white)
+    sparkle(cg, center: CGPoint(x: 1240, y: 1500), size: 34, color: .white)
+
+    // Headline and subtitle.
+    let size = headlineSize(title, locale: locale, maxWidth: 1180)
+    var y = draw(headline(title, locale: locale, size: size, accent: slide.accent), top: 150, width: 1240)
+    let style = NSMutableParagraphStyle()
+    style.alignment = .center
+    style.lineSpacing = 4
+    y = draw(NSAttributedString(string: subtitle, attributes: [
+        .font: roundedFont(48, .semibold), .foregroundColor: NSColor.white.withAlphaComponent(0.88), .paragraphStyle: style,
+    ]), top: y + 26, width: 1060)
+
+    // Tilted phone running off the bottom, then the key part popping out of it.
+    let screenWidth: CGFloat = 960
+    let device = phone(screen, screenWidth: screenWidth)
+    let deviceWidth = CGFloat(device.width)
+    let deviceHeight = CGFloat(device.height)
+    let phoneTop = y + 110
+    let center = CGPoint(x: CGFloat(W) / 2, y: CGFloat(H) - phoneTop - deviceHeight / 2)
+    place(cg, device, center: center, width: deviceWidth, angle: slide.tilt, shadow: 90)
+
+    let piece = cutout(screen, rect: slide.cutout, radius: slide.cutoutRadius)
+    let pieceHeight = slide.cutoutWidth * CGFloat(piece.height) / CGFloat(piece.width)
+    let pieceCenterY = CGFloat(H) - phoneTop - 24 - deviceHeight * slide.cutoutAt - pieceHeight / 2
+    place(cg, piece, center: CGPoint(x: CGFloat(W) / 2, y: pieceCenterY), width: slide.cutoutWidth, angle: slide.cutoutTilt, shadow: 70)
 
     NSGraphicsContext.restoreGraphicsState()
-    // App Store screenshots must not have an alpha channel: redraw onto an opaque RGB bitmap.
-    let opaque = CGContext(data: nil, width: W, height: H, bitsPerComponent: 8, bytesPerRow: 0,
-                           space: CGColorSpace(name: CGColorSpace.sRGB)!,
+
+    // App Store screenshots must be opaque: flatten onto RGB and save as high-quality JPEG.
+    let opaque = CGContext(data: nil, width: W, height: H, bitsPerComponent: 8, bytesPerRow: 0, space: sRGB,
                            bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)!
-    opaque.draw(rep.cgImage!, in: CGRect(x: 0, y: 0, width: W, height: H))
-    // High-quality JPEG: a fraction of the PNG size, which the App Store accepts.
+    opaque.draw(cg.makeImage()!, in: CGRect(x: 0, y: 0, width: W, height: H))
     let destination = CGImageDestinationCreateWithURL(outURL as CFURL, "public.jpeg" as CFString, 1, nil)!
     CGImageDestinationAddImage(destination, opaque.makeImage()!, [kCGImageDestinationLossyCompressionQuality: 0.92] as CFDictionary)
     CGImageDestinationFinalize(destination)
@@ -151,17 +259,18 @@ func render(screen screenURL: URL, poster posterURL: URL, to outURL: URL, headli
 let textsData = try! Data(contentsOf: root.appending(path: "docs/app-store/screenshot-texts.json"))
 let texts = try! JSONSerialization.jsonObject(with: textsData) as! [String: Any]
 for (key, value) in texts.sorted(by: { $0.key < $1.key }) where !key.hasPrefix("_") {
+    let locale = storeLocale[key] ?? key
+    if !onlyLocales.isEmpty && !onlyLocales.contains(locale) { continue }
     guard let items = value as? [[String]] else { continue }
     let raw = rawDir.appending(path: captureFolder[key] ?? key)
-    guard screens.allSatisfy({ FileManager.default.fileExists(atPath: raw.appending(path: "\($0).png").path) }) else {
-        print("skipping \(key): raw screens missing")
-        continue
-    }
-    let out = outDir.appending(path: storeLocale[key] ?? key)
+    let out = outDir.appending(path: locale)
     try? FileManager.default.createDirectory(at: out, withIntermediateDirectories: true)
-    for (index, (screen, item)) in zip(screens, items).enumerated() {
-        let poster = root.appending(path: "design/poster-\(backdropPoster[screen]!)-wide.png")
-        render(screen: raw.appending(path: "\(screen).png"), poster: poster, to: out.appending(path: "\(index + 1)_\(screen).jpg"),
-               headline: item[0], subtitle: item[1])
+    for (index, (slide, item)) in zip(slides, items).enumerated() {
+        guard let screen = loadImage(raw.appending(path: "\(slide.screen).png")) else {
+            print("skipping \(key)/\(slide.screen): raw screen missing")
+            continue
+        }
+        render(slide, screen: screen, to: out.appending(path: "\(index + 1)_\(slide.screen).jpg"),
+               title: item[0], subtitle: item[1], locale: Locale(identifier: textLocale[key] ?? key))
     }
 }
