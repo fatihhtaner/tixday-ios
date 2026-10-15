@@ -7,7 +7,7 @@ Getting started: the first launch shows a short introduction. Tap "Create my fir
 Free vs Pro:
 - Free includes 3 upcoming tickets, Home Screen widgets and reminders.
 - Tixday Pro unlocks unlimited tickets, your own photos on tickets, and Lock Screen widgets.
-- To see the paywall, tap "Pro" at the top of the home screen, try adding a 4th upcoming ticket, or pick a photo in the ticket editor.
+- To see the paywall, tap "Pro" at the top of the home screen, try adding a 4th upcoming ticket, or add a photo to a ticket and tap Save.
 - Products: Tixday Pro Yearly (auto-renewable, 1-week free trial) and Tixday Pro Lifetime (non-consumable). Restore Purchases is on the paywall and in Settings (gear icon on the home screen).
 
 Widgets: long-press the Home Screen > Edit > Add Widget > Tixday. Long-press the widget > Edit Widget to choose a ticket.
