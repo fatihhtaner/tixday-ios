@@ -27,6 +27,7 @@ struct TixdayApp: App {
                         stubLeft: sample.stubLeft, stubRight: sample.stubRight
                     )
                     event.createdAt = sample.createdAt
+                    event.repeatsYearly = sample.repeatsYearly
                     context.insert(event)
                 }
                 try? context.save()

@@ -45,7 +45,7 @@ struct TicketProvider: AppIntentTimelineProvider {
         guard let chosenID = configuration.pinnedID, !TicketAccess.isPro else { return false }
         let context = ModelContext(SharedStore.makeContainer())
         let events = (try? context.fetch(FetchDescriptor<TicketEvent>())) ?? []
-        let unlocked = TicketAccess.unlockedIDs(events.map { ($0.id, $0.date) }, isPro: false, now: now)
+        let unlocked = TicketAccess.unlockedIDs(for: events, isPro: false, now: now)
         return events.contains { $0.id == chosenID } && !unlocked.contains(chosenID)
     }
 
@@ -56,16 +56,17 @@ struct TicketProvider: AppIntentTimelineProvider {
             descriptor.fetchLimit = 1
             // A deleted ticket falls back to the next upcoming one.
             if let pinned = (try? context.fetch(descriptor))?.first {
-                return pinned.snapshot
+                return pinned.snapshot(at: now)
             }
         }
+        // Yearly tickets count to their next anniversary, which the store can't filter on.
         let today = Calendar.current.startOfDay(for: now)
-        var descriptor = FetchDescriptor<TicketEvent>(
-            predicate: #Predicate { $0.date >= today },
-            sortBy: [SortDescriptor(\.date)]
-        )
-        descriptor.fetchLimit = 1
-        return (try? context.fetch(descriptor))?.first?.snapshot
+        let events = (try? context.fetch(FetchDescriptor<TicketEvent>())) ?? []
+        return events
+            .map { ($0, $0.upcomingDate(from: now)) }
+            .filter { $0.1 >= today }
+            .min { $0.1 < $1.1 }?
+            .0.snapshot(at: now)
     }
 }
 

@@ -98,9 +98,14 @@ private struct WaitCard: View {
                 VStack(alignment: .leading, spacing: 3) {
                     Text(ticket.date.formatted(Date.FormatStyle(date: .complete, time: .omitted, locale: AppLanguage.locale)))
                         .font(.headline)
-                    Text(ticket.kind.name)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                    HStack(spacing: 8) {
+                        Text(ticket.kind.name)
+                        if ticket.repeatsYearly {
+                            Label("Every year", systemImage: "repeat")
+                        }
+                    }
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
                 }
                 Spacer()
                 Image(systemName: ticket.kind.symbol)

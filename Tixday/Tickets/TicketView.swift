@@ -62,6 +62,7 @@ struct TicketView: View {
                 .shadow(color: .black.opacity(poster == nil ? 0 : 0.35), radius: 3, y: 1)
                 .padding(14)
             }
+            .overlay { if days < 0 { AdmittedStamp(size: 13).offset(x: 30, y: -8) } }
 
             Perforation(axis: .vertical, color: style.stubMuted.opacity(0.6))
                 .background(style.stubFill)
@@ -112,6 +113,7 @@ struct TicketView: View {
                 .padding([.horizontal, .top], 12)
                 .padding(.bottom, 6)
             }
+            .overlay { if days < 0 { AdmittedStamp(size: 10).offset(y: -6) } }
 
             HStack {
                 Text(shortName)

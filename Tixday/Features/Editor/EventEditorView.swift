@@ -21,13 +21,21 @@ struct EventEditorView: View {
     @State private var stubLeft = ""
     @State private var stubRight = ""
     @State private var photoData: Data?
+    @State private var repeatsYearly = false
+    /// Once the user flips the switch, changing the kind no longer sets it.
+    @State private var didChooseRepeat = false
     @State private var photoItem: PhotosPickerItem?
     @State private var isLoadingPhoto = false
+
+    /// The date the ticket counts to: for a yearly ticket, its next anniversary.
+    private var countdownDate: Date {
+        repeatsYearly ? DayCount.nextOccurrence(of: date) : date
+    }
 
     private var preview: TicketSnapshot {
         TicketSnapshot(
             title: title.isEmpty ? kind.name : title,
-            date: date,
+            date: countdownDate,
             kind: kind,
             headline: headline,
             origin: origin.uppercased(),
@@ -35,6 +43,7 @@ struct EventEditorView: View {
             stubLeft: stubLeft,
             stubRight: stubRight,
             createdAt: event?.createdAt ?? .now,
+            repeatsYearly: repeatsYearly,
             // Without Pro a newly picked photo previews (try before you buy), but a stored one stays hidden.
             photoData: pro.isPro || photoData != event?.photoData ? photoData : nil
         )
@@ -57,7 +66,7 @@ struct EventEditorView: View {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
                                 label("Date")
-                                Text(Calendar.current.startOfDay(for: date), format: .relative(presentation: .named, unitsStyle: .wide))
+                                Text(Calendar.current.startOfDay(for: countdownDate), format: .relative(presentation: .named, unitsStyle: .wide))
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             }
@@ -65,6 +74,18 @@ struct EventEditorView: View {
                             DatePicker("", selection: $date, displayedComponents: .date)
                                 .labelsHidden()
                         }
+                        .padding(.vertical, 6)
+                        divider
+                        Toggle(isOn: Binding(get: { repeatsYearly }, set: { repeatsYearly = $0; didChooseRepeat = true })) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Repeats every year")
+                                    .font(.subheadline.weight(.semibold))
+                                Text("After the day, it counts down to the next one.")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .tint(.green)
                         .padding(.vertical, 6)
                         divider
                         field(LocalizedStringKey(kind.headlinePrompt)) { TextField("", text: $headline, prompt: Text(kind.headlinePrompt)) }
@@ -112,7 +133,11 @@ struct EventEditorView: View {
                         .fontWeight(.semibold)
                 }
             }
-            .onAppear(perform: load)
+            .onAppear {
+                load()
+                suggestRepeat(for: kind)
+            }
+            .onChange(of: kind) { _, newKind in suggestRepeat(for: newKind) }
             .sheet(item: $paywallReason) { reason in
                 PaywallView(reason: reason).appLanguage()
             }
@@ -274,6 +299,14 @@ struct EventEditorView: View {
         stubLeft = event.stubLeft
         stubRight = event.stubRight
         photoData = event.photoData
+        repeatsYearly = event.repeatsYearly
+        didChooseRepeat = true
+    }
+
+    /// Birthdays and holidays come back every year, so new tickets of those kinds repeat by default.
+    private func suggestRepeat(for kind: TicketKind) {
+        guard event == nil, !didChooseRepeat else { return }
+        repeatsYearly = kind == .birthday || kind == .holiday
     }
 
     private func save() {
@@ -292,6 +325,7 @@ struct EventEditorView: View {
         target.stubLeft = stubLeft
         target.stubRight = stubRight
         target.photoData = photoData
+        target.repeatsYearly = repeatsYearly
         if event == nil { context.insert(target) }
         try? context.save()
         WidgetCenter.shared.reloadAllTimelines()

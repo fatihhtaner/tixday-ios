@@ -17,6 +17,11 @@ enum TicketAccess {
         return Set(past + soonest)
     }
 
+    /// The same, straight from the store; yearly tickets count by their next anniversary.
+    static func unlockedIDs(for events: [TicketEvent], isPro: Bool, now: Date = .now) -> Set<UUID> {
+        unlockedIDs(events.map { ($0.id, $0.upcomingDate(from: now)) }, isPro: isPro, now: now)
+    }
+
     /// Upcoming tickets count toward the free limit; past ones don't.
     static func upcomingCount(_ dates: [Date], now: Date = .now) -> Int {
         let today = Calendar.current.startOfDay(for: now)

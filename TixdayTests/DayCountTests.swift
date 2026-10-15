@@ -48,4 +48,22 @@ final class DayCountTests: XCTestCase {
         XCTAssertFalse(CountLabel.text(for: 5).contains("5"))
         XCTAssertFalse(CountLabel.text(for: 1).contains("1"))
     }
+
+    func testYearlyTicketCountsToNextAnniversary() {
+        let now = date("2026-10-15T12:00:00")
+        // Born 1990-03-02: next one is 2027-03-02.
+        XCTAssertEqual(DayCount.nextOccurrence(of: date("1990-03-02T00:00:00"), from: now, calendar: calendar), date("2027-03-02T00:00:00"))
+        // Later this year stays this year.
+        XCTAssertEqual(DayCount.nextOccurrence(of: date("2020-12-25T00:00:00"), from: now, calendar: calendar), date("2026-12-25T00:00:00"))
+        // The day itself counts as today, not next year.
+        XCTAssertEqual(DayCount.nextOccurrence(of: date("2025-10-15T00:00:00"), from: now, calendar: calendar), date("2026-10-15T00:00:00"))
+        // A future date is left alone.
+        XCTAssertEqual(DayCount.nextOccurrence(of: date("2027-01-01T00:00:00"), from: now, calendar: calendar), date("2027-01-01T00:00:00"))
+    }
+
+    func testLeapDayAnniversary() {
+        let leapDay = date("2024-02-29T00:00:00")
+        XCTAssertEqual(DayCount.nextOccurrence(of: leapDay, from: date("2026-10-15T12:00:00"), calendar: calendar), date("2027-02-28T00:00:00"))
+        XCTAssertEqual(DayCount.nextOccurrence(of: leapDay, from: date("2027-10-15T12:00:00"), calendar: calendar), date("2028-02-29T00:00:00"))
+    }
 }

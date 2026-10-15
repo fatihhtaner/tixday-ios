@@ -34,7 +34,7 @@ struct TicketEntity: AppEntity {
     init(event: TicketEvent) {
         id = event.id
         title = event.title
-        date = event.date
+        date = event.upcomingDate()
     }
 }
 
@@ -54,13 +54,14 @@ struct TicketEntityQuery: EntityQuery {
     /// "Next ticket", then upcoming tickets, soonest at the top; past ones after.
     func suggestedEntities() async throws -> [TicketEntity] {
         let context = ModelContext(SharedStore.makeContainer())
-        let events = (try? context.fetch(FetchDescriptor<TicketEvent>(sortBy: [SortDescriptor(\.date)]))) ?? []
+        let events = ((try? context.fetch(FetchDescriptor<TicketEvent>())) ?? [])
+            .sorted { $0.upcomingDate() < $1.upcomingDate() }
         let today = Calendar.current.startOfDay(for: .now)
         // Free users can only pick tickets within the free limit.
-        let unlocked = TicketAccess.unlockedIDs(events.map { ($0.id, $0.date) }, isPro: TicketAccess.isPro)
+        let unlocked = TicketAccess.unlockedIDs(for: events, isPro: TicketAccess.isPro)
         let usable = events.filter { unlocked.contains($0.id) }
-        let upcoming = usable.filter { $0.date >= today }
-        let past = usable.filter { $0.date < today }.reversed()
+        let upcoming = usable.filter { $0.upcomingDate() >= today }
+        let past = usable.filter { $0.upcomingDate() < today }.reversed()
         return [.nextUpcoming] + (upcoming + past).map(TicketEntity.init)
     }
 }

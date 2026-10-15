@@ -1,3 +1,4 @@
+import StoreKit
 import SwiftData
 import SwiftUI
 import WidgetKit
@@ -8,6 +9,9 @@ struct TicketListView: View {
     @Query(sort: \TicketEvent.date) private var events: [TicketEvent]
     @Environment(ProStore.self) private var pro
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.requestReview) private var requestReview
+    /// How many tickets there were when the editor opened, to tell whether one was added.
+    @State private var countBeforeCreating = 0
     @State private var paywallReason: ProFeature?
     @Namespace private var zoom
     @State private var isCreating = false
@@ -26,17 +30,22 @@ struct TicketListView: View {
     @State private var today = Calendar.current.startOfDay(for: .now)
     private let router = LinkRouter.shared
 
+    /// Every ticket with the date it counts to (a yearly ticket's next anniversary), soonest first.
+    private var dated: [(event: TicketEvent, date: Date)] {
+        events.map { ($0, $0.upcomingDate(from: today)) }.sorted { $0.date < $1.date }
+    }
+
     private var upcoming: [TicketEvent] {
-        events.filter { DayCount.days(until: $0.date, from: today) >= 0 }
+        dated.filter { DayCount.days(until: $0.date, from: today) >= 0 }.map(\.event)
     }
 
     /// Tickets a free user can use; the rest show locked (see `TicketAccess`).
     private var unlockedIDs: Set<UUID> {
-        TicketAccess.unlockedIDs(events.map { ($0.id, $0.date) }, isPro: pro.isPro)
+        TicketAccess.unlockedIDs(for: events, isPro: pro.isPro, now: today)
     }
 
     private var past: [TicketEvent] {
-        events.filter { DayCount.days(until: $0.date, from: today) < 0 }.reversed()
+        dated.filter { DayCount.days(until: $0.date, from: today) < 0 }.map(\.event).reversed()
     }
 
     var body: some View {
@@ -67,8 +76,7 @@ struct TicketListView: View {
                             titled("Used", count: past.count) {
                                 stack(past)
                             }
-                            .saturation(0)
-                            .opacity(0.55)
+                            .opacity(0.8)
                         }
                     }
                 }
@@ -87,8 +95,11 @@ struct TicketListView: View {
             }
             // Reserves room at the bottom so the last ticket can scroll clear of the button.
             .safeAreaInset(edge: .bottom) { newTicketButton }
-            .sheet(isPresented: $isCreating) {
+            .sheet(isPresented: $isCreating, onDismiss: askForReviewAfterCreating) {
                 EventEditorView(event: nil).appLanguage()
+            }
+            .onChange(of: isCreating) { _, isOpen in
+                if isOpen { countBeforeCreating = events.count }
             }
             .sheet(item: $paywallReason) { reason in
                 PaywallView(reason: reason).appLanguage()
@@ -120,6 +131,7 @@ struct TicketListView: View {
             .onAppear {
                 showOnboardingIfNeeded()
                 openPendingLink()
+                askForReviewOnTicketDay()
             }
             .onChange(of: router.pending) { _, _ in openPendingLink() }
             .onChange(of: scenePhase) { _, phase in
@@ -142,9 +154,34 @@ struct TicketListView: View {
         }
     }
 
+    /// A second ticket means Tixday is becoming a habit: a good moment to ask for a rating.
+    private func askForReviewAfterCreating() {
+        guard events.count >= 2, events.count > countBeforeCreating else { return }
+        askForReview()
+    }
+
+    /// The day a ticket was counting down to has arrived.
+    private func askForReviewOnTicketDay() {
+        guard upcoming.contains(where: { DayCount.days(until: $0.upcomingDate(from: today), from: today) == 0 }) else { return }
+        askForReview()
+    }
+
+    private func askForReview() {
+        guard ReviewPrompt.isDue(), !isOnboarding else { return }
+        ReviewPrompt.markAsked()
+        Task {
+            // Let sheets and transitions settle first.
+            try? await Task.sleep(for: .seconds(1.2))
+            requestReview()
+        }
+    }
+
     private func refreshToday() {
         let start = Calendar.current.startOfDay(for: .now)
-        if start != today { today = start }
+        if start != today {
+            today = start
+            askForReviewOnTicketDay()
+        }
     }
 
     /// Opens what a widget or reminder pointed at: the ticket's details, or the paywall when it's locked.
@@ -186,7 +223,9 @@ struct TicketListView: View {
     }
 
     private var reminderSignature: [String] {
-        events.map { "\($0.id)|\($0.title)|\($0.date.timeIntervalSinceReferenceDate)" }
+        // Includes today, so a yearly ticket that just rolled over gets next year's reminders.
+        events.map { "\($0.id)|\($0.title)|\($0.date.timeIntervalSinceReferenceDate)|\($0.repeatsYearly)" }
+            + ["today|\(today.timeIntervalSinceReferenceDate)"]
             + ["reminders|\(remindersEnabled)|\(reminderMinutes)"]
     }
 

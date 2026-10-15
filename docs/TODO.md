@@ -34,6 +34,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [ ] Satın alma ürünlerine kalan dillerin adları/açıklamaları (`docs/app-store/in-app-purchases.md`'de hazır) — **Fatih**
 
 ### Gerçek cihaz testi (TestFlight) — **Fatih + Claude**
+- [ ] **iCloud şeması yeniden gönderilmeli — Fatih:** modele `repeatsYearly` eklendi. iPhone'da `-initCloudKitSchema` ile bir kez çalıştır, CloudKit Console → Deploy Schema Changes. Yapılmazsa TestFlight'ta yeni alan senkronlanmaz
 - [ ] iCloud: iki cihazda (ya da sil-yeniden kur) biletlerin geri gelmesi; Ayarlar'da iCloud "Açık"
 - [x] İlk TestFlight derlemesi yüklendi: 1.0.0 (1), 2026-10-09 (`fastlane beta`, uygulama, widget ve App Group imzaları otomatik)
 - [ ] Sandbox satın alma: deneme, ömür boyu, geri yükle; iptal sonrası kilitlenen biletler
@@ -67,6 +68,10 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 ## ✅ Bitti
 **Ürün ve tasarım**
+- Her yıl tekrarlayan biletler (doğum günü ve tatilde varsayılan açık): `date` orijinal tarihi tutar, her yer `upcomingDate` / `DayCount.nextOccurrence` ile bir sonraki yıl dönümüne sayar (29 Şubat dahil, testli)
+- Tamamlanan bilete "ONAYLANDI" damgası: detayda titreşimle iner, "Kullanıldı" kartında gri bilet üstünde kırmızı, widget'ta da var (`AdmittedStamp`)
+- Puan isteme: ikinci bilet oluşturulunca ya da bir biletin günü gelince, en fazla 4 ayda bir (`ReviewPrompt`)
+- Paylaşılan bilet resmi koyu kart üstünde, altında "Tixday ile yapıldı"
 - Kartlara ve kahraman bilete uzun basınca menü: Düzenle (doğrudan editör), Paylaş (resim, sadece paylaşırken çizilir), Sil (onaylı). Kilitli biletlerde yalnızca Sil. Kaydırarak düzenle/sil bilerek yok (cüzdan destesinde kartlar üst üste)
 - Proje (XcodeGen, uygulama + widget + test), SwiftData modeli, App Group, gün hesabı (`DayCount`)
 - 6 bilet türü, vintage posterli tek bilet tasarımı (`TicketView`), kullanıcının kendi fotoğrafı

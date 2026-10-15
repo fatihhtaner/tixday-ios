@@ -1823,6 +1823,76 @@
         }
       }
     },
+    "After the day, it counts down to the next one.": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O gün geçince bir sonrakine geri sayar."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Danach zählt es zum nächsten Mal herunter."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Après le jour J, il compte jusqu’au suivant."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pasado el día, cuenta hacia el siguiente."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passato il giorno, conta fino al prossimo."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Depois do dia, conta até o próximo."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当日を過ぎると次の日までカウントダウンします。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "그날이 지나면 다음 날까지 카운트다운해요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "过了那天后，会倒数到下一次。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "После этого дня отсчёт пойдёт до следующего."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "بعد مرور اليوم، يبدأ العدّ للمرة التالية."
+          }
+        }
+      }
+    },
     "Always in sight": {
       "localizations": {
         "ar": {
@@ -2385,10 +2455,10 @@
     },
     "Changes couldn't be backed up yet. They're safe on this iPhone and Tixday will keep trying.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Değişiklikler henüz yedeklenemedi. Bu iPhone'da güvende; Tixday denemeye devam edecek."
+            "value": "تعذّر نسخ التغييرات احتياطيًا حتى الآن. إنها آمنة على هذا الـ iPhone وسيواصل Tixday المحاولة."
           }
         },
         "de": {
@@ -2397,28 +2467,22 @@
             "value": "Änderungen konnten noch nicht gesichert werden. Sie sind auf diesem iPhone sicher und Tixday versucht es weiter."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Les modifications n’ont pas encore pu être sauvegardées. Elles sont en sécurité sur cet iPhone et Tixday continue d’essayer."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Los cambios aún no se han podido guardar. Están seguros en este iPhone y Tixday seguirá intentándolo."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les modifications n’ont pas encore pu être sauvegardées. Elles sont en sécurité sur cet iPhone et Tixday continue d’essayer."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Le modifiche non sono ancora state salvate. Sono al sicuro su questo iPhone e Tixday continuerà a provare."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "As alterações ainda não puderam ser salvas. Estão seguras neste iPhone e o Tixday continuará tentando."
           }
         },
         "ja": {
@@ -2433,10 +2497,10 @@
             "value": "변경 사항을 아직 백업하지 못했어요. 이 iPhone에는 안전하게 남아 있고 Tixday가 계속 시도할게요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "更改尚未备份。它们在这台 iPhone 上很安全，Tixday 会继续尝试。"
+            "value": "As alterações ainda não puderam ser salvas. Estão seguras neste iPhone e o Tixday continuará tentando."
           }
         },
         "ru": {
@@ -2445,20 +2509,26 @@
             "value": "Изменения пока не сохранены в iCloud. Они в безопасности на этом iPhone, Tixday продолжит попытки."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "تعذّر نسخ التغييرات احتياطيًا حتى الآن. إنها آمنة على هذا الـ iPhone وسيواصل Tixday المحاولة."
+            "value": "Değişiklikler henüz yedeklenemedi. Bu iPhone'da güvende; Tixday denemeye devam edecek."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更改尚未备份。它们在这台 iPhone 上很安全，Tixday 会继续尝试。"
           }
         }
       }
     },
     "Checking…": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kontrol ediliyor…"
+            "value": "جارٍ التحقق…"
           }
         },
         "de": {
@@ -2467,28 +2537,22 @@
             "value": "Wird geprüft …"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vérification…"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Comprobando…"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vérification…"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Verifica…"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verificando…"
           }
         },
         "ja": {
@@ -2503,10 +2567,10 @@
             "value": "확인 중…"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "正在检查…"
+            "value": "Verificando…"
           }
         },
         "ru": {
@@ -2515,10 +2579,16 @@
             "value": "Проверка…"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "جارٍ التحقق…"
+            "value": "Kontrol ediliyor…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在检查…"
           }
         }
       }
@@ -4202,6 +4272,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "每个日子，每个小组件"
+          }
+        }
+      }
+    },
+    "Every year": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Her yıl"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jedes Jahr"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chaque année"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada año"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ogni anno"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo ano"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎年"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "매년"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每年"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Каждый год"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كل عام"
           }
         }
       }
@@ -5892,6 +6032,76 @@
         }
       }
     },
+    "Made with Tixday": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday ile yapıldı"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erstellt mit Tixday"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Créé avec Tixday"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hecho con Tixday"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Creato con Tixday"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feito com o Tixday"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixdayで作成"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tixday로 만듦"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用 Tixday 制作"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сделано в Tixday"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "صُنع باستخدام Tixday"
+          }
+        }
+      }
+    },
     "Manage Subscription": {
       "localizations": {
         "ar": {
@@ -6524,10 +6734,10 @@
     },
     "Not syncing": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Eşitlenmiyor"
+            "value": "لا تتم المزامنة"
           }
         },
         "de": {
@@ -6536,28 +6746,22 @@
             "value": "Keine Synchronisierung"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pas de synchro"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Sin sincronizar"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pas de synchro"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Non sincronizzato"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sem sincronizar"
           }
         },
         "ja": {
@@ -6572,10 +6776,10 @@
             "value": "동기화 안 됨"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "未同步"
+            "value": "Sem sincronizar"
           }
         },
         "ru": {
@@ -6584,10 +6788,16 @@
             "value": "Не синхронизируется"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "لا تتم المزامنة"
+            "value": "Eşitlenmiyor"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未同步"
           }
         }
       }
@@ -6804,10 +7014,10 @@
     },
     "Off": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kapalı"
+            "value": "متوقف"
           }
         },
         "de": {
@@ -6816,28 +7026,22 @@
             "value": "Aus"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Désactivé"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Desactivado"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Désactivé"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Disattivato"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desativado"
           }
         },
         "ja": {
@@ -6852,10 +7056,10 @@
             "value": "끔"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "关闭"
+            "value": "Desativado"
           }
         },
         "ru": {
@@ -6864,20 +7068,26 @@
             "value": "Выкл."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "متوقف"
+            "value": "Kapalı"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关闭"
           }
         }
       }
     },
     "On": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Açık"
+            "value": "مفعّل"
           }
         },
         "de": {
@@ -6886,28 +7096,22 @@
             "value": "An"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Activé"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Activado"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activé"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Attivo"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ativado"
           }
         },
         "ja": {
@@ -6922,10 +7126,10 @@
             "value": "켬"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "开启"
+            "value": "Ativado"
           }
         },
         "ru": {
@@ -6934,10 +7138,16 @@
             "value": "Вкл."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "مفعّل"
+            "value": "Açık"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开启"
           }
         }
       }
@@ -7787,10 +7997,10 @@
     },
     "Rate Tixday": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tixday'i Değerlendir"
+            "value": "قيّم Tixday"
           }
         },
         "de": {
@@ -7799,28 +8009,22 @@
             "value": "Tixday bewerten"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noter Tixday"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Valorar Tixday"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noter Tixday"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Valuta Tixday"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Avaliar o Tixday"
           }
         },
         "ja": {
@@ -7835,10 +8039,10 @@
             "value": "Tixday 평가하기"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "评价 Tixday"
+            "value": "Avaliar o Tixday"
           }
         },
         "ru": {
@@ -7847,10 +8051,16 @@
             "value": "Оценить Tixday"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "قيّم Tixday"
+            "value": "Tixday'i Değerlendir"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "评价 Tixday"
           }
         }
       }
@@ -8061,6 +8271,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "将于 %@ 续订"
+          }
+        }
+      }
+    },
+    "Repeats every year": {
+      "localizations": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Her yıl tekrarla"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jedes Jahr wiederholen"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se répète chaque année"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se repite cada año"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si ripete ogni anno"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repetir todo ano"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎年繰り返す"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "매년 반복"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每年重复"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Повторять каждый год"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يتكرر كل عام"
           }
         }
       }
@@ -8837,10 +9117,10 @@
     },
     "Sign in to iCloud and turn on iCloud for Tixday in the Settings app to back up your tickets. Until then they're stored only on this iPhone.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Biletlerini yedeklemek için Ayarlar uygulamasında iCloud'a giriş yap ve Tixday için iCloud'u aç. O zamana kadar biletlerin sadece bu iPhone'da duruyor."
+            "value": "لنسخ تذاكرك احتياطيًا، سجّل الدخول إلى iCloud وفعّل iCloud لـ Tixday من تطبيق الإعدادات. حتى ذلك الحين تُحفظ على هذا الـ iPhone فقط."
           }
         },
         "de": {
@@ -8849,28 +9129,22 @@
             "value": "Melde dich in der Einstellungen-App bei iCloud an und aktiviere iCloud für Tixday, um deine Tickets zu sichern. Bis dahin sind sie nur auf diesem iPhone gespeichert."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Connectez-vous à iCloud et activez iCloud pour Tixday dans Réglages pour sauvegarder vos billets. D’ici là, ils ne sont que sur cet iPhone."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Inicia sesión en iCloud y activa iCloud para Tixday en Ajustes para guardar tus billetes. Hasta entonces solo están en este iPhone."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connectez-vous à iCloud et activez iCloud pour Tixday dans Réglages pour sauvegarder vos billets. D’ici là, ils ne sont que sur cet iPhone."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Accedi a iCloud e attiva iCloud per Tixday in Impostazioni per salvare i tuoi biglietti. Fino ad allora sono solo su questo iPhone."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inicie sessão no iCloud e ative o iCloud para o Tixday em Ajustes para fazer backup dos ingressos. Até lá, eles ficam só neste iPhone."
           }
         },
         "ja": {
@@ -8885,10 +9159,10 @@
             "value": "티켓을 백업하려면 설정 앱에서 iCloud에 로그인하고 Tixday의 iCloud를 켜세요. 그 전까지는 이 iPhone에만 저장돼요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "要备份票券，请在“设置”中登录 iCloud 并为 Tixday 打开 iCloud。在此之前，它们只保存在这台 iPhone 上。"
+            "value": "Inicie sessão no iCloud e ative o iCloud para o Tixday em Ajustes para fazer backup dos ingressos. Até lá, eles ficam só neste iPhone."
           }
         },
         "ru": {
@@ -8897,10 +9171,16 @@
             "value": "Чтобы сохранять билеты, войдите в iCloud и включите iCloud для Tixday в приложении «Настройки». До этого они хранятся только на этом iPhone."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "لنسخ تذاكرك احتياطيًا، سجّل الدخول إلى iCloud وفعّل iCloud لـ Tixday من تطبيق الإعدادات. حتى ذلك الحين تُحفظ على هذا الـ iPhone فقط."
+            "value": "Biletlerini yedeklemek için Ayarlar uygulamasında iCloud'a giriş yap ve Tixday için iCloud'u aç. O zamana kadar biletlerin sadece bu iPhone'da duruyor."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "要备份票券，请在“设置”中登录 iCloud 并为 Tixday 打开 iCloud。在此之前，它们只保存在这台 iPhone 上。"
           }
         }
       }
@@ -9117,10 +9397,10 @@
     },
     "Storage full": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Depolama dolu"
+            "value": "التخزين ممتلئ"
           }
         },
         "de": {
@@ -9129,28 +9409,22 @@
             "value": "Speicher voll"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stockage plein"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Almacenamiento lleno"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stockage plein"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Spazio esaurito"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Armazenamento cheio"
           }
         },
         "ja": {
@@ -9165,10 +9439,10 @@
             "value": "저장 공간 부족"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "存储空间已满"
+            "value": "Armazenamento cheio"
           }
         },
         "ru": {
@@ -9177,10 +9451,16 @@
             "value": "Хранилище заполнено"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "التخزين ممتلئ"
+            "value": "Depolama dolu"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "存储空间已满"
           }
         }
       }
@@ -10450,10 +10730,10 @@
     },
     "Try Again": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tekrar Dene"
+            "value": "حاول مجددًا"
           }
         },
         "de": {
@@ -10462,28 +10742,22 @@
             "value": "Erneut versuchen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réessayer"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Reintentar"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réessayer"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Riprova"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tentar de novo"
           }
         },
         "ja": {
@@ -10498,10 +10772,10 @@
             "value": "다시 시도"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "重试"
+            "value": "Tentar de novo"
           }
         },
         "ru": {
@@ -10510,10 +10784,16 @@
             "value": "Повторить"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "حاول مجددًا"
+            "value": "Tekrar Dene"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重试"
           }
         }
       }
@@ -11220,10 +11500,10 @@
     },
     "Your iCloud storage is full, so new changes aren't backed up. They're safe on this iPhone and will sync once you free up space.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "iCloud depolama alanın dolu, bu yüzden yeni değişiklikler yedeklenmiyor. Bu iPhone'da güvendeler; yer açınca eşitlenecekler."
+            "value": "مساحة iCloud ممتلئة، لذا لا تُنسخ التغييرات الجديدة احتياطيًا. إنها آمنة على هذا الـ iPhone وستتم مزامنتها عند توفير مساحة."
           }
         },
         "de": {
@@ -11232,28 +11512,22 @@
             "value": "Dein iCloud-Speicher ist voll, daher werden neue Änderungen nicht gesichert. Sie sind auf diesem iPhone sicher und werden synchronisiert, sobald wieder Platz ist."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Votre stockage iCloud est plein : les nouvelles modifications ne sont pas sauvegardées. Elles sont en sécurité sur cet iPhone et se synchroniseront dès que vous libérerez de l’espace."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Tu almacenamiento de iCloud está lleno, así que los cambios nuevos no se guardan. Están seguros en este iPhone y se sincronizarán cuando liberes espacio."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Votre stockage iCloud est plein : les nouvelles modifications ne sont pas sauvegardées. Elles sont en sécurité sur cet iPhone et se synchroniseront dès que vous libérerez de l’espace."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Lo spazio iCloud è esaurito, quindi le nuove modifiche non vengono salvate. Sono al sicuro su questo iPhone e si sincronizzeranno quando libererai spazio."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seu armazenamento do iCloud está cheio, então as novas alterações não são salvas. Elas estão seguras neste iPhone e serão sincronizadas quando houver espaço."
           }
         },
         "ja": {
@@ -11268,10 +11542,10 @@
             "value": "iCloud 저장 공간이 가득 차서 새 변경 사항이 백업되지 않아요. 이 iPhone에는 안전하게 있고, 공간을 확보하면 동기화돼요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "你的 iCloud 存储空间已满，新的更改不会备份。它们在这台 iPhone 上很安全，腾出空间后会同步。"
+            "value": "Seu armazenamento do iCloud está cheio, então as novas alterações não são salvas. Elas estão seguras neste iPhone e serão sincronizadas quando houver espaço."
           }
         },
         "ru": {
@@ -11280,10 +11554,16 @@
             "value": "Хранилище iCloud заполнено, поэтому новые изменения не сохраняются. Они в безопасности на этом iPhone и синхронизируются, когда освободится место."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "مساحة iCloud ممتلئة، لذا لا تُنسخ التغييرات الجديدة احتياطيًا. إنها آمنة على هذا الـ iPhone وستتم مزامنتها عند توفير مساحة."
+            "value": "iCloud depolama alanın dolu, bu yüzden yeni değişiklikler yedeklenmiyor. Bu iPhone'da güvendeler; yer açınca eşitlenecekler."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的 iCloud 存储空间已满，新的更改不会备份。它们在这台 iPhone 上很安全，腾出空间后会同步。"
           }
         }
       }
@@ -11430,10 +11710,10 @@
     },
     "Your tickets are backed up to your private iCloud and appear on your other devices.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Biletlerin özel iCloud'una yedekleniyor ve diğer cihazlarında da görünüyor."
+            "value": "تُنسخ تذاكرك احتياطيًا إلى iCloud الخاص بك وتظهر على أجهزتك الأخرى."
           }
         },
         "de": {
@@ -11442,28 +11722,22 @@
             "value": "Deine Tickets werden in deiner privaten iCloud gesichert und erscheinen auf deinen anderen Geräten."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vos billets sont sauvegardés dans votre iCloud privé et apparaissent sur vos autres appareils."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Tus billetes se guardan en tu iCloud privado y aparecen en tus otros dispositivos."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vos billets sont sauvegardés dans votre iCloud privé et apparaissent sur vos autres appareils."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "I tuoi biglietti sono salvati nel tuo iCloud privato e appaiono sugli altri dispositivi."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seus ingressos ficam salvos no seu iCloud privado e aparecem nos seus outros dispositivos."
           }
         },
         "ja": {
@@ -11478,10 +11752,10 @@
             "value": "티켓이 개인 iCloud에 백업되고 다른 기기에도 표시돼요."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "你的票券会备份到你的私人 iCloud，并出现在你的其他设备上。"
+            "value": "Seus ingressos ficam salvos no seu iCloud privado e aparecem nos seus outros dispositivos."
           }
         },
         "ru": {
@@ -11490,20 +11764,26 @@
             "value": "Ваши билеты сохраняются в вашем личном iCloud и появляются на других устройствах."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "تُنسخ تذاكرك احتياطيًا إلى iCloud الخاص بك وتظهر على أجهزتك الأخرى."
+            "value": "Biletlerin özel iCloud'una yedekleniyor ve diğer cihazlarında da görünüyor."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的票券会备份到你的私人 iCloud，并出现在你的其他设备上。"
           }
         }
       }
     },
     "Your tickets are backed up to your private iCloud. Last synced %@.": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "Biletlerin özel iCloud'una yedekleniyor. Son eşitleme: %@."
+            "value": "تُنسخ تذاكرك احتياطيًا إلى iCloud الخاص بك. آخر مزامنة: %@."
           }
         },
         "de": {
@@ -11512,28 +11792,22 @@
             "value": "Deine Tickets werden in deiner privaten iCloud gesichert. Zuletzt synchronisiert: %@."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vos billets sont sauvegardés dans votre iCloud privé. Dernière synchro : %@."
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Tus billetes se guardan en tu iCloud privado. Última sincronización: %@."
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vos billets sont sauvegardés dans votre iCloud privé. Dernière synchro : %@."
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "I tuoi biglietti sono salvati nel tuo iCloud privato. Ultima sincronizzazione: %@."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seus ingressos ficam salvos no seu iCloud privado. Última sincronização: %@."
           }
         },
         "ja": {
@@ -11548,10 +11822,10 @@
             "value": "티켓이 개인 iCloud에 백업돼요. 마지막 동기화: %@."
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "你的票券已备份到你的私人 iCloud。上次同步：%@。"
+            "value": "Seus ingressos ficam salvos no seu iCloud privado. Última sincronização: %@."
           }
         },
         "ru": {
@@ -11560,17 +11834,23 @@
             "value": "Ваши билеты сохраняются в вашем личном iCloud. Последняя синхронизация: %@."
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "تُنسخ تذاكرك احتياطيًا إلى iCloud الخاص بك. آخر مزامنة: %@."
+            "value": "Biletlerin özel iCloud'una yedekleniyor. Son eşitleme: %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的票券已备份到你的私人 iCloud。上次同步：%@。"
           }
         }
       }
     },
     "iCloud": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
             "value": "iCloud"
@@ -11582,25 +11862,19 @@
             "value": "iCloud"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "iCloud"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "iCloud"
           }
         },
-        "it": {
+        "fr": {
           "stringUnit": {
             "state": "translated",
             "value": "iCloud"
           }
         },
-        "pt-BR": {
+        "it": {
           "stringUnit": {
             "state": "translated",
             "value": "iCloud"
@@ -11618,7 +11892,7 @@
             "value": "iCloud"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
             "value": "iCloud"
@@ -11630,7 +11904,13 @@
             "value": "iCloud"
           }
         },
-        "ar": {
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud"
+          }
+        },
+        "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "iCloud"
@@ -11640,10 +11920,10 @@
     },
     "iCloud Backup": {
       "localizations": {
-        "tr": {
+        "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "iCloud Yedeği"
+            "value": "نسخ iCloud الاحتياطي"
           }
         },
         "de": {
@@ -11652,28 +11932,22 @@
             "value": "iCloud-Backup"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauvegarde iCloud"
-          }
-        },
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Copia en iCloud"
           }
         },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sauvegarde iCloud"
+          }
+        },
         "it": {
           "stringUnit": {
             "state": "translated",
             "value": "Backup iCloud"
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Backup do iCloud"
           }
         },
         "ja": {
@@ -11688,10 +11962,10 @@
             "value": "iCloud 백업"
           }
         },
-        "zh-Hans": {
+        "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "iCloud 备份"
+            "value": "Backup do iCloud"
           }
         },
         "ru": {
@@ -11700,10 +11974,16 @@
             "value": "Резервная копия iCloud"
           }
         },
-        "ar": {
+        "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "نسخ iCloud الاحتياطي"
+            "value": "iCloud Yedeği"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud 备份"
           }
         }
       }

@@ -86,6 +86,39 @@ struct Notches: View {
     }
 }
 
+/// The rubber stamp a used ticket gets: "ADMITTED", in red, slightly crooked.
+/// `isStamped` false hides it, large, so it can land with an animation.
+struct AdmittedStamp: View {
+    var size: CGFloat = 15
+    var isStamped = true
+
+    static let ink = Color(hex: "#E5483B")
+
+    var body: some View {
+        Text("ADMITTED")
+            .font(.system(size: size, weight: .black).width(.expanded))
+            .lineLimit(1)
+            .fixedSize()
+            .foregroundStyle(Self.ink)
+            .padding(.horizontal, size * 0.6)
+            .padding(.vertical, size * 0.35)
+            .overlay(
+                RoundedRectangle(cornerRadius: size * 0.35)
+                    .strokeBorder(Self.ink, lineWidth: max(size * 0.15, 1.5))
+            )
+            .padding(size * 0.2)
+            .overlay(
+                RoundedRectangle(cornerRadius: size * 0.5)
+                    .strokeBorder(Self.ink.opacity(0.7), lineWidth: max(size * 0.07, 1))
+            )
+            .background(.black.opacity(0.3), in: RoundedRectangle(cornerRadius: size * 0.5))
+            .rotationEffect(.degrees(-12))
+            .scaleEffect(isStamped ? 1 : 2.2)
+            .opacity(isStamped ? 0.95 : 0)
+            .accessibilityLabel(Text("ADMITTED"))
+    }
+}
+
 /// How far along the wait is.
 struct WaitProgressBar: View {
     var progress: Double

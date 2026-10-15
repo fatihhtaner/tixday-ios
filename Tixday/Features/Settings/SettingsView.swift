@@ -21,7 +21,7 @@ struct SettingsView: View {
     @State private var isChoosingLanguage = false
 
     private var upcomingCount: Int {
-        events.filter { DayCount.days(until: $0.date) >= 0 }.count
+        events.filter { DayCount.days(until: $0.upcomingDate()) >= 0 }.count
     }
 
     var body: some View {

@@ -4,7 +4,12 @@ import SwiftUI
 struct HeroTicket: View {
     let ticket: TicketSnapshot
 
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    /// For a used ticket: the stamp lands shortly after the ticket appears.
+    @State private var isStamped = false
+
     private var style: TicketStyle { ticket.kind.style }
+    private var isUsed: Bool { DayCount.days(until: ticket.date) < 0 }
     private var poster: Image? { ticket.artwork(.wide) }
     private var bodyInk: Color { poster == nil ? style.ink : .white }
 
@@ -32,6 +37,9 @@ struct HeroTicket: View {
                 .padding(18)
             }
             .frame(height: 220)
+            .overlay {
+                if isUsed { AdmittedStamp(size: 20, isStamped: isStamped).offset(x: 40, y: -6) }
+            }
 
             HStack(alignment: .center) {
                 HStack(alignment: .firstTextBaseline, spacing: 6) {
@@ -59,6 +67,16 @@ struct HeroTicket: View {
         // The artwork ignores touches, so the whole ticket needs an explicit tap area.
         .contentShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
         .ticketShadow()
+        .sensoryFeedback(.impact(weight: .heavy), trigger: isStamped) { _, new in new }
+        .task {
+            guard isUsed, !isStamped else { return }
+            if reduceMotion {
+                isStamped = true
+                return
+            }
+            try? await Task.sleep(for: .milliseconds(450))
+            withAnimation(.spring(response: 0.28, dampingFraction: 0.55)) { isStamped = true }
+        }
     }
 }
 
@@ -77,6 +95,7 @@ struct WalletCard: View {
     static let overlap: CGFloat = 26
 
     private var style: TicketStyle { ticket.kind.style }
+    private var isUsed: Bool { DayCount.days(until: ticket.date) < 0 }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -124,7 +143,14 @@ struct WalletCard: View {
         }
         .background(style.stubFill)
         .frame(height: isOpen ? Self.openHeight : Self.headerHeight + Self.overlap, alignment: .top)
-        .saturation(isLocked ? 0.15 : 1)
+        // Used tickets fade to grey; the stamp on top keeps its red.
+        .saturation(isLocked ? 0.15 : (isUsed ? 0 : 1))
+        .overlay {
+            if isUsed && isOpen {
+                AdmittedStamp(size: 15)
+                    .offset(x: 50, y: Self.headerHeight / 2)
+            }
+        }
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .shadow(color: .black.opacity(0.14), radius: 10, y: -2)
