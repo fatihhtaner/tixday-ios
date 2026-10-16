@@ -4,7 +4,6 @@
 // Usage: swift tools/make_banner.swift <raw-dir> <out-dir> [width height name]
 //   <raw-dir>/<lang>/{home,widgets,used}.png come from tools/capture_store_screens.sh;
 //   writes <out-dir>/<name>-<lang>.jpg (default 2400×1260 "banner") for every language in `copy` below.
-//   App Store product page header: 5244 2950 header-wide, or 3840 1646 header-panorama.
 // The layout is designed at 1260 high; other sizes scale it to their height and spread it to their width.
 import AppKit
 
