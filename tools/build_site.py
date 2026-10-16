@@ -493,7 +493,7 @@ def render(folder, lang, page):
 
     if page == "index.html":
         body = """  <section class="hero">
-    <img class="poster" src="{root}hero.jpg" alt="">
+    <img class="poster" src="{root}{banner}" alt="{h1}" width="2400" height="1260">
     <h1>{h1}</h1>
     <p class="muted">{p}</p>
   </section>
@@ -506,7 +506,7 @@ def render(folder, lang, page):
   <nav class="links">
     <a href="support.html">{support}</a>
     <a href="privacy.html">{privacy}</a>
-  </nav>""".format(root=root, h1=esc(t["hero_h1"]), p=esc(t["hero_p"]), ps=esc(t["private_strong"]), pp=esc(t["private_p"]),
+  </nav>""".format(root=root, h1=esc(t["hero_h1"]), p=esc(t["hero_p"]), banner="banner-tr.jpg" if lang == "tr" else "banner-en.jpg", ps=esc(t["private_strong"]), pp=esc(t["private_p"]),
                    support=esc(t["support"]), privacy=esc(t["privacy"]))
     elif page == "support.html":
         faqs = "\n\n".join(
