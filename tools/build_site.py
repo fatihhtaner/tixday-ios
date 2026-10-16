@@ -549,6 +549,15 @@ def render(folder, lang, page):
   <meta name="color-scheme" content="dark">
   <title>{title}</title>
   <meta name="description" content="{meta}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{meta}">
+  <meta property="og:url" content="{url}">
+  <meta property="og:image" content="{banner}">
+  <meta property="og:image:width" content="2400">
+  <meta property="og:image:height" content="1260">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{banner}">
 {alternates}
   <link rel="icon" href="{root}icon.png">
   <link rel="apple-touch-icon" href="{root}icon.png">
@@ -571,6 +580,9 @@ def render(folder, lang, page):
 </body>
 </html>
 """.format(lang=lang, dir=' dir="rtl"' if lang in RTL else "", title=esc(title), meta=html.escape(t["meta"]), alternates=alternates, root=root,
+           url=BASE_URL + page_url(folder, page),
+           # Link-preview banner made by tools/make_banner.swift; Turkish pages get the Turkish one.
+           banner=BASE_URL + ("banner-tr.jpg" if lang == "tr" else "banner-en.jpg"),
            home="./", body=body, footer_links=footer_links, switcher=switcher)
 
 
