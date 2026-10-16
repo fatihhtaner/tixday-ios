@@ -1,21 +1,29 @@
 // Renders a wide promo banner (2400×1260, the Open Graph ratio) for the website header, link previews
 // and social posts: headline and the new features on the left, a tilted phone with tickets on the right.
 //
-// Usage: swift tools/make_banner.swift <raw-dir> <out-dir>
+// Usage: swift tools/make_banner.swift <raw-dir> <out-dir> [width height name]
 //   <raw-dir>/<lang>/{home,widgets,used}.png come from tools/capture_store_screens.sh;
-//   writes <out-dir>/banner-<lang>.jpg for every language in `copy` below.
+//   writes <out-dir>/<name>-<lang>.jpg (default 2400×1260 "banner") for every language in `copy` below.
+//   App Store product page header: 5244 2950 header-wide, or 3840 1646 header-panorama.
+// The layout is designed at 1260 high; other sizes scale it to their height and spread it to their width.
 import AppKit
 
 let args = CommandLine.arguments
-guard args.count == 3 else {
-    FileHandle.standardError.write("usage: make_banner.swift <raw-dir> <out-dir>\n".data(using: .utf8)!)
+guard args.count == 3 || args.count == 6 else {
+    FileHandle.standardError.write("usage: make_banner.swift <raw-dir> <out-dir> [width height name]\n".data(using: .utf8)!)
     exit(1)
 }
 let rawDir = URL(fileURLWithPath: args[1])
 let outDir = URL(fileURLWithPath: args[2])
+let pixelWidth = args.count > 4 ? CGFloat(Double(args[3])!) : 2400
+let pixelHeight = args.count > 4 ? CGFloat(Double(args[4])!) : 1260
+let name = args.count > 5 ? args[5] : "banner"
 let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
 
-let W: CGFloat = 2400, H: CGFloat = 1260
+/// Layout units: 1260 high, as wide as the output's shape.
+let H: CGFloat = 1260
+let pixelScale = pixelHeight / H
+let W: CGFloat = pixelWidth / pixelScale
 let sRGB = CGColorSpace(name: CGColorSpace.sRGB)!
 
 struct Copy {
@@ -105,7 +113,8 @@ func render(_ language: String, _ text: Copy) {
         print("skipping \(language): raw screens missing")
         return
     }
-    let cg = bitmap(Int(W), Int(H))
+    let cg = bitmap(Int(pixelWidth), Int(pixelHeight))
+    cg.scaleBy(x: pixelScale, y: pixelScale)
     cg.translateBy(x: 0, y: H)
     cg.scaleBy(x: 1, y: -1)
     NSGraphicsContext.saveGraphicsState()
@@ -115,7 +124,9 @@ func render(_ language: String, _ text: Copy) {
     let gradient = CGGradient(colorsSpace: sRGB, colors: [hex(0x24124F).cgColor, hex(0x5B2BB8).cgColor, hex(0xC2366E).cgColor] as CFArray,
                               locations: [0, 0.55, 1])!
     cg.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: W, y: H), options: [])
-    let sun = CGPoint(x: 1780, y: 640)
+    // The phone cluster keeps its distance from the right edge; the text stays on the left.
+    let right = W - 2400
+    let sun = CGPoint(x: 1780 + right, y: 640)
     cg.setFillColor(NSColor.white.withAlphaComponent(0.05).cgColor)
     let rays = 32, step = CGFloat.pi * 2 / CGFloat(rays)
     for index in stride(from: 0, to: rays, by: 2) {
@@ -190,17 +201,17 @@ func render(_ language: String, _ text: Copy) {
         cg.restoreGState()
     }
     let device = phone(home, screenWidth: 560)
-    place(device, center: CGPoint(x: 1800, y: 760), width: CGFloat(device.width), angle: 6, shadow: 90)
+    place(device, center: CGPoint(x: 1800 + right, y: 760), width: CGFloat(device.width), angle: 6, shadow: 90)
     let widget = cut(widgets, CGRect(x: 80, y: 398, width: 1160, height: 538), radius: 72)
-    place(widget, center: CGPoint(x: 1560, y: 330), width: 620, angle: -6)
+    place(widget, center: CGPoint(x: 1560 + right, y: 330), width: 620, angle: -6)
     let ticket = cut(used, CGRect(x: 62, y: 372, width: 1196, height: 886), radius: 84)
-    place(ticket, center: CGPoint(x: 2070, y: 1010), width: 560, angle: 8)
+    place(ticket, center: CGPoint(x: 2070 + right, y: 1010), width: 560, angle: 8)
 
     NSGraphicsContext.restoreGraphicsState()
-    let opaque = CGContext(data: nil, width: Int(W), height: Int(H), bitsPerComponent: 8, bytesPerRow: 0, space: sRGB,
+    let opaque = CGContext(data: nil, width: Int(pixelWidth), height: Int(pixelHeight), bitsPerComponent: 8, bytesPerRow: 0, space: sRGB,
                            bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)!
-    opaque.draw(cg.makeImage()!, in: CGRect(x: 0, y: 0, width: W, height: H))
-    let url = outDir.appending(path: "banner-\(language).jpg")
+    opaque.draw(cg.makeImage()!, in: CGRect(x: 0, y: 0, width: pixelWidth, height: pixelHeight))
+    let url = outDir.appending(path: "\(name)-\(language).jpg")
     let destination = CGImageDestinationCreateWithURL(url as CFURL, "public.jpeg" as CFString, 1, nil)!
     CGImageDestinationAddImage(destination, opaque.makeImage()!, [kCGImageDestinationLossyCompressionQuality: 0.9] as CFDictionary)
     CGImageDestinationFinalize(destination)
