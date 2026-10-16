@@ -21,6 +21,16 @@ let sRGB = CGColorSpace(name: CGColorSpace.sRGB)!
 let copy: [String: (headline: String, subtitle: String)] = [
     "en": ("Every date is a *ticket*", "Countdown widgets with vintage poster art"),
     "tr": ("Her tarih bir *bilet*", "Vintage posterli geri sayım widget'ları"),
+    "de": ("Jedes Datum ein *Ticket*", "Countdown-Widgets mit Vintage-Postern"),
+    "fr": ("Chaque date est un *billet*", "Widgets de compte à rebours aux affiches vintage"),
+    "es": ("Cada fecha es un *billete*", "Widgets de cuenta atrás con pósteres vintage"),
+    "it": ("Ogni data è un *biglietto*", "Widget conto alla rovescia con poster vintage"),
+    "pt-BR": ("Cada data é um *ingresso*", "Widgets de contagem regressiva com pôsteres vintage"),
+    "ja": ("大切な日を*チケット*に", "ヴィンテージポスターのカウントダウンウィジェット"),
+    "ko": ("모든 날이 *티켓*이 된다", "빈티지 포스터 카운트다운 위젯"),
+    "zh-Hans": ("每个日子都是一张*票*", "复古海报风格的倒数日小组件"),
+    "ru": ("Каждая дата — это *билет*", "Виджеты обратного отсчёта с винтажными постерами"),
+    "ar": ("كل تاريخ *تذكرة*", "أدوات عدّ تنازلي بملصقات كلاسيكية"),
 ]
 
 func hex(_ value: UInt32, _ alpha: CGFloat = 1) -> NSColor {
@@ -102,14 +112,20 @@ func render(language: String, pixelWidth: CGFloat, pixelHeight: CGFloat, to url:
     shadow.shadowColor = NSColor.black.withAlphaComponent(0.3)
     shadow.shadowOffset = NSSize(width: 0, height: 8)
     let locale = Locale(identifier: language)
+    // Largest size up to 132 at which the headline fits on one line.
+    var size: CGFloat = 132
+    while size > 70 && NSAttributedString(string: text.headline.replacingOccurrences(of: "*", with: "").uppercased(with: locale),
+                                           attributes: [.font: roundedFont(size, .black)]).size().width > 2000 {
+        size -= 4
+    }
     let headline = NSMutableAttributedString()
     for (index, part) in text.headline.uppercased(with: locale).components(separatedBy: "*").enumerated() {
         headline.append(NSAttributedString(string: part, attributes: [
-            .font: roundedFont(132, .black), .foregroundColor: index % 2 == 1 ? yellow : NSColor.white,
+            .font: roundedFont(size, .black), .foregroundColor: index % 2 == 1 ? yellow : NSColor.white,
             .paragraphStyle: style, .shadow: shadow,
         ]))
     }
-    headline.draw(with: NSRect(x: cx - 1100, y: 130, width: 2200, height: 180), options: [.usesLineFragmentOrigin])
+    headline.draw(with: NSRect(x: cx - 1100, y: 130 + (132 - size) / 2, width: 2200, height: 180), options: [.usesLineFragmentOrigin])
     NSAttributedString(string: text.subtitle, attributes: [
         .font: roundedFont(48, .semibold), .foregroundColor: NSColor.white.withAlphaComponent(0.85), .paragraphStyle: style,
     ]).draw(with: NSRect(x: cx - 1000, y: 300, width: 2000, height: 70), options: [.usesLineFragmentOrigin])
@@ -126,9 +142,12 @@ func render(language: String, pixelWidth: CGFloat, pixelHeight: CGFloat, to url:
         cg.draw(image, in: CGRect(x: -width / 2, y: -height / 2, width: width, height: height))
         cg.restoreGState()
     }
-    let concert = cut(widgets, CGRect(x: 80, y: 1018, width: 540, height: 540), radius: 72)
-    let birthday = cut(widgets, CGRect(x: 700, y: 1018, width: 540, height: 540), radius: 72)
-    let wedding = cut(widgets, CGRect(x: 700, y: 2258, width: 540, height: 540), radius: 72)
+    // Right-to-left screens mirror the small widgets' columns.
+    let rtl = language == "ar"
+    let left: CGFloat = rtl ? 700 : 80, rightColumn: CGFloat = rtl ? 80 : 700
+    let concert = cut(widgets, CGRect(x: left, y: 1018, width: 540, height: 540), radius: 72)
+    let birthday = cut(widgets, CGRect(x: rightColumn, y: 1018, width: 540, height: 540), radius: 72)
+    let wedding = cut(widgets, CGRect(x: rightColumn, y: 2258, width: 540, height: 540), radius: 72)
     let flight = cut(widgets, CGRect(x: 80, y: 398, width: 1160, height: 538), radius: 72)
     let stamped = cut(used, CGRect(x: 62, y: 372, width: 1196, height: 886), radius: 84)
     place(wedding, center: CGPoint(x: cx - 760, y: 900), width: 360, angle: -14)

@@ -24,9 +24,12 @@ extension TicketSnapshot {
         }
         let created = Calendar.current.date(byAdding: .day, value: -50, to: now) ?? now
         // The birthday sample is always on 3 November, at the party's time.
-        let birthday = Calendar.current.nextDate(after: Calendar.current.startOfDay(for: now),
-                                                 matching: DateComponents(month: 11, day: 3, hour: 20),
-                                                 matchingPolicy: .nextTime) ?? inDays(24)
+        // Gregorian on purpose: with an Islamic or other calendar, "month 11" would be a different day.
+        var gregorian = Calendar(identifier: .gregorian)
+        gregorian.timeZone = .current
+        let birthday = gregorian.nextDate(after: gregorian.startOfDay(for: now),
+                                          matching: DateComponents(month: 11, day: 3, hour: 20),
+                                          matchingPolicy: .nextTime) ?? inDays(24)
         return [
             TicketSnapshot(title: "Japan", date: inDays(83), kind: .flight, headline: "Tokyo", origin: "IST", destination: "HND", stubLeft: "GATE 03", stubRight: "14A", createdAt: created),
             TicketSnapshot(title: "Arctic Monkeys", date: inDays(18), kind: .concert, headline: "Arctic Monkeys", stubLeft: "SEC A · 12", stubRight: "21:00", createdAt: created),
