@@ -26,7 +26,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [x] Düğün posteri kadehsiz (yüzüklü eller) yenilendi, alkol tasviri yok → yaş derecelendirmesinde Alcohol = None, hedef 4+ (2026-10-16). IAP inceleme görseli `docs/app-store/review-paywall.png` yeni posterle yeniden çekildi; App Store Connect'te iki ürüne yeniden yüklenmeli — **Fatih**
 - [x] Age Rating anketi → 4+ (Fatih); kategoriler Lifestyle / Utilities (fastlane)
 - [ ] Content Rights (No), fiyat = Free — **Fatih**
-- [ ] Abonelik grubunun görünen adı "Tixday Pro Yearly" → "Tixday Pro"
+- [x] Abonelik grubunun görünen adı 12 dilde "Tixday Pro" (API ile, 2026-10-16)
 - [x] App Review notu: `fastlane/metadata/review_information/notes.txt`
 - [ ] App Review iletişim telefonu — **Fatih** App Store Connect → 1.0.0 → App Review Information'a gir (fastlane telefonsuz kaydı oluşturamıyor), sonra `fastlane metadata` notu da yükler
 - [x] App Store Server Notifications URL (RevenueCat) girildi
@@ -36,7 +36,7 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [x] **Ekran görüntüleri**: 12 dil × 5 kare (ana ekran, widget'lar, yıllık doğum günü, editör, damga), 6,9" 1320×2868 JPEG → `fastlane/screenshots/<dil>/`. Ham ekranlar `tools/capture_store_screens.sh`, metinler `docs/app-store/screenshot-texts.json`, kompozisyon `swift tools/make_store_screenshots.swift <ham> fastlane/screenshots`
 - [x] Ekran görüntüleri yeni tasarımla (her kare farklı düzen) 12 dilde App Store Connect'e yüklendi (2026-10-16)
 - [x] Mağaza metinleri 12 dilde (ad, alt başlık, anahtar kelime, açıklama — yeni özellikler dahil) yüklendi; App Store sürümü 1.0.0
-- [ ] Satın alma ürünlerine kalan dillerin adları/açıklamaları (`docs/app-store/in-app-purchases.md`'de hazır) — **Fatih**
+- [x] Satın alma ürünlerinin 12 dilde adları/açıklamaları yüklendi (API ile, 2026-10-16)
 
 ### Gerçek cihaz testi (TestFlight) — **Fatih + Claude**
 - [x] (2026-10-15) **iCloud şeması yeniden gönderildi — Fatih:** modele `repeatsYearly` eklendi. iPhone'da `-initCloudKitSchema` ile bir kez çalıştır, CloudKit Console → Deploy Schema Changes. Yapılmazsa TestFlight'ta yeni alan senkronlanmaz
