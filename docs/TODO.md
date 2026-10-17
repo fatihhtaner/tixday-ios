@@ -64,7 +64,8 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [ ] Doğum günü posterinde beyaz başlık zayıf; o türde karartmayı artır
 - [ ] Çevirileri ana dili konuşan biriyle gözden geçir (özellikle AR, JA, KO, ZH); Arapça (sağdan sola) düzeni yeni ekranlarda kontrol et
 - [ ] Analitik kararı: Subloom'daki gibi SDK'sız öneriliyor (App Store Connect + RevenueCat + Xcode Organizer)
-- [ ] Repo/boyut temizliği: kullanılmayan `art-*` köşe dekorları (artık her türün posteri var), `design/` içindeki eski denemeler (`plate-*`, `art-*`), PRD'deki eski tasarım anlatımı
+- [x] Boyut temizliği: kullanılmayan `art-*` köşe dekorları ve yedek kodu kaldırıldı (uygulama + widget), `design/` içindeki eski `plate-*`, `art-*` silindi (2026-10-17)
+- [ ] PRD'deki eski tasarım anlatımı
 
 ## 🔮 Sonra (1.1+)
 - [ ] Live Activity / Dynamic Island (son 24 saat canlı sayaç), StandBy

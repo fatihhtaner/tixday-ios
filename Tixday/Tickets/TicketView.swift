@@ -189,7 +189,7 @@ enum TicketPoster {
     }
 }
 
-/// The ticket body: poster with a scrim for white type, or the kind's paper with its corner decoration.
+/// The ticket body: the poster (or the user's photo) with a scrim for white type.
 struct TicketBody: View {
     var kind: TicketKind
     var poster: Image?
@@ -220,16 +220,8 @@ struct TicketBody: View {
             .allowsHitTesting(false)
             .accessibilityHidden(true)
         } else {
+            // Every kind has a poster; this plain paper only shows if one is ever missing.
             kind.style.background
-                .overlay(alignment: .bottomTrailing) {
-                    Image("art-\(kind.rawValue)")
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(1.25, anchor: .bottomTrailing)
-                        .opacity(kind.style.artOpacity)
-                        .accessibilityHidden(true)
-                }
-                .clipped()
         }
     }
 }
