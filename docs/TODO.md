@@ -26,13 +26,13 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [x] Düğün posteri kadehsiz (yüzüklü eller) yenilendi, alkol tasviri yok → yaş derecelendirmesinde Alcohol = None, hedef 4+ (2026-10-16). IAP inceleme görseli `docs/app-store/review-paywall.png` yeni posterle yeniden çekildi; App Store Connect'te iki ürüne yeniden yüklenmeli — **Fatih**
 - [x] Age Rating anketi → 4+ (Fatih); kategoriler Lifestyle / Utilities (fastlane)
 - [ ] Content Rights (No), fiyat = Free — **Fatih**
-- [ ] 1.0.0 → Build: son TestFlight derlemesini seç (şu an 1.0.0 (8)) — **Fatih**
+- [x] 1.0.0 → Build: 1.0.0 (8) seçildi
 - [ ] 1.0.0 → In-App Purchases and Subscriptions: yıllık + ömür boyu ürünü sürüme ekle — **Fatih**
 - [ ] İki ürünün inceleme görselini `docs/app-store/review-paywall.png` (yeni düğün posterli) ile değiştir — **Fatih**
-- [ ] Ürün sayfası üst görseli (yeni): her dile `docs/marketing/header-16x9-<dil>.png` yükle — **Fatih**
+- [x] Ürün sayfası üst görseli yüklendi
 - [x] Abonelik grubunun görünen adı 12 dilde "Tixday Pro" (API ile, 2026-10-16)
 - [x] App Review notu: `fastlane/metadata/review_information/notes.txt`
-- [ ] App Review iletişim telefonu — **Fatih** App Store Connect → 1.0.0 → App Review Information'a gir (fastlane telefonsuz kaydı oluşturamıyor), sonra `fastlane metadata` notu da yükler
+- [x] App Review iletişim bilgileri (Fatih) + inceleme notu (fastlane metadata, 2026-10-17) — eski not: App Store Connect → 1.0.0 → App Review Information'a gir (fastlane telefonsuz kaydı oluşturamıyor), sonra `fastlane metadata` notu da yükler
 - [x] App Store Server Notifications URL (RevenueCat) girildi
 - [ ] RevenueCat → Small Business Program başlangıç tarihi — **Fatih**
 
