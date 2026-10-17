@@ -6,7 +6,7 @@
 | Referans adı | `Tixday Pro Yearly` | `Tixday Pro Lifetime` |
 | Ürün kimliği | `tixday_pro_yearly` | `tixday_pro_lifetime` |
 | Süre | 1 yıl | — |
-| Fiyat | 9,99 USD (diğer ülkeler otomatik) | 24,99 USD (diğer ülkeler otomatik) |
+| Fiyat | 9,99 USD (diğer ülkeler otomatik; Türkiye elle ₺299,99, 2026-10-17) | 24,99 USD (diğer ülkeler otomatik; Türkiye ₺799,99) |
 | Tanıtım teklifi | 1 hafta ücretsiz deneme (yeni aboneler) | — |
 | Abonelik grubu | `Tixday Pro` (grup görünen adı her dilde "Tixday Pro", "Use App Name") | — |
 | Aile Paylaşımı | Kapalı (açılınca geri alınamaz) | Kapalı |
