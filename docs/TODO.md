@@ -25,16 +25,16 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 - [x] App Privacy etiketi yayınlandı — adımlar `docs/app-store/app-privacy.md` (yalnızca Purchases → Purchase History, App Functionality, kimliğe bağlı değil, takip yok) — **Fatih**
 - [x] Düğün posteri kadehsiz (yüzüklü eller) yenilendi, alkol tasviri yok → yaş derecelendirmesinde Alcohol = None, hedef 4+ (2026-10-16). IAP inceleme görseli `docs/app-store/review-paywall.png` yeni posterle yeniden çekildi; App Store Connect'te iki ürüne yeniden yüklenmeli — **Fatih**
 - [x] Age Rating anketi → 4+ (Fatih); kategoriler Lifestyle / Utilities (fastlane)
-- [ ] Content Rights (No), fiyat = Free — **Fatih**
+- [x] Content Rights (No), fiyat = Free
 - [x] 1.0.0 → Build: 1.0.0 (8) seçildi
-- [ ] 1.0.0 → In-App Purchases and Subscriptions: yıllık + ömür boyu ürünü sürüme ekle — **Fatih**
+- [x] Yıllık + ömür boyu ürün incelemeye eklendi; build 1.0.0 (9)
 - [ ] İki ürünün inceleme görselini `docs/app-store/review-paywall.png` (yeni düğün posterli) ile değiştir — **Fatih**
 - [x] Ürün sayfası üst görseli yüklendi
 - [x] Abonelik grubunun görünen adı 12 dilde "Tixday Pro" (API ile, 2026-10-16)
 - [x] App Review notu: `fastlane/metadata/review_information/notes.txt`
 - [x] App Review iletişim bilgileri (Fatih) + inceleme notu (fastlane metadata, 2026-10-17) — eski not: App Store Connect → 1.0.0 → App Review Information'a gir (fastlane telefonsuz kaydı oluşturamıyor), sonra `fastlane metadata` notu da yükler
 - [x] App Store Server Notifications URL (RevenueCat) girildi
-- [ ] RevenueCat → Small Business Program başlangıç tarihi — **Fatih**
+- [ ] RevenueCat → Small Business Program başlangıç tarihi — **Fatih** (Apple'dan onay bekleniyor, 2026-10-17)
 
 ### Mağaza sayfası
 - [x] **Ekran görüntüleri**: 12 dil × 5 kare (ana ekran, widget'lar, yıllık doğum günü, editör, damga), 6,9" 1320×2868 JPEG → `fastlane/screenshots/<dil>/`. Ham ekranlar `tools/capture_store_screens.sh`, metinler `docs/app-store/screenshot-texts.json`, kompozisyon `swift tools/make_store_screenshots.swift <ham> fastlane/screenshots`
@@ -44,11 +44,11 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
 
 ### Gerçek cihaz testi (TestFlight) — **Fatih + Claude**
 - [x] (2026-10-15) **iCloud şeması yeniden gönderildi — Fatih:** modele `repeatsYearly` eklendi. iPhone'da `-initCloudKitSchema` ile bir kez çalıştır, CloudKit Console → Deploy Schema Changes. Yapılmazsa TestFlight'ta yeni alan senkronlanmaz
-- [ ] iCloud: iki cihazda (ya da sil-yeniden kur) biletlerin geri gelmesi; Ayarlar'da iCloud "Açık"
+- [x] iCloud (TestFlight'ta doğrulandı, 2026-10-17)
 - [x] İlk TestFlight derlemesi yüklendi: 1.0.0 (1), 2026-10-09 (`fastlane beta`, uygulama, widget ve App Group imzaları otomatik)
-- [ ] Sandbox satın alma: deneme, ömür boyu, geri yükle; iptal sonrası kilitlenen biletler
-- [ ] Widget'lar: küçük/orta, bilet seçme, kilit ekranı (Pro'lu/Pro'suz), gece yarısı güncellemesi
-- [ ] Bildirimler: izin, 30/7/1 gün ve etkinlik günü
+- [x] Sandbox satın alma (doğrulandı, 2026-10-17)
+- [x] Widget'lar (doğrulandı, 2026-10-17)
+- [x] Bildirimler (doğrulandı, 2026-10-17)
 - [x] Fotoğraf: seçme, kadraj (sürükle/yakınlaştır), bilette ve widget'ta görünme — TestFlight 1.0.0 (7)'de doğrulandı (2026-10-16)
 
 ## ⭐ Yayın öncesi önerilen
