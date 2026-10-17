@@ -14,6 +14,8 @@ struct TicketStyle {
     var stubFill: Color
     var stubInk: Color
     var stubMuted: Color
+    /// How dark the poster's scrim gets behind white type; bright posters need more.
+    var scrim: Double = 1
 
     func number(_ size: CGFloat) -> Font {
         .system(size: size, weight: .bold, design: design).width(numberWidth)
@@ -55,7 +57,9 @@ extension TicketKind {
             TicketStyle(
                 background: Color(hex: "#FAEEDA"), ink: Color(hex: "#412402"), muted: Color(hex: "#854F0B"), accent: Color(hex: "#BA7517"),
                 perforation: Color(hex: "#EF9F27"), design: .rounded,
-                stubFill: Color(hex: "#EF9F27"), stubInk: Color(hex: "#412402"), stubMuted: Color(hex: "#633806")
+                stubFill: Color(hex: "#EF9F27"), stubInk: Color(hex: "#412402"), stubMuted: Color(hex: "#633806"),
+                // The cake poster has a pale cream sky right behind the title.
+                scrim: 1.7
             )
         case .holiday:
             TicketStyle(

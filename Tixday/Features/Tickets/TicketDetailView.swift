@@ -78,7 +78,11 @@ struct TicketDetailView: View {
                 .frame(height: 24)
             Text(title)
                 .font(.caption.weight(.medium))
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
         }
+        // Three buttons share a row; past this size the labels would break mid-word.
+        .dynamicTypeSize(...DynamicTypeSize.accessibility1)
         .foregroundStyle(isDestructive ? Color.red : Color.primary)
         .frame(maxWidth: .infinity)
         .padding(.vertical, 14)
@@ -90,6 +94,10 @@ struct TicketDetailView: View {
 /// The date in full, and how much of the wait is already behind you.
 private struct WaitCard: View {
     let ticket: TicketSnapshot
+    @Environment(\.dynamicTypeSize) private var typeSize
+
+    /// Side-by-side pieces stack once the text is too large to share a line.
+    private var stacks: Bool { typeSize.isAccessibilitySize }
 
     var body: some View {
         let progress = DayCount.progress(createdAt: ticket.createdAt, target: ticket.date)
@@ -98,7 +106,8 @@ private struct WaitCard: View {
                 VStack(alignment: .leading, spacing: 3) {
                     Text(ticket.date.formatted(Date.FormatStyle(date: .complete, time: .omitted, locale: AppLanguage.locale)))
                         .font(.headline)
-                    HStack(spacing: 8) {
+                    let layout = stacks ? AnyLayout(VStackLayout(alignment: .leading, spacing: 3)) : AnyLayout(HStackLayout(spacing: 8))
+                    layout {
                         Text(ticket.kind.name)
                         if ticket.repeatsYearly {
                             Label("Every year", systemImage: "repeat")
@@ -107,16 +116,19 @@ private struct WaitCard: View {
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                 }
-                Spacer()
-                Image(systemName: ticket.kind.symbol)
-                    .font(.title3)
-                    .foregroundStyle(.secondary)
+                Spacer(minLength: 8)
+                if !stacks {
+                    Image(systemName: ticket.kind.symbol)
+                        .font(.title3)
+                        .foregroundStyle(.secondary)
+                }
             }
             VStack(alignment: .leading, spacing: 8) {
                 WaitProgressBar(progress: progress, track: .white.opacity(0.18), fill: .white)
-                HStack {
+                let footer = stacks ? AnyLayout(VStackLayout(alignment: .leading, spacing: 4)) : AnyLayout(HStackLayout())
+                footer {
                     Text("\(Int((progress * 100).rounded()))% of the wait is behind you")
-                    Spacer()
+                    if !stacks { Spacer() }
                     Text(ticket.createdAt, format: .relative(presentation: .named))
                         .foregroundStyle(.tertiary)
                 }

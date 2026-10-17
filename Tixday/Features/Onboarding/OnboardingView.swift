@@ -136,6 +136,8 @@ private struct OnboardingPage<Art: View>: View {
             art(isActive || reduceMotion)
                 .frame(height: artHeight)
                 .animation(.spring(response: 0.7, dampingFraction: 0.75), value: isActive)
+                // Illustrations of sample tickets; the title and text carry the meaning.
+                .accessibilityHidden(true)
             VStack(spacing: 10) {
                 Text(title)
                     .font(Theme.display(26))

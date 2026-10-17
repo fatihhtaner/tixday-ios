@@ -66,4 +66,15 @@ final class DayCountTests: XCTestCase {
         XCTAssertEqual(DayCount.nextOccurrence(of: leapDay, from: date("2026-10-15T12:00:00"), calendar: calendar), date("2027-02-28T00:00:00"))
         XCTAssertEqual(DayCount.nextOccurrence(of: leapDay, from: date("2027-10-15T12:00:00"), calendar: calendar), date("2028-02-29T00:00:00"))
     }
+
+    func testAccessibilityDescriptionReadsTheWholeTicket() {
+        let now = Date.now
+        let ticket = TicketSnapshot(title: "Arctic Monkeys", date: Calendar.current.date(byAdding: .day, value: 18, to: now)!, kind: .concert)
+        let text = ticket.accessibilityDescription(now: now)
+        XCTAssertTrue(text.contains("Arctic Monkeys"))
+        XCTAssertTrue(text.contains("18"))
+        XCTAssertTrue(text.contains(TicketKind.concert.name))
+        let used = TicketSnapshot(title: "Coldplay", date: Calendar.current.date(byAdding: .day, value: -3, to: now)!, kind: .concert)
+        XCTAssertTrue(used.accessibilityDescription(now: now).contains("3"))
+    }
 }

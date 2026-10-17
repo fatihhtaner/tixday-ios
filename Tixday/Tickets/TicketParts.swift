@@ -24,6 +24,25 @@ enum CountLabel {
     }
 }
 
+extension TicketSnapshot {
+    /// What VoiceOver reads for a whole ticket: "Concert, Arctic Monkeys. 18 days left. 3 November 2026."
+    /// The ticket's own pieces (poster, big number, stub) are hidden behind this one description.
+    func accessibilityDescription(now: Date = .now) -> String {
+        let days = DayCount.days(until: date, from: now)
+        let countdown: String
+        if days > 0 {
+            countdown = String(localized: "\(days) days left", bundle: .app, comment: "VoiceOver: time until a ticket's date")
+        } else if days == 0 {
+            countdown = String(localized: "Today", bundle: .app, comment: "VoiceOver: the ticket's date is today")
+        } else {
+            countdown = String(localized: "\(-days) days ago", bundle: .app, comment: "VoiceOver: a used ticket's date")
+        }
+        var parts = ["\(kind.name), \(title)", countdown, date.formatted(Date.FormatStyle(date: .long, time: .omitted, locale: AppLanguage.locale))]
+        if repeatsYearly { parts.append(String(localized: "Every year", bundle: .app)) }
+        return parts.joined(separator: ". ")
+    }
+}
+
 extension Date {
     /// "12 JAN" style date for the stub.
     var stubText: String {

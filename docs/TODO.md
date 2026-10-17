@@ -60,8 +60,8 @@ Yeni oturumda kaldığımız yer burası. Sorumlu belirtilmemişse iş Claude'da
   4. ✅ (2026-10-15) https://icloud.developer.apple.com → Tixday kapsayıcısı → Schema → **Deploy Schema Changes** (Production). TestFlight ve App Store Production'ı kullanır; bu yapılmadan TestFlight'ta senkron çalışmaz
 - [x] Onboarding: ilk açılışta (bilet yoksa) 4 sayfa — bilet destesi, widget'lar, widget nasıl eklenir + bilet seçimi (canlı örnek), hatırlatmalar — sonra "İlk biletimi oluştur" editörü açar (`OnboardingView`, DEBUG'da `-onboarding`). Bildirim izni ilk bilet kaydedilince istenir
 - [x] Pro'ya hoş geldin anı: satın alma/geri yükleme sonrası paywall yerine altın Pro bileti + damga + bilet koçanı konfetisi + kilit ekranı widget'ı nasıl eklenir (`ProWelcomeView`, DEBUG'da `-proWelcome`)
-- [ ] Erişilebilirlik: en büyük yazı boyutu ve VoiceOver turu (biletler, cüzdan, paywall)
-- [ ] Doğum günü posterinde beyaz başlık zayıf; o türde karartmayı artır
+- [x] Erişilebilirlik (2026-10-17): VoiceOver biletleri tek parça okur (tür, başlık, kalan gün, tarih, her yıl, kilitli), örnek bilet süsleri gizli; en büyük yazı boyutunda ana ekran, detay ve paywall düzenleri alt alta dizilir, rozetler sınırlı. App Store Connect → App Accessibility'de işaretlenecekler: VoiceOver, Larger Text, Dark Interface, Reduced Motion — **Fatih**
+- [x] Doğum günü posterinde karartma artırıldı (`TicketStyle.scrim`)
 - [ ] Çevirileri ana dili konuşan biriyle gözden geçir (özellikle AR, JA, KO, ZH); Arapça (sağdan sola) düzeni yeni ekranlarda kontrol et
 - [ ] Analitik kararı: Subloom'daki gibi SDK'sız öneriliyor (App Store Connect + RevenueCat + Xcode Organizer)
 - [x] Boyut temizliği: kullanılmayan `art-*` köşe dekorları ve yedek kodu kaldırıldı (uygulama + widget), `design/` içindeki eski `plate-*`, `art-*` silindi (2026-10-17)

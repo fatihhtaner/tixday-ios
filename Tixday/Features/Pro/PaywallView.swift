@@ -10,6 +10,7 @@ struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
     @State private var selectedID: String?
+    @Environment(\.dynamicTypeSize) private var typeSize
     @State private var showsWelcome = false
 
     private var selected: ProPackage? {
@@ -87,6 +88,8 @@ struct PaywallView: View {
             }
         }
         .frame(height: 170)
+        // Sample tickets as decoration; the benefits below say what Pro is.
+        .accessibilityHidden(true)
     }
 
     private var benefits: some View {
@@ -135,12 +138,15 @@ struct PaywallView: View {
                     .font(.title3)
                     .foregroundStyle(isSelected ? .white : .secondary)
                 VStack(alignment: .leading, spacing: 2) {
-                    HStack(spacing: 8) {
+                    // With large text the trial badge and price go on their own lines instead of squeezing.
+                    let titleRow = typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 4)) : AnyLayout(HStackLayout(spacing: 8))
+                    titleRow {
                         Text(package.kind == .lifetime ? "Lifetime" : "Yearly")
                             .font(.body.weight(.semibold))
                         if let trial = package.trial {
                             Text(trial)
                                 .font(.caption2.weight(.bold))
+                                .fixedSize(horizontal: false, vertical: true)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 3)
                                 .background(.white.opacity(0.2), in: Capsule())
@@ -149,10 +155,15 @@ struct PaywallView: View {
                     Text(package.kind == .lifetime ? String(localized: "Pay once, keep it forever", bundle: .app) : package.pricePerMonth.map { String(localized: "Just \($0) a month", bundle: .app) } ?? "")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
+                    if typeSize.isAccessibilitySize {
+                        Text(package.price).font(.headline)
+                    }
                 }
-                Spacer()
-                Text(package.price)
-                    .font(.headline)
+                Spacer(minLength: 0)
+                if !typeSize.isAccessibilitySize {
+                    Text(package.price)
+                        .font(.headline)
+                }
             }
             .padding(16)
             .contentShape(RoundedRectangle(cornerRadius: 20, style: .continuous))

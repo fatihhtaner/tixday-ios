@@ -268,6 +268,8 @@ struct TicketListView: View {
                 } label: {
                     Label("Pro", systemImage: "sparkles")
                         .font(.footnote.weight(.bold))
+                        // A small chrome badge: grows with the text size, but not past the header.
+                        .dynamicTypeSize(...DynamicTypeSize.xxLarge)
                         .padding(.horizontal, 12)
                         .frame(height: 34)
                         .contentShape(Capsule())
@@ -292,7 +294,8 @@ struct TicketListView: View {
             Text(upcoming.isEmpty ? String(localized: "Nothing planned yet", bundle: .app) : String(localized: "\(upcoming.count) tickets ahead", bundle: .app))
                 .font(Theme.display(24))
                 .foregroundStyle(Color.primary)
-                .lineLimit(1)
+                // Two lines rather than cut off when space is tight (large text, long languages).
+                .lineLimit(2)
                 .minimumScaleFactor(0.7)
                 .contentTransition(.numericText())
         }
@@ -395,6 +398,7 @@ struct TicketListView: View {
             }
             .frame(height: 210)
             .padding(.top, 48)
+            .accessibilityHidden(true)
 
             Text("Every date is a ticket")
                 .font(Theme.display(22))

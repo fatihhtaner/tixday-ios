@@ -27,6 +27,8 @@ struct TicketView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .compositingGroup()
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text(verbatim: ticket.accessibilityDescription(now: now)))
     }
 
     // MARK: - Medium
@@ -206,12 +208,13 @@ struct TicketBody: View {
                         .clipped()
                 }
                 // Darkens the top and bottom just enough for white type.
+                let strength = kind.style.scrim
                 LinearGradient(
                     stops: [
-                        .init(color: .black.opacity(0.32), location: 0),
+                        .init(color: .black.opacity(0.32 * strength), location: 0),
                         .init(color: .black.opacity(0), location: 0.38),
-                        .init(color: .black.opacity(0), location: 0.55),
-                        .init(color: .black.opacity(0.5), location: 1),
+                        .init(color: .black.opacity(0.05 * strength), location: 0.5),
+                        .init(color: .black.opacity(min(0.5 * strength, 0.85)), location: 1),
                     ],
                     startPoint: .top,
                     endPoint: .bottom

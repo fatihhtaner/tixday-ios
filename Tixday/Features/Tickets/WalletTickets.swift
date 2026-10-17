@@ -67,6 +67,9 @@ struct HeroTicket: View {
         // The artwork ignores touches, so the whole ticket needs an explicit tap area.
         .contentShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
         .ticketShadow()
+        // One description instead of the poster, number and ticking clock read piece by piece.
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text(verbatim: ticket.accessibilityDescription()))
         .sensoryFeedback(.impact(weight: .heavy), trigger: isStamped) { _, new in new }
         .task {
             guard isUsed, !isStamped else { return }
@@ -113,6 +116,8 @@ struct WalletCard: View {
                 if isLocked {
                     Label("Pro", systemImage: "lock.fill")
                         .font(.caption.weight(.bold))
+                        // Sits in a fixed-height card header, so it can't grow without limit.
+                        .dynamicTypeSize(...DynamicTypeSize.xxLarge)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 6)
                         .background(.black.opacity(0.25), in: Capsule())
@@ -154,6 +159,10 @@ struct WalletCard: View {
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .shadow(color: .black.opacity(0.14), radius: 10, y: -2)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text(verbatim: isLocked
+            ? ticket.accessibilityDescription() + ". " + String(localized: "Locked. Unlock with Tixday Pro.", bundle: .app)
+            : ticket.accessibilityDescription()))
     }
 }
 

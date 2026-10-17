@@ -160,6 +160,7 @@ struct LockScreenTicketView: View {
     var body: some View {
         if let ticket {
             let days = DayCount.days(until: ticket.date, from: now)
+            Group {
             switch family {
             case .accessoryCircular:
                 Gauge(value: DayCount.progress(createdAt: ticket.createdAt, target: ticket.date, now: now)) {
@@ -207,6 +208,9 @@ struct LockScreenTicketView: View {
                     }
                 }
             }
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text(verbatim: ticket.accessibilityDescription(now: now)))
         } else {
             switch family {
             case .accessoryInline:
