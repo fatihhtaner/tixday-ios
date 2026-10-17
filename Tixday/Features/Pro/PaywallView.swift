@@ -110,6 +110,7 @@ struct PaywallView: View {
                 .font(.system(size: 17, weight: .semibold))
                 .frame(width: 36, height: 36)
                 .background(.white.opacity(highlighted ? 0.28 : 0.12), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 1) {
                 Text(title).font(.body.weight(.semibold))
                 Text(detail).font(.footnote).foregroundStyle(.secondary)
@@ -137,6 +138,7 @@ struct PaywallView: View {
                 Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
                     .font(.title3)
                     .foregroundStyle(isSelected ? .white : .secondary)
+                    .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 2) {
                     // With large text the trial badge and price go on their own lines instead of squeezing.
                     let titleRow = typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 4)) : AnyLayout(HStackLayout(spacing: 8))
@@ -174,6 +176,9 @@ struct PaywallView: View {
             )
         }
         .buttonStyle(PressableStyle())
+        // The circle shows the choice visually; VoiceOver says "selected".
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 
     private var purchaseButton: some View {

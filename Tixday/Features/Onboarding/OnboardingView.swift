@@ -129,12 +129,27 @@ private struct OnboardingPage<Art: View>: View {
     @ViewBuilder var art: (_ isActive: Bool) -> Art
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dynamicTypeSize) private var typeSize
 
     var body: some View {
+        // Scrolls when large text makes the page taller than the screen; otherwise it's centred as before.
+        GeometryReader { proxy in
+            ScrollView {
+                content
+                    .frame(minHeight: proxy.size.height)
+            }
+            .scrollBounceBehavior(.basedOnSize)
+            .scrollIndicators(.hidden)
+        }
+    }
+
+    private var content: some View {
         VStack(spacing: steps.isEmpty ? 28 : 22) {
             Spacer(minLength: 0)
             art(isActive || reduceMotion)
-                .frame(height: artHeight)
+                // Smaller with large text, so the words get the room.
+                .scaleEffect(typeSize.isAccessibilitySize ? 0.7 : 1)
+                .frame(height: typeSize.isAccessibilitySize ? artHeight * 0.7 : artHeight)
                 .animation(.spring(response: 0.7, dampingFraction: 0.75), value: isActive)
                 // Illustrations of sample tickets; the title and text carry the meaning.
                 .accessibilityHidden(true)

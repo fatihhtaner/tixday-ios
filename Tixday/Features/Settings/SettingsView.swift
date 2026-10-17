@@ -7,6 +7,7 @@ import UserNotifications
 struct SettingsView: View {
     @Environment(ProStore.self) private var pro
     @Environment(SyncMonitor.self) private var sync
+    @Environment(\.dynamicTypeSize) private var typeSize
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
     @Environment(\.scenePhase) private var scenePhase
@@ -153,6 +154,8 @@ struct SettingsView: View {
                     }
                 }
             }
+            // With large text the switch goes under the words instead of squeezing them.
+            .toggleStyle(StackingToggleStyle(stacks: typeSize.isAccessibilitySize))
             .tint(.green)
             .padding(16)
             .onChange(of: remindersEnabled) { _, isOn in
@@ -161,11 +164,15 @@ struct SettingsView: View {
 
             if remindersEnabled {
                 divider
-                DatePicker(selection: reminderTime, displayedComponents: .hourAndMinute) {
+                let timeRow = typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout())
+                timeRow {
                     HStack(spacing: 14) {
                         icon("clock")
                         Text("Time").font(.body.weight(.semibold))
                     }
+                    if !typeSize.isAccessibilitySize { Spacer() }
+                    DatePicker("Time", selection: reminderTime, displayedComponents: .hourAndMinute)
+                        .labelsHidden()
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 10)
@@ -240,7 +247,7 @@ struct SettingsView: View {
                 .font(.footnote)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
-                .padding(.leading, 64)
+                .padding(.leading, typeSize.isAccessibilitySize ? 16 : 64)
                 .padding(.trailing, 16)
                 .padding(.top, 6)
                 .padding(.bottom, sync.state.isProblem ? 4 : 14)
@@ -292,11 +299,16 @@ struct SettingsView: View {
         }
     }
 
+    /// The small icon at the start of a row. Left out with large text, where the words need the width.
+    @ViewBuilder
     private func icon(_ symbol: String) -> some View {
-        Image(systemName: symbol)
-            .font(.system(size: 16, weight: .semibold))
-            .frame(width: 34, height: 34)
-            .background(.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+        if !typeSize.isAccessibilitySize {
+            Image(systemName: symbol)
+                .font(.system(size: 16, weight: .semibold))
+                .frame(width: 34, height: 34)
+                .background(.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .accessibilityHidden(true)
+        }
     }
 
     private func row(_ title: LocalizedStringKey, symbol: String, value: String? = nil, external: Bool = false, isBusy: Bool = false, action: @escaping () -> Void) -> some View {
@@ -332,6 +344,23 @@ struct SettingsView: View {
         Rectangle()
             .fill(.white.opacity(0.1))
             .frame(height: 1)
-            .padding(.leading, 64)
+            .padding(.leading, typeSize.isAccessibilitySize ? 16 : 64)
+    }
+}
+
+/// A toggle whose switch sits beside its label, or under it at accessibility text sizes.
+private struct StackingToggleStyle: ToggleStyle {
+    var stacks: Bool
+
+    func makeBody(configuration: Configuration) -> some View {
+        if stacks {
+            VStack(alignment: .leading, spacing: 10) {
+                configuration.label
+                Toggle("", isOn: configuration.$isOn).labelsHidden()
+            }
+            .accessibilityElement(children: .combine)
+        } else {
+            Toggle(isOn: configuration.$isOn) { configuration.label }
+        }
     }
 }

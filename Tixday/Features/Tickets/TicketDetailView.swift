@@ -121,6 +121,7 @@ private struct WaitCard: View {
                     Image(systemName: ticket.kind.symbol)
                         .font(.title3)
                         .foregroundStyle(.secondary)
+                        .accessibilityHidden(true)
                 }
             }
             VStack(alignment: .leading, spacing: 8) {

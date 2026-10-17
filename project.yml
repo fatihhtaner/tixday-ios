@@ -111,6 +111,18 @@ targets:
       base:
         GENERATE_INFOPLIST_FILE: YES
 
+  TixdayUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: TixdayUITests
+    dependencies:
+      - target: Tixday
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: Tixday
+
 schemes:
   Tixday:
     build:
@@ -119,3 +131,12 @@ schemes:
     test:
       targets:
         - TixdayTests
+  # Accessibility audit, run on demand: xcodebuild -scheme TixdayUITests test
+  TixdayUITests:
+    build:
+      targets:
+        Tixday: all
+        TixdayUITests: [test]
+    test:
+      targets:
+        - TixdayUITests

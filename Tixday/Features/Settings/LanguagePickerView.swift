@@ -62,6 +62,8 @@ struct LanguagePickerView: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 
     /// "Almanca" under "Deutsch" when the app is in Turkish; nothing for the language already showing.

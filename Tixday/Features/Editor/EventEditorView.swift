@@ -21,6 +21,7 @@ struct EventEditorView: View {
     @State private var stubLeft = ""
     @State private var stubRight = ""
     @State private var photoData: Data?
+    @Environment(\.dynamicTypeSize) private var typeSize
     @State private var repeatsYearly = false
     /// Once the user flips the switch, changing the kind no longer sets it.
     @State private var didChooseRepeat = false
@@ -66,15 +67,16 @@ struct EventEditorView: View {
                     card {
                         field("Title") { TextField("", text: $title, prompt: Text(kind.name)) }
                         divider
-                        HStack {
+                        // Side by side normally; stacked with large text so the date picker has room.
+                        stackable {
                             VStack(alignment: .leading, spacing: 4) {
                                 label("Date")
                                 Text(Calendar.current.startOfDay(for: countdownDate), format: .relative(presentation: .named, unitsStyle: .wide))
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             }
-                            Spacer()
-                            DatePicker("", selection: $date, displayedComponents: .date)
+                            if !typeSize.isAccessibilitySize { Spacer() }
+                            DatePicker("Date", selection: $date, displayedComponents: .date)
                                 .labelsHidden()
                         }
                         .padding(.vertical, 6)
@@ -96,13 +98,14 @@ struct EventEditorView: View {
 
                     if kind.showsRoute {
                         card {
-                            HStack(spacing: 12) {
+                            stackable(spacing: 12) {
                                 field("From") {
                                     TextField("", text: $origin, prompt: kind == .flight ? Text(verbatim: "IST") : Text("HOME"))
                                         .textInputAutocapitalization(.characters)
                                 }
                                 Image(systemName: kind == .flight ? "airplane" : "arrow.right")
                                     .foregroundStyle(.secondary)
+                                    .accessibilityHidden(true)
                                 field("To") {
                                     TextField("", text: $destination, prompt: kind == .flight ? Text(verbatim: "LHR") : Text("NORTH POLE"))
                                         .textInputAutocapitalization(.characters)
@@ -112,10 +115,10 @@ struct EventEditorView: View {
                     }
 
                     card {
-                        HStack(spacing: 12) {
+                        stackable(spacing: 12) {
                             field("Small print") { TextField("", text: $stubLeft, prompt: Text(kind.stubLeftPrompt)) }
-                            field("") { TextField("", text: $stubRight, prompt: Text(kind.stubRightPrompt)) }
-                                .frame(width: 96)
+                            field("", spoken: LocalizedStringKey(kind.stubRightPrompt)) { TextField("", text: $stubRight, prompt: Text(kind.stubRightPrompt)) }
+                                .frame(width: typeSize.isAccessibilitySize ? nil : 96)
                         }
                     }
                 }
@@ -175,10 +178,12 @@ struct EventEditorView: View {
                                 Text(option.name)
                                     .font(.caption.weight(.semibold))
                                     .lineLimit(1)
-                                    .minimumScaleFactor(0.8)
+                                    .minimumScaleFactor(0.7)
                             }
                             .foregroundStyle(.white)
                             .padding(8)
+                            // The tile is a fixed-size poster thumbnail; its label can't grow past it.
+                            .dynamicTypeSize(...DynamicTypeSize.xxLarge)
                         }
                         .frame(width: 84, height: 104)
                         .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
@@ -191,6 +196,8 @@ struct EventEditorView: View {
                         .opacity(isSelected ? 1 : 0.75)
                     }
                     .buttonStyle(PressableStyle())
+                    .accessibilityLabel(Text(verbatim: option.name))
+                    .accessibilityAddTraits(isSelected ? .isSelected : [])
                 }
             }
             .padding(8)
@@ -202,7 +209,8 @@ struct EventEditorView: View {
     private var photoCard: some View {
         card {
             VStack(alignment: .leading, spacing: 12) {
-                HStack(spacing: 14) {
+                let row = typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 10)) : AnyLayout(HStackLayout(spacing: 14))
+                row {
                     Group {
                         if let photo = TicketPhoto.image(photoData) {
                             photo.resizable().scaledToFill()
@@ -217,6 +225,7 @@ struct EventEditorView: View {
                     .frame(width: 52, height: 52)
                     .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                     .overlay { if isLoadingPhoto { ProgressView() } }
+                    .accessibilityHidden(true)
 
                     VStack(alignment: .leading, spacing: 2) {
                         Text(photoData == nil ? "Use your own photo" : "Your photo")
@@ -225,7 +234,7 @@ struct EventEditorView: View {
                             .font(.footnote)
                             .foregroundStyle(.secondary)
                     }
-                    Spacer(minLength: 4)
+                    if !typeSize.isAccessibilitySize { Spacer(minLength: 4) }
                     if photoData == nil {
                         PhotosPicker(selection: $photoItem, matching: .images) {
                             pill("Choose", systemImage: nil)
@@ -234,7 +243,8 @@ struct EventEditorView: View {
                 }
                 // With a photo: frame it again, pick another, or go back to the poster.
                 if photoData != nil {
-                    HStack(spacing: 8) {
+                    let buttons = typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 8))
+                    buttons {
                         Button {
                             if let image = photoOriginal ?? photoData.flatMap(UIImage.init(data:)) {
                                 croppingImage = CroppingImage(image: image)
@@ -283,6 +293,14 @@ struct EventEditorView: View {
         }
     }
 
+    /// A row that turns into a column at accessibility text sizes.
+    private func stackable<Content: View>(spacing: CGFloat? = nil, @ViewBuilder content: () -> Content) -> some View {
+        let layout = typeSize.isAccessibilitySize
+            ? AnyLayout(VStackLayout(alignment: .leading, spacing: spacing ?? 8))
+            : AnyLayout(HStackLayout(spacing: spacing))
+        return layout(content)
+    }
+
     private func pill(_ title: LocalizedStringKey, systemImage: String?) -> some View {
         Group {
             if let systemImage {
@@ -305,11 +323,15 @@ struct EventEditorView: View {
             .glassBackground(in: RoundedRectangle(cornerRadius: 22, style: .continuous))
     }
 
-    private func field<Content: View>(_ title: LocalizedStringKey, @ViewBuilder content: () -> Content) -> some View {
+    /// A caption over an input. `spoken` names the input for VoiceOver when the caption is empty.
+    private func field<Content: View>(_ title: LocalizedStringKey, spoken: LocalizedStringKey? = nil, @ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             label(title)
+                .accessibilityHidden(true)
             content()
                 .font(.body.weight(.medium))
+                // The visible caption above names the field for VoiceOver too.
+                .accessibilityLabel(Text(spoken ?? title))
         }
         .padding(.vertical, 6)
         .frame(maxWidth: .infinity, alignment: .leading)

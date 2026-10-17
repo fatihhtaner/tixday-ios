@@ -95,6 +95,7 @@ struct ProWelcomeView: View {
                 .font(.system(size: 16, weight: .semibold))
                 .frame(width: 34, height: 34)
                 .background(.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 1) {
                 Text(title).font(.body.weight(.semibold))
                 Text(detail).font(.footnote).foregroundStyle(.secondary)
@@ -104,6 +105,7 @@ struct ProWelcomeView: View {
                 .font(.footnote.weight(.bold))
                 .foregroundStyle(showsChevron ? Color.secondary : ProPass.gold)
                 .flipsForRightToLeftLayoutDirection(showsChevron)
+                .accessibilityHidden(true)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
