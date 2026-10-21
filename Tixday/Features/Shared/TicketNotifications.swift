@@ -56,6 +56,10 @@ enum TicketNotifications {
 
     /// Asks once, the first time the user saves a ticket.
     static func requestAuthorizationIfNeeded() async {
+        #if DEBUG
+        // Scripted screenshots and videos: no system prompt over the recording.
+        if DemoMode.screen != nil { return }
+        #endif
         let center = UNUserNotificationCenter.current()
         guard await center.notificationSettings().authorizationStatus == .notDetermined else { return }
         _ = try? await center.requestAuthorization(options: [.alert, .sound, .badge])

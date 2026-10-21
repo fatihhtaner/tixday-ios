@@ -4,7 +4,18 @@ import SwiftUI
 /// A Home Screen page with Tixday's widgets on a wallpaper, for the App Store screenshot of widgets.
 /// The widgets are the real `TicketView`s the widget extension draws. Open with `-screenshotScreen widgets`.
 struct WidgetShowcaseView: View {
-    private let samples = TicketSnapshot.samples()
+    /// Tickets to show; the samples when nil. The first one gets the big widgets.
+    var tickets: [TicketSnapshot]?
+
+    private var samples: [TicketSnapshot] {
+        guard let tickets, let first = tickets.first else { return TicketSnapshot.samples() }
+        // Same layout as the samples: the user's tickets first, samples filling the rest.
+        // The user's first ticket as the big widget and a small one; samples fill the rest of the page.
+        var list = TicketSnapshot.samples()
+        list[0] = first
+        list[1] = first
+        return list
+    }
 
     var body: some View {
         GeometryReader { proxy in

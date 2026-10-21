@@ -144,6 +144,32 @@ struct EventEditorView: View {
                 suggestRepeat(for: kind)
             }
             .onChange(of: kind) { _, newKind in suggestRepeat(for: newKind) }
+            #if DEBUG
+            .task {
+                // Tutorial video: name a Tokyo trip, set its date and route, save.
+                guard event == nil, DemoMode.createsTicket else { return }
+                try? await Task.sleep(for: .seconds(1.2))
+                for character in "Tokyo trip" {
+                    title.append(character)
+                    try? await Task.sleep(for: .seconds(0.11))
+                }
+                try? await Task.sleep(for: .seconds(0.6))
+                withAnimation(.snappy) {
+                    date = Calendar.current.date(byAdding: .day, value: 45, to: .now) ?? date
+                }
+                try? await Task.sleep(for: .seconds(0.9))
+                for character in "IST" {
+                    origin.append(character)
+                    try? await Task.sleep(for: .seconds(0.14))
+                }
+                for character in "HND" {
+                    destination.append(character)
+                    try? await Task.sleep(for: .seconds(0.14))
+                }
+                try? await Task.sleep(for: .seconds(1.4))
+                save()
+            }
+            #endif
             .sheet(item: $paywallReason) { reason in
                 PaywallView(reason: reason).appLanguage()
             }

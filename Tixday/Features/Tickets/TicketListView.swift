@@ -121,7 +121,10 @@ struct TicketListView: View {
                 SettingsView().appLanguage()
             }
             #if DEBUG
-            .fullScreenCover(isPresented: $isShowingWidgetShowcase) { WidgetShowcaseView() }
+            .fullScreenCover(isPresented: $isShowingWidgetShowcase) {
+                // "my-widgets" shows the tickets in the store (the tutorial's new trip), "widgets" the samples.
+                WidgetShowcaseView(tickets: DemoMode.screen == "my-widgets" ? upcoming.map(\.snapshot) : nil)
+            }
             #endif
             .fullScreenCover(isPresented: $isOnboarding) {
                 OnboardingView { createTicket in
@@ -232,17 +235,22 @@ struct TicketListView: View {
     /// `-screenshotScreen <name>` opens one screen for the App Store screenshots (with `-sampleData`):
     /// `detail-birthday`, `detail-used`, `editor` or `widgets`.
     private func openScreenshotScreen() -> Bool {
-        let args = CommandLine.arguments
-        guard let index = args.firstIndex(of: "-screenshotScreen"), index + 1 < args.count else { return false }
-        switch args[index + 1] {
+        guard let screen = DemoMode.screen else { return false }
+        switch screen {
         case "detail-birthday":
             if let event = events.first(where: { $0.kind == .birthday }) { path = [event] }
         case "detail-used":
             if let event = past.first { path = [event] }
         case "editor":
             editing = events.first { $0.kind == .flight }
-        case "widgets":
+        case "widgets", "my-widgets":
             isShowingWidgetShowcase = true
+        case "create-demo":
+            // Tutorial video: a beat on the empty home, then "New ticket"; the editor plays the rest.
+            Task {
+                try? await Task.sleep(for: .seconds(2.0))
+                isCreating = true
+            }
         default:
             return false
         }
