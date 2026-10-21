@@ -181,8 +181,8 @@ func phoneFrame() -> CGImage {
 // MARK: - Timeline
 
 let composition = AVMutableComposition()
-let tracks = [composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)!,
-              composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)!]
+// Scenes take turns on three tracks; with two, three cuts of one clip on the same track can fail to compose.
+let tracks = (0..<3).map { _ in composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)! }
 var cursor = 0.0
 var sceneStarts: [Double] = []
 var sourceSize = CGSize.zero
@@ -199,7 +199,7 @@ for (index, scene) in spec.scenes.enumerated() {
     }
     let range = CMTimeRange(start: CMTime(seconds: scene.start, preferredTimescale: 600),
                             end: CMTime(seconds: scene.end + extra, preferredTimescale: 600))
-    try tracks[index % 2].insertTimeRange(range, of: source, at: CMTime(seconds: cursor, preferredTimescale: 600))
+    try tracks[index % tracks.count].insertTimeRange(range, of: source, at: CMTime(seconds: cursor, preferredTimescale: 600))
     sceneStarts.append(cursor)
     cursor += scene.end - scene.start
 }
@@ -503,16 +503,16 @@ var instructions: [AVMutableVideoCompositionInstruction] = []
 for index in spec.scenes.indices {
     let start = sceneStarts[index]
     let end = index + 1 < spec.scenes.count ? sceneStarts[index + 1] : total
-    let current = AVMutableVideoCompositionLayerInstruction(assetTrack: tracks[index % 2])
+    let current = AVMutableVideoCompositionLayerInstruction(assetTrack: tracks[index % tracks.count])
     current.setTransform(fit, at: .zero)
     if index + 1 < spec.scenes.count {
         instructions.append(instruction(index == 0 ? 0 : start + crossfade, end, [current]))
-        let outgoing = AVMutableVideoCompositionLayerInstruction(assetTrack: tracks[index % 2])
+        let outgoing = AVMutableVideoCompositionLayerInstruction(assetTrack: tracks[index % tracks.count])
         outgoing.setTransform(fit, at: .zero)
         outgoing.setOpacityRamp(fromStartOpacity: 1, toEndOpacity: 0,
                                 timeRange: CMTimeRange(start: CMTime(seconds: end, preferredTimescale: 600),
                                                        duration: CMTime(seconds: crossfade, preferredTimescale: 600)))
-        let incoming = AVMutableVideoCompositionLayerInstruction(assetTrack: tracks[(index + 1) % 2])
+        let incoming = AVMutableVideoCompositionLayerInstruction(assetTrack: tracks[(index + 1) % tracks.count])
         incoming.setTransform(fit, at: .zero)
         instructions.append(instruction(end, end + crossfade, [outgoing, incoming]))
     } else {

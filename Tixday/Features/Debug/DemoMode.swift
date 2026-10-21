@@ -12,5 +12,8 @@ enum DemoMode {
 
     /// The tutorial video's flow: from an empty home, create a Tokyo trip and save it.
     static var createsTicket: Bool { screen == "create-demo" }
+
+    /// Episode 2: after the birthday is saved, home opens its details to show "Every year".
+    static var opensSavedTicket: Bool { screen == "birthday-demo" }
 }
 #endif

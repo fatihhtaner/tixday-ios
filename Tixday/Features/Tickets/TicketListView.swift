@@ -140,6 +140,15 @@ struct TicketListView: View {
                 askForReviewOnTicketDay()
             }
             .onChange(of: router.pending) { _, _ in openPendingLink() }
+            #if DEBUG
+            .onChange(of: events.count) { _, count in
+                guard DemoMode.opensSavedTicket, count == 1, let event = events.first else { return }
+                Task {
+                    try? await Task.sleep(for: .seconds(2.2))
+                    path = [event]
+                }
+            }
+            #endif
             .onChange(of: scenePhase) { _, phase in
                 if phase == .active { refreshToday() }
             }
@@ -245,7 +254,7 @@ struct TicketListView: View {
             editing = events.first { $0.kind == .flight }
         case "widgets", "my-widgets":
             isShowingWidgetShowcase = true
-        case "create-demo":
+        case "create-demo", "birthday-demo":
             // Tutorial video: a beat on the empty home, then "New ticket"; the editor plays the rest.
             Task {
                 try? await Task.sleep(for: .seconds(2.0))

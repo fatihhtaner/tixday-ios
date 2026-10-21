@@ -169,6 +169,29 @@ struct EventEditorView: View {
                 try? await Task.sleep(for: .seconds(1.4))
                 save()
             }
+            .task {
+                // Tutorial video 2: a birthday that repeats every year.
+                guard event == nil, DemoMode.screen == "birthday-demo" else { return }
+                try? await Task.sleep(for: .seconds(1.2))
+                withAnimation(.snappy) { kind = .birthday }   // turns "Repeats every year" on by itself
+                try? await Task.sleep(for: .seconds(1.6))
+                for character in "Mom's birthday" {
+                    title.append(character)
+                    try? await Task.sleep(for: .seconds(0.09))
+                }
+                for character in "Mom" {
+                    headline.append(character)
+                    try? await Task.sleep(for: .seconds(0.12))
+                }
+                try? await Task.sleep(for: .seconds(0.6))
+                // Her birthday in an earlier year: the ticket counts to the next one.
+                withAnimation(.snappy) {
+                    let thisYear = Calendar.current.date(byAdding: .day, value: 24, to: .now) ?? date
+                    date = Calendar.current.date(byAdding: .year, value: -1, to: thisYear) ?? date
+                }
+                try? await Task.sleep(for: .seconds(2.6))
+                save()
+            }
             #endif
             .sheet(item: $paywallReason) { reason in
                 PaywallView(reason: reason).appLanguage()
@@ -183,6 +206,7 @@ struct EventEditorView: View {
 
     /// Each kind as a little poster to pick from.
     private var kindPicker: some View {
+        ScrollViewReader { scroller in
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
                 ForEach(TicketKind.allCases) { option in
@@ -224,11 +248,18 @@ struct EventEditorView: View {
                     .buttonStyle(PressableStyle())
                     .accessibilityLabel(Text(verbatim: option.name))
                     .accessibilityAddTraits(isSelected ? .isSelected : [])
+                    .id(option)
                 }
             }
             .padding(8)
         }
         .padding(.horizontal, -8)
+        // The chosen kind slides into view, e.g. Birthday sits past the screen edge.
+        .onChange(of: kind) { _, newKind in
+            withAnimation(.snappy) { scroller.scrollTo(newKind, anchor: .center) }
+        }
+        .onAppear { scroller.scrollTo(kind, anchor: .center) }
+        }
     }
 
     /// Your own photo instead of the poster.
