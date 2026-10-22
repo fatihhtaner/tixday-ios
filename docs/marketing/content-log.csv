@@ -1,0 +1,6 @@
+date,platform,format,file,hook_formula,hook,views,3s_hold_%,completion_%,link_clicks,installs,notes
+,TikTok,tutorial,tutorial/episode-1.mp4,question,How to put a countdown on your iPhone Home Screen,,,,,,
+,TikTok,tutorial,tutorial/episode-2.mp4,result,Never forget a birthday again,,,,,,control
+,TikTok,tutorial,tutorial/hooks/episode-2-b-contrast.mp4,contrast,Stop re-adding birthdays every year,,,,,,hook test
+,TikTok,tutorial,tutorial/hooks/episode-2-c-question.mp4,question,Still no birthday countdown on your iPhone?,,,,,,hook test
+,TikTok,tutorial,tutorial/hooks/episode-2-d-challenge.mp4,challenge,Set this up in under 20 seconds,,,,,,hook test

@@ -1,0 +1,87 @@
+{
+  "voiceName": "Samantha",
+  "voiceRate": 180,
+  "hook": {
+    "title": "Still no birthday\ncountdown on your iPhone?",
+    "subtitle": "Here's the 20-second fix 👇"
+  },
+  "scenes": [
+    {
+      "clip": "birthday",
+      "start": 1.0,
+      "end": 4.4,
+      "voice": "No birthday countdown on your iPhone yet? Watch this."
+    },
+    {
+      "clip": "birthday",
+      "start": 4.4,
+      "end": 8.2,
+      "badge": "1",
+      "caption": "New ticket → Birthday",
+      "taps": [
+        {
+          "at": 0.1,
+          "x": 0.5,
+          "y": 0.93
+        },
+        {
+          "at": 2.4,
+          "x": 0.66,
+          "y": 0.56
+        }
+      ],
+      "voice": "Tap New ticket, then pick Birthday."
+    },
+    {
+      "clip": "birthday",
+      "start": 8.2,
+      "end": 12.4,
+      "badge": "2",
+      "caption": "Name + birthday date",
+      "zoom": {
+        "at": 0.2,
+        "until": 3.8,
+        "scale": 1.45,
+        "x": 0.5,
+        "y": 0.86
+      },
+      "voice": "Add whose birthday it is and the date. Repeats every year is already on."
+    },
+    {
+      "clip": "birthday",
+      "start": 12.4,
+      "end": 15.0,
+      "badge": "3",
+      "caption": "Save it",
+      "taps": [
+        {
+          "at": 0.15,
+          "x": 0.875,
+          "y": 0.109
+        }
+      ],
+      "voice": "Save it. It counts down to the next one."
+    },
+    {
+      "clip": "birthday",
+      "start": 15.0,
+      "end": 19.4,
+      "badge": "★",
+      "caption": "Bonus: it rolls over to next year",
+      "zoom": {
+        "at": 0.3,
+        "until": 3.5,
+        "scale": 1.5,
+        "x": 0.5,
+        "y": 0.47
+      },
+      "voice": "Bonus: after the day, it counts to next year on its own."
+    }
+  ],
+  "closing": {
+    "title": "Tixday",
+    "subtitle": "Countdown widgets · Link in bio",
+    "seconds": 3.0,
+    "voice": "Tixday. Link in bio."
+  }
+}
