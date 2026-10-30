@@ -192,6 +192,35 @@ struct EventEditorView: View {
                 try? await Task.sleep(for: .seconds(2.6))
                 save()
             }
+            .task {
+                // Tutorial video 3: Christmas as a train ticket home, every year.
+                guard event == nil, DemoMode.screen == "christmas-demo" else { return }
+                try? await Task.sleep(for: .seconds(1.2))
+                withAnimation(.snappy) { kind = .holiday }   // turns "Repeats every year" on by itself
+                try? await Task.sleep(for: .seconds(1.6))
+                for character in "Christmas" {
+                    title.append(character)
+                    try? await Task.sleep(for: .seconds(0.1))
+                }
+                try? await Task.sleep(for: .seconds(0.5))
+                var gregorian = Calendar(identifier: .gregorian)
+                gregorian.timeZone = .current
+                withAnimation(.snappy) {
+                    date = gregorian.nextDate(after: .now, matching: DateComponents(month: 12, day: 25, hour: 8),
+                                              matchingPolicy: .nextTime) ?? date
+                }
+                try? await Task.sleep(for: .seconds(0.9))
+                for character in "HOME" {
+                    origin.append(character)
+                    try? await Task.sleep(for: .seconds(0.12))
+                }
+                for character in "NORTH POLE" {
+                    destination.append(character)
+                    try? await Task.sleep(for: .seconds(0.1))
+                }
+                try? await Task.sleep(for: .seconds(1.6))
+                save()
+            }
             #endif
             .sheet(item: $paywallReason) { reason in
                 PaywallView(reason: reason).appLanguage()

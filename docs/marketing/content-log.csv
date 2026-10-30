@@ -4,3 +4,7 @@ date,platform,format,file,hook_formula,hook,views,3s_hold_%,completion_%,link_cl
 ,TikTok,tutorial,tutorial/hooks/episode-2-b-contrast.mp4,contrast,Stop re-adding birthdays every year,,,,,,hook test
 ,TikTok,tutorial,tutorial/hooks/episode-2-c-question.mp4,question,Still no birthday countdown on your iPhone?,,,,,,hook test
 ,TikTok,tutorial,tutorial/hooks/episode-2-d-challenge.mp4,challenge,Set this up in under 20 seconds,,,,,,hook test
+,TikTok,tutorial,tutorial/episode-3.mp4,question,How many days until Christmas?,,,,,,seasonal
+,Instagram,carousel,carousels/en/dates-*.jpg,curiosity,Dates worth counting down to,,,,,,
+,Instagram,carousel,carousels/en/how-to-*.jpg,result,A countdown on your Home Screen in 3 steps,,,,,,
+,Instagram,carousel,carousels/en/before-after-*.jpg,contrast,Your countdowns: before vs after,,,,,,

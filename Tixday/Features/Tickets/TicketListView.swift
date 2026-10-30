@@ -254,7 +254,7 @@ struct TicketListView: View {
             editing = events.first { $0.kind == .flight }
         case "widgets", "my-widgets":
             isShowingWidgetShowcase = true
-        case "create-demo", "birthday-demo":
+        case "create-demo", "birthday-demo", "christmas-demo":
             // Tutorial video: a beat on the empty home, then "New ticket"; the editor plays the rest.
             Task {
                 try? await Task.sleep(for: .seconds(2.0))

@@ -3,7 +3,8 @@
 # Usage: tools/capture_tutorial_clips.sh <lang> <locale> <out-dir>
 # Create the simulator once: xcrun simctl create "Tixday Video" "iPhone 17 Pro Max". Needs a Debug build in build/.
 # Clips: create (empty home → new Tokyo trip saved), widgets (that trip on Home Screen widgets),
-# birthday (empty home → yearly birthday saved → its details).
+# birthday (empty home → yearly birthday saved → its details), christmas (empty home → yearly Christmas
+# train ticket saved) and christmas-widgets (it on Home Screen widgets).
 set -e
 LANG_CODE=$1 LOCALE=$2 OUT=$3
 D="${SIM:-Tixday Video}"
@@ -47,4 +48,9 @@ record widgets 10 launch -screenshotScreen my-widgets     # the new trip as Home
 xcrun simctl uninstall "$D" $APP
 xcrun simctl install "$D" "$BUILD"
 record birthday 24 launch -screenshotScreen birthday-demo
+# Episode 3, empty again: Christmas as a yearly train ticket, then on Home Screen widgets.
+xcrun simctl uninstall "$D" $APP
+xcrun simctl install "$D" "$BUILD"
+record christmas 20 launch -screenshotScreen christmas-demo
+record christmas-widgets 10 launch -screenshotScreen my-widgets
 echo "recorded $LANG_CODE"

@@ -24,14 +24,23 @@ Hook → 1 New ticket → Birthday → 2 Name + birthday date ("Repeats every ye
 
 **Caption (copy):** Never forget a birthday again 🎂 Set it once, it counts down every year. #birthday #countdown #iphonewidgets #iphonetips #tixday
 
+## Episode 3: "How many days until Christmas?"
+| File | Content |
+|---|---|
+| `episode-3.mp4` | 1080×1920, 21 s, English voiceover |
+| `episode-3-silent.mp4` | Same without voice |
+
+Hook → 1 New ticket → Holiday → 2 Name it, pick December 25 ("Repeats every year" turns on by itself) → 3 Save it → ★ Bonus: add the widget → closing card. Post by mid-November.
+
+**Caption (copy):** How many days until Christmas? 🎄 Put the answer on your Home Screen. #christmas #countdown #iphonewidgets #iphonetips #tixday
+
 ## Re-make / new episode
 1. `xcrun simctl create "Tixday Video" "iPhone 17 Pro Max"` (once), Debug build in `build/`.
-2. `tools/capture_tutorial_clips.sh en en_US build/tutorial/en` (clips: `create`, `widgets`, `birthday`; the app plays each flow itself via `-screenshotScreen create-demo` / `birthday-demo`).
+2. `tools/capture_tutorial_clips.sh en en_US build/tutorial/en` (clips: `create`, `widgets`, `birthday`, `christmas`, `christmas-widgets`; the app plays each flow itself via `-screenshotScreen create-demo` / `birthday-demo` / `christmas-demo`).
 3. `swift tools/make_tutorial_video.swift docs/marketing/tutorial/episode-1.json build/tutorial/en docs/marketing/tutorial/episode-1.mp4 [--silent]`
 
 ## Next episodes (ideas)
 - How to put a countdown on your Lock Screen
 - How to use your own photo on a countdown widget
-- How many days until Christmas? (seasonal)
 
 Note: within one clip, start each scene where the previous one ended; a gap between them makes AVFoundation fail to compose.

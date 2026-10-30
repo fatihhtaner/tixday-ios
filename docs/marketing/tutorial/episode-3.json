@@ -1,0 +1,25 @@
+{
+  "voiceName": "Samantha",
+  "voiceRate": 180,
+  "hook": {
+    "title": "How many days\nuntil Christmas?",
+    "subtitle": "Put the answer on your Home Screen 🎄"
+  },
+  "scenes": [
+    { "clip": "christmas", "start": 1.0, "end": 4.6,
+      "voice": "How many days until Christmas? Put it on your Home Screen." },
+    { "clip": "christmas", "start": 4.6, "end": 8.2, "badge": "1", "caption": "New ticket → Holiday",
+      "taps": [ { "at": 0.1, "x": 0.5, "y": 0.93 }, { "at": 1.6, "x": 0.83, "y": 0.55 } ],
+      "voice": "Tap New ticket, then pick Holiday." },
+    { "clip": "christmas", "start": 8.2, "end": 12.6, "badge": "2", "caption": "Name it, pick December 25",
+      "zoom": { "at": 0.2, "until": 4.0, "scale": 1.45, "x": 0.5, "y": 0.86 },
+      "voice": "Call it Christmas and pick December 25. It repeats every year." },
+    { "clip": "christmas", "start": 12.6, "end": 15.0, "badge": "3", "caption": "Save it",
+      "taps": [ { "at": 1.0, "x": 0.875, "y": 0.109 } ],
+      "voice": "Save it. The countdown starts." },
+    { "clip": "christmas-widgets", "start": 3.5, "end": 7.5, "badge": "★", "caption": "Bonus: add the widget",
+      "zoom": { "at": 0.3, "until": 3.6, "scale": 1.3, "x": 0.5, "y": 0.27 },
+      "voice": "Bonus: add the widget, and watch the days go down." }
+  ],
+  "closing": { "title": "Tixday", "subtitle": "Countdown widgets · Link in bio", "seconds": 3.0, "voice": "Tixday. Link in bio." }
+}

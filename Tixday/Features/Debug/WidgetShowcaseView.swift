@@ -9,11 +9,13 @@ struct WidgetShowcaseView: View {
 
     private var samples: [TicketSnapshot] {
         guard let tickets, let first = tickets.first else { return TicketSnapshot.samples() }
-        // Same layout as the samples: the user's tickets first, samples filling the rest.
         // The user's first ticket as the big widget and a small one; samples fill the rest of the page.
         var list = TicketSnapshot.samples()
+        let flight = list[0]
         list[0] = first
         list[1] = first
+        // The other big widget is the Christmas sample; show the trip there instead of a second train.
+        if list[5].kind == first.kind { list[5] = flight }
         return list
     }
 

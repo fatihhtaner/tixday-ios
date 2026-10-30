@@ -23,13 +23,16 @@ extension TicketSnapshot {
             Calendar.current.date(byAdding: .day, value: days, to: now) ?? now
         }
         let created = Calendar.current.date(byAdding: .day, value: -50, to: now) ?? now
-        // The birthday sample is always on 15 December, at the party's time.
+        // The birthday sample is always on 15 December at the party's time, Christmas on 25 December.
         // Gregorian on purpose: with an Islamic or other calendar, "month 11" would be a different day.
         var gregorian = Calendar(identifier: .gregorian)
         gregorian.timeZone = .current
         let birthday = gregorian.nextDate(after: gregorian.startOfDay(for: now),
                                           matching: DateComponents(month: 12, day: 15, hour: 20),
                                           matchingPolicy: .nextTime) ?? inDays(24)
+        let christmas = gregorian.nextDate(after: gregorian.startOfDay(for: now),
+                                           matching: DateComponents(month: 12, day: 25, hour: 8, minute: 15),
+                                           matchingPolicy: .nextTime) ?? inDays(77)
         return [
             TicketSnapshot(title: "Japan", date: inDays(83), kind: .flight, headline: "Tokyo", origin: "IST", destination: "HND", stubLeft: "GATE 03", stubRight: "14A", createdAt: created),
             TicketSnapshot(title: "Arctic Monkeys", date: inDays(18), kind: .concert, headline: "Arctic Monkeys", stubLeft: "SEC A · 12", stubRight: "21:00", createdAt: created),
@@ -37,7 +40,7 @@ extension TicketSnapshot {
             TicketSnapshot(title: "Our wedding", date: inDays(156), kind: .wedding, headline: "Elif & Can", stubLeft: "Bosphorus", stubRight: "19:00", createdAt: created),
             TicketSnapshot(title: String(localized: "My love's birthday", bundle: .app), date: birthday, kind: .birthday,
                            headline: String(localized: "My love", bundle: .app, comment: "Big name on the sample birthday ticket"), stubLeft: "No. 0024", stubRight: "20:00", createdAt: created, repeatsYearly: true),
-            TicketSnapshot(title: "Christmas", date: inDays(77), kind: .holiday, headline: "Christmas", origin: "HOME", destination: "NORTH POLE", stubLeft: "CAR 25", stubRight: "08:15", createdAt: created, repeatsYearly: true),
+            TicketSnapshot(title: "Christmas", date: christmas, kind: .holiday, headline: "Christmas", origin: "HOME", destination: "NORTH POLE", stubLeft: "CAR 25", stubRight: "08:15", createdAt: created, repeatsYearly: true),
             TicketSnapshot(title: "Coldplay", date: inDays(-12), kind: .concert, headline: "Coldplay", stubLeft: "FLOOR · 204", stubRight: "20:30", createdAt: created),
         ]
     }
