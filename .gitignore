@@ -19,3 +19,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/README.md
 build/fastlane/
+
+# Rendered videos stay local (tools/render_voiced_videos.sh re-creates them)
+*.mp4
+*.mov
