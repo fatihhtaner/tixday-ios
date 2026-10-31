@@ -2,7 +2,7 @@
 # Records the raw clips for the tutorial videos (TikTok / Reels / Shorts) on a dedicated simulator.
 # Usage: tools/capture_tutorial_clips.sh <lang> <locale> <out-dir>
 # Create the simulator once: xcrun simctl create "Tixday Video" "iPhone 17 Pro Max". Needs a Debug build in build/.
-# Clips: create (empty home → new Tokyo trip saved), widgets (that trip on Home Screen widgets),
+# Clips: create (home with the sample tickets → new Tokyo trip saved), widgets (that trip on Home Screen widgets),
 # birthday (empty home → yearly birthday saved → its details), christmas (empty home → yearly Christmas
 # train ticket saved) and christmas-widgets (it on Home Screen widgets).
 set -e
@@ -42,7 +42,7 @@ record() {
 }
 
 # Episode 1
-record create 17 launch -screenshotScreen create-demo   # empty home, editor types the trip, saves
+record create 17 launch -sampleData -screenshotScreen create-demo   # home with sample tickets, editor types the trip, saves
 record widgets 10 launch -screenshotScreen my-widgets     # the new trip as Home Screen widgets
 # Episode 2 starts empty again: a birthday that repeats every year, then its details.
 xcrun simctl uninstall "$D" $APP

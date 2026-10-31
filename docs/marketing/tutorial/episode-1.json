@@ -9,12 +9,12 @@
     {
       "clip": "create",
       "start": 1.0,
-      "end": 4.6,
+      "end": 4.3,
       "voice": "Want a countdown to your next trip on your Home Screen? Here's how."
     },
     {
       "clip": "create",
-      "start": 4.6,
+      "start": 4.3,
       "end": 6.6,
       "badge": "1",
       "caption": "Tap New ticket",
