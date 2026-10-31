@@ -533,7 +533,10 @@ for (text, font, color, y, delay) in [(spec.closing.title, roundedFont(120, .hea
                                       (spec.closing.subtitle, roundedFont(50, .bold), yellow, 760.0, 0.8)] {
     let line = centered(text, font: font, color: color)
     let layer = CALayer()
-    layer.frame = CGRect(x: 0, y: y, width: size.width, height: font.pointSize * 1.4)
+    // Extra lines of a multi-line subtitle hang below its first line.
+    let extraLines = CGFloat(text.components(separatedBy: "\n").count - 1)
+    let lineHeight = font.pointSize * 1.25
+    layer.frame = CGRect(x: 0, y: y - extraLines * lineHeight, width: size.width, height: font.pointSize * 1.4 + extraLines * lineHeight)
     layer.contents = image(layer.frame.size) { _ in
         line.draw(with: NSRect(origin: .zero, size: layer.frame.size), options: [.usesLineFragmentOrigin])
     }

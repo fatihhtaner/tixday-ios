@@ -78,10 +78,5 @@
       "voice": "Bonus: after the day, it counts to next year on its own."
     }
   ],
-  "closing": {
-    "title": "Tixday",
-    "subtitle": "Countdown widgets · Link in bio",
-    "seconds": 3.0,
-    "voice": "Tixday. Link in bio."
-  }
+  "closing": {"title": "Tixday", "subtitle": "Search on the App Store:\n“Tixday: Countdown Widgets”", "seconds": 3.5, "voice": "Search Tixday Countdown Widgets on the App Store."}
 }
