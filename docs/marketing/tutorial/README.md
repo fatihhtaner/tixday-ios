@@ -5,7 +5,7 @@ One "how to" question per video, solved in 3 numbered steps; Tixday is the natur
 ## Episode 1: "How to put a countdown on your iPhone Home Screen"
 | File | Content |
 |---|---|
-| `episode-1.mp4` | 1080×1920, 19 s, English voiceover (macOS "Samantha") |
+| `episode-1.mp4` | 1080×1920, 19 s, English voiceover (VoxCPM2 `sakin_en/2`, the voice of Subloom's videos) |
 | `episode-1-silent.mp4` | Same without voice: add your own voice or TikTok's text-to-speech |
 
 Hook → 1 Tap New ticket → 2 Name it, pick the date → 3 Save it → ★ Bonus: add the widget → closing card.
@@ -37,7 +37,8 @@ Hook → 1 New ticket → Holiday → 2 Name it, pick December 25 ("Repeats ever
 ## Re-make / new episode
 1. `xcrun simctl create "Tixday Video" "iPhone 17 Pro Max"` (once), Debug build in `build/`.
 2. `tools/capture_tutorial_clips.sh en en_US build/tutorial/en` (clips: `create`, `widgets`, `birthday`, `christmas`, `christmas-widgets`; the app plays each flow itself via `-screenshotScreen create-demo` / `birthday-demo` / `christmas-demo`).
-3. `swift tools/make_tutorial_video.swift docs/marketing/tutorial/episode-1.json build/tutorial/en docs/marketing/tutorial/episode-1.mp4 [--silent]`
+3. `tools/render_voiced_videos.sh [spec.json …]`: reads the lines with the local VoxCPM2 voice (`~/voxcpm2-turkce-ses-tasarimi`, `sakin_en/2` ×1.12; `VOICE`/`SPEED` change it) and renders the voiced + silent video. Spell out digits in `voice` lines ("twenty-fifth").
+   Without VoxCPM2: `swift tools/make_tutorial_video.swift <spec.json> build/tutorial/en <out.mp4> [--silent]` uses macOS `say`.
 
 ## Next episodes (ideas)
 - How to put a countdown on your Lock Screen

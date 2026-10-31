@@ -13,7 +13,7 @@
       "voice": "Tap New ticket, then pick Holiday." },
     { "clip": "christmas", "start": 8.2, "end": 12.6, "badge": "2", "caption": "Name it, pick December 25",
       "zoom": { "at": 0.2, "until": 4.0, "scale": 1.45, "x": 0.5, "y": 0.86 },
-      "voice": "Call it Christmas and pick December 25. It repeats every year." },
+      "voice": "Call it Christmas and pick December twenty-fifth. It repeats every year." },
     { "clip": "christmas", "start": 12.6, "end": 15.0, "badge": "3", "caption": "Save it",
       "taps": [ { "at": 1.0, "x": 0.875, "y": 0.109 } ],
       "voice": "Save it. The countdown starts." },

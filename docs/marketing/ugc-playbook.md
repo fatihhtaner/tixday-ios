@@ -69,6 +69,6 @@ Re-use it: post the full video on YouTube, cut the three demos into Reels, and t
 ## Ethics
 
 - Paid collaborations: use the platform's paid partnership label (#reklam / #ad).
-- Label AI content: the macOS voiceover is synthetic, so turn on TikTok's "AI-generated" label when you post the voiced versions.
+- Label AI content: the VoxCPM2 voiceover is synthetic, so turn on TikTok's "AI-generated" label when you post the voiced versions.
 - Music: only from the platform's own library.
 - Promises: nothing the app doesn't do.

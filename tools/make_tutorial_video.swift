@@ -1,10 +1,12 @@
 // Builds a tutorial video (TikTok / Reels / Shorts, 1080×1920) from simulator clips
 // (tools/capture_tutorial_clips.sh): a hook card, numbered steps with a caption above the phone, zooms,
 // tap rings on what gets tapped, a bonus step, the closing card and an optional spoken voiceover
-// (macOS `say`; the voice comes from the spec, e.g. "Samantha" for English).
+// (macOS `say`; the voice comes from the spec, e.g. "Samantha" for English; or pre-read lines from tools/voice_lines.py).
 // Adapted from Subloom's tool, in Tixday's dark violet/pink look.
 //
-// Usage: swift tools/make_tutorial_video.swift <spec.json> <clips-dir> <out.mp4> [--silent]   (run from the repo root)
+// Usage: swift tools/make_tutorial_video.swift <spec.json> <clips-dir> <out.mp4> [--silent] [--voices <dir>]   (run from the repo root)
+// With --voices the spoken lines come from <dir>/line0.wav, line1.wav… and a scene whose line runs longer
+// than the scene plays its clip slower to fit (the closing card simply stays up longer).
 // Spec: docs/marketing/tutorial/episode-1.json. Scene times are seconds in the clip; zoom and tap times
 // are seconds from the scene start; positions are fractions of the screen (0,0 = top left).
 import AppKit
@@ -35,6 +37,7 @@ let root = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
 let spec = try JSONDecoder().decode(Spec.self, from: Data(contentsOf: URL(fileURLWithPath: args[1])))
 let clipsDir = URL(fileURLWithPath: args[2])
 let outURL = URL(fileURLWithPath: args[3])
+let voicesDir = args.firstIndex(of: "--voices").map { URL(fileURLWithPath: args[$0 + 1]) }
 
 let size = CGSize(width: 1080, height: 1920)
 let crossfade = 0.3
@@ -186,6 +189,22 @@ let tracks = (0..<3).map { _ in composition.addMutableTrack(withMediaType: .vide
 var cursor = 0.0
 var sceneStarts: [Double] = []
 var sourceSize = CGSize.zero
+/// Pre-read lines (--voices), in speaking order: the scene lines, then the closing line.
+var voiceFiles: [URL] = []
+var voiceLengths: [Double] = []
+if let voicesDir {
+    let count = spec.scenes.filter { $0.voice != nil }.count + (spec.closing.voice == nil ? 0 : 1)
+    for number in 0..<count {
+        let url = voicesDir.appending(path: "line\(number).wav")
+        voiceFiles.append(url)
+        voiceLengths.append(try await AVURLAsset(url: url).load(.duration).seconds)
+    }
+}
+/// How much slower each scene's clip plays so its line fits (1 = as recorded).
+var stretch: [Double] = []
+var closingSeconds = spec.closing.seconds
+if spec.closing.voice != nil, let last = voiceLengths.last { closingSeconds = max(closingSeconds, 0.4 + last + 0.5) }
+var lineNumber = 0
 for (index, scene) in spec.scenes.enumerated() {
     let clip = AVURLAsset(url: clipsDir.appending(path: "\(scene.clip).mp4"))
     let source = try await clip.loadTracks(withMediaType: .video)[0]
@@ -197,13 +216,34 @@ for (index, scene) in spec.scenes.enumerated() {
         print("\(scene.clip).mp4 is \(clipLength) s; scene \(index) needs it to run to \(scene.end + extra) s")
         exit(1)
     }
-    let range = CMTimeRange(start: CMTime(seconds: scene.start, preferredTimescale: 600),
-                            end: CMTime(seconds: scene.end + extra, preferredTimescale: 600))
-    try tracks[index % tracks.count].insertTimeRange(range, of: source, at: CMTime(seconds: cursor, preferredTimescale: 600))
+    let natural = scene.end - scene.start
+    var factor = 1.0
+    if scene.voice != nil, lineNumber < voiceLengths.count {
+        let needed = (index == 0 ? 0.3 : 0.15) + voiceLengths[lineNumber] + 0.25
+        factor = max(1, needed / natural)
+        lineNumber += 1
+    }
+    stretch.append(factor)
+    func time(_ seconds: Double) -> CMTime { CMTime(seconds: seconds, preferredTimescale: 600) }
+    let track = tracks[index % tracks.count]
+    // The scene (with the crossfade tail), slowed to fit its line.
+    let body = CMTimeRange(start: time(scene.start), end: time(scene.end + (isLast ? 0 : extra)))
+    try track.insertTimeRange(body, of: source, at: time(cursor))
+    if factor > 1 {
+        track.scaleTimeRange(CMTimeRange(start: time(cursor), duration: body.duration), toDuration: time(body.duration.seconds * factor))
+    }
+    if isLast {
+        // The tail under the closing card, stretched when a long closing line keeps the card up.
+        let tail = CMTimeRange(start: time(scene.end), end: time(scene.end + extra))
+        let at = track.timeRange.end  // exactly where the (scaled) scene ends: a gap shows as a black phone
+        try track.insertTimeRange(tail, of: source, at: at)
+        if closingSeconds > extra { track.scaleTimeRange(CMTimeRange(start: at, duration: tail.duration), toDuration: time(closingSeconds)) }
+    }
     sceneStarts.append(cursor)
-    cursor += scene.end - scene.start
+    cursor += natural * factor
 }
-let total = cursor + spec.closing.seconds
+if stretch.contains(where: { $0 > 1 }) { print("stretched scenes: " + stretch.map { String(format: "%.2f", $0) }.joined(separator: " ")) }
+let total = cursor + closingSeconds
 let closingStart = cursor
 let hookEnd = sceneStarts.count > 1 ? sceneStarts[1] : closingStart
 screenHeight = (screenWidth * sourceSize.height / sourceSize.width).rounded()
@@ -213,6 +253,18 @@ screenHeight = (screenWidth * sourceSize.height / sourceSize.width).rounded()
 let tempDir = FileManager.default.temporaryDirectory.appending(path: "tixday-tutorial")
 try? FileManager.default.removeItem(at: tempDir)
 try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
+// (start time, text, time available before the next line)
+var lines: [(Double, String, Double)] = []
+for (index, scene) in spec.scenes.enumerated() {
+    guard let text = scene.voice else { continue }
+    let start = sceneStarts[index] + (index == 0 ? 0.3 : 0.15)
+    let next = index + 1 < spec.scenes.count ? sceneStarts[index + 1] : closingStart
+    lines.append((start, text, next - start + 0.2))
+}
+if let text = spec.closing.voice { lines.append((closingStart + 0.4, text, closingSeconds - 0.4)) }
+
+// Pre-read lines (--voices, 44.1 kHz stereo) are mixed into this bed, so the video has a single audio track:
+// a second track is ignored by many players.
 let silenceURL = tempDir.appending(path: "silence.caf")
 do {
     let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 2)!
@@ -220,23 +272,27 @@ do {
     let frames = AVAudioFrameCount(44_100 * (total + 1))
     let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: frames)!
     buffer.frameLength = frames
+    if !silent {
+        for (number, url) in voiceFiles.enumerated() {
+            let line = try AVAudioFile(forReading: url)
+            let samples = AVAudioPCMBuffer(pcmFormat: line.processingFormat, frameCapacity: AVAudioFrameCount(line.length))!
+            try line.read(into: samples)
+            let offset = Int(lines[number].0 * 44_100)
+            for channel in 0..<2 {
+                let source = samples.floatChannelData![min(channel, Int(line.processingFormat.channelCount) - 1)]
+                let target = buffer.floatChannelData![channel]
+                for i in 0..<min(Int(samples.frameLength), Int(frames) - offset) { target[offset + i] += source[i] }
+            }
+        }
+    }
     try file.write(from: buffer)
 }
 let silenceTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)!
 try silenceTrack.insertTimeRange(CMTimeRange(start: .zero, duration: CMTime(seconds: total, preferredTimescale: 600)),
                                  of: try await AVURLAsset(url: silenceURL).loadTracks(withMediaType: .audio)[0], at: .zero)
 
-if !silent {
+if !silent && voicesDir == nil {
     let voiceTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)!
-    // (start time, text, time available before the next line)
-    var lines: [(Double, String, Double)] = []
-    for (index, scene) in spec.scenes.enumerated() {
-        guard let text = scene.voice else { continue }
-        let start = sceneStarts[index] + (index == 0 ? 0.3 : 0.15)
-        let next = index + 1 < spec.scenes.count ? sceneStarts[index + 1] : closingStart
-        lines.append((start, text, next - start + 0.2))
-    }
-    if let text = spec.closing.voice { lines.append((closingStart + 0.4, text, spec.closing.seconds - 0.4)) }
     for (number, (start, text, room)) in lines.enumerated() {
         let url = tempDir.appending(path: "line\(number).aiff")
         let say = Process()
@@ -350,7 +406,7 @@ func displayPoint(_ x: Double, _ y: Double) -> CGPoint {
 // Tap rings ride on the phone, so they follow its zooms.
 for (index, scene) in spec.scenes.enumerated() {
     for tap in scene.taps ?? [] {
-        let t = sceneStarts[index] + tap.at
+        let t = sceneStarts[index] + tap.at * stretch[index]
         let point = displayPoint(tap.x, tap.y)
         let ring = CALayer()
         ring.bounds = CGRect(x: 0, y: 0, width: 96, height: 96)
@@ -384,10 +440,11 @@ for (index, scene) in spec.scenes.enumerated() {
     let start = sceneStarts[index]
     let (dx, dy) = focus(zoom.x, zoom.y, scale: zoom.scale)
     let lift: CGFloat = 0
-    phoneFrames += [(start + zoom.at, transform()),
-                    (start + zoom.at + 0.5, transform(scale: CGFloat(zoom.scale), dx: dx, dy: dy + lift)),
-                    (start + zoom.until, transform(scale: CGFloat(zoom.scale), dx: dx, dy: dy + lift)),
-                    (start + zoom.until + 0.45, transform())]
+    let (at, until) = (zoom.at * stretch[index], zoom.until * stretch[index])
+    phoneFrames += [(start + at, transform()),
+                    (start + at + 0.5, transform(scale: CGFloat(zoom.scale), dx: dx, dy: dy + lift)),
+                    (start + until, transform(scale: CGFloat(zoom.scale), dx: dx, dy: dy + lift)),
+                    (start + until + 0.45, transform())]
 }
 phoneFrames += [(closingStart, transform()), (closingStart + 0.5, transform(scale: 0.85, dy: -700))]
 phone.add(keyframes("transform", phoneFrames), forKey: "camera")
